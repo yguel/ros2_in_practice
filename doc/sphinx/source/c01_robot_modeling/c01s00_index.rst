@@ -9,8 +9,11 @@ Modéliser un robot
    c01s02_robot_descriptions
    c01s03_urdf
    c01s04_urdf_practical
-   c01s05_transformations
-   c01s06_sdf
+
+
+
+.. c01s05_transformations
+.. c01s06_sdf
 
 
 .. --------------------
