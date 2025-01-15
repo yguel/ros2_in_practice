@@ -1,0 +1,12 @@
+{
+    "PACKAGE_NAME": "scanbot_cam_description",
+    "PACKAGE_VERSION": "1.0.0",
+    "PACKAGE_DESCRIPTION": "Launch file to view the robot",
+    "PACKAGE_MAINTAINER_EMAIL": "yguel.robotics@gmail.com",
+    "PACKAGE_MAINTAINER_NAME": "Manuel YGUEL",
+    "PACKAGE_LICENSE": "MIT",
+    "YEAR": 2024,
+    "LABORATORY": "Unistra, ICube/IRIS",
+    "LICENSE_TEXT": "\n# This file is licensed under the MIT License.\n# You may obtain a copy of the License at https://opensource.org/licenses/MIT\n",
+    "ROBOT_NAME": "scanbot_camera"
+}

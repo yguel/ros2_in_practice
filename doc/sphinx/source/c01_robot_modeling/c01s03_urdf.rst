@@ -2,21 +2,20 @@
 Robots non parallèles
 ======================
 
-.. figure:: resources/img/scanbot_global_view_00.png
-   :name: fig_scanbot_global_view_00
+.. figure:: resources/fig/igraph/scanbot_kinematic_chain/slide003_scanbot_kinematic_chain.svg
+   :name: fig_slide003_scanbot_kinematic_chain
    :align: center
    :height: 400px
 
-   Robot Scanbot, le robot d'exemple non parallèle
+   Robot Scanbot, et sa chaîne cinmématique.
 
 Dans le cas d'un robot non parallèle, les chaînes cinématiques sont ouvertes et on peut représenter l'ensemble des chaînes cinématiques du robot par un arbre, le chemin en ligne directe de la racine à une feuille de l'arbre correspondant à une chaîne cinématique.
-
-Le format utilisé pour décrire les robots non parallèle dans ROS est l'URDF.
 
 ------------------------------------
 Description de robot au format URDF
 ------------------------------------
 
+Le format utilisé pour décrire les robots non parallèle dans ROS est l'URDF.
 
 La syntaxe URDF
 ^^^^^^^^^^^^^^^^
@@ -48,7 +47,7 @@ Un élément est une composante logique d'un document qui commence soit par une 
    :emphasize-lines: 2-10 
 
 **Dans le format URDF**, il existe de nombreuses balises différentes qu'il est possible d'utiliser.
-Elles sont toutes décrites dans la `documentation officielle de ROS <http://wiki.ros.org/urdf/XML>`_ .
+Elles sont toutes décrites dans la `documentation officielle de ROS du format URDF <http://wiki.ros.org/urdf/XML>`_ .
 Il y en a trois principales qu'il faut connaître **robot**, **link** et **joint**.
 
 ** Le tag robot et le préambule XML **
@@ -68,9 +67,9 @@ Pour un fichier URDF, cette balise racine sera la balise **robot**, et la seule 
 La balise **link**
 ^^^^^^^^^^^^^^^^^^^
 La balise **link** est utilisée pour décrire un segment du robot.
-La description complète de cette balise est disponible dans la `documentation officielle de ROS <http://wiki.ros.org/urdf/XML/link>`_.
+La description complète de cette balise est disponible dans la `specification de la balise link <http://wiki.ros.org/urdf/XML/link>`_.
 
-.. figure:: resources/img/urdf/urdf_link.png
+.. figure:: resources/img/urdf/urdf_link2.png
    :name: fig_link_element
    :align: center
    :height: 400px

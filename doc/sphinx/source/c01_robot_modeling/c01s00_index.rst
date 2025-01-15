@@ -8,8 +8,9 @@ Modéliser un robot
    c01s01_links_and_joints
    c01s02_robot_descriptions
    c01s03_urdf
-   c01s04_transformations
-   c01s05_sdf
+   c01s04_urdf_practical
+   c01s05_transformations
+   c01s06_sdf
 
 
 .. --------------------

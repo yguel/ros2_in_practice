@@ -7,6 +7,7 @@ Table des matières
    :maxdepth: 3
    :caption: ROS2 par la pratique
 
+   c00_setup_de_ros2/c00s00_index
    c01_robot_modeling/c01s00_index
    c99_appendix/c99s00_index
 
