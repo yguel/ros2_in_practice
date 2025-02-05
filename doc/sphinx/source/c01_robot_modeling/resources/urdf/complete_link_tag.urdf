@@ -1,0 +1,22 @@
+<link name="${prefix}base_link">
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <cylinder length="0.6" radius="0.3" />
+        </geometry>
+        <material name="kind_of_red">
+            <color rgba="0.6 0 .8 1" />
+        </material>
+    </visual>
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <cylinder length="0.6" radius="0.3" />
+        </geometry>
+    </collision>
+    <inertial>
+        <mass value="10" />
+        <inertia ixx="1e-3" ixy="0.0" ixz="0.0" iyy="1e-3" iyz="0.0" izz="1e-3" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </inertial>
+</link>

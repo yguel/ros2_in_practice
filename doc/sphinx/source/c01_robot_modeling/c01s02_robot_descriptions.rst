@@ -26,7 +26,7 @@ Ces fichiers décrivent principalement les paramètres suivants:
          #. géometrie (:code:`<geometry>`) souvent une géométrie simplifiée pour accélérer les calculs,
          #. origine (position et orientation d'un repère différent du repère d'origine du segment)
 
-      #. paramètres d'inérative
+      #. paramètres d'inértie
 
          #. masse,
          #. `centre d'inertie <https://fr.wikipedia.org/wiki/Centre_d%27inertie>`_ (centre de gravité),

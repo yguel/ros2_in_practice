@@ -42,7 +42,7 @@ Nous allons maintenant utiliser un package ROS2 que nous allons installer dans l
 
 .. code-block:: bash
 
-   cd ~/info_indus/ros2_ws/src
+   cd ~/ros2_ws/src
    git clone https://github.com/yguel/scara_tutorial_ros2.git
 
 Afin d'accélerer les processus de compilation et d'exécution, nous allons utiliser des macros bash qui facilitent la tâche quand on utilise la suite d'outils ROS2 centrée sur ``colcon``.

@@ -1,6 +1,6 @@
-======================
-Robots non parallèles
-======================
+==================================================
+URDF pour la description de robots non parallèles
+==================================================
 
 .. figure:: resources/fig/igraph/scanbot_kinematic_chain/slide003_scanbot_kinematic_chain.svg
    :name: fig_slide003_scanbot_kinematic_chain
@@ -11,14 +11,13 @@ Robots non parallèles
 
 Dans le cas d'un robot non parallèle, les chaînes cinématiques sont ouvertes et on peut représenter l'ensemble des chaînes cinématiques du robot par un arbre, le chemin en ligne directe de la racine à une feuille de l'arbre correspondant à une chaîne cinématique.
 
-------------------------------------
-Description de robot au format URDF
-------------------------------------
-
 Le format utilisé pour décrire les robots non parallèle dans ROS est l'URDF.
+Nous allons maintenant décrire la syntaxe de l'URDF.
 
-La syntaxe URDF
-^^^^^^^^^^^^^^^^
+-----------------------
+Généralités sur le XML
+-----------------------
+
 L'URDF est basé sur le format XML, les éléments d'information sont organisés grâce à des balises :code:`<balise> élément </balise>`, qui peuvent être imbriquées. 
 En anglais une balise est appelée un **tag**.
 
@@ -37,7 +36,7 @@ Un exemple est :code:`<link name="base_link">`, où le nom de l'attribut est "na
 Un tag peut avoir plusieurs attributs, mais chaque attribut ne peut apparaître qu'une seule fois dans une balise.
 
 **Élément**
-Un élément est une composante logique d'un document qui commence soit par une balise de début et se termine par une balise de fin correspondante, soit consiste uniquement en une balise sans élément. Les caractères entre la balise de début et la balise de fin, s'il y en a, sont le contenu de l'élément, et peuvent contenir du balisage, y compris d'autres éléments, appelés éléments enfants. 
+Un élément est une composante logique d'un document qui commence soit par un tag de début et se termine par un tag de fin correspondant, soit consiste uniquement en un tag sans élément. Les caractères entre la balise de début et la balise de fin, s'il y en a, sont le contenu de l'élément, et peuvent contenir du balisage, y compris d'autres éléments, appelés éléments enfants. 
 
 .. _example_xml_element:
 .. literalinclude:: resources/urdf/joint_element.urdf
@@ -46,11 +45,15 @@ Un élément est une composante logique d'un document qui commence soit par une 
    :linenos:
    :emphasize-lines: 2-10 
 
+-----------------------
+Généralités sur l'URDF
+-----------------------
+
 **Dans le format URDF**, il existe de nombreuses balises différentes qu'il est possible d'utiliser.
 Elles sont toutes décrites dans la `documentation officielle de ROS du format URDF <http://wiki.ros.org/urdf/XML>`_ .
 Il y en a trois principales qu'il faut connaître **robot**, **link** et **joint**.
 
-** Le tag robot et le préambule XML **
+**Le tag robot et le préambule XML**
 Un fichier XML correct doit avoir un préambule XML dans la première ligne, et juste après cela, il contient une balise (appelée la balise racine), dans laquelle toutes les autres balises sont imbriquées. 
 Pour un fichier URDF, cette balise racine sera la balise **robot**, et la seule chose à noter ici pour l'instant est que nous pouvons définir l'attribut name qui nous permet de spécifier le nom de notre robot.
 
@@ -63,15 +66,133 @@ Pour un fichier URDF, cette balise racine sera la balise **robot**, et la seule 
       ...
    </robot>
 
+----------------
+Simple exemple
+----------------
 
-La balise **link**
-^^^^^^^^^^^^^^^^^^^
-La balise **link** est utilisée pour décrire un segment du robot.
-La description complète de cette balise est disponible dans la `specification de la balise link <http://wiki.ros.org/urdf/XML/link>`_.
+Créons une simple description de robot URDF. |br|
+Pour cela nous allons utiliser l'outil de visualisation de modèles URDF fourni par ROS2: **rviz2**. |br|
+Afin de faciliter cette étape nous allons créer un package ROS2 dédié à la visualization en utilisant l'outil développé par IRIS **template2instance**. |br|
+Cette outil permet de créer facilement un package ROS2 à partir d'un template. |br|
+Pour cela nous avons besoin du template **view_robot_template** qui est un template de package ROS2 dédié à la visualisation de robots en utilisant rviz2. |br|
 
-.. figure:: resources/img/urdf/urdf_link2.png
-   :name: fig_link_element
+Installation de template2instance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Installer poetry en suivant les `instructions du site officiel <https://python-poetry.org/docs/#installing-with-the-official-installer>`_.
+
+#. Créer un répertoire **system** dans votre workspace ROS2. Ajoutez un fichier **COLCON_IGNORE** dans ce répertoire pour éviter que les packages créés par template2instance soient compilés par colcon, le système de build de ROS2.
+
+.. code-block:: bash
+
+   mkdir -p ~/ros2_ws/system
+   touch ~/ros2_ws/system/COLCON_IGNORE
+
+
+#. Copier le module python **template2instance** dans le répertoire **ros2_ws/system** de votre workspace ROS2.
+#. Exécutez la commande suivante:
+
+.. code-block:: bash
+
+   cd ~/ros2_ws/system/template2instance && poetry install && cd -
+
+#. Copier le template **view_robot_template** dans le répertoire **ros2_ws/system** de votre workspace ROS2.
+
+template2instance est un outil python utilisant le gestionnaire de dépendances **poetry** qui s'utilise de la manière suivante:
+
+.. code-block:: bash
+
+   poetry run create path_to_template path_to_new_package [--config path_to_config.json]
+
+Créons un package ROS2 nommé **simple_bot_description** ayant le fichier de configuration suivant. |br|
+
+.. literalinclude:: resources/code/template2instance/pkg_gen_cfg_view_simple_bot.json
+   :language: json
+   :caption: Configuration pour la génération du package simple_bot_description
+
+#. :download:`Télécharger le fichier de configuration <resources/code/template2instance/pkg_gen_cfg_view_simple_bot.json>` et le copier dans le répertoire :code:`~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json`.
+
+#. Exécuter la commande suivante: 
+
+.. code-block:: bash
+
+   cd ~/ros2_ws/system/template2instance && poetry run create ~/ros2_ws/system/view_robot_template ~/ros2_ws/src/simple_bot_description --config ~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json && cd -
+
+#. Testez le package en le compilant:
+
+.. code-block:: bash
+
+   cd ~/ros2_ws
+   ros2_humble
+   ros2_build_only simple_bot_description
+
+Lancez le package:
+
+.. code-block:: bash
+
+   ros2 launch simple_bot_description view_simple_bot.launch.py
+
+Si tout s'est bien passé, vous devriez voir un dans rviz2 le robot par défaut:
+
+.. figure:: resources/img/urdf/scanbot_cam/default_rviz_view.png
+   :name: fig_default_rviz_view
    :align: center
    :height: 400px
 
-   Élément link d'un fichier URDF
+   Le robot par défaut à l'initialisation d'un package de visualisation à partir du template view_robot_template.
+
+Le fichier URDF se trouve dans le répertoire :code:`~/ros2_ws/src/simple_bot_description/urdf/simple_bot/simple_bot_macro.xacro` .
+
+Ouvrez ce fichier et modifiez le pour qu'il ressemble à ceci:
+
+.. grid:: 1 2 2 2
+
+   .. grid-item-card::
+  
+      .. literalinclude:: resources/urdf/myfirst_bot.urdf
+         :language: xml
+         :linenos:
+         :caption: Exemple minimal d'un fichier URDF avec un robot à un seul segment
+
+   .. grid-item-card::
+
+      .. figure:: resources/img/urdf/cylinder_link.png
+         :name: fig_cylinder_link
+         :align: center
+         :height: 400px
+
+         Affichage d'un segment cylindre avec RVIZ correspondant à la précédente description URDF
+
+Fermez toutes les fenêtre et tapez CTRL-C dans le terminal puis relancez le package:
+
+.. code-block:: bash
+
+   ros2 launch simple_bot_description view_simple_bot.launch.py
+
+La :numref:`fig_cylinder_link` montre le segment cylindre tel qu'il devrait s'afficher dans rviz2.
+
+-------------------
+La balise **link**
+-------------------
+
+La balise **link** est utilisée pour décrire un segment du robot.
+La description complète de cette balise est disponible dans la `specification de la balise link <http://wiki.ros.org/urdf/XML/link>`_.
+
+
+.. grid:: 1 2 2 2
+
+   .. grid-item-card::
+  
+      .. literalinclude:: resources/urdf/complete_link_tag.urdf
+         :language: xml
+         :linenos:
+         :caption: Balise link avec les éléments **visual**, **material**, **collision** et **inertial**
+
+   .. grid-item-card::
+
+      .. figure:: resources/img/urdf/urdf_link2.png
+         :name: fig_link_element
+         :align: center
+         :height: 400px
+
+         Élément link d'un fichier URDF
