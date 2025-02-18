@@ -66,6 +66,67 @@ Pour un fichier URDF, cette balise racine sera la balise **robot**, et la seule 
       ...
    </robot>
 
+Les 2 balises principales de l'URDF sont **link** et **joint** et sont au même niveau d'imbrication à la base de la balise **robot**:
+
+.. code-block:: xml
+
+   <?xml version="1.0"?>
+   <?xml-model href="https://raw.githubusercontent.com/ros/urdfdom/master/xsd/urdf.xsd" ?>
+   <robot name="my_robot" xmlns="http://www.ros.org">
+      <link> ... </link>
+      <link> ... </link>
+      <link> ... </link>
+
+      <joint>  ....  </joint>
+      <joint>  ....  </joint>
+      <joint>  ....  </joint>
+   </robot>
+   
+
+-------------------
+La balise **link**
+-------------------
+
+La balise **link** est utilisée pour décrire un segment du robot.
+La description complète de cette balise est disponible dans la `specification de la balise link <http://wiki.ros.org/urdf/XML/link>`_.
+
+
+.. grid:: 1 2 2 2
+
+   .. grid-item-card::
+  
+      .. literalinclude:: resources/urdf/complete_link_tag.urdf
+         :language: xml
+         :linenos:
+         :caption: Balise link avec les éléments **visual**, **material**, **collision** et **inertial**
+
+   .. grid-item-card::
+
+      .. figure:: resources/img/urdf/urdf_link2.png
+         :name: fig_link_element
+         :align: center
+         :height: 400px
+
+         Élément link d'un fichier URDF
+
+Nous allons maintenant nous attacher à comprendre les différents repères utilisés dans la description d'un segment d'un robot et comment les définir dans un fichier URDF.
+
+Dans le tag **origin** (tag **visual** ou **collision**), la position et l'orientation du repère du segment par rapport au repère du parent sont définis par les attributs **xyz** et **rpy**.|br|
+
+#. La translation est définie par les attributs **xyz** qui sont les coordonnées x, y et z du repère du segment par rapport au repère du parent.
+#. La rotation est définie par les attributs **rpy** qui sont les angles de rotation autour des axes x, y et z du repère du segment par rapport au repère du parent. **rpy** désigne «roll,pitch,yaw» ou en français: «roulis,tangage,lacet».
+
+La rotation est toujours appliquée avant la translation et les rotations sont effectuées dans l'ordre **roll**, **pitch** puis **yaw** suivant le schéma ci-dessous:
+
+.. figure:: resources/img/plane_roll_pitch_yaw.png
+   :name: fig__plane_roll_pitch_yaw
+   :align: center
+   :height: 400px
+
+   Rotations roll, pitch et yaw.
+
+
+
 ----------------
 Simple exemple
 ----------------
@@ -149,7 +210,7 @@ Ouvrez ce fichier et modifiez le pour qu'il ressemble à ceci:
 
    .. grid-item-card::
   
-      .. literalinclude:: resources/urdf/myfirst_bot.urdf
+      .. literalinclude:: resources/urdf/my01_bot.urdf
          :language: xml
          :linenos:
          :caption: Exemple minimal d'un fichier URDF avec un robot à un seul segment
@@ -171,28 +232,47 @@ Fermez toutes les fenêtre et tapez CTRL-C dans le terminal puis relancez le pac
 
 La :numref:`fig_cylinder_link` montre le segment cylindre tel qu'il devrait s'afficher dans rviz2.
 
--------------------
-La balise **link**
--------------------
+Pour comprendre comment les systèmes de coordonnées fonctionnent, il faut afficher les axes.
+Dans rviz:
 
-La balise **link** est utilisée pour décrire un segment du robot.
-La description complète de cette balise est disponible dans la `specification de la balise link <http://wiki.ros.org/urdf/XML/link>`_.
+#. dans le panneau de gauche (''Displays''), dans **RobotModel** modifiez la valeur de **Alpha** à 0.5. Cela change la transparence du modèle du robot et permet de voir les axes.
+#. Si vous ne voyez pas les axes, vérifiez que vous avez bien un **TF** et sinon ajoutez un **TF** dans le panneau de gauche (''Displays'') avec le bouton **Add**. Et vérifiez bien que **Show Axes** est coché.
 
+.. figure:: resources/img/urdf/axis_are_visible_in_rviz2_thanks_to_transparency.png
+   :name: fig__cylinder_link_with_axes_visible
+   :align: center
+   :height: 800px
+
+   Affichage d'un segment cylindre avec RVIZ avec les axes visibles (Alpha=0.5, Show Axes : coché)
+
+.. admonition:: Segments définis par des primitives géométriques
+
+   Un segment peut être défini à partir de 3 formes géométriques de base: 
+   
+   #. pavé droit: :code:`<box size="10 20 40"/>`. Les tailles des côtés (''size'') sont données dans l'ordre x,y,z. Les côtés du pavé droit sont parallèles aux axes x, y et z.
+   #. cylindre: :code:`<cylinder radius="10" length="40"/>` l'axe est toujours l'axe z.
+   #. sphère: :code:`<sphere radius="10"/>`
+
+   Dans ce cas le repère du segment est par défaut au centre de la forme géométrique (centre de gravité).
+
+Nous allons modifier la forme pour utiliser un pavé droit. Cela nous permettra de bien visualiser l'orientation de la forme dans les 3 dimensions. |br|
+Et nous allons modifier l'élément **origin** pour déplacer le repère du segment par rapport au repère du parent. |br|
+Modifiez donc le fichier URDF pour qu'il ressemble à ceci:
 
 .. grid:: 1 2 2 2
 
    .. grid-item-card::
   
-      .. literalinclude:: resources/urdf/complete_link_tag.urdf
+      .. literalinclude:: resources/urdf/my02_bot.urdf
          :language: xml
          :linenos:
-         :caption: Balise link avec les éléments **visual**, **material**, **collision** et **inertial**
+         :caption: Exemple minimal d'un fichier URDF avec un robot box (pavé droit) à un seul segment et une translation de l'origine.
 
    .. grid-item-card::
 
-      .. figure:: resources/img/urdf/urdf_link2.png
-         :name: fig_link_element
+      .. figure:: resources/img/urdf/cylinder_link.png
+         :name: fig_cylinder_link_my02_bot
          :align: center
          :height: 400px
 
-         Élément link d'un fichier URDF
+         Affichage d'un segment pavé droit avec RVIZ correspondant à la précédente description URDF

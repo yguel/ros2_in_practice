@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <xacro:macro name="simple_bot" params="prefix parent *origin">
+        <!-- LINKS -->
+        <!-- base link -->
+        <link name="${prefix}base_link">
+            <visual>
+                <origin xyz="0.5 1.5 1" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.5 1 2" />
+                </geometry>
+                <material name="red" />
+            </visual>
+        </link>
+        <!-- END LINKS -->
+
+        <!-- JOINTS -->
+        <!-- base_joint fixes base_link to the environment -->
+        <joint name="${prefix}base_joint" type="fixed">
+            <origin xyz="2 0 0" rpy="0 0 0" />
+            <parent link="${parent}" />
+            <child link="${prefix}base_link" />
+        </joint>
+        <!-- END JOINTS -->
+    </xacro:macro>
+</robot>
