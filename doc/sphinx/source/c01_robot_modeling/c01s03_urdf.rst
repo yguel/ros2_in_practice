@@ -29,9 +29,10 @@ Un tag est une construction de balisage qui commence par :code:`<`` et se termin
 #. tag sans élément, tel que :code:`<line-break />`.
 
 Un tag peut être sans élément, car l'information peut-être contenue dans l'attribut de la balise (attribute en anglais).
+En français on utilise souvent le terme **balise** pour désigner un **tag**.
 
 **Attribut**
-Un attribut est une construction de balisage qui consiste en une paire nom-valeur qui existe dans un tag de début ou un tag sans élément.
+Un attribut consiste en une paire nom-valeur qui peut apparaître dans un tag de début ou un tag sans élément.
 Un exemple est :code:`<link name="base_link">`, où le nom de l'attribut est "name" et sa valeur est "base_link".
 Un tag peut avoir plusieurs attributs, mais chaque attribut ne peut apparaître qu'une seule fois dans une balise.
 
@@ -196,13 +197,16 @@ Lancez le package:
 Si tout s'est bien passé, vous devriez voir un dans rviz2 le robot par défaut:
 
 .. figure:: resources/img/urdf/scanbot_cam/default_rviz_view.png
-   :name: fig_default_rviz_view
+   :name: fig_scanbot_cam_rviz_view
    :align: center
    :height: 400px
 
    Le robot par défaut à l'initialisation d'un package de visualisation à partir du template view_robot_template.
 
-Le fichier URDF se trouve dans le répertoire :code:`~/ros2_ws/src/simple_bot_description/urdf/simple_bot/simple_bot_macro.xacro` .
+Le fichier URDF qu'il faut étudier se nomme ``simple_bot_macro.xacro`` et se trouve dans le répertoire :code:`~/ros2_ws/src/simple_bot_description/urdf/simple_bot`. |br|
+C'est un fichier de type ``xacro``, c'est-à-dire un fichier XML qui peut contenir des macros. 
+Ces macros permettent de définir des éléments qui peuvent être réutilisés plusieurs fois dans le fichier ou déduit par des appels à des fonctions. 
+Le format cependant est celui d'un fichier URDF et par abus de language nous parlerons de fichier URDF. |br|
 
 Ouvrez ce fichier et modifiez le pour qu'il ressemble à ceci:
 
@@ -256,23 +260,170 @@ Dans rviz:
    Dans ce cas le repère du segment est par défaut au centre de la forme géométrique (centre de gravité).
 
 Nous allons modifier la forme pour utiliser un pavé droit. Cela nous permettra de bien visualiser l'orientation de la forme dans les 3 dimensions. |br|
-Et nous allons modifier l'élément **origin** pour déplacer le repère du segment par rapport au repère du parent. |br|
+Et nous allons modifier l'élément **origin** pour déplacer le segment par rapport à son origine. |br|
 Modifiez donc le fichier URDF pour qu'il ressemble à ceci:
 
 .. grid:: 1 2 2 2
 
    .. grid-item-card::
   
-      .. literalinclude:: resources/urdf/my02_bot.urdf
+      .. literalinclude:: resources/urdf/my02_tr_bot.urdf
          :language: xml
          :linenos:
-         :caption: Exemple minimal d'un fichier URDF avec un robot box (pavé droit) à un seul segment et une translation de l'origine.
+         :caption: Exemple minimal d'un fichier URDF avec un robot box à un seul segment (pavé droit) dont la position est translatée de 0.5m en x (axe rouge), 1.5m en y (axe vert) et 0m en z (axe bleu) par rapport à l'origine.
 
    .. grid-item-card::
 
-      .. figure:: resources/img/urdf/cylinder_link.png
-         :name: fig_cylinder_link_my02_bot
+      .. figure:: resources/img/urdf/my02_tr_bot.png
+         :name: fig_box_link_my02_tr_bot
          :align: center
          :height: 400px
 
-         Affichage d'un segment pavé droit avec RVIZ correspondant à la précédente description URDF
+         Affichage d'un segment pavé droit avec RVIZ correspondant à la description URDF sur la gauche
+
+Nous allons modifier l'élément **origin** pour tourner le segment de 90 degrées autour de l'axe de roulis: X (roll). |br|
+
+.. admonition:: Notez l'ordre des transformations géométriques
+
+   Les transformations géométriques sont effectuées dans l'ordre suivant: rotation puis translation.
+
+.. grid:: 1 2 2 2
+
+   .. grid-item-card::
+  
+      .. literalinclude:: resources/urdf/my02_tr_plus_rot_bot.urdf
+         :language: xml
+         :name: my02_tr_plus_rot_bot.urdf
+         :linenos:
+         :caption: Exemple minimal d'un fichier URDF avec un robot box à un seul segment (pavé droit) qui a subit une rotation de 90° suivant l'axe X (roll) puis dont la position est translatée de 0.5m en x (axe rouge), 1.5m en y (axe vert) et 0m en z (axe bleu) par rapport à l'origine.
+
+   .. grid-item-card::
+
+      .. figure:: resources/img/urdf/my02_tr_plus_rot_bot.png
+         :name: fig_box_link_my02_tr_plus_rot_bot
+         :align: center
+         :height: 400px
+
+         Affichage d'un segment pavé droit avec RVIZ correspondant à la description URDF sur la gauche
+
+.. admonition:: Notez bien ce qui est déplacé par les attributs **xyz** et **rpy** de la balise **origin**
+
+   Ce n'est pas l'origine du repère qui est déplacée mais le repère dans lequel la forme géométrique est définie.
+
+En effet si on met le paramètre alpha à 0.5 pour voir en transparence, le centre du pavé ne contient pas de repère. |br|
+On verra dans ce qui suit la différence avec les changements dans la balise **origin** des articulations avec la description du tag **joint**. 
+
+----------------------------------
+Un point Xacro et fichiers launch
+----------------------------------
+
+Regardons l'organisation du projet ROS2 ``simple_bot_description`` (après y avoir ajouté divers fichiers URDF):
+
+.. _simple_bot_description_tree:
+
+.. container:: tree_simple_bot_description
+
+   .. raw:: html
+      :file: resources/html/tree_simple_bot_description.html
+
+|br|
+|br|
+
+Que se passe-t-il quand nous lançons le package ``simple_bot_description`` avec la commande suivante ?
+
+.. code-block:: bash
+
+   ros2 launch simple_bot_description view_simple_bot.launch.py
+
+Le fichier ``view_simple_bot.launch.py`` est exécuté. |br|
+
+.. literalinclude:: resources/code/ros2/simple_bot_description/view_simple_bot_01.launch.py
+   :language: python
+   :caption: Contenu du fichier view_simple_bot.launch.py
+   :linenos:
+   :emphasize-lines: 45-58
+
+On voit que dans les lignes 45 à 58, le fichier xacro ``simple_bot.urdf.xacro`` qui se trouve dans le répertoire ``~/ros2_ws/src/simple_bot_description/urdf/`` est transformé en fichier URDF. |br|
+
+.. literalinclude:: resources/code/ros2/simple_bot_description/simple_bot.urdf.xacro
+   :language: xml
+   :caption: Contenu du fichier simple_bot.urdf.xacro
+   :linenos:
+   :emphasize-lines: 13
+
+À la ligne 13, on voit une coommande ``xacro`` qui permet d'inclure un autre fichier xacro. 
+Cette commande est déclarée grâce à un tag ``xacro:include`` et utilise une autre commande dont le nom est ``find`` qui permet de trouver le chemin d'un package dans le répertoire ``install`` du workspace et dont la valeur de retour est accédée avec la syntaxe ``$(find simple_bot_description)``. |br|
+
+
+Dans le :numref:`my02_tr_plus_rot_bot.urdf`, vous avez peut-être remarqué une autre commande xacro bien pratique qui permet de manipuler des angles en degrés et de les convertir en radians: ``${radians(90)}``. 
+
+.. admonition:: Appel de fonction dans une commande xacro
+   
+   Notez que quand on fait un appel de fonction dans une commande xacro, on utilise des **accolades** au lieu des **paranthèses** pour les premiers délimiteurs de la commande.
+
+Un fichier python ``xxxxx.launch.py`` peut utiliser des arguments en ligne de commande. |br|
+Dans le fichier ci-dessus lignes 23-39 sont définis 2 arguments:
+
+#. le nom par défaut du package (``description_package``)
+#. le prefix qui peut être appliqué devant le path de chaque resource, ce qui permet de réutiliser le même fichier de launch pour plusieurs instances d'objets, des robots par exemple, dans le cas d'une flotte de robots.
+
+La syntaxe est:
+
+.. code-block:: python
+
+   declared_arguments.append(
+        DeclareLaunchArgument(
+            "name_of_the_argument_for_the_python_launch_file",
+            default_value='default argument value',
+            description="Description given to the user \
+               when he/she is using the --help command \
+               or when documentation is automatically generated.",
+        )
+    )
+
+La valeur d'un paramètre est ensuite récupérée en utilisant la fonction ``LaunchConfiguration`` du module ``launch.substitutions`` (lignes 42-43)
+
+Il est ensuite possible d'utiliser les valeurs récupérées pour réaliser des substitutions dans les fichiers de configuration, par exemple ligne 45-58, la commande ``xacro`` est appelée sur le fichier ``simple_bot.urdf.xacro`` en fournissant comme paramètre ``prefix:=""`` (ici le prefix est la chaîne de caractère vide)
+
+Pour visualiser facilement plusieurs descriptions de robots différentes dans rviz2 et suivre les transformations des repères, il est intéressant de créer plusieurs fichiers xacro sur le modèle du fichier ``simple_bot_macro.xacro``. |br|
+Par exemple nous avons crée les fichiers:
+
+#. simple_bot__my01_bot__macro.xacro
+#. simple_bot__my02_tr_bot__macro.xacro
+#. simple_bot__my02_tr_plus_rot_bot__macro.xacro
+#. simple_bot__my03_bot__macro.xacro
+#. simple_bot__my04_bot__macro.xacro
+
+que vous n'avez pas encore et qui apparaissent dans l'arborescence du package ``simple_bot_description`` affichée :ref:`plus haut <simple_bot_description_tree>`. |br|
+
+pour modifier que quelques paramètres. |br|
+
+.. admonition:: Exercice xacro / launch file
+
+   Modifiez les fichiers ``view_simple_bot.launch.py`` et ``simple_bot.urdf.xacro`` pour que le fichier affichée par rviz2 soit paramétrable et par exemple affiche le fichier ``simple_bot__my03_bot__macro.xacro`` quand on lance la commande:
+
+   .. code-block:: bash
+
+      ros2 launch simple_bot_description view_simple_bot.launch.py urdf:=simple_bot__my03_bot__macro.xacro
+   
+   .. dropdown:: Afficher la solution de l'exercice
+
+      Modifications du fichier ``view_simple_bot.launch.py``:
+
+      .. literalinclude:: resources/code/ros2/simple_bot_description/view_simple_bot_02.launch.py
+         :language: python
+         :caption: Modification du fichier view_simple_bot.launch.py pour qu'il accepte un argument urdf qui permet de choisir le fichier xacro à afficher dans rviz2
+         :linenos:
+         :emphasize-lines: 40-46, 51, 65-67
+      
+      Modifications du fichier ``simple_bot.urdf.xacro``:
+
+      .. literalinclude:: resources/code/ros2/simple_bot_description/simple_bot.urdf_solution.xacro
+         :language: xml
+         :caption: Modification du fichier simple_bot.urdf.xacro pour qu'il accepte un argument urdf qui permet de choisir le fichier xacro à afficher dans rviz2
+         :linenos:
+         :emphasize-lines: 13
+
+--------------------
+La balise **joint**
+--------------------

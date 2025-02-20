@@ -6,7 +6,7 @@
         <!-- base link -->
         <link name="${prefix}base_link">
             <visual>
-                <origin xyz="0.5 1.5 1" rpy="0 0 0" />
+                <origin xyz="0.5 1.5 0" rpy="${radians(90)} 0 0" />
                 <geometry>
                     <box size="0.5 1 2" />
                 </geometry>
@@ -18,7 +18,7 @@
         <!-- JOINTS -->
         <!-- base_joint fixes base_link to the environment -->
         <joint name="${prefix}base_joint" type="fixed">
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <xacro:insert_block name="origin" />
             <parent link="${parent}" />
             <child link="${prefix}base_link" />
         </joint>
