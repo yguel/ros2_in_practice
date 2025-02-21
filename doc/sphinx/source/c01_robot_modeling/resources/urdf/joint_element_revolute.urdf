@@ -1,0 +1,8 @@
+<joint name="r_joint" type="revolute">
+    <origin xyz="0 0 1" rpy="0 0 ${radians(90)}" />
+    <parent link="link1" />
+    <child link="link2" />
+    <axis xyz="0 0 1" />
+
+    <limit effort="${radians(30)}" velocity="1.0" lower="${radians(-90)}" upper="${radians(90)}" />
+</joint>

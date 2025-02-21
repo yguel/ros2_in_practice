@@ -99,7 +99,7 @@ La description complète de cette balise est disponible dans la `specification d
       .. literalinclude:: resources/urdf/complete_link_tag.urdf
          :language: xml
          :linenos:
-         :caption: Balise link avec les éléments **visual**, **material**, **collision** et **inertial**
+         :caption: Balise ``link`` avec les éléments **visual**, **material**, **collision** et **inertial**
 
    .. grid-item-card::
 
@@ -108,11 +108,11 @@ La description complète de cette balise est disponible dans la `specification d
          :align: center
          :height: 400px
 
-         Élément link d'un fichier URDF
+         Élément ``link`` d'un fichier URDF
 
 Nous allons maintenant nous attacher à comprendre les différents repères utilisés dans la description d'un segment d'un robot et comment les définir dans un fichier URDF.
 
-Dans le tag **origin** (tag **visual** ou **collision**), la position et l'orientation du repère du segment par rapport au repère du parent sont définis par les attributs **xyz** et **rpy**.|br|
+Dans le tag **origin** (tag **visual**s ou **collision**), la position et l'orientation du repère du segment par rapport au repère du parent sont définis par les attributs **xyz** et **rpy**.  |br|
 
 #. La translation est définie par les attributs **xyz** qui sont les coordonnées x, y et z du repère du segment par rapport au repère du parent.
 #. La rotation est définie par les attributs **rpy** qui sont les angles de rotation autour des axes x, y et z du repère du segment par rapport au repère du parent. **rpy** désigne «roll,pitch,yaw» ou en français: «roulis,tangage,lacet».
@@ -132,11 +132,11 @@ La rotation est toujours appliquée avant la translation et les rotations sont e
 Simple exemple
 ----------------
 
-Créons une simple description de robot URDF. |br|
-Pour cela nous allons utiliser l'outil de visualisation de modèles URDF fourni par ROS2: **rviz2**. |br|
-Afin de faciliter cette étape nous allons créer un package ROS2 dédié à la visualization en utilisant l'outil développé par IRIS **template2instance**. |br|
-Cette outil permet de créer facilement un package ROS2 à partir d'un template. |br|
-Pour cela nous avons besoin du template **view_robot_template** qui est un template de package ROS2 dédié à la visualisation de robots en utilisant rviz2. |br|
+Créons une simple description de robot URDF.  |br|
+Pour cela nous allons utiliser l'outil de visualisation de modèles URDF fourni par ROS2: **rviz2**.  |br|
+Afin de faciliter cette étape nous allons créer un package ROS2 dédié à la visualization en utilisant l'outil développé par IRIS **template2instance**.  |br|
+Cette outil permet de créer facilement un package ROS2 à partir d'un template.  |br|
+Pour cela nous avons besoin du template **view_robot_template** qui est un template de package ROS2 dédié à la visualisation de robots en utilisant rviz2.  |br|
 
 Installation de template2instance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -166,7 +166,7 @@ template2instance est un outil python utilisant le gestionnaire de dépendances 
 
    poetry run create path_to_template path_to_new_package [--config path_to_config.json]
 
-Créons un package ROS2 nommé **simple_bot_description** ayant le fichier de configuration suivant. |br|
+Créons un package ROS2 nommé **simple_bot_description** ayant le fichier de configuration suivant.  |br|
 
 .. literalinclude:: resources/code/template2instance/pkg_gen_cfg_view_simple_bot.json
    :language: json
@@ -203,10 +203,10 @@ Si tout s'est bien passé, vous devriez voir un dans rviz2 le robot par défaut:
 
    Le robot par défaut à l'initialisation d'un package de visualisation à partir du template view_robot_template.
 
-Le fichier URDF qu'il faut étudier se nomme ``simple_bot_macro.xacro`` et se trouve dans le répertoire :code:`~/ros2_ws/src/simple_bot_description/urdf/simple_bot`. |br|
+Le fichier URDF qu'il faut étudier se nomme ``simple_bot_macro.xacro`` et se trouve dans le répertoire :code:`~/ros2_ws/src/simple_bot_description/urdf/simple_bot`.  |br|
 C'est un fichier de type ``xacro``, c'est-à-dire un fichier XML qui peut contenir des macros. 
 Ces macros permettent de définir des éléments qui peuvent être réutilisés plusieurs fois dans le fichier ou déduit par des appels à des fonctions. 
-Le format cependant est celui d'un fichier URDF et par abus de language nous parlerons de fichier URDF. |br|
+Le format cependant est celui d'un fichier URDF et par abus de language nous parlerons de fichier URDF.  |br|
 
 Ouvrez ce fichier et modifiez le pour qu'il ressemble à ceci:
 
@@ -259,8 +259,8 @@ Dans rviz:
 
    Dans ce cas le repère du segment est par défaut au centre de la forme géométrique (centre de gravité).
 
-Nous allons modifier la forme pour utiliser un pavé droit. Cela nous permettra de bien visualiser l'orientation de la forme dans les 3 dimensions. |br|
-Et nous allons modifier l'élément **origin** pour déplacer le segment par rapport à son origine. |br|
+Nous allons modifier la forme pour utiliser un pavé droit. Cela nous permettra de bien visualiser l'orientation de la forme dans les 3 dimensions.  |br|
+Et nous allons modifier l'élément **origin** pour déplacer le segment par rapport à son origine.  |br|
 Modifiez donc le fichier URDF pour qu'il ressemble à ceci:
 
 .. grid:: 1 2 2 2
@@ -281,7 +281,7 @@ Modifiez donc le fichier URDF pour qu'il ressemble à ceci:
 
          Affichage d'un segment pavé droit avec RVIZ correspondant à la description URDF sur la gauche
 
-Nous allons modifier l'élément **origin** pour tourner le segment de 90 degrées autour de l'axe de roulis: X (roll). |br|
+Nous allons modifier l'élément **origin** pour tourner le segment de 90 degrées autour de l'axe de roulis: X (roll).  |br|
 
 .. admonition:: Notez l'ordre des transformations géométriques
 
@@ -310,7 +310,7 @@ Nous allons modifier l'élément **origin** pour tourner le segment de 90 degré
 
    Ce n'est pas l'origine du repère qui est déplacée mais le repère dans lequel la forme géométrique est définie.
 
-En effet si on met le paramètre alpha à 0.5 pour voir en transparence, le centre du pavé ne contient pas de repère. |br|
+En effet si on met le paramètre alpha à 0.5 pour voir en transparence, le centre du pavé ne contient pas de repère.  |br|
 On verra dans ce qui suit la différence avec les changements dans la balise **origin** des articulations avec la description du tag **joint**. 
 
 ----------------------------------
@@ -326,8 +326,8 @@ Regardons l'organisation du projet ROS2 ``simple_bot_description`` (après y avo
    .. raw:: html
       :file: resources/html/tree_simple_bot_description.html
 
-|br|
-|br|
+ |br|
+ |br|
 
 Que se passe-t-il quand nous lançons le package ``simple_bot_description`` avec la commande suivante ?
 
@@ -335,7 +335,7 @@ Que se passe-t-il quand nous lançons le package ``simple_bot_description`` avec
 
    ros2 launch simple_bot_description view_simple_bot.launch.py
 
-Le fichier ``view_simple_bot.launch.py`` est exécuté. |br|
+Le fichier ``view_simple_bot.launch.py`` est exécuté.  |br|
 
 .. literalinclude:: resources/code/ros2/simple_bot_description/view_simple_bot_01.launch.py
    :language: python
@@ -343,7 +343,7 @@ Le fichier ``view_simple_bot.launch.py`` est exécuté. |br|
    :linenos:
    :emphasize-lines: 45-58
 
-On voit que dans les lignes 45 à 58, le fichier xacro ``simple_bot.urdf.xacro`` qui se trouve dans le répertoire ``~/ros2_ws/src/simple_bot_description/urdf/`` est transformé en fichier URDF. |br|
+On voit que dans les lignes 45 à 58, le fichier xacro ``simple_bot.urdf.xacro`` qui se trouve dans le répertoire ``~/ros2_ws/src/simple_bot_description/urdf/`` est transformé en fichier URDF.  |br|
 
 .. literalinclude:: resources/code/ros2/simple_bot_description/simple_bot.urdf.xacro
    :language: xml
@@ -352,7 +352,7 @@ On voit que dans les lignes 45 à 58, le fichier xacro ``simple_bot.urdf.xacro``
    :emphasize-lines: 13
 
 À la ligne 13, on voit une coommande ``xacro`` qui permet d'inclure un autre fichier xacro. 
-Cette commande est déclarée grâce à un tag ``xacro:include`` et utilise une autre commande dont le nom est ``find`` qui permet de trouver le chemin d'un package dans le répertoire ``install`` du workspace et dont la valeur de retour est accédée avec la syntaxe ``$(find simple_bot_description)``. |br|
+Cette commande est déclarée grâce à un tag ``xacro:include`` et utilise une autre commande dont le nom est ``find`` qui permet de trouver le chemin d'un package dans le répertoire ``install`` du workspace et dont la valeur de retour est accédée avec la syntaxe ``$(find simple_bot_description)``.  |br|
 
 
 Dans le :numref:`my02_tr_plus_rot_bot.urdf`, vous avez peut-être remarqué une autre commande xacro bien pratique qui permet de manipuler des angles en degrés et de les convertir en radians: ``${radians(90)}``. 
@@ -361,7 +361,7 @@ Dans le :numref:`my02_tr_plus_rot_bot.urdf`, vous avez peut-être remarqué une 
    
    Notez que quand on fait un appel de fonction dans une commande xacro, on utilise des **accolades** au lieu des **paranthèses** pour les premiers délimiteurs de la commande.
 
-Un fichier python ``xxxxx.launch.py`` peut utiliser des arguments en ligne de commande. |br|
+Un fichier python ``xxxxx.launch.py`` peut utiliser des arguments en ligne de commande.  |br|
 Dans le fichier ci-dessus lignes 23-39 sont définis 2 arguments:
 
 #. le nom par défaut du package (``description_package``)
@@ -385,7 +385,7 @@ La valeur d'un paramètre est ensuite récupérée en utilisant la fonction ``La
 
 Il est ensuite possible d'utiliser les valeurs récupérées pour réaliser des substitutions dans les fichiers de configuration, par exemple ligne 45-58, la commande ``xacro`` est appelée sur le fichier ``simple_bot.urdf.xacro`` en fournissant comme paramètre ``prefix:=""`` (ici le prefix est la chaîne de caractère vide)
 
-Pour visualiser facilement plusieurs descriptions de robots différentes dans rviz2 et suivre les transformations des repères, il est intéressant de créer plusieurs fichiers xacro sur le modèle du fichier ``simple_bot_macro.xacro``. |br|
+Pour visualiser facilement plusieurs descriptions de robots différentes dans rviz2 et suivre les transformations des repères, il est intéressant de créer plusieurs fichiers xacro sur le modèle du fichier ``simple_bot_macro.xacro``.  |br|
 Par exemple nous avons crée les fichiers:
 
 #. simple_bot__my01_bot__macro.xacro
@@ -394,9 +394,9 @@ Par exemple nous avons crée les fichiers:
 #. simple_bot__my03_bot__macro.xacro
 #. simple_bot__my04_bot__macro.xacro
 
-que vous n'avez pas encore et qui apparaissent dans l'arborescence du package ``simple_bot_description`` affichée :ref:`plus haut <simple_bot_description_tree>`. |br|
+que vous n'avez pas encore et qui apparaissent dans l'arborescence du package ``simple_bot_description`` affichée :ref:`plus haut <simple_bot_description_tree>`.  |br|
 
-pour modifier que quelques paramètres. |br|
+pour modifier que quelques paramètres.  |br|
 
 .. admonition:: Exercice xacro / launch file
 
@@ -427,3 +427,53 @@ pour modifier que quelques paramètres. |br|
 --------------------
 La balise **joint**
 --------------------
+
+La balise **joint** est utilisée pour décrire une articulation entre deux segments du robot.
+La description complète de cette balise est disponible dans la `specification de la balise joint <http://wiki.ros.org/urdf/XML/joint>`_.
+
+
+.. grid:: 1 2 2 2
+
+   .. grid-item-card::
+  
+      .. literalinclude:: resources/urdf/joint_element_revolute.urdf
+         :language: xml
+         :linenos:
+         :caption: Balise ``joint`` de type ``revolute`` avec les éléments  **origin**, **parent**, **child**, **axis** et **limit**
+      
+      .. literalinclude:: resources/urdf/joint_element_floating.urdf
+         :language: xml
+         :linenos:
+         :caption: Balise ``joint`` de type ``floating`` avec les éléments  **origin**, **parent**, **child**, **limit**, **dynamics**, **calibration**, **safety_controller** et **mimic**
+
+
+   .. grid-item-card::
+
+      .. figure:: resources/img/urdf/urdf_joint.png
+         :name: fig_joint_element
+         :align: center
+         :height: 400px
+
+         Élément ``joint`` d'un fichier URDF
+
+L'attribut **type** de la balise **joint** permet de définir le type de l'articulation (revolute, prismatic, continuous, fixed, floating ou planar).  |br|
+
+#. **revolute**: articulation de type pivot d'axe avec des butées.
+#. **prismatic**: articulation de type glissière.
+#. **continuous**: articulation de type pivot d'axe avec une rotation continue (comme pour une roue).
+#. **fixed**: articulation de type encastrement (fixe).
+#. **floating**: articulation de type flottante (6 degrés de liberté).
+#. **planar**: articulation de type appui plan (2 degrés de liberté en translation et 1 degré de liberté en rotation).
+
+Les éléments de la balise **joint** que nous utiliserons le plus, sont:
+
+#. **origin**: qui définit la position et l'orientation du repère de l'articulation par rapport au repère du parent.
+#. **parent**: qui définit le nom du segment parent.
+#. **child**: qui définit le nom du segment enfant.
+#. **type**: qui définit le type de l'articulation (``revolute``, ``prismatic``, ``continuous``, ``fixed``, ``floating`` ou ``planar``).
+#. **axis**: qui définit l'axe de rotation ou de translation de l'articulation utilisée uniquement pour toutes les articulations exceptée ``fixed`` et ``floating``. Sa valeur par défaut est un axe unitaire parallèle à l'axe x du repère de l'articulation :math:`(1,0,0)`. Cet axe correspond: à l'axe de rotation pour les articulations de type ``revolute`` et ``continuous``, à l'axe de translation pour les articulations de type ``prismatic`` et à la normal du plan d'appui pour les articulations de type ``planar``.
+#. **limit**: qui définit les limites de l'articulation, nécessaire que pour les articulations de type ``revolute`` ou ``prismatic``. Les limites sont définies par les attributs **lower** et **upper** qui sont les valeurs minimale et maximale de l'articulation (en radians pour l'articulation de type ``revolute`` et en mètres pour l'articulation de type ``prismatic``), par l'attribut **effort** qui est la force maximale que l'articulation peut supporter (en Newtons-mètres pour les articulations de type ``revolute`` et ``continuous``, mesurant donc un couple et en Newtons pour une articulation de type ``prismatic``), et par l'attribut **velocity** qui est la vitesse maximale de l'articulation (en radians par seconde pour les articulations de type ``revolute`` et ``continuous`` et en mètres par seconde pour l'articulation de type ``prismatic``).
+
+Dans le tag **origin** du tag **joint**, la position et l'orientation du repère de l'articulation par rapport au repère du parent sont définis par les attributs **xyz** et **rpy**. 
+De la même manière pour les segments (``link``), la rotation est appliquée avant la translation. 
+Dans RVIZ2, cette transformation est visible grâce à une arrête jaune terminée par une flêche qui pointe du repère enfant vers le repère parent.  |br|
