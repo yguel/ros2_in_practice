@@ -10,7 +10,7 @@ Il ne s'agit donc plus d'appliquer de manière itérative les transformations as
 
 La description URDF, qui n'accepte que des arbres cinématique n'est donc pas adaptée à cette représentation.
 
-ROS et RVIZ ne permettent pas de gérer directement les chaînes cinématiques fermées.
+ROS2 et RVIZ ne permettent pas de gérer directement les chaînes cinématiques fermées.
 
 -------------------
 Afficher dans RVIZ
@@ -25,6 +25,6 @@ Et il faut utiliser du code qui permet de calculer les positions des segments en
 Représentation SDF
 -------------------
 
-Il existe une solution qui permet de faire automatiquement les calculs de contrainte liés aux chaînes fermés en utilisant Gazebo comme solveur.
+Il existe une solution qui permet de faire automatiquement les calculs de contraintes liées aux chaînes fermées en utilisant Gazebo comme solveur.
 
 La solution est de passer par un format de description de robot plus général, le format SDF, utilisé par Gazebo et qui prend en compte les chaînes cinématiques fermées.

@@ -1,6 +1,6 @@
-================================
-Descriptions de robots avec ROS
-================================
+=================================
+Descriptions de robots avec ROS2
+=================================
 
 Le but de la description d'un robot est d'avoir un modèle servant à la fois à la simulation et au contrôle du robot:
 

@@ -36,9 +36,9 @@ Les maillages des segments du scanbot au format step sont les suivants:
    À partir des maillages ci-dessus au format step, utilisez un logiciel de CAO pour les convertir au format collada (.dae).
    Indice: Utilisez le logiciel FreeCAD.
 
-.. admonition:: Exercice avancé
+.. .. admonition:: Exercice avancé
 
-   À partir de l'API python de FreeCAD, écrivez un script qui automatise la conversion des fichiers step en fichiers collada.
+..    À partir de l'API python de FreeCAD, écrivez un script qui automatise la conversion des fichiers step en fichiers collada.
 
 Format collada (.dae)
 ^^^^^^^^^^^^^^^^^^^^^

@@ -477,3 +477,45 @@ Les éléments de la balise **joint** que nous utiliserons le plus, sont:
 Dans le tag **origin** du tag **joint**, la position et l'orientation du repère de l'articulation par rapport au repère du parent sont définis par les attributs **xyz** et **rpy**. 
 De la même manière pour les segments (``link``), la rotation est appliquée avant la translation. 
 Dans RVIZ2, cette transformation est visible grâce à une arrête jaune terminée par une flêche qui pointe du repère enfant vers le repère parent.  |br|
+
+
+.. grid:: 1 2 2 2
+
+   .. grid-item-card::
+  
+      .. literalinclude:: resources/urdf/my03_bot.urdf
+         :language: xml
+         :linenos:
+         :caption: Ajout d'une translation pour le repère de l'articulation par rapport au repère du parent (attribut **xyz** de la balise **origin** du tag **joint**)
+
+
+   .. grid-item-card::
+
+      .. figure:: resources/img/urdf/my03_bot_rviz.png
+         :name: fig_translated_joint_element_my03_bot
+         :align: center
+         :height: 400px
+
+         Affichage d'une articulation avec RVIZ correspondant à la description URDF sur la gauche. Le lien est modélisé par la flèche jaune de ``base_link`` vers ``world`` (en cochant la case ``Show Arrows``)
+
+Le changement de repère introduit par le tag **origin** de la balise **joint** s'effectue avant la transofrmation du segment (balise **link**).
+De même que pour la balise joint, la rotation est effectuée avant la translation (le repère tourne autour de l'origine du repère parent, puis est translaté). La rotation et la translation sont exprimées dans le repère du parent.  |br|
+
+.. grid:: 1 2 2 2
+
+   .. grid-item-card::
+  
+      .. literalinclude:: resources/urdf/my04_bot.urdf
+         :language: xml
+         :linenos:
+         :caption: Ajout d'une rotation pour le repère de l'articulation par rapport au repère du parent (attribut **rpy** du tag **origin** du tag **joint**).
+
+
+   .. grid-item-card::
+
+      .. figure:: resources/img/urdf/my04_bot.png
+         :name: fig_tr_rot_joint_element_my04_bot
+         :align: center
+         :height: 400px
+
+         Rotation du repère de l'articulation en plus de la translation. Notez que la rotation est effectuée avant la translation (si cela avait été l'inverse, l'arrête jaune serait alignée avec l'axe vert du repère ``world``).
