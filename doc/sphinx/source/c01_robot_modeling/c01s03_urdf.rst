@@ -26,7 +26,7 @@ Un tag est une construction de balisage qui commence par :code:`<`` et se termin
 
 #. tag de début, tel que :code:`<section>`,
 #. tag de fin, tel que :code:`</section>`,
-#. tag sans élément, tel que :code:`<line-break />`.
+#. tag sans élément, tel que :code:`<line-break />` (notez le symbole :code:`/` devant le symbole :code:`>` à la fin.
 
 Un tag peut être sans élément, car l'information peut-être contenue dans l'attribut de la balise (attribute en anglais).
 En français on utilise souvent le terme **balise** pour désigner un **tag**.
@@ -37,14 +37,15 @@ Un exemple est :code:`<link name="base_link">`, où le nom de l'attribut est "na
 Un tag peut avoir plusieurs attributs, mais chaque attribut ne peut apparaître qu'une seule fois dans une balise.
 
 **Élément**
-Un élément est une composante logique d'un document qui commence soit par un tag de début et se termine par un tag de fin correspondant, soit consiste uniquement en un tag sans élément. Les caractères entre la balise de début et la balise de fin, s'il y en a, sont le contenu de l'élément, et peuvent contenir du balisage, y compris d'autres éléments, appelés éléments enfants. 
+Un élément est une composante logique d'un document qui commence soit par un tag de début et se termine par un tag de fin correspondant, soit consiste uniquement en un tag sans élément. Les caractères entre la balise de début et la balise de fin, s'il y en a, sont le contenu de l'élément, et peuvent contenir du balisage, y compris d'autres éléments, appelés éléments enfants. Dans l'exemple de code suivant, :numref:`example_xml_element`, l'élement ``visual``, lignes 2-10, commence par le tag de début :code:`<visual>`, se finit par le tag de fin :code:`</visual>` et possède les éléments enfants ``origin``, ``geometry`` et ``material``. L'élément  ``mass``, ligne 18, est un élément sans enfant mais qui possède un attribut ``value`` et qui donc consiste en seulement un tag sans élément: :code:`<mass value="18"/>`.
 
 .. _example_xml_element:
-.. literalinclude:: resources/urdf/joint_element.urdf
+.. literalinclude:: resources/urdf/complete_link_tag.urdf
+   :name: example_xml_element
    :language: xml
-   :caption: Exemple d'un élément xml
+   :caption: Exemple d'éléments xml
    :linenos:
-   :emphasize-lines: 2-10 
+   :emphasize-lines: 2-10,18
 
 -----------------------
 Généralités sur l'URDF

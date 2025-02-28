@@ -32,7 +32,7 @@ D'un point de vue cinématique, on utilise le plus courament 3 types d'articulat
 
       .. grid:: 1 3 3 3
 
-         .. grid-item::
+         .. grid:: 1 1 1 1
 
             .. grid-item-card::
                
@@ -49,7 +49,7 @@ D'un point de vue cinématique, on utilise le plus courament 3 types d'articulat
 
                | (``prismatic joint`` en anglais)
 
-         .. grid-item::
+         .. grid:: 1 1 1 1
 
             .. grid-item-card::
                
@@ -66,7 +66,7 @@ D'un point de vue cinématique, on utilise le plus courament 3 types d'articulat
             
                | (``revolute joint`` en anglais)
          
-         .. grid-item::
+         .. grid:: 1 1 1 1
             
             .. grid-item-card::
 
