@@ -1,0 +1,106 @@
+# Translations template for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-03-03 13:27+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: ../../source/c02_system_communication/c02s02_domains.rst:3
+msgid "DOMAINS"
+msgstr ""
+
+#: ../../source/c02_system_communication/c02s02_domains.rst:9
+msgid "Les domaines en bref"
+msgstr ""
+
+#: ../../source/c02_system_communication/c02s02_domains.rst:11
+msgid ""
+"Comme expliqué dans la précédente section, le middleware par défaut "
+"utilisé par ROS 2 pour la communication est DDS. Dans DDS, le principal "
+"mécanisme permettant à différents réseaux logiques de partager un réseau "
+"physique est appelé l'ID de domaine. Les nœuds ROS 2 sur le même domaine "
+"peuvent se découvrir et s'envoyer des messages librement, tandis que les "
+"nœuds ROS 2 sur des domaines différents ne le peuvent pas. Tous les nœuds"
+" ROS 2 utilisent par défaut l'ID de domaine 0. Pour éviter les "
+"interférences entre différents groupes d'ordinateurs exécutant ROS 2 sur "
+"le même réseau, un ID de domaine différent doit être défini pour chaque "
+"groupe."
+msgstr ""
+
+#: ../../source/c02_system_communication/c02s02_domains.rst:17
+msgid "Choisir un ID de domaine"
+msgstr ""
+
+#: ../../source/c02_system_communication/c02s02_domains.rst:19
+msgid ""
+"Pour simplement choisir un ID de domain sûr, sélectionnez un ID de "
+"domaine entre ``0`` et ``101`` inclusivement."
+msgstr ""
+
+#: ../../source/c02_system_communication/c02s02_domains.rst:21
+msgid ""
+"Pour des explications détaillées sur la plage d'ID de domaine à utiliser "
+"dans ROS 2, veuillez `consulter la documentation officielle de ROS 2 "
+"<https://docs.ros.org/en/rolling/Concepts/Intermediate/About-Domain-"
+"ID.html>`_."
+msgstr ""
+
+#: ../../source/c02_system_communication/c02s02_domains.rst:27
+msgid "Utiliser un DOMAIN ID en pratique"
+msgstr ""
+
+#: ../../source/c02_system_communication/c02s02_domains.rst:29
+msgid ""
+"Pour définir l'ID de domaine avant d'exécuter un fichier de lancement "
+"dans ROS 2, vous pouvez définir la variable d'environnement ROS_DOMAIN_ID"
+" dans votre session terminal."
+msgstr ""
+
+#: ../../source/c02_system_communication/c02s02_domains.rst:31
+msgid ""
+"Ouvrez votre terminal et définissez la variable d'environnement "
+"ROS_DOMAIN_ID avec la valeur souhaitée (par exemple, 42) :"
+msgstr ""
+
+#: ../../source/c02_system_communication/c02s02_domains.rst:37
+msgid "Cette commande configure ROS_DOMAIN_ID pour la session terminal en cours."
+msgstr ""
+
+#: ../../source/c02_system_communication/c02s02_domains.rst:39
+msgid ""
+"Avec ROS_DOMAIN_ID défini, vous pouvez exécuter votre fichier de "
+"lancement ROS 2 :"
+msgstr ""
+
+#: ../../source/c02_system_communication/c02s02_domains.rst:45
+msgid ""
+"Remplacez <nom_du_paquet> par le nom de votre paquet et "
+"<nom_du_fichier_de_lancement> par le nom de votre fichier de lancement."
+msgstr ""
+
+#: ../../source/c02_system_communication/c02s02_domains.rst:47
+msgid ""
+"En définissant ROS_DOMAIN_ID avant d'exécuter le fichier de lancement, "
+"tous les nœuds initiés par ce fichier fonctionneront dans le domaine "
+"spécifié, assurant leur communication avec d'autres nœuds du même "
+"domaine."
+msgstr ""
+
+#: ../../source/c02_system_communication/c02s02_domains.rst:49
+msgid ""
+"Pour faire en sorte que le ROS_DOMAIN_ID soit persistant il est possible "
+"de l'ajouter dans le fichier .bashrc ou .zshrc de votre utilisateur."
+msgstr ""
+

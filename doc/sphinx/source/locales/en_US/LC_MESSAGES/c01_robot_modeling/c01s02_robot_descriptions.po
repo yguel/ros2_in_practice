@@ -1,0 +1,174 @@
+# Translations template for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-03-03 13:27+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:3
+msgid "Descriptions de robots avec ROS2"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:5
+msgid ""
+"Le but de la description d'un robot est d'avoir un modèle servant à la "
+"fois à la simulation et au contrôle du robot:"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:7
+msgid "visualiser le robot et ses configurations géométriques,"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:8
+msgid "calculer la position des segments du robot en fonction des articulations,"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:9
+msgid ""
+"faire intéragir le robot dans un environnement de simulation et récupérer"
+" des données capteurs, des données de collisions, des informations de "
+"position, vitesse, accélération et force exercées (entre autre sur les "
+"articulations et les segments du robot),"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:11
+msgid ""
+"Les descriptions de robots sont faites dans des fichiers de description "
+"de robot. Nous utiliserons 2 formats XML dans ROS: URDF et SDF."
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:14
+msgid "Ces fichiers décrivent principalement les paramètres suivants:"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:16
+msgid "les segments du robot:"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:18
+msgid "pour la visualisaiton"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:20
+msgid "géometrie (:code:`<geometry>`),"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:21
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:27
+msgid ""
+"origine (position et orientation d'un repère différent du repère "
+"d'origine du segment)"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:22
+msgid "matériel (principalement la couleur)"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:24
+msgid "pour le calcul de collision"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:26
+msgid ""
+"géometrie (:code:`<geometry>`) souvent une géométrie simplifiée pour "
+"accélérer les calculs,"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:29
+msgid "paramètres d'inértie"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:31
+msgid "masse,"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:32
+#, python-format
+msgid ""
+"`centre d'inertie <https://fr.wikipedia.org/wiki/Centre_d%27inertie>`_ "
+"(centre de gravité),"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:33
+#, python-format
+msgid "`matrice d'inertie <https://fr.wikipedia.org/wiki/Moment_d%27inertie>`_"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:35
+msgid "les articulations entre les pairs de segments reliés,"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:37
+msgid "nom"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:38
+msgid "type (prismatique, pivot d'axe, rigide, etc.)"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:39
+msgid "parent et enfant (les 2 segments reliés)"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:40
+msgid ""
+"origine (la transformation entre les 2 segments avant qu'aucun mouvement "
+"ne soit appliqué)"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:41
+msgid ""
+"limites de mouvement (limites de position, vitesse, accélération, force, "
+"etc.)"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:42
+msgid "axe du mouvement"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:46
+msgid "Chaînes cinématiques"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:48
+msgid ""
+"Le passage du repère d'un segment à un autre suite à la transformation "
+"appliquée par l'articulation reliant les 2 segment constitue la "
+"transformation cinématique élémentaire de la chaîne cinématique du robot."
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:55
+msgid ""
+"Arbre des chaînes cinématiques des jambes du robot Hubo KHR-4, un robot "
+"humanoïde non parallèle, (source: "
+":cite:`Ali2010_closed_form_inverse_kinematic_joint_solution_for_humanoid_robots`"
+" .)"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:57
+msgid ""
+"Le premier segment de la chaîne cinématique est appelé la racine de la "
+"chaîne cinématique."
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s02_robot_descriptions.rst:59
+msgid ""
+"La racine de la chaîne cinématique est un segment fixe par rapport au "
+"repère de modélisation, souvent appelé repère monde (world en anglais). "
+"Le sens des flêches indique quel est le repère de référence pour la "
+"position et l'orientation du segment suivant. Dans les paramètres de "
+"description ci-dessus, la flêche va de l'enfant vers le parent."
+msgstr ""
+

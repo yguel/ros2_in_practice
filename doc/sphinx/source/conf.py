@@ -52,7 +52,7 @@ templates_path = ['_templates']
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'fr'
+#language = 'fr'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -87,6 +87,11 @@ html_sidebars = {
     ]
 }
 
+html_theme_options = {
+    'language_selector': True,
+    'flyout_display': 'always',
+}
+
 # -- Options for copybutton extension ----------------------------------------
 copybutton_prompt_text = r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
 copybutton_prompt_is_regexp = True
@@ -94,6 +99,14 @@ copybutton_prompt_is_regexp = True
 
 # -- Options for internationalization ---------------------------------------
 locale_dirs = ['locales']
+gettext_compact = False  # Ensure separate folders for each language
+
+html_context = {
+  'current_version' : "1.0",
+  'versions' : [["1.0", "link to 1.0"], ["2.0", "link to 2.0"]],
+  'current_language': 'fr',
+  'languages': [["en", "link to en"]]
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

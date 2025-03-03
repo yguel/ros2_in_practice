@@ -1,0 +1,85 @@
+# Translations template for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-03-03 13:27+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: ../../source/c01_robot_modeling/c01s06_sdf.rst:3
+msgid "Robots parallèles"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s06_sdf.rst:5
+msgid ""
+"Pour un robot parallèle, il existe des chaînes cinématiques fermées. "
+"Ainsi un segment peut avoir peut avoir 2 articulations comme parents. "
+"Cela rajoute une ou plusieurs contraintes aux mouvements possibles pour "
+"le segment."
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s06_sdf.rst:9
+msgid ""
+"Il ne s'agit donc plus d'appliquer de manière itérative les "
+"transformations associées à chaque articulation qui conduisent au segment"
+" pour connaître sa position."
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s06_sdf.rst:11
+msgid ""
+"La description URDF, qui n'accepte que des arbres cinématique n'est donc "
+"pas adaptée à cette représentation."
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s06_sdf.rst:13
+msgid ""
+"ROS2 et RVIZ ne permettent pas de gérer directement les chaînes "
+"cinématiques fermées."
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s06_sdf.rst:17
+msgid "Afficher dans RVIZ"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s06_sdf.rst:19
+msgid ""
+"Pour afficher dans RVIZ, il faut utiliser un format URDF dans lequel les "
+"chaînes cinématiques fermées sont représentées par des chaînes "
+"cinématiques ouvertes."
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s06_sdf.rst:21
+msgid ""
+"Et il faut utiliser du code qui permet de calculer les positions des "
+"segments en fonction des articulations en prenant en compte les "
+"contraintes de fermeture."
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s06_sdf.rst:26
+msgid "Représentation SDF"
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s06_sdf.rst:28
+msgid ""
+"Il existe une solution qui permet de faire automatiquement les calculs de"
+" contraintes liées aux chaînes fermées en utilisant Gazebo comme solveur."
+msgstr ""
+
+#: ../../source/c01_robot_modeling/c01s06_sdf.rst:30
+msgid ""
+"La solution est de passer par un format de description de robot plus "
+"général, le format SDF, utilisé par Gazebo et qui prend en compte les "
+"chaînes cinématiques fermées."
+msgstr ""
+
