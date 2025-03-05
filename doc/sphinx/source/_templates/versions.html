@@ -1,25 +1,38 @@
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-        {{ current_language }} / Version: {{ current_version }}
+        Lang: {{ current_language_code }} | Ver: {{ current_version }}
         <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
+
         {% if languages|length >= 1 %}
         <dl>
             <dt>{{ _('Languages') }}</dt>
-            {% for the_language, url in languages %}
-            <dd><a href="{{ url }}/index.html">{{ the_language }}</a></dd>
+            {% for the_language, lang_path in languages %}
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                <a href="{{ base_url }}/{{ current_version }}/{{ lang_path }}/index.html">
+                    {{ the_language }}
+                </a>
+            </dd>
             {% endfor %}
         </dl>
         {% endif %}
+
         {% if versions|length >= 1 %}
         <dl>
             <dt>{{ _('Versions') }}</dt>
-            {% for the_version, url in versions %}
-            <dd><a href="{{ url }}/index.html">{{ the_version }}</a></dd>
+            {% for the_version, _ in versions %}
+            <dd>
+                <!-- Switch version: keep current_language, swap in the_version -->
+                <a href="{{ base_url }}/{{ the_version }}/{{ current_language }}/index.html">
+                    {{ the_version }}
+                </a>
+            </dd>
             {% endfor %}
         </dl>
         {% endif %}
+
         <br>
         </dl>
     </div>

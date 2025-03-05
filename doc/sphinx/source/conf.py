@@ -101,12 +101,47 @@ copybutton_prompt_is_regexp = True
 locale_dirs = ['locales']
 gettext_compact = False  # Ensure separate folders for each language
 
+import sphinx,os
+from pathlib import Path
+
 html_context = {
-  'current_version' : "1.0",
-  'versions' : [["1.0", "link to 1.0"], ["2.0", "link to 2.0"]],
-  'current_language': 'fr',
-  'languages': [["en", "link to en"]]
+  'current_version' : "humble",
+  'current_language' : None,
+  'current_language_code' : None,
+  'versions' : [
+      ["humble", None], 
+      #["jazzy", None]
+    ],
+  'languages': [
+      ["en", "en_US"], 
+      ["fr", "fr"]
+    ]
 }
+
+LANG_MAP = {
+    'en_US': 'en',
+    'fr': 'fr'
+}
+
+def on_builder_inited(app):
+    outdir = Path(app.outdir)
+
+    base_uri = outdir.parent.parent
+    app.config.html_context['base_url'] = base_uri
+    print(f"Base URL set to: {base_uri}")
+
+def on_config_inited(app, config):
+    print(f"Language set to: {config.language}")
+
+    # Also store the current language that Sphinx is building:
+    if config.language is not None:
+        config.html_context['current_language'] = config.language
+        config.html_context['current_language_code'] = LANG_MAP[config.language]
+
+def setup(app):
+    app.connect('config-inited', on_config_inited)
+    app.connect('builder-inited', on_builder_inited)
+
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

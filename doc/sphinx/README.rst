@@ -20,5 +20,5 @@ Then you can build the html files with the following command corresponding to th
 .. code-block:: bash
    
     # Build html files for the language en_US in html/en_US
-    sphinx-build -b html -D language=fr ./source ./build/html/fr
-    sphinx-build -b html -D language=en_US ./source ./build/html/en_US
+    sphinx-build -b html -D language=fr ./source ./build/html/humble/fr
+    sphinx-build -b html -D language=en_US ./source ./build/html/humble/en_US
