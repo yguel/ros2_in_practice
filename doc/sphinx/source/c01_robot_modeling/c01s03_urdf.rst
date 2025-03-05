@@ -127,6 +127,39 @@ La rotation est toujours appliquée avant la translation et les rotations sont e
 
    Rotations roll, pitch et yaw.
 
+.. grid:: 1 1 1 1
+
+   .. grid-item::
+
+      .. grid:: 1 3 3 3
+
+         .. grid-item-card::
+            
+            .. figure:: resources/img/roll_plane_animation.gif
+               :name: fig_roll_plane_animation
+               :align: center
+               :height: 300px
+
+               Rotation autour de l'axe x (roll)
+
+
+         .. grid-item-card::
+            
+            .. figure:: resources/img/pitch_plane_animation.gif
+               :name: fig_pitch_plane_animation
+               :align: center
+               :height: 300px
+
+               Rotation autour de l'axe y (pitch)
+
+         .. grid-item-card::
+
+            .. figure:: resources/img/yaw_plane_animation.gif
+               :name: fig_yaw_plane_animation
+               :align: center
+               :height: 300px
+
+               Rotation autour de l'axe z (yaw)
 
 
 ----------------
