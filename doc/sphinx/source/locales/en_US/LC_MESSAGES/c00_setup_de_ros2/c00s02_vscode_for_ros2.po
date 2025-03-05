@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:3
 msgid "Installation l'éditeur vscode pour ROS2"
-msgstr ""
+msgstr "Installation of the vscode editor for ROS2"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:5
 msgid ""
@@ -30,16 +30,20 @@ msgid ""
 "productivité) qui est `vscode <https://code.visualstudio.com/>`_ de "
 "Github."
 msgstr ""
+"We use a good code editor (very important for productivity) which is "
+"`vscode <https://code.visualstudio.com/>`_ from Github."
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:9
 msgid "Installation de vscode"
-msgstr ""
+msgstr "Installation of vscode"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:11
 msgid ""
 "Aller sur le site de `vscode <https://code.visualstudio.com/>`_ et "
 "télécharger la version correspondant à ubuntu 22.04"
 msgstr ""
+"Go to the `vscode <https://code.visualstudio.com/>`_ website and download"
+" the version corresponding to Ubuntu 22.04"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:13
 msgid ""
@@ -47,6 +51,8 @@ msgid ""
 "vscode pour l'utilisateur courant et créer un fichier "
 "``keybindings.json`` vide:"
 msgstr ""
+"Go to the directory for global vscode configuration settings for the "
+"current user and create an empty ``keybindings.json`` file:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:20
 msgid ""
@@ -54,14 +60,17 @@ msgid ""
 "créer dans votre dossier home ``~/.config/Code/User``) et le remplir avec"
 " le contenu suivant:"
 msgstr ""
+"You will open the ``keybindings.json`` file (which you just created in "
+"your home directory ``~/.config/Code/User``) and fill it with the "
+"following content:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:22
 msgid "Fichier keybindings.json"
-msgstr ""
+msgstr "keybindings.json file"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:27
 msgid "La configuration des racourcis claviers avec ce fichier permet de:"
-msgstr ""
+msgstr "Configuring keyboard shortcuts with this file allows you to:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:29
 msgid ""
@@ -70,30 +79,38 @@ msgid ""
 "lettre ``q`` sur un clavier AZERTY de francophone, cela permet de ne pas "
 "fermer l'éditeur par erreur en voulant par exemple:"
 msgstr ""
+"remove the ``Ctrl+q`` shortcut (lines 2-5) which is used by vscode to "
+"close the editor. The letters ``a``, ``z``, and ``s`` surrounding the "
+"letter ``q`` on a French AZERTY keyboard, this prevents accidentally "
+"closing the editor when trying to, for example:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:31
 msgid "taper ``Ctrl+a`` pour sélectionner tout le texte ou"
-msgstr ""
+msgstr "type ``Ctrl+a`` to select all the text or"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:32
 msgid "taper ``Ctrl+z`` pour annuler une action ou"
-msgstr ""
+msgstr "type ``Ctrl+z`` to undo an action or"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:33
 msgid "taper ``Ctrl+s`` pour sauvegarder le fichier."
-msgstr ""
+msgstr "type ``Ctrl+s`` to save the file."
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:35
 msgid ""
 "supprimer un bug lié à l'extension esbonio permettant d'afficher la "
 "documentation sphinx dans vscode (lignes 6-9)."
 msgstr ""
+"fix a bug related to the esbonio extension that allows displaying sphinx "
+"documentation in vscode (lines 6-9)."
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:37
 msgid ""
 "Recharger vscode pour prendre en compte ces changements en tapant "
 "``Ctrl+Shift+P`` puis en tapant ``Developer: Reload Window``."
 msgstr ""
+"Reload vscode to apply these changes by typing ``Ctrl+Shift+P`` and then "
+"typing ``Developer: Reload Window``."
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:39
 msgid ""
@@ -105,10 +122,16 @@ msgid ""
 "définir des profils et de les utiliser en fonction du projet ou de "
 "l'environnement de travail."
 msgstr ""
+"The keyboard shortcuts file is not located in the project directory but in"
+" the global vscode configuration settings directory for the current user "
+"because these settings are considered by vscode as regional and/or user-"
+"specific settings. It is possible to use an extension that allows "
+"defining profiles and using them depending on the project or work "
+"environment."
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:44
 msgid "Configurer un projet vscode ROS2"
-msgstr ""
+msgstr "Configure a ROS2 vscode project"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:46
 msgid ""
@@ -116,6 +139,9 @@ msgid ""
 "que l'éditeur soit adapté à ROS2 et de manière plus générale, avoir "
 "certains settings pour une meilleure productivité."
 msgstr ""
+"For a project with vscode, certain settings need to be configured so that "
+"the editor is adapted to ROS2 and, more generally, to have certain "
+"settings for better productivity."
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:48
 msgid ""
@@ -123,14 +149,17 @@ msgid ""
 " la racine du projet et y ajouter un fichier ``settings.json`` avec le "
 "contenu suivant:"
 msgstr ""
+"To do this, in a new project, you need to create a ``.vscode`` folder at "
+"the root of the project and add a ``settings.json`` file with the "
+"following content:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:50
 msgid "Fichier settings.json"
-msgstr ""
+msgstr "settings.json file"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:55
 msgid "Les options de ce fichier permettent:"
-msgstr ""
+msgstr "The options in this file allow:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:57
 msgid ""
@@ -139,6 +168,10 @@ msgid ""
 "Cela est particulièrement utile pour les languages où l'indentation a un "
 "sens pour le compilateur comme le python, restructuredText, yaml, etc."
 msgstr ""
+"to format files on each save with automatic formatting tools and also "
+"during copy-paste operations (lines 2-4). This is particularly useful for "
+"languages where indentation has meaning for the compiler, such as Python, "
+"reStructuredText, YAML, etc."
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:58
 msgid ""
@@ -147,6 +180,9 @@ msgid ""
 "mais pas dans le fichier (lignes 5). Cela se voit car le numéro de ligne "
 "ne change pas à gauche."
 msgstr ""
+"to ensure that the code is always fully visible even when the window is "
+"too small by wrapping lines in the editor but not in the file (lines 5). "
+"This is noticeable because the line number does not change on the left."
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:59
 msgid ""
@@ -154,6 +190,9 @@ msgid ""
 "en restructuredText (.rst, le format des fichiers de documentation sphinx"
 " de ce cours) (lignes 13-15)."
 msgstr ""
+"to ensure that indentation is always done with spaces in reStructuredText "
+"(.rst, the format of sphinx documentation files in this course) (lines "
+"13-15)."
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:60
 msgid ""
@@ -161,16 +200,21 @@ msgid ""
 "conclure à des erreurs pour certains setups de compilation, notamment "
 "dans la programmation embarquée."
 msgstr ""
+"to not rearrange the order of includes in C/C++ (line 6), which can lead "
+"to errors for certain compilation setups, especially in embedded "
+"programming."
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:61
 msgid ""
 "d'ignorer l'erreur E402 en python pour pouvoir importer des modules "
 "n'importe où dans le code (lignes 7-10)"
 msgstr ""
+"to ignore the E402 error in Python to allow importing modules anywhere in "
+"the code (lines 7-10)"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:62
 msgid "d'augmenter la taille de l'historique du terminal (ligne 11)"
-msgstr ""
+msgstr "to increase the terminal history size (line 11)"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:63
 msgid ""
@@ -180,212 +224,222 @@ msgid ""
 "compilation. Cela permet d'avoir en simultané le fichier de log ou "
 "d'erreur et le fichier de code ouvert dans l'éditeur."
 msgstr ""
+"to keep the files viewed open in the editor when they have been opened by "
+"preview actions (line 12), such as when viewing a line related to an "
+"error in a log or compilation process. This allows having both the log or"
+" error file and the code file open simultaneously in the editor."
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:67
 msgid "Tests"
-msgstr ""
+msgstr "Tests"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:69
 msgid "Pour ouvrir le répertoire courant avec vscode:"
-msgstr ""
+msgstr "To open the current directory with vscode:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:77
 msgid "Installation des extensions vscode"
-msgstr ""
+msgstr "Installation of vscode extensions"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:79
 msgid "Dans vscode vous allez cliquer sur l'icone"
-msgstr ""
+msgstr "In vscode, you will click on the icon"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:85
 msgid "Clickez sur l'icone Extensions"
-msgstr ""
+msgstr "Click on the Extensions icon"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:87
 msgid ""
 "Et vous allez installer les extensions suivantes qui seront très utile "
 "pour le cours:"
 msgstr ""
+"And you will install the following extensions which will be very useful "
+"for the course:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:90
 msgid "Édition de code:"
-msgstr ""
+msgstr "Code editing:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:91
 msgid "Gremlins tracker par Nicolas Hoizey"
-msgstr ""
+msgstr "Gremlins tracker by Nicolas Hoizey"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:93
 msgid "ID: nhoizey.gremlins"
-msgstr ""
+msgstr "ID: nhoizey.gremlins"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:94
 msgid ""
 "permet de voir tous les charactères invisibles dans le code qui peuvent "
 "nous pourrir la vie"
 msgstr ""
+"allows you to see all invisible characters in the code that can ruin our "
+"lives"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:97
 msgid "git:"
-msgstr ""
+msgstr "git:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:98
 msgid "Git Graph par mhutchie"
-msgstr ""
+msgstr "Git Graph by mhutchie"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:100
 msgid "ID: mhutchie.git-graph"
-msgstr ""
+msgstr "ID: mhutchie.git-graph"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:103
 msgid "python:"
-msgstr ""
+msgstr "python:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:104
 msgid "Python par microsoft"
-msgstr ""
+msgstr "Python by microsoft"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:106
 msgid "ID: ms-python.python"
-msgstr ""
+msgstr "ID: ms-python.python"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:107
 msgid "Python Debugger par microsoft"
-msgstr ""
+msgstr "Python Debugger by microsoft"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:109
 msgid "ID: ms-python.debugpy"
-msgstr ""
+msgstr "ID: ms-python.debugpy"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:112
 msgid "Documentation:"
-msgstr ""
+msgstr "Documentation:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:113
 msgid "Esbonio par Swyddfa"
-msgstr ""
+msgstr "Esbonio by Swyddfa"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:115
 msgid "ID: swyddfa.Esbonio"
-msgstr ""
+msgstr "ID: swyddfa.Esbonio"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:119
 msgid "c/c++/ embarqué:"
-msgstr ""
+msgstr "c/c++/ embedded:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:120
 msgid "C/C++ par microsoft"
-msgstr ""
+msgstr "C/C++ by microsoft"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:122
 msgid "ID: ms-vscode.cpptools"
-msgstr ""
+msgstr "ID: ms-vscode.cpptools"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:124
 msgid "GDB Debugger - Beyond par coolchyni"
-msgstr ""
+msgstr "GDB Debugger - Beyond by coolchyni"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:126
 msgid "ID: coolchyni.beyond-debug"
-msgstr ""
+msgstr "ID: coolchyni.beyond-debug"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:128
 msgid "vscode-valgrind par krosf"
-msgstr ""
+msgstr "vscode-valgrind by krosf"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:130
 msgid "ID: krosf.vscode-valgrind"
-msgstr ""
+msgstr "ID: krosf.vscode-valgrind"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:132
 msgid "CMake Tools par microsoft"
-msgstr ""
+msgstr "CMake Tools by microsoft"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:134
 msgid "ID: ms-vscode.cmake-tools"
-msgstr ""
+msgstr "ID: ms-vscode.cmake-tools"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:136
 msgid "Debug Visualizer par Henning Dieterichs"
-msgstr ""
+msgstr "Debug Visualizer by Henning Dieterichs"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:138
 msgid "ID: hediet.debug-visualizer"
-msgstr ""
+msgstr "ID: hediet.debug-visualizer"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:140
 msgid "Hex Array Formatter par AloyseTech"
-msgstr ""
+msgstr "Hex Array Formatter by AloyseTech"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:142
 msgid "ID: AloyseTech.hex-array-formatter"
-msgstr ""
+msgstr "ID: AloyseTech.hex-array-formatter"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:146
 msgid "ROS2:"
-msgstr ""
+msgstr "ROS2:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:147
 msgid "Uncrustify par Zachary Flower"
-msgstr ""
+msgstr "Uncrustify by Zachary Flower"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:149
 msgid "ID: zachflower.uncrustify"
-msgstr ""
+msgstr "ID: zachflower.uncrustify"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:150
 msgid "permet de bien formatter des fichiers ROS2"
-msgstr ""
+msgstr "allows proper formatting of ROS2 files"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:152
 msgid "ROS2 par nonanonno"
-msgstr ""
+msgstr "ROS2 by nonanonno"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:154
 msgid "ID: nonanonno.vscode-ros2"
-msgstr ""
+msgstr "ID: nonanonno.vscode-ros2"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:155
 msgid "permet de la coloration syntaxique pour les fichiers ROS2"
-msgstr ""
+msgstr "enables syntax highlighting for ROS2 files"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:157
 msgid "ROS2 par JaehyunShim"
-msgstr ""
+msgstr "ROS2 by JaehyunShim"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:159
 msgid "ID: jaehyunshim.vscode-ros2"
-msgstr ""
+msgstr "ID: jaehyunshim.vscode-ros2"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:160
 msgid ""
 "permet d'utiliser des pattern de code ROS2 et de les ajouter dans son "
 "code rapidement"
 msgstr ""
+"allows using ROS2 code patterns and quickly adding them to your code"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:162
 msgid "ROS 2 Ament Task Provider par Allison Thackston"
-msgstr ""
+msgstr "ROS 2 Ament Task Provider by Allison Thackston"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:164
 msgid "ID: althack.ament-task-provider"
-msgstr ""
+msgstr "ID: althack.ament-task-provider"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:165
 msgid ""
 "ajoute des tâches automatiques notamment pour tester le formattage des "
 "fichiers ROS2"
 msgstr ""
+"adds automatic tasks, particularly for testing the formatting of ROS2 "
+"files"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:168
 msgid "Assistant IA:"
-msgstr ""
+msgstr "AI Assistant:"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:169
 msgid "GitHub Copilot par github"
-msgstr ""
+msgstr "GitHub Copilot by github"
 
 #: ../../source/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst:171
 msgid "ID: GitHub.copilot"
-msgstr ""
-
+msgstr "ID: GitHub.copilot"
