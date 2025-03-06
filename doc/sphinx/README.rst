@@ -12,7 +12,9 @@ First time for translation setup
     make gettext
 
     # Update gettext files
-    sphinx-intl update -p build/gettext -l en
+    # sphinx-intl update -p build/gettext -l en
+    sphinx-build -b gettext source build/gettext
+    sphinx-intl update -p build/gettext -d source/locales
 
 Then you have to add the translations in the `source/locales/en_US/LC_MESSAGES/*.po` files.
 Then you can build the html files with the following command corresponding to the language you want to build.
