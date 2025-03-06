@@ -101,6 +101,9 @@ copybutton_prompt_is_regexp = True
 locale_dirs = ['locales']
 gettext_compact = False  # Ensure separate folders for each language
 
+# Tell Sphinx to look for e.g. slide002_tree_graph.en.png or slide002_tree_graph.fr.png
+figure_language_filename = '{root}.{language}{ext}'
+
 import sphinx,os
 from pathlib import Path
 

@@ -40,9 +40,9 @@ Avec ROS_DOMAIN_ID défini, vous pouvez exécuter votre fichier de lancement ROS
 
 .. code-block:: bash
 
-    ros2 launch <nom_du_paquet> <nom_du_fichier_de_lancement>
+    ros2 launch <package_name> <launch_file_name>
 
-Remplacez <nom_du_paquet> par le nom de votre paquet et <nom_du_fichier_de_lancement> par le nom de votre fichier de lancement.
+Remplacez <package_name> par le nom de votre paquet et <launch_file_name> par le nom de votre fichier de lancement.
 
 En définissant ROS_DOMAIN_ID avant d'exécuter le fichier de lancement, tous les nœuds initiés par ce fichier fonctionneront dans le domaine spécifié, assurant leur communication avec d'autres nœuds du même domaine.
 

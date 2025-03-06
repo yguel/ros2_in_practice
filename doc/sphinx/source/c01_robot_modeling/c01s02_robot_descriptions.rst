@@ -47,7 +47,7 @@ Chaînes cinématiques
 
 Le passage du repère d'un segment à un autre suite à la transformation appliquée par l'articulation reliant les 2 segment constitue la transformation cinématique élémentaire de la chaîne cinématique du robot.
 
-.. figure:: resources/img/kinematic_chain/slide002_tree_graph.fr.svg
+.. figure:: resources/img/kinematic_chain/slide002_tree_graph.svg
    :name: fig_robot_modeling_slide002
    :align: center
    :height: 600px

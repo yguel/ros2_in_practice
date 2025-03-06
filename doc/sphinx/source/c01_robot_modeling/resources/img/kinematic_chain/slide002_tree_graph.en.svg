@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   sodipodi:docname="slide002_tree_graph.en_US.svg"
+   sodipodi:docname="slide002_tree_graph.en.svg"
    id="svg1423"
    version="1.1"
    viewBox="0 0 297 210"
@@ -32,7 +32,7 @@
      inkscape:cy="444.46712"
      inkscape:window-width="1920"
      inkscape:window-height="1043"
-     inkscape:window-x="1920"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="g14943" />
@@ -800,18 +800,30 @@
        transform="translate(0,22.225008)">
       <text
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;-inkscape-font-specification:'sans-serif, Normal';font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
          x="122.79913"
          y="166.38054"
          id="text41356-1"><tspan
+		   sodipodi:role="line"
+           style="font-size:7.05556px;stroke-width:0.264583"
+           x="122.79913"
+           y="166.38054"
+           id="tspan78055">Kinematic chain from the pelvis L1_link (        )</tspan><tspan
            sodipodi:role="line"
-           id="tspan30058">Kinematic chain from the pelvis L1_link (        ) </tspan><tspan
+           style="font-size:7.05556px;stroke-width:0.264583"
+           x="122.79913"
+           y="175.19998"
+           id="tspan12407">to both feet (right foot: L5_R_link and</tspan><tspan
            sodipodi:role="line"
-           id="tspan30060">to both feet (right foot: L5_R_link and</tspan><tspan
+           style="font-size:7.05556px;stroke-width:0.264583"
+           x="122.79913"
+           y="184.01944"
+           id="tspan22617">left foot: L5_L_link)</tspan><tspan
            sodipodi:role="line"
-           id="tspan30062">left foot: L5_L_link)</tspan><tspan
-           sodipodi:role="line"
-           id="tspan30064"></tspan></text>
+           style="font-size:7.05556px;stroke-width:0.264583"
+           x="122.79913"
+           y="192.83888"
+           id="tspan41358-2" /></text>
       <g
          inkscape:label=""
          transform="translate(175.0712,84.741753)"
