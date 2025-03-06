@@ -12,13 +12,13 @@ First time for translation setup
     make gettext
 
     # Update gettext files
-    sphinx-intl update -p build/gettext -l en_US
+    sphinx-intl update -p build/gettext -l en
 
 Then you have to add the translations in the `source/locales/en_US/LC_MESSAGES/*.po` files.
 Then you can build the html files with the following command corresponding to the language you want to build.
 
 .. code-block:: bash
    
-    # Build html files for the language en_US in html/en_US
+    # Build html files for the language en in html/en
     sphinx-build -b html -D language=fr ./source ./build/html/humble/fr
-    sphinx-build -b html -D language=en_US ./source ./build/html/humble/en_US
+    sphinx-build -b html -D language=en ./source ./build/html/humble/en

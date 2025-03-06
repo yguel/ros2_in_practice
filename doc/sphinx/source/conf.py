@@ -113,13 +113,13 @@ html_context = {
       #["jazzy", None]
     ],
   'languages': [
-      ["en", "en_US"], 
+      ["en", "en"], 
       ["fr", "fr"]
     ]
 }
 
 LANG_MAP = {
-    'en_US': 'en',
+    'en': 'en',
     'fr': 'fr'
 }
 
