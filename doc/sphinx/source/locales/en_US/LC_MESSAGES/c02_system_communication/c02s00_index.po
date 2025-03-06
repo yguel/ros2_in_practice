@@ -19,5 +19,5 @@ msgstr ""
 
 #: ../../source/c02_system_communication/c02s00_index.rst:3
 msgid "Communication"
-msgstr ""
+msgstr "Communication"
 

@@ -19,5 +19,5 @@ msgstr ""
 
 #: ../../source/c99_appendix/c99s50_bibliography.rst:3
 msgid "Bibliographie"
-msgstr ""
+msgstr "Bibliography"
 

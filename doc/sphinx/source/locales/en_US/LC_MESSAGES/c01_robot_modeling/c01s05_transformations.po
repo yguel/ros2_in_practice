@@ -19,5 +19,5 @@ msgstr ""
 
 #: ../../source/c01_robot_modeling/c01s05_transformations.rst:3
 msgid "Transformations de repères avec ROS2"
-msgstr ""
+msgstr "Reference frame transformations with ROS2"
 

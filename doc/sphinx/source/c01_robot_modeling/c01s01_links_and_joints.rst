@@ -15,7 +15,7 @@ On sépare un modèle de robot rigide en 2 catégories de parties :
 Entre 2 segments (notés L sur la :numref:`fig_robot_modeling_slide001`)
 , on a toujours une articulation (notées par des pastilles jaunes, sur la :numref:`fig_robot_modeling_slide001`).
 
-.. figure:: resources/img/kinematic_chain/slide001_kinematics_model_fr.svg
+.. figure:: resources/img/kinematic_chain/slide001_kinematics_model.fr.svg
    :name: fig_robot_modeling_slide001
    :align: center
    :height: 600px

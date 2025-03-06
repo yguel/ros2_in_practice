@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../source/c01_robot_modeling/c01s06_sdf.rst:3
 msgid "Robots parallèles"
-msgstr ""
+msgstr "Parallel robots"
 
 #: ../../source/c01_robot_modeling/c01s06_sdf.rst:5
 msgid ""
@@ -28,6 +28,9 @@ msgid ""
 "Cela rajoute une ou plusieurs contraintes aux mouvements possibles pour "
 "le segment."
 msgstr ""
+"For a parallel robot, there are closed kinematic chains. Thus a segment "
+"can have 2 joints as parents. This adds one or more constraints to the"
+" possible movements for the segment."
 
 #: ../../source/c01_robot_modeling/c01s06_sdf.rst:9
 msgid ""
@@ -35,22 +38,28 @@ msgid ""
 "transformations associées à chaque articulation qui conduisent au segment"
 " pour connaître sa position."
 msgstr ""
+"It is therefore no longer a question of iteratively applying the "
+"transformations associated with each joint that lead to the segment to "
+"know its position."
 
 #: ../../source/c01_robot_modeling/c01s06_sdf.rst:11
 msgid ""
 "La description URDF, qui n'accepte que des arbres cinématique n'est donc "
 "pas adaptée à cette représentation."
 msgstr ""
+"The URDF description, which only accepts kinematic trees, is therefore "
+"not suitable for this representation."
 
 #: ../../source/c01_robot_modeling/c01s06_sdf.rst:13
 msgid ""
 "ROS2 et RVIZ ne permettent pas de gérer directement les chaînes "
 "cinématiques fermées."
 msgstr ""
+"ROS2 and RVIZ do not directly manage closed kinematic chains."
 
 #: ../../source/c01_robot_modeling/c01s06_sdf.rst:17
 msgid "Afficher dans RVIZ"
-msgstr ""
+msgstr "Display with RVIZ"
 
 #: ../../source/c01_robot_modeling/c01s06_sdf.rst:19
 msgid ""
@@ -58,6 +67,8 @@ msgid ""
 "chaînes cinématiques fermées sont représentées par des chaînes "
 "cinématiques ouvertes."
 msgstr ""
+"To display in RVIZ, you must use a URDF format in which closed kinematic "
+"chains are represented by open kinematic chains."
 
 #: ../../source/c01_robot_modeling/c01s06_sdf.rst:21
 msgid ""
@@ -65,16 +76,21 @@ msgid ""
 "segments en fonction des articulations en prenant en compte les "
 "contraintes de fermeture."
 msgstr ""
+"And you have to use code that allows you to calculate the positions of "
+"the segments according to the joints taking into account the closure "
+"constraints."
 
 #: ../../source/c01_robot_modeling/c01s06_sdf.rst:26
 msgid "Représentation SDF"
-msgstr ""
+msgstr "SDF representation"
 
 #: ../../source/c01_robot_modeling/c01s06_sdf.rst:28
 msgid ""
 "Il existe une solution qui permet de faire automatiquement les calculs de"
 " contraintes liées aux chaînes fermées en utilisant Gazebo comme solveur."
 msgstr ""
+"There is a solution that allows you to automatically make the calculations"
+" of constraints related to closed chains using Gazebo as a solver."
 
 #: ../../source/c01_robot_modeling/c01s06_sdf.rst:30
 msgid ""
@@ -82,4 +98,7 @@ msgid ""
 "général, le format SDF, utilisé par Gazebo et qui prend en compte les "
 "chaînes cinématiques fermées."
 msgstr ""
+"The solution is to go through a more general robot description format, the"
+" SDF format, used by Gazebo and which takes into account closed kinematic"
+" chains."
 

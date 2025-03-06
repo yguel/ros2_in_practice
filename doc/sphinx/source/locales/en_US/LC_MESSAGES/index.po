@@ -22,9 +22,9 @@ msgstr ""
 
 #: ../../source/index.rst:6
 msgid "ROS2 par la pratique"
-msgstr ""
+msgstr "ROS2 in practice"
 
 #: ../../source/index.rst:3
 msgid "Table des matières"
-msgstr ""
+msgstr "Table of Contents"
 

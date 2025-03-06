@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:3
 msgid "DOMAINS"
-msgstr ""
+msgstr "DOMAINS"
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:9
 msgid "Les domaines en bref"
-msgstr ""
+msgstr "Domains in Brief"
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:11
 msgid ""
@@ -38,16 +38,26 @@ msgid ""
 "le même réseau, un ID de domaine différent doit être défini pour chaque "
 "groupe."
 msgstr ""
+"As explained in the previous section, the default middleware used by ROS "
+"2 for communication is DDS. In DDS, the main mechanism allowing different "
+"logical networks to share a physical network is called the domain ID. ROS "
+"2 nodes on the same domain can discover and send messages to each other "
+"freely, while ROS 2 nodes on different domains cannot. All ROS 2 nodes "
+"default to domain ID 0. To avoid interference between different groups of "
+"computers running ROS 2 on the same network, a different domain ID must be "
+"set for each group."
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:17
 msgid "Choisir un ID de domaine"
-msgstr ""
+msgstr "Choosing a Domain ID"
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:19
 msgid ""
 "Pour simplement choisir un ID de domain sûr, sélectionnez un ID de "
 "domaine entre ``0`` et ``101`` inclusivement."
 msgstr ""
+"To simply choose a safe domain ID, select a domain ID between ``0`` and "
+"``101`` inclusively."
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:21
 msgid ""
@@ -56,10 +66,14 @@ msgid ""
 "<https://docs.ros.org/en/rolling/Concepts/Intermediate/About-Domain-"
 "ID.html>`_."
 msgstr ""
+"For detailed explanations on the range of domain IDs to use in ROS 2, "
+"please `refer to the official ROS 2 documentation "
+"<https://docs.ros.org/en/rolling/Concepts/Intermediate/About-Domain-"
+"ID.html>`_."
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:27
 msgid "Utiliser un DOMAIN ID en pratique"
-msgstr ""
+msgstr "Using a DOMAIN ID in Practice"
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:29
 msgid ""
@@ -67,28 +81,36 @@ msgid ""
 "dans ROS 2, vous pouvez définir la variable d'environnement ROS_DOMAIN_ID"
 " dans votre session terminal."
 msgstr ""
+"To set the domain ID before running a launch file in ROS 2, you can set "
+"the ROS_DOMAIN_ID environment variable in your terminal session."
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:31
 msgid ""
 "Ouvrez votre terminal et définissez la variable d'environnement "
 "ROS_DOMAIN_ID avec la valeur souhaitée (par exemple, 42) :"
 msgstr ""
+"Open your terminal and set the ROS_DOMAIN_ID environment variable to the "
+"desired value (e.g., 42):"
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:37
 msgid "Cette commande configure ROS_DOMAIN_ID pour la session terminal en cours."
 msgstr ""
+"This command sets ROS_DOMAIN_ID for the current terminal session."
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:39
 msgid ""
 "Avec ROS_DOMAIN_ID défini, vous pouvez exécuter votre fichier de "
 "lancement ROS 2 :"
 msgstr ""
+"With ROS_DOMAIN_ID set, you can run your ROS 2 launch file:"
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:45
 msgid ""
 "Remplacez <nom_du_paquet> par le nom de votre paquet et "
 "<nom_du_fichier_de_lancement> par le nom de votre fichier de lancement."
 msgstr ""
+"Replace <package_name> with your package name and <launch_file_name> with "
+"your launch file name."
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:47
 msgid ""
@@ -97,10 +119,14 @@ msgid ""
 "spécifié, assurant leur communication avec d'autres nœuds du même "
 "domaine."
 msgstr ""
+"By setting ROS_DOMAIN_ID before running the launch file, all nodes "
+"initiated by this file will operate in the specified domain, ensuring "
+"their communication with other nodes in the same domain."
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:49
 msgid ""
 "Pour faire en sorte que le ROS_DOMAIN_ID soit persistant il est possible "
 "de l'ajouter dans le fichier .bashrc ou .zshrc de votre utilisateur."
 msgstr ""
-
+"To make ROS_DOMAIN_ID persistent, it can be added to your user's .bashrc "
+"or .zshrc file."

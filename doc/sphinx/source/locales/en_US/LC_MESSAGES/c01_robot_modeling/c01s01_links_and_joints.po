@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:3
 msgid "Modéliser la géométrie d'un robot rigide avec URDF et SDF"
-msgstr ""
+msgstr "Modeling the geometry of a rigid robot with URDF and SDF"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:5
 msgid ""
@@ -29,22 +29,30 @@ msgid ""
 "exemple un système dont 2 parties rigides seraient reliées par un "
 "élastique."
 msgstr ""
+"Here we only consider rigid robots, that is, a system composed of rigid "
+"parts that move relative to each other. Therefore, we exclude robots with "
+"flexible parts such as a system where 2 rigid parts are connected by an "
+"elastic band."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:10
 msgid "On sépare un modèle de robot rigide en 2 catégories de parties :"
-msgstr ""
+msgstr "A rigid robot model is divided into 2 categories of parts:"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:12
 msgid ""
 "les ``segments`` (``link`` en anglais) qui correspondent aux parties "
 "rigides du robot et"
 msgstr ""
+"the ``segments`` (``link`` in English) which correspond to the rigid parts "
+"of the robot and"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:13
 msgid ""
 "les articulations (``joint`` en anglais) qui correspondent aux mouvements"
 " possibles entre deux parties rigides."
 msgstr ""
+"the joints (``joint`` in English) which correspond to the possible movements "
+"between two rigid parts."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:15
 msgid ""
@@ -52,12 +60,17 @@ msgid ""
 " on a toujours une articulation (notées par des pastilles jaunes, sur la "
 ":numref:`fig_robot_modeling_slide001`)."
 msgstr ""
+"Between 2 segments (noted L on the :numref:`fig_robot_modeling_slide001`), "
+"there is always a joint (noted by yellow dots, on the "
+":numref:`fig_robot_modeling_slide001`)."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:23
 msgid ""
 "Modéle géométrique de la cinématique d'un robot rigide (source: "
 ":cite:`Ali2010_closed_form_inverse_kinematic_joint_solution_for_humanoid_robots`)"
 msgstr ""
+"Geometric model of the kinematics of a rigid robot (source: "
+":cite:`Ali2010_closed_form_inverse_kinematic_joint_solution_for_humanoid_robots`)"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:25
 msgid ""
@@ -68,40 +81,47 @@ msgid ""
 "cause de la proximité avec le mot ``link`` nous préférons utiliser le mot"
 " ``articulation``."
 msgstr ""
+"We can also find the word ``liaison`` for a joint in reference to mechanical "
+"connections (sliding connection, pivot, etc. cf. "
+"`the 12 types of mechanical connections "
+"<https://fr.wikipedia.org/wiki/Liaison_(m%C3%A9canique)>`_) however, due to "
+"the proximity with the word ``link``, we prefer to use the word ``joint``."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:27
 msgid ""
 "D'un point de vue cinématique, on utilise le plus courament 3 types "
 "d'articulations parmi les 12 types de liaisons mécaniques :"
 msgstr ""
+"From a kinematic point of view, we most commonly use 3 types of joints among "
+"the 12 types of mechanical connections:"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:44
 msgid "Glissière"
-msgstr ""
+msgstr "Prismatic joint"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst
 msgid "(``prismatic joint`` en anglais)"
-msgstr ""
+msgstr "(``prismatic joint`` in English)"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:61
 msgid "Pivot d'axe"
-msgstr ""
+msgstr "Revolute joint"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst
 msgid "(``revolute joint`` en anglais)"
-msgstr ""
+msgstr "(``revolute joint`` in English)"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:78
 msgid "Encastrement"
-msgstr ""
+msgstr "Fixed or rigid joint"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst
 msgid "(``fixed or rigid joint`` en anglais)"
-msgstr ""
+msgstr "(``fixed or rigid joint`` in English)"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:89
 msgid "Symboles 2D des articulations les plus courantes pour un robot"
-msgstr ""
+msgstr "2D symbols of the most common joints for a robot"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:91
 msgid ""
@@ -109,6 +129,9 @@ msgid ""
 "l'espace de chaque segment du robot au cours du temps en prenant en "
 "compte les mouvements faits par les articulations."
 msgstr ""
+"The goal of the geometric model is to be able to describe the position in "
+"space of each segment of the robot over time, taking into account the "
+"movements made by the joints."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:94
 msgid ""
@@ -116,10 +139,12 @@ msgid ""
 "parties du modèle qui peuvent présenter les écarts les plus importants "
 "avec la réalité."
 msgstr ""
+"As a modeling task, it is critical to identify the parts of the model that "
+"may present the most significant deviations from reality."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:99
 msgid "Segments"
-msgstr ""
+msgstr "Segments"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:101
 msgid ""
@@ -128,12 +153,18 @@ msgid ""
 " ou `B-Rep <https://fr.wikipedia.org/wiki/B-Rep>`_) et son échelle. Ses "
 "surfaces peuvent être fournies de manière :"
 msgstr ""
+"A segment is a rigid part of the robot, that is, a solid. It is defined by "
+"its geometry, that is, its surfaces (Boundary Representation or "
+"`B-Rep <https://fr.wikipedia.org/wiki/B-Rep>`_) and its scale. Its surfaces "
+"can be provided in the following ways:"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:105
 msgid ""
 "implicite: zéros d'équations mathématiques. Par exemple pour une sphère "
 ":math:`f(x, y, z) = x^2+y^2+z^2-r^2 = 0`."
 msgstr ""
+"implicit: zeros of mathematical equations. For example, for a sphere "
+":math:`f(x, y, z) = x^2+y^2+z^2-r^2 = 0`."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:106
 msgid ""
@@ -141,24 +172,32 @@ msgid ""
 ":math:`(x, y, z) = (r \\cos(\\theta) \\sin(\\phi), r \\sin(\\theta) "
 "\\sin(\\phi), r \\cos(\\phi))`."
 msgstr ""
+"analytic: by the equations of the surfaces. For example, for a sphere: "
+":math:`(x, y, z) = (r \\cos(\\theta) \\sin(\\phi), r \\sin(\\theta) "
+"\\sin(\\phi), r \\cos(\\phi))`."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:107
 msgid ""
 "discrétisée: par un maillage constitué de polygones, ou de paramètres de "
 "méthodes constructives comme des B-splines, surfaces de Bézier ou NURBS."
 msgstr ""
+"discretized: by a mesh consisting of polygons, or by parameters of "
+"constructive methods such as B-splines, Bézier surfaces, or NURBS."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:109
 msgid ""
 "Une combinaison des 3 types de représentations est possible pour "
 "représenter un segment."
 msgstr ""
+"A combination of the 3 types of representations is possible to represent a "
+"segment."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:111
 msgid ""
 "Il y a plusieurs types d'approximations dans la modélisation d'un segment"
 " :"
 msgstr ""
+"There are several types of approximations in the modeling of a segment:"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:113
 msgid ""
@@ -166,6 +205,8 @@ msgid ""
 " cause du processus de fabrication de ce dernier et des tolérances de "
 "fabrication."
 msgstr ""
+"the modeled geometry is different from the actual geometry of the segment "
+"due to the manufacturing process of the latter and manufacturing tolerances."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:114
 msgid ""
@@ -175,26 +216,34 @@ msgid ""
 "fabrication (par exemple un cylindre discrétisé, alors que la pièce a été"
 " réalisée avec un tour)."
 msgstr ""
+"if the geometry is discretized, then the mesh density is an approximation of "
+"reality. In this case, it may be a scan of the segment but also a "
+"representation that differs from the manufacturing process (for example, a "
+"discretized cylinder, whereas the part was made with a lathe)."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:115
 msgid ""
 "la rigidité du segment est une approximation de la réalité. En effet "
 "aucune matière n'est parfaitement rigide."
 msgstr ""
+"the rigidity of the segment is an approximation of reality. Indeed, no "
+"material is perfectly rigid."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:117
 msgid "Dans ROS un segment peut être défini de 2 manières:"
-msgstr ""
+msgstr "In ROS, a segment can be defined in 2 ways:"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:119
 msgid "par une des 3 primitives géométriques : pavé droit, cylindre ou sphère"
-msgstr ""
+msgstr "by one of the 3 geometric primitives: box, cylinder, or sphere"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:120
 msgid ""
 "par un fichier de maillage au format `collada "
 "<https://www.khronos.org/collada/>`_ (fichier d'extension `.dae`)"
 msgstr ""
+"by a mesh file in `collada format "
+"<https://www.khronos.org/collada/>`_ (file with `.dae` extension)"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:122
 msgid ""
@@ -202,40 +251,48 @@ msgid ""
 "en fichier collada. De nombreux logiciels de CAO permettent d'exporter un"
 " modèle en fichier collada."
 msgstr ""
+"It is possible and easy to export a step or stl mesh file to a collada file. "
+"Many CAD software allow exporting a model to a collada file."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:125
 msgid ""
 "En particulier le logiciel libre `FreeCAD <https://www.freecadweb.org/>`_"
 " permet d'exporter un modèle en fichier collada."
 msgstr ""
+"In particular, the free software `FreeCAD <https://www.freecadweb.org/>`_ "
+"allows exporting a model to a collada file."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:130
 msgid "Procédure animée d'export avec Freecad version 0.21.2"
-msgstr ""
+msgstr "Animated export procedure with Freecad version 0.21.2"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:132
 msgid ""
 "En partant d'un modèle de robot complet au format step, on va chercher à "
 "exporter seulement un segment du robot."
 msgstr ""
+"Starting from a complete robot model in step format, we will try to export "
+"only one segment of the robot."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:134
 msgid ""
 ":download:`maquette-5-barres_asm.stp "
 "<resources/3d/maquette-5-barres_asm.stp>`"
 msgstr ""
+":download:`maquette-5-barres_asm.stp "
+"<resources/3d/maquette-5-barres_asm.stp>`"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:136
 msgid "Lancer freecad depuis un terminal:"
-msgstr ""
+msgstr "Launch freecad from a terminal:"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:146
 msgid "Vous pouvez télécharger le fichier collada généré:"
-msgstr ""
+msgstr "You can download the generated collada file:"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:148
 msgid ":download:`one_arm.dae <resources/3d/link1.dae>`"
-msgstr ""
+msgstr ":download:`one_arm.dae <resources/3d/link1.dae>`"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:151
 msgid ""
@@ -243,28 +300,34 @@ msgid ""
 " sûr la géométrie 3D du segment (en de nombreux formats BREP, y compris "
 "B-spline et NURBS), mais peut également contenir des informations:"
 msgstr ""
+"The collada format is very interesting because it is very complete. It "
+"contains, of course, the 3D geometry of the segment (in many BREP formats, "
+"including B-spline and NURBS), but it can also contain information:"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:154
 msgid "de couleur des surfaces,"
-msgstr ""
+msgstr "surface color,"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:155
 msgid "de transparence des volumes,"
-msgstr ""
+msgstr "volume transparency,"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:156
 msgid "de texture,"
-msgstr ""
+msgstr "texture,"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:157
 msgid "matériaux par face,"
-msgstr ""
+msgstr "materials per face,"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:158
 msgid ""
 "pofiles de matériaux avec des paramètres de Phong, Lambert pour les "
 "équations d'éclairage,"
 msgstr ""
+"material profiles with Phong, Lambert parameters for lighting equations,"
+
+
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:159
 msgid ""
@@ -340,4 +403,19 @@ msgid ""
 "encastrement par une articulation permet d'obtenir un modéle du robot "
 "adaptable et donc fidèle au cours du temps."
 msgstr ""
-
+"From a practical point of view, one might wonder why not have a single "
+"segment composed of the union of the 2 segments involved in the fixed "
+"joint rather than a joint since the relative movement is zero. This "
+"joint is fundamental because it serves to model a rigid assembly of "
+"distinct segments. |br| However, we know that our model is only an "
+"approximation and in particular that the available information on the "
+"assembly (the relative position of one segment to another) can be both "
+"imprecise and variable over time. Therefore, it is essential to be able"
+" to modify the relative position of the segments to account for these "
+"inaccuracies using calibration procedures. |br| In particular, if the "
+"assembly is subjected to mechanical stress, it is useful to have the "
+"ability to change the relative position of the assembly to account for "
+"deformations related to this stress. Thus, if we are able to perform "
+"dynamic tracking of the relative position of the segments, representing the"
+" fixed joint by a joint allows us to obtain an adaptable and therefore "
+"faithful model of the robot over time."

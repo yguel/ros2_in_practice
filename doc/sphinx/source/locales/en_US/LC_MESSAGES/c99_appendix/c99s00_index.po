@@ -22,5 +22,5 @@ msgstr ""
 
 #: ../../source/c99_appendix/c99s00_index.rst:3
 msgid "Appendix"
-msgstr ""
+msgstr "Appendix"
 

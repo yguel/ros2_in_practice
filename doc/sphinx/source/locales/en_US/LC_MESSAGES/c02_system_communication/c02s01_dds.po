@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:3
 msgid "DDS"
-msgstr ""
+msgstr "DDS"
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:10
 msgid ""
@@ -29,34 +29,45 @@ msgid ""
 " sur le réseau, la gestion de la qualité de service (QoS) et le transport"
 " des messages."
 msgstr ""
+"The Data Distribution Service (DDS) is at the heart of the ROS2 "
+"architecture for managing communication between nodes. |br| DDS ensures: "
+"automatic discovery of publishers and subscribers on the network, quality "
+"of service (QoS) management, and message transport."
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:13
 msgid ""
 "Grâce à DDS, les nœuds ROS2 peuvent échanger des données de manière "
 "fiable, sécurisée et en temps réel ou pseudo temps réel."
 msgstr ""
+"Thanks to DDS, ROS2 nodes can exchange data reliably, securely, and in "
+"real-time or pseudo real-time."
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:18
 msgid "Caractéristiques clés de DDS"
-msgstr ""
+msgstr "Key Features of DDS"
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:20
 msgid ""
 "Découverte automatique : Pas besoin de configurer manuellement les "
 "adresses IP ou les ports."
 msgstr ""
+"Automatic discovery: No need to manually configure IP addresses or ports."
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:21
 msgid ""
 "Qualité de service (QoS) : Permet de définir différents niveaux de "
 "fiabilité, durées de vie des messages, etc."
 msgstr ""
+"Quality of Service (QoS): Allows defining different levels of reliability, "
+"message lifetimes, etc."
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:22
 msgid ""
 "Pub/sub : Modèle d’abonnement-publication, les nœuds peuvent publier et "
 "s’abonner sur les mêmes topics sans se connaître directement."
 msgstr ""
+"Pub/sub: Subscription-publication model, nodes can publish and subscribe "
+"to the same topics without knowing each other directly."
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:23
 msgid ""
@@ -66,26 +77,30 @@ msgid ""
 "les deux modes de communication et en assurant à la fois une "
 "communication :"
 msgstr ""
+"DDS allows transparent and unified management of local IPC-based "
+"communication as well as network communication. DDS provides a single "
+"abstraction layer while ensuring compatibility between the two modes of "
+"communication and ensuring both a communication:"
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:25
 msgid "la plus temps réel possible,"
-msgstr ""
+msgstr "as real-time as possible,"
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:26
 msgid "fiable,"
-msgstr ""
+msgstr "reliable,"
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:27
 msgid "sécurisée."
-msgstr ""
+msgstr "secure."
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:39
 msgid "IPC et DDS"
-msgstr ""
+msgstr "IPC and DDS"
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:42
 msgid "Qu’est-ce qu’une IPC ?"
-msgstr ""
+msgstr "What is IPC?"
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:44
 msgid ""
@@ -99,10 +114,17 @@ msgid ""
 "essentiel dans des systèmes où le temps de réaction doit être le plus "
 "court possible (temps réel ou quasi temps réel)."
 msgstr ""
+"*Inter-Process Communication (IPC)* encompasses all mechanisms and "
+"protocols that allow multiple processes to exchange data and coordinate "
+"their actions on the same machine. Among the most common techniques are "
+"shared memory, pipes, sockets, and message queues. By leveraging these "
+"mechanisms, it is possible to achieve very good performance in terms of "
+"latency and throughput, which is essential in systems where reaction time "
+"must be as short as possible (real-time or quasi real-time)."
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:54
 msgid "Aspects clés de l’IPC"
-msgstr ""
+msgstr "Key Aspects of IPC"
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:56
 msgid ""
@@ -111,6 +133,10 @@ msgid ""
 "permettent une communication performante entre nœuds sur une même "
 "machine, sans l’overhead lié à la communication réseau."
 msgstr ""
+"**Efficient local communication**: IPC mechanisms such as shared memory, "
+"pipes, sockets, and message queues enable high-performance communication "
+"between nodes on the same machine, without the overhead associated with "
+"network communication."
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:61
 msgid ""
@@ -119,6 +145,9 @@ msgid ""
 "synchronisation) pour assurer une coordination et un traitement "
 "collaboratif entre différents composants ou processus."
 msgstr ""
+"**Resource sharing**: IPC offers the possibility to share resources (e.g., "
+"data buffers, synchronization primitives) to ensure coordination and "
+"collaborative processing between different components or processes."
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:65
 msgid ""
@@ -128,10 +157,14 @@ msgid ""
 "robotiques, notamment en contrôle temps réel ou pour le traitement rapide"
 " de données capteurs."
 msgstr ""
+"**Low latency**: By dispensing with network protocols, IPC solutions "
+"allow for low-latency transmissions, thus meeting the strict constraints "
+"of certain robotic applications, particularly in real-time control or for "
+"rapid sensor data processing."
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:71
 msgid "DDS arbitre entre IPC et protocoles réseau"
-msgstr ""
+msgstr "DDS arbitrates between IPC and network protocols"
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:73
 msgid ""
@@ -143,6 +176,12 @@ msgid ""
 " en conservant les mêmes principes de découverte automatique et de "
 "Qualité de Service (QoS)."
 msgstr ""
+"In the case of local communication (multiple nodes running on the same "
+"machine), DDS leverages IPC mechanisms to reduce latency and limit "
+"resource consumption. For communication across a distributed network, DDS "
+"relies on network protocols (TCP or UDP) to disseminate data between "
+"different systems, while maintaining the same principles of automatic "
+"discovery and Quality of Service (QoS)."
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:79
 msgid ""
@@ -150,10 +189,13 @@ msgid ""
 "rapide et efficace à l’échelle locale, tout en offrant simultanément une "
 "infrastructure robuste pour la communication réseau."
 msgstr ""
+"DDS leverages these IPC mechanisms to ensure fast and efficient data "
+"exchange at the local level, while simultaneously providing a robust "
+"infrastructure for network communication."
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:85
 msgid "Implémentations de DDS"
-msgstr ""
+msgstr "DDS Implementations"
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:87
 msgid ""
@@ -162,6 +204,10 @@ msgid ""
 "Implementation) afin de spécifier l’implémentation DDS à utiliser (par "
 "exemple : FastDDS (anciennement Fast-RTPS), CycloneDDS, Connext, etc.)."
 msgstr ""
+"To configure DDS in ROS2, you can set the environment variable "
+":code:`RMW_IMPLEMENTATION` (for ROS Middleware Implementation) to specify "
+"the DDS implementation to use (e.g., FastDDS (formerly Fast-RTPS), "
+"CycloneDDS, Connext, etc.)."
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:89
 msgid ""
@@ -169,10 +215,13 @@ msgid ""
 "<https://docs.ros.org/en/humble/How-To-Guides/Working-with-multiple-RMW-"
 "implementations.html>`_"
 msgstr ""
+"See the documentation: `working with different DDS "
+"<https://docs.ros.org/en/humble/How-To-Guides/Working-with-multiple-RMW-"
+"implementations.html>`_"
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:91
 msgid "Exemple :"
-msgstr ""
+msgstr "Example:"
 
 #: ../../source/c02_system_communication/c02s01_dds.rst:99
 msgid ""
@@ -181,4 +230,7 @@ msgid ""
 "fondation Eclipse au travers d'eProsima. Il est possible de choisir une "
 "autre implémentation si elle est installée sur le système."
 msgstr ""
-
+"By default, ROS2 uses the FastDDS implementation from eProsima. FastDDS "
+"is an open-source implementation of the DDS standard maintained by the "
+"Eclipse Foundation through eProsima. It is possible to choose another "
+"implementation if it is installed on the system."
