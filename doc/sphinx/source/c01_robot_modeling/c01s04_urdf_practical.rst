@@ -10,7 +10,7 @@ URDF par la pratique: le scanbot
    Robot Scanbot, le robot d'exemple non parallèle, et sa chaîne cinmématique.
 
 Pour pratiquer nous allons utiliser un robot simple, d'exemple, que nous avons appelé scanbot.
-Il se compose d'une partie en translation x,y,z, d'un bras vert capable de pivoter autour de l'axe x et d'un système à 3 degrées de liberté en rotation supportant une caméra à son orgnage terminal (voir la :numref:`fig_slide003_scanbot_kinematic_chain`).
+Il se compose d'une partie en translation x,y,z, d'un bras vert capable de pivoter autour de l'axe x et d'un système à 3 degrées de liberté en rotation supportant une caméra à son organe terminal (voir la :numref:`fig_slide003_scanbot_kinematic_chain`).
 
 ------------------------
 Maillages des segments

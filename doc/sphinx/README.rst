@@ -12,8 +12,9 @@ First time for translation setup
     make gettext
 
     # Update gettext files
-    # sphinx-intl update -p build/gettext -l en
     sphinx-build -b gettext source build/gettext
+
+    # Update all po files
     sphinx-intl update -p build/gettext -d source/locales
 
 Then you have to add the translations in the `source/locales/en_US/LC_MESSAGES/*.po` files.

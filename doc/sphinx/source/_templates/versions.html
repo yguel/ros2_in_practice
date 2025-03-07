@@ -57,7 +57,7 @@
 
         // If running from file:// protocol, skip existence check
         if (window.location.protocol === 'file:') {
-            checkLocalFileExists(url, url_with_anchor, fallback_url);
+            window.location = url_with_anchor;
             return;
         }
 
@@ -76,30 +76,5 @@
                 // Network error or something else: fallback to index
                 window.location = fallback_url;
             });
-    }
-
-    /**
-     * Attempt to check existence of a local file using an <iframe>.
-     * Note: This may not work in all browsers. Some might not trigger onerror
-     * properly for missing local files. This is a "best effort".
-     */
-    function checkLocalFileExists(url, url_with_anchor, fallback_url) {
-        var iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-
-        // If the iframe truly loads, we'll assume the page exists.
-        iframe.onload = function () {
-            // Some browsers might load a blank page or directory listing for missing files,
-            // but if onload triggers normally, we assume success.
-            window.location = url_with_anchor;
-        };
-
-        // On some browsers, if the file doesn't exist, onerror will be triggered.
-        iframe.onerror = function () {
-            window.location = fallback_url;
-        };
-
-        iframe.src = url;
-        document.body.appendChild(iframe);
     }    
 </script>
