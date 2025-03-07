@@ -3,18 +3,21 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-03-03 13:27+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-03-07 17:32+0000\n"
+"Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
+"Language-Team: English <http://localhost/projects/cours_ros2/"
+"c01_robot_modelingc01s01_links_and_joints/en/>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:3
@@ -60,7 +63,7 @@ msgid ""
 " on a toujours une articulation (notées par des pastilles jaunes, sur la "
 ":numref:`fig_robot_modeling_slide001`)."
 msgstr ""
-"Between 2 segments (noted L on the :numref:`fig_robot_modeling_slide001`), "
+"Between 2 links (noted L on the :numref:`fig_robot_modeling_slide001`), "
 "there is always a joint (noted by yellow dots, on the "
 ":numref:`fig_robot_modeling_slide001`)."
 
@@ -144,7 +147,7 @@ msgstr ""
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:99
 msgid "Segments"
-msgstr "Segments"
+msgstr "Links"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:101
 msgid ""
@@ -153,10 +156,10 @@ msgid ""
 " ou `B-Rep <https://fr.wikipedia.org/wiki/B-Rep>`_) et son échelle. Ses "
 "surfaces peuvent être fournies de manière :"
 msgstr ""
-"A segment is a rigid part of the robot, that is, a solid. It is defined by "
-"its geometry, that is, its surfaces (Boundary Representation or "
-"`B-Rep <https://fr.wikipedia.org/wiki/B-Rep>`_) and its scale. Its surfaces "
-"can be provided in the following ways:"
+"A Link is a rigid part of the robot, that is, a solid. It is defined by its "
+"geometry, that is, its surfaces (Boundary Representation or `B-Rep <https://"
+"fr.wikipedia.org/wiki/B-Rep>`_) and its scale. Its surfaces can be provided "
+"in the following ways:"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:105
 msgid ""
@@ -327,13 +330,13 @@ msgid ""
 msgstr ""
 "material profiles with Phong, Lambert parameters for lighting equations,"
 
-
-
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:159
 msgid ""
 "de normales, binormales, tangentes, coordonnées de texture, couleurs "
 "associés aux sommets des surfaces,"
 msgstr ""
+"normals, binormals, tangents, texture coordinates, colors associated with "
+"the vertices of the surfaces,"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:160
 msgid ""
@@ -341,20 +344,24 @@ msgid ""
 "permettant de réaliser des calculs spécifiques, notamment pour la "
 "simulation."
 msgstr ""
+"we can even add custom attributes to the surface vertices, allowing for "
+"specific calculations, especially for simulation."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:162
 msgid ""
 "Cela permet une visualisation plus réaliste du segment et en particulier "
 "que des modèles d'éclairage soient pris en compte."
 msgstr ""
+"This allows a more realistic visualization of the segment and in particular "
+"that lighting models are taken into account."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:166
 msgid "Articulations"
-msgstr ""
+msgstr "Joints"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:168
 msgid "Parmi toutes les articulations rigides nous utilisons principalement:"
-msgstr ""
+msgstr "Among all the rigid joints, we mainly use:"
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:170
 msgid ""
@@ -362,6 +369,9 @@ msgid ""
 "rotation entre deux segments rigides.  Le mouvement linéaire peut être "
 "réalisé par une glissière, un vérin ou une crémaillère par exemple."
 msgstr ""
+"The prismatic joint allows a translational movement without rotation between "
+"two rigid links. The linear movement can be achieved by a slider, a "
+"cylinder, or a rack, for example."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:171
 msgid ""
@@ -371,6 +381,10 @@ msgid ""
 "autour de l'axe de rotation comme dans la jambe du robot humanoïde de la "
 ":numref:`fig_robot_modeling_slide001`."
 msgstr ""
+"The pivot joint which allows a rotation without translation. This is the "
+"type of joints used in an anthropomorphic robotic arm. The symbolic notation "
+"in 3D is a cylinder around the axis of rotation as in the leg of the "
+"humanoid robot in the :numref:`fig_robot_modeling_slide001`."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:172
 msgid ""
@@ -381,6 +395,11 @@ msgid ""
 "liaison encastrement entre le segment :math:`L_{L1}` et le segment "
 ":math:`L_{L2}` de la :numref:`fig_robot_modeling_slide001`."
 msgstr ""
+"The last joint is a special case, it corresponds to a mechanical connection "
+"that does not allow any relative movement between the two links. It can be "
+"achieved by welding, bolting, or gluing two parts together, for example. An "
+"example is given by the fixed joint between link :math:`L_{L1}` and link "
+":math:`L_{L2}` of the :numref:`fig_robot_modeling_slide001`."
 
 #: ../../source/c01_robot_modeling/c01s01_links_and_joints.rst:174
 msgid ""
