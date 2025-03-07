@@ -12,7 +12,9 @@
             {% for the_language, lang_path in languages %}
             <dd>
                 <!-- Switch language: keep current_version, swap in the_language -->
-                <a href="{{ base_url }}/{{ current_version }}/{{ lang_path }}/index.html">
+                {% set wanted_url = base_url ~ '/' ~ current_version ~ '/' ~ lang_path ~ '/' ~ pagename ~ '.html' %}
+                {% set fallback_url = base_url ~ '/' ~ current_version ~ '/' ~ lang_path ~ '/index.html' %}
+                <a href="{{ wanted_url }}" onclick="checkPageExists(event, '{{ wanted_url }}', '{{ fallback_url }}')">
                     {{ the_language }}
                 </a>
             </dd>
@@ -26,7 +28,9 @@
             {% for the_version, _ in versions %}
             <dd>
                 <!-- Switch version: keep current_language, swap in the_version -->
-                <a href="{{ base_url }}/{{ the_version }}/{{ current_language }}/index.html">
+                {% set wanted_url = base_url ~ '/' ~ the_version ~ '/' ~ current_language ~ '/' ~ pagename ~ '.html' %}
+                {% set fallback_url = base_url ~ '/' ~ the_version ~ '/' ~ current_language ~ '/index.html' %}
+                <a href="{{ wanted_url }}" onclick="checkPageExists(event, '{{ wanted_url }}', '{{ fallback_url }}')">
                     {{ the_version }}
                 </a>
             </dd>
@@ -38,3 +42,64 @@
         </dl>
     </div>
 </div>
+
+
+<script>
+    function checkPageExists(evt, url, fallback_url) {
+        evt.preventDefault(); // Don’t immediately follow the link
+
+        // Preserve any anchor from the current page (e.g. #section2)
+        var anchor = window.location.hash || "";
+
+        // If the user has an anchor in the current location, we'll append
+        // that to the primary or fallback URLs.
+        var url_with_anchor = url + anchor;
+
+        // If running from file:// protocol, skip existence check
+        if (window.location.protocol === 'file:') {
+            checkLocalFileExists(url, url_with_anchor, fallback_url);
+            return;
+        }
+
+        // Use GET so we can reliably get a 2xx/4xx/5xx response on servers that may not handle HEAD
+        fetch(url, { method: 'GET', cache: 'no-store', mode: 'same-origin' })
+            .then(response => {
+                if (response.ok) {
+                    // 2xx code: Page truly exists
+                    window.location = url_with_anchor;
+                } else {
+                    // Non-2xx: fallback to known index
+                    window.location = fallback_url;
+                }
+            })
+            .catch(() => {
+                // Network error or something else: fallback to index
+                window.location = fallback_url;
+            });
+    }
+
+    /**
+     * Attempt to check existence of a local file using an <iframe>.
+     * Note: This may not work in all browsers. Some might not trigger onerror
+     * properly for missing local files. This is a "best effort".
+     */
+    function checkLocalFileExists(url, url_with_anchor, fallback_url) {
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+
+        // If the iframe truly loads, we'll assume the page exists.
+        iframe.onload = function () {
+            // Some browsers might load a blank page or directory listing for missing files,
+            // but if onload triggers normally, we assume success.
+            window.location = url_with_anchor;
+        };
+
+        // On some browsers, if the file doesn't exist, onerror will be triggered.
+        iframe.onerror = function () {
+            window.location = fallback_url;
+        };
+
+        iframe.src = url;
+        document.body.appendChild(iframe);
+    }    
+</script>
