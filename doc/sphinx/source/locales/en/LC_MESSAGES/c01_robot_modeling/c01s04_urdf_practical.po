@@ -31,7 +31,6 @@ msgid ""
 msgstr "Scanbot Robot, the non-parallel example robot, and its kinematic chain."
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:12
-#, fuzzy
 msgid ""
 "Pour pratiquer nous allons utiliser un robot simple, d'exemple, que nous "
 "avons appelé scanbot. Il se compose d'une partie en translation x,y,z, "
