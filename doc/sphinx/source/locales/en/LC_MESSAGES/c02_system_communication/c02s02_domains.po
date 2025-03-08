@@ -3,18 +3,21 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-03-06 18:01+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-03-08 15:28+0000\n"
+"Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
+"Language-Team: English <http://localhost/projects/cours_ros2/"
+"c02_system_communicationc02s02_domains/en/>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:3
@@ -103,13 +106,12 @@ msgid ""
 msgstr "With ROS_DOMAIN_ID set, you can run your ROS 2 launch file:"
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:45
-#, fuzzy
 msgid ""
 "Remplacez <package_name> par le nom de votre paquet et <launch_file_name>"
 " par le nom de votre fichier de lancement."
 msgstr ""
-"Replace <package_name> with your package name and <launch_file_name> with"
-" your launch file name."
+"Replace <package_name> with your package name and <launch_file_name> with "
+"your launch file name."
 
 #: ../../source/c02_system_communication/c02s02_domains.rst:47
 msgid ""
@@ -129,4 +131,3 @@ msgid ""
 msgstr ""
 "To make ROS_DOMAIN_ID persistent, it can be added to your user's .bashrc "
 "or .zshrc file."
-
