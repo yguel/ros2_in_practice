@@ -8,17 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROS2 par la pratique\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 18:01+0100\n"
+"POT-Creation-Date: 2025-03-08 16:18+0100\n"
 "PO-Revision-Date: 2025-03-08 15:13+0000\n"
 "Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
-"Language-Team: English <http://localhost/projects/cours_ros2/"
-"c01_robot_modelingc01s03_urdf/en/>\n"
 "Language: en\n"
+"Language-Team: English "
+"<http://localhost/projects/cours_ros2/c01_robot_modelingc01s03_urdf/en/>"
+"\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:3
@@ -31,23 +31,23 @@ msgstr "Scanbot Robot and Its Kinematic Chain."
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:12
 msgid ""
-"Dans le cas d'un robot non parallèle, les chaînes cinématiques sont ouvertes "
-"et on peut représenter l'ensemble des chaînes cinématiques du robot par un "
-"arbre, le chemin en ligne directe de la racine à une feuille de l'arbre "
-"correspondant à une chaîne cinématique."
+"Dans le cas d'un robot non parallèle, les chaînes cinématiques sont "
+"ouvertes et on peut représenter l'ensemble des chaînes cinématiques du "
+"robot par un arbre, le chemin en ligne directe de la racine à une feuille"
+" de l'arbre correspondant à une chaîne cinématique."
 msgstr ""
-"In the case of a non-parallel robot, the kinematic chains are open, and the "
-"set of kinematic chains of the robot can be represented by a tree, where the "
-"direct path from the root to a leaf of the tree corresponds to a kinematic "
-"chain."
+"In the case of a non-parallel robot, the kinematic chains are open, and "
+"the set of kinematic chains of the robot can be represented by a tree, "
+"where the direct path from the root to a leaf of the tree corresponds to "
+"a kinematic chain."
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:14
 msgid ""
-"Le format utilisé pour décrire les robots non parallèle dans ROS est l'URDF. "
-"Nous allons maintenant décrire la syntaxe de l'URDF."
+"Le format utilisé pour décrire les robots non parallèle dans ROS est "
+"l'URDF. Nous allons maintenant décrire la syntaxe de l'URDF."
 msgstr ""
-"The format used to describe non-parallel robots in ROS is URDF. We will now "
-"describe the syntax of URDF."
+"The format used to describe non-parallel robots in ROS is URDF. We will "
+"now describe the syntax of URDF."
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:19
 msgid "Généralités sur le XML"
@@ -55,17 +55,17 @@ msgstr "General Information about XML"
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:21
 msgid ""
-"L'URDF est basé sur le format XML, les éléments d'information sont organisés "
-"grâce à des balises :code:`<balise> élément </balise>`, qui peuvent être "
-"imbriquées. En anglais une balise est appelée un **tag**."
+"L'URDF est basé sur le format XML, les éléments d'information sont "
+"organisés grâce à des balises :code:`<balise> élément </balise>`, qui "
+"peuvent être imbriquées. En anglais une balise est appelée un **tag**."
 msgstr ""
-"URDF is based on the XML format, where information elements are organized "
-"using tags :code:`<tag> element </tag>`, which can be nested."
+"URDF is based on the XML format, where information elements are organized"
+" using tags :code:`<tag> element </tag>`, which can be nested."
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:24
 msgid ""
-"**Tag** Un tag est une construction de balisage qui commence par :code:`<`` "
-"et se termine par :code:`>`. Il existe trois types de tag :"
+"**Tag** Un tag est une construction de balisage qui commence par "
+":code:`<`` et se termine par :code:`>`. Il existe trois types de tag :"
 msgstr ""
 "**Tag** A tag is a markup construct that starts with :code:`<` and ends "
 "with :code:`>`. There are three types of tags:"
@@ -80,11 +80,11 @@ msgstr "end tag, such as :code:`</section>`,"
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:29
 msgid ""
-"tag sans élément, tel que :code:`<line-break />` (notez le symbole :code:`/` "
-"devant le symbole :code:`>` à la fin."
+"tag sans élément, tel que :code:`<line-break />` (notez le symbole "
+":code:`/` devant le symbole :code:`>` à la fin."
 msgstr ""
-"empty tag, such as :code:`<line-break />` (note the :code:`/` symbol before "
-"the :code:`>` symbol at the end)."
+"empty tag, such as :code:`<line-break />` (note the :code:`/` symbol "
+"before the :code:`>` symbol at the end)."
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:31
 msgid ""
@@ -98,294 +98,301 @@ msgstr ""
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:34
 msgid ""
 "**Attribut** Un attribut consiste en une paire nom-valeur qui peut "
-"apparaître dans un tag de début ou un tag sans élément. Un exemple est :code:"
-"`<link name=\"base_link\">`, où le nom de l'attribut est \"name\" et sa "
-"valeur est \"base_link\". Un tag peut avoir plusieurs attributs, mais chaque "
-"attribut ne peut apparaître qu'une seule fois dans une balise."
+"apparaître dans un tag de début ou un tag sans élément. Un exemple est "
+":code:`<link name=\"base_link\">`, où le nom de l'attribut est \"name\" "
+"et sa valeur est \"base_link\". Un tag peut avoir plusieurs attributs, "
+"mais chaque attribut ne peut apparaître qu'une seule fois dans une "
+"balise."
 msgstr ""
-"**Attribute** An attribute consists of a name-value pair that can appear in "
-"a start tag or an empty tag. An example is :code:`<link "
-"name=\"base_link\">`, where the attribute name is \"name\" and its value is "
-"\"base_link\". A tag can have multiple attributes, but each attribute can "
-"only appear once in a tag."
+"**Attribute** An attribute consists of a name-value pair that can appear "
+"in a start tag or an empty tag. An example is :code:`<link "
+"name=\"base_link\">`, where the attribute name is \"name\" and its value "
+"is \"base_link\". A tag can have multiple attributes, but each attribute "
+"can only appear once in a tag."
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:39
 msgid ""
-"**Élément** Un élément est une composante logique d'un document qui commence "
-"soit par un tag de début et se termine par un tag de fin correspondant, soit "
-"consiste uniquement en un tag sans élément. Les caractères entre la balise "
-"de début et la balise de fin, s'il y en a, sont le contenu de l'élément, et "
-"peuvent contenir du balisage, y compris d'autres éléments, appelés éléments "
-"enfants. Dans l'exemple de code suivant, :numref:`example_xml_element`, "
-"l'élement ``visual``, lignes 2-10, commence par le tag de début :code:"
-"`<visual>`, se finit par le tag de fin :code:`</visual>` et possède les "
-"éléments enfants ``origin``, ``geometry`` et ``material``. L'élément  "
-"``mass``, ligne 18, est un élément sans enfant mais qui possède un attribut "
-"``value`` et qui donc consiste en seulement un tag sans élément: :code:"
-"`<mass value=\"18\"/>`."
+"**Élément** Un élément est une composante logique d'un document qui "
+"commence soit par un tag de début et se termine par un tag de fin "
+"correspondant, soit consiste uniquement en un tag sans élément. Les "
+"caractères entre la balise de début et la balise de fin, s'il y en a, "
+"sont le contenu de l'élément, et peuvent contenir du balisage, y compris "
+"d'autres éléments, appelés éléments enfants. Dans l'exemple de code "
+"suivant, :numref:`example_xml_element`, l'élement ``visual``, lignes "
+"2-10, commence par le tag de début :code:`<visual>`, se finit par le tag "
+"de fin :code:`</visual>` et possède les éléments enfants ``origin``, "
+"``geometry`` et ``material``. L'élément  ``mass``, ligne 18, est un "
+"élément sans enfant mais qui possède un attribut ``value`` et qui donc "
+"consiste en seulement un tag sans élément: :code:`<mass value=\"18\"/>`."
 msgstr ""
-"**Element** An element is a logical component of a document that starts with "
-"a start tag and ends with a corresponding end tag, or consists only of an "
-"empty tag. The characters between the start tag and the end tag, if any, are "
-"the content of the element and can contain markup, including other elements, "
-"called child elements. In the following code example, :numref:"
-"`example_xml_element`, the ``visual`` element, lines 2-10, starts with the "
-"start tag :code:`<visual>`, ends with the end tag :code:`</visual>`, and has "
-"the child elements ``origin``, ``geometry``, and ``material``. The ``mass`` "
-"element, line 18, is an element without children but has a ``value`` "
-"attribute and therefore consists of only an empty tag: :code:`<mass "
-"value=\"18\"/>`."
+"**Element** An element is a logical component of a document that starts "
+"with a start tag and ends with a corresponding end tag, or consists only "
+"of an empty tag. The characters between the start tag and the end tag, if"
+" any, are the content of the element and can contain markup, including "
+"other elements, called child elements. In the following code example, "
+":numref:`example_xml_element`, the ``visual`` element, lines 2-10, starts"
+" with the start tag :code:`<visual>`, ends with the end tag "
+":code:`</visual>`, and has the child elements ``origin``, ``geometry``, "
+"and ``material``. The ``mass`` element, line 18, is an element without "
+"children but has a ``value`` attribute and therefore consists of only an "
+"empty tag: :code:`<mass value=\"18\"/>`."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:43
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:42
 msgid "Exemple d'éléments xml"
 msgstr "Example of XML Elements"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:52
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:51
 msgid "Généralités sur l'URDF"
 msgstr "General Information about URDF"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:54
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:53
 msgid ""
-"**Dans le format URDF**, il existe de nombreuses balises différentes qu'il "
-"est possible d'utiliser. Elles sont toutes décrites dans la `documentation "
-"officielle de ROS du format URDF <http://wiki.ros.org/urdf/XML>`_ . Il y en "
-"a trois principales qu'il faut connaître **robot**, **link** et **joint**."
+"**Dans le format URDF**, il existe de nombreuses balises différentes "
+"qu'il est possible d'utiliser. Elles sont toutes décrites dans la "
+"`documentation officielle de ROS du format URDF "
+"<http://wiki.ros.org/urdf/XML>`_ . Il y en a trois principales qu'il faut"
+" connaître **robot**, **link** et **joint**."
 msgstr ""
-"**In the URDF format**, there are many different tags that can be used. They "
-"are all described in the `official ROS documentation for the URDF format "
-"<http://wiki.ros.org/urdf/XML>`_. There are three main ones to know: "
-"**robot**, **link**, and **joint**."
+"**In the URDF format**, there are many different tags that can be used. "
+"They are all described in the `official ROS documentation for the URDF "
+"format <http://wiki.ros.org/urdf/XML>`_. There are three main ones to "
+"know: **robot**, **link**, and **joint**."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:58
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:57
 msgid ""
-"**Le tag robot et le préambule XML** Un fichier XML correct doit avoir un "
-"préambule XML dans la première ligne, et juste après cela, il contient une "
-"balise (appelée la balise racine), dans laquelle toutes les autres balises "
-"sont imbriquées. Pour un fichier URDF, cette balise racine sera la balise "
-"**robot**, et la seule chose à noter ici pour l'instant est que nous pouvons "
-"définir l'attribut name qui nous permet de spécifier le nom de notre robot."
+"**Le tag robot et le préambule XML** Un fichier XML correct doit avoir un"
+" préambule XML dans la première ligne, et juste après cela, il contient "
+"une balise (appelée la balise racine), dans laquelle toutes les autres "
+"balises sont imbriquées. Pour un fichier URDF, cette balise racine sera "
+"la balise **robot**, et la seule chose à noter ici pour l'instant est que"
+" nous pouvons définir l'attribut name qui nous permet de spécifier le nom"
+" de notre robot."
 msgstr ""
-"**The robot tag and the XML preamble** A correct XML file must have an XML "
-"preamble on the first line, and right after that, it contains a tag (called "
-"the root tag), in which all other tags are nested. For a URDF file, this "
-"root tag will be the **robot** tag, and the only thing to note here for now "
-"is that we can define the name attribute, which allows us to specify the "
-"name of our robot."
+"**The robot tag and the XML preamble** A correct XML file must have an "
+"XML preamble on the first line, and right after that, it contains a tag "
+"(called the root tag), in which all other tags are nested. For a URDF "
+"file, this root tag will be the **robot** tag, and the only thing to note"
+" here for now is that we can define the name attribute, which allows us "
+"to specify the name of our robot."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:71
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:70
 msgid ""
-"Les 2 balises principales de l'URDF sont **link** et **joint** et sont au "
-"même niveau d'imbrication à la base de la balise **robot**:"
+"Les 2 balises principales de l'URDF sont **link** et **joint** et sont au"
+" même niveau d'imbrication à la base de la balise **robot**:"
 msgstr ""
-"The two main tags in URDF are **link** and **joint**, and they are at the "
-"same nesting level at the base of the **robot** tag:"
+"The two main tags in URDF are **link** and **joint**, and they are at the"
+" same nesting level at the base of the **robot** tag:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:90
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:89
 msgid "La balise **link**"
 msgstr "The **link** Tag"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:92
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:91
 msgid ""
 "La balise **link** est utilisée pour décrire un segment du robot. La "
-"description complète de cette balise est disponible dans la `specification "
-"de la balise link <http://wiki.ros.org/urdf/XML/link>`_."
+"description complète de cette balise est disponible dans la "
+"`specification de la balise link <http://wiki.ros.org/urdf/XML/link>`_."
 msgstr ""
-"The **link** tag is used to describe a segment of the robot. The complete "
-"description of this tag is available in the `link tag specification <http://"
-"wiki.ros.org/urdf/XML/link>`_."
+"The **link** tag is used to describe a segment of the robot. The complete"
+" description of this tag is available in the `link tag specification "
+"<http://wiki.ros.org/urdf/XML/link>`_."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:100
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:99
 msgid ""
-"Balise ``link`` avec les éléments **visual**, **material**, **collision** et "
-"**inertial**"
+"Balise ``link`` avec les éléments **visual**, **material**, **collision**"
+" et **inertial**"
 msgstr ""
-"``link`` Tag with **visual**, **material**, **collision**, and **inertial** "
-"Elements"
+"``link`` Tag with **visual**, **material**, **collision**, and "
+"**inertial** Elements"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:112
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:111
 msgid "Élément ``link`` d'un fichier URDF"
 msgstr "``link`` Element in a URDF File"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:114
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:113
 msgid ""
 "Nous allons maintenant nous attacher à comprendre les différents repères "
-"utilisés dans la description d'un segment d'un robot et comment les définir "
-"dans un fichier URDF."
+"utilisés dans la description d'un segment d'un robot et comment les "
+"définir dans un fichier URDF."
 msgstr ""
 "We will now focus on understanding the different frames used in the "
 "description of a robot segment and how to define them in a URDF file."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:116
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:115
 msgid ""
-"Dans le tag **origin** (tag **visual**s ou **collision**), la position et "
-"l'orientation du repère du segment par rapport au repère du parent sont "
+"Dans le tag **origin** (tag **visual**s ou **collision**), la position et"
+" l'orientation du repère du segment par rapport au repère du parent sont "
 "définis par les attributs **xyz** et **rpy**.  |br|"
 msgstr ""
-"In the **origin** tag (in **visual** or **collision** tags), the position "
-"and orientation of the segment's frame relative to the parent's frame are "
-"defined by the **xyz** and **rpy** attributes.  |br|"
+"In the **origin** tag (in **visual** or **collision** tags), the position"
+" and orientation of the segment's frame relative to the parent's frame "
+"are defined by the **xyz** and **rpy** attributes.  |br|"
+
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:117
+msgid ""
+"La translation est définie par les attributs **xyz** qui sont les "
+"coordonnées x, y et z du repère du segment par rapport au repère du "
+"parent."
+msgstr ""
+"The translation is defined by the **xyz** attributes, which are the x, y,"
+" and z coordinates of the segment's frame relative to the parent's frame."
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:118
 msgid ""
-"La translation est définie par les attributs **xyz** qui sont les "
-"coordonnées x, y et z du repère du segment par rapport au repère du parent."
-msgstr ""
-"The translation is defined by the **xyz** attributes, which are the x, y, "
-"and z coordinates of the segment's frame relative to the parent's frame."
-
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:119
-msgid ""
 "La rotation est définie par les attributs **rpy** qui sont les angles de "
 "rotation autour des axes x, y et z du repère du segment par rapport au "
-"repère du parent. **rpy** désigne «roll,pitch,yaw» ou en français: «roulis,"
-"tangage,lacet»."
+"repère du parent. **rpy** désigne «roll,pitch,yaw» ou en français: "
+"«roulis,tangage,lacet»."
 msgstr ""
-"The rotation is defined by the **rpy** attributes, which are the rotation "
-"angles around the x, y, and z axes of the segment's frame relative to the "
-"parent's frame. **rpy** stands for \"roll, pitch, yaw\" or in French: "
-"\"roulis, tangage, lacet\"."
+"The rotation is defined by the **rpy** attributes, which are the rotation"
+" angles around the x, y, and z axes of the segment's frame relative to "
+"the parent's frame. **rpy** stands for \"roll, pitch, yaw\" or in French:"
+" \"roulis, tangage, lacet\"."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:121
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:120
 msgid ""
 "La rotation est toujours appliquée avant la translation et les rotations "
 "sont effectuées dans l'ordre **roll**, **pitch** puis **yaw** suivant le "
 "schéma ci-dessous:"
 msgstr ""
 "Rotation is always applied before translation, and the rotations are "
-"performed in the order **roll**, **pitch**, then **yaw**, as shown in the "
-"diagram below:"
+"performed in the order **roll**, **pitch**, then **yaw**, as shown in the"
+" diagram below:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:128
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:127
 msgid "Rotations roll, pitch et yaw."
 msgstr "Roll, Pitch, and Yaw Rotations."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:143
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:142
 msgid "Rotation autour de l'axe x (roll)"
 msgstr "Rotation around the x axis (roll)"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:153
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:152
 msgid "Rotation autour de l'axe y (pitch)"
 msgstr "Rotation around the y axis (pitch)"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:162
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:161
 msgid "Rotation autour de l'axe z (yaw)"
 msgstr "Rotation around the z axis (yaw)"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:167
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:166
 msgid "Simple exemple"
 msgstr "Simple Example"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:169
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:168
 msgid ""
 "Créons une simple description de robot URDF.  |br| Pour cela nous allons "
 "utiliser l'outil de visualisation de modèles URDF fourni par ROS2: "
-"**rviz2**.  |br| Afin de faciliter cette étape nous allons créer un package "
-"ROS2 dédié à la visualization en utilisant l'outil développé par IRIS "
-"**template2instance**.  |br| Cette outil permet de créer facilement un "
-"package ROS2 à partir d'un template.  |br| Pour cela nous avons besoin du "
-"template **view_robot_template** qui est un template de package ROS2 dédié à "
-"la visualisation de robots en utilisant rviz2.  |br|"
+"**rviz2**.  |br| Afin de faciliter cette étape nous allons créer un "
+"package ROS2 dédié à la visualization en utilisant l'outil développé par "
+"IRIS **template2instance**.  |br| Cette outil permet de créer facilement "
+"un package ROS2 à partir d'un template.  |br| Pour cela nous avons besoin"
+" du template **view_robot_template** qui est un template de package ROS2 "
+"dédié à la visualisation de robots en utilisant rviz2.  |br|"
 msgstr ""
-"Let's create a simple URDF robot description.  |br| For this, we will use "
-"the URDF model visualization tool provided by ROS2: **rviz2**.  |br| To "
+"Let's create a simple URDF robot description.  |br| For this, we will use"
+" the URDF model visualization tool provided by ROS2: **rviz2**.  |br| To "
 "facilitate this step, we will create a ROS2 package dedicated to "
-"visualization using the tool developed by IRIS **template2instance**.  |br| "
-"This tool allows for easy creation of a ROS2 package from a template.  |br| "
-"For this, we need the **view_robot_template** template, which is a ROS2 "
-"package template dedicated to robot visualization using rviz2.  |br|"
+"visualization using the tool developed by IRIS **template2instance**.  "
+"|br| This tool allows for easy creation of a ROS2 package from a "
+"template.  |br| For this, we need the **view_robot_template** template, "
+"which is a ROS2 package template dedicated to robot visualization using "
+"rviz2.  |br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:176
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:175
 msgid "Installation de template2instance"
 msgstr "Installation of template2instance"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:178
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:177
 msgid ""
-"Installer poetry en suivant les `instructions du site officiel <https://"
-"python-poetry.org/docs/#installing-with-the-official-installer>`_."
+"Installer poetry en suivant les `instructions du site officiel <https"
+"://python-poetry.org/docs/#installing-with-the-official-installer>`_."
 msgstr ""
-"Install poetry by following the `official site instructions <https://python-"
-"poetry.org/docs/#installing-with-the-official-installer>`_."
+"Install poetry by following the `official site instructions <https"
+"://python-poetry.org/docs/#installing-with-the-official-installer>`_."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:180
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:179
 msgid ""
-"Créer un répertoire **system** dans votre workspace ROS2. Ajoutez un fichier "
-"**COLCON_IGNORE** dans ce répertoire pour éviter que les packages créés par "
-"template2instance soient compilés par colcon, le système de build de ROS2."
+"Créer un répertoire **system** dans votre workspace ROS2. Ajoutez un "
+"fichier **COLCON_IGNORE** dans ce répertoire pour éviter que les packages"
+" créés par template2instance soient compilés par colcon, le système de "
+"build de ROS2."
 msgstr ""
 "Create a **system** directory in your ROS2 workspace. Add a "
 "**COLCON_IGNORE** file in this directory to prevent packages created by "
 "template2instance from being compiled by colcon, the ROS2 build system."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:188
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:187
 msgid ""
-"Copier le module python **template2instance** dans le répertoire **ros2_ws/"
-"system** de votre workspace ROS2."
+"Copier le module python **template2instance** dans le répertoire "
+"**ros2_ws/system** de votre workspace ROS2."
 msgstr ""
 "Copy the **template2instance** python module into the **ros2_ws/system** "
 "directory of your ROS2 workspace."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:189
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:188
 msgid "Exécutez la commande suivante:"
 msgstr "Run the following command:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:195
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:194
 msgid ""
-"Copier le template **view_robot_template** dans le répertoire **ros2_ws/"
-"system** de votre workspace ROS2."
+"Copier le template **view_robot_template** dans le répertoire "
+"**ros2_ws/system** de votre workspace ROS2."
 msgstr ""
 "Copy the **view_robot_template** template into the **ros2_ws/system** "
 "directory of your ROS2 workspace."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:197
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:196
 msgid ""
 "template2instance est un outil python utilisant le gestionnaire de "
 "dépendances **poetry** qui s'utilise de la manière suivante:"
 msgstr ""
-"template2instance is a Python tool using the **poetry** dependency manager, "
-"which is used as follows:"
+"template2instance is a Python tool using the **poetry** dependency "
+"manager, which is used as follows:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:203
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:202
 msgid ""
-"Créons un package ROS2 nommé **simple_bot_description** ayant le fichier de "
-"configuration suivant.  |br|"
+"Créons un package ROS2 nommé **simple_bot_description** ayant le fichier "
+"de configuration suivant.  |br|"
 msgstr ""
 "Let's create a ROS2 package named **simple_bot_description** with the "
 "following configuration file.  |br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:205
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:204
 msgid "Configuration pour la génération du package simple_bot_description"
 msgstr "Configuration for generating the simple_bot_description package"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:209
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:208
 msgid ""
-":download:`Télécharger le fichier de configuration <resources/code/"
-"template2instance/pkg_gen_cfg_view_simple_bot.json>` et le copier dans le "
-"répertoire :code:`~/ros2_ws/system/template2instance/configs/"
-"pkg_gen_cfg_view_simple_bot.json`."
+":download:`Télécharger le fichier de configuration "
+"<resources/code/template2instance/pkg_gen_cfg_view_simple_bot.json>` et "
+"le copier dans le répertoire "
+":code:`~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json`."
 msgstr ""
-":download:`Download the configuration file <resources/code/template2instance/"
-"pkg_gen_cfg_view_simple_bot.json>` and copy it into the directory :code:`~/"
-"ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json`."
+":download:`Download the configuration file "
+"<resources/code/template2instance/pkg_gen_cfg_view_simple_bot.json>` and "
+"copy it into the directory "
+":code:`~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json`."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:211
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:210
 msgid "Exécuter la commande suivante:"
 msgstr "Run the following command:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:217
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:216
 msgid "Testez le package en le compilant:"
 msgstr "Test the package by compiling it:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:225
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:224
 msgid "Lancez le package:"
 msgstr "Launch the package:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:231
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:230
 msgid ""
 "Si tout s'est bien passé, vous devriez voir un dans rviz2 le robot par "
 "défaut:"
 msgstr "If everything went well, you should see the default robot in rviz2:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:238
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:237
 msgid ""
 "Le robot par défaut à l'initialisation d'un package de visualisation à "
 "partir du template view_robot_template."
@@ -393,121 +400,124 @@ msgstr ""
 "The default robot when initializing a visualization package from the "
 "view_robot_template template."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:240
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:239
 msgid ""
-"Le fichier URDF qu'il faut étudier se nomme ``simple_bot_macro.xacro`` et se "
-"trouve dans le répertoire :code:`~/ros2_ws/src/simple_bot_description/urdf/"
-"simple_bot`.  |br| C'est un fichier de type ``xacro``, c'est-à-dire un "
-"fichier XML qui peut contenir des macros. Ces macros permettent de définir "
-"des éléments qui peuvent être réutilisés plusieurs fois dans le fichier ou "
-"déduit par des appels à des fonctions. Le format cependant est celui d'un "
-"fichier URDF et par abus de language nous parlerons de fichier URDF.  |br|"
+"Le fichier URDF qu'il faut étudier se nomme ``simple_bot_macro.xacro`` et"
+" se trouve dans le répertoire "
+":code:`~/ros2_ws/src/simple_bot_description/urdf/simple_bot`.  |br| C'est"
+" un fichier de type ``xacro``, c'est-à-dire un fichier XML qui peut "
+"contenir des macros. Ces macros permettent de définir des éléments qui "
+"peuvent être réutilisés plusieurs fois dans le fichier ou déduit par des "
+"appels à des fonctions. Le format cependant est celui d'un fichier URDF "
+"et par abus de language nous parlerons de fichier URDF.  |br|"
 msgstr ""
-"The URDF file to study is named ``simple_bot_macro.xacro`` and is located in "
-"the directory :code:`~/ros2_ws/src/simple_bot_description/urdf/simple_bot`.  "
-"|br| It is a ``xacro`` file, which means it is an XML file that can contain "
-"macros. These macros allow defining elements that can be reused multiple "
-"times in the file or deduced by function calls. However, the format is that "
-"of a URDF file, and by convention, we will refer to it as a URDF file.  |br|"
+"The URDF file to study is named ``simple_bot_macro.xacro`` and is located"
+" in the directory "
+":code:`~/ros2_ws/src/simple_bot_description/urdf/simple_bot`.  |br| It is"
+" a ``xacro`` file, which means it is an XML file that can contain macros."
+" These macros allow defining elements that can be reused multiple times "
+"in the file or deduced by function calls. However, the format is that of "
+"a URDF file, and by convention, we will refer to it as a URDF file.  |br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:245
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:244
 msgid "Ouvrez ce fichier et modifiez le pour qu'il ressemble à ceci:"
 msgstr "Open this file and modify it to look like this:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:251
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:250
 msgid "Exemple minimal d'un fichier URDF avec un robot à un seul segment"
 msgstr "Minimal example of a URDF file with a single-segment robot"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:263
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:262
 msgid ""
 "Affichage d'un segment cylindre avec RVIZ correspondant à la précédente "
 "description URDF"
 msgstr ""
-"Display of a cylinder segment with RVIZ corresponding to the previous URDF "
-"description"
+"Display of a cylinder segment with RVIZ corresponding to the previous "
+"URDF description"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:265
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:264
 msgid ""
-"Fermez toutes les fenêtre et tapez CTRL-C dans le terminal puis relancez le "
-"package:"
+"Fermez toutes les fenêtre et tapez CTRL-C dans le terminal puis relancez "
+"le package:"
 msgstr ""
-"Close all windows and type CTRL-C in the terminal, then restart the package:"
+"Close all windows and type CTRL-C in the terminal, then restart the "
+"package:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:271
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:270
 msgid ""
-"La :numref:`fig_cylinder_link` montre le segment cylindre tel qu'il devrait "
-"s'afficher dans rviz2."
+"La :numref:`fig_cylinder_link` montre le segment cylindre tel qu'il "
+"devrait s'afficher dans rviz2."
 msgstr ""
 "The :numref:`fig_cylinder_link` shows the cylinder segment as it should "
 "appear in rviz2."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:273
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:272
 msgid ""
-"Pour comprendre comment les systèmes de coordonnées fonctionnent, il faut "
-"afficher les axes. Dans rviz:"
+"Pour comprendre comment les systèmes de coordonnées fonctionnent, il faut"
+" afficher les axes. Dans rviz:"
 msgstr ""
-"To understand how coordinate systems work, you need to display the axes. In "
-"rviz:"
+"To understand how coordinate systems work, you need to display the axes. "
+"In rviz:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:276
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:275
 msgid ""
-"dans le panneau de gauche (''Displays''), dans **RobotModel** modifiez la "
-"valeur de **Alpha** à 0.5. Cela change la transparence du modèle du robot et "
-"permet de voir les axes."
+"dans le panneau de gauche (''Displays''), dans **RobotModel** modifiez la"
+" valeur de **Alpha** à 0.5. Cela change la transparence du modèle du "
+"robot et permet de voir les axes."
 msgstr ""
 "in the left panel (''Displays''), in **RobotModel** change the **Alpha** "
-"value to 0.5. This changes the transparency of the robot model and allows "
-"you to see the axes."
+"value to 0.5. This changes the transparency of the robot model and allows"
+" you to see the axes."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:277
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:276
 msgid ""
 "Si vous ne voyez pas les axes, vérifiez que vous avez bien un **TF** et "
 "sinon ajoutez un **TF** dans le panneau de gauche (''Displays'') avec le "
 "bouton **Add**. Et vérifiez bien que **Show Axes** est coché."
 msgstr ""
 "If you don't see the axes, make sure you have a **TF** and if not, add a "
-"**TF** in the left panel (''Displays'') with the **Add** button. And make "
-"sure **Show Axes** is checked."
+"**TF** in the left panel (''Displays'') with the **Add** button. And make"
+" sure **Show Axes** is checked."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:284
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:283
 msgid ""
-"Affichage d'un segment cylindre avec RVIZ avec les axes visibles (Alpha=0.5, "
-"Show Axes : coché)"
+"Affichage d'un segment cylindre avec RVIZ avec les axes visibles "
+"(Alpha=0.5, Show Axes : coché)"
 msgstr ""
-"Display of a cylinder segment with RVIZ with visible axes (Alpha=0.5, Show "
-"Axes: checked)"
+"Display of a cylinder segment with RVIZ with visible axes (Alpha=0.5, "
+"Show Axes: checked)"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:286
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:285
 msgid "Segments définis par des primitives géométriques"
 msgstr "Segments defined by geometric primitives"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:288
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:287
 msgid "Un segment peut être défini à partir de 3 formes géométriques de base:"
 msgstr "A segment can be defined from 3 basic geometric shapes:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:290
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:289
 msgid ""
 "pavé droit: :code:`<box size=\"10 20 40\"/>`. Les tailles des côtés "
 "(''size'') sont données dans l'ordre x,y,z. Les côtés du pavé droit sont "
 "parallèles aux axes x, y et z."
 msgstr ""
-"box: :code:`<box size=\"10 20 40\"/>`. The side sizes (''size'') are given "
-"in the order x,y,z. The sides of the box are parallel to the x, y, and z "
-"axes."
+"box: :code:`<box size=\"10 20 40\"/>`. The side sizes (''size'') are "
+"given in the order x,y,z. The sides of the box are parallel to the x, y, "
+"and z axes."
+
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:290
+msgid ""
+"cylindre: :code:`<cylinder radius=\"10\" length=\"40\"/>` l'axe est "
+"toujours l'axe z."
+msgstr ""
+"cylinder: :code:`<cylinder radius=\"10\" length=\"40\"/>` the axis is "
+"always the z-axis."
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:291
-msgid ""
-"cylindre: :code:`<cylinder radius=\"10\" length=\"40\"/>` l'axe est toujours "
-"l'axe z."
-msgstr ""
-"cylinder: :code:`<cylinder radius=\"10\" length=\"40\"/>` the axis is always "
-"the z-axis."
-
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:292
 msgid "sphère: :code:`<sphere radius=\"10\"/>`"
 msgstr "sphere: :code:`<sphere radius=\"10\"/>`"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:294
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:293
 msgid ""
 "Dans ce cas le repère du segment est par défaut au centre de la forme "
 "géométrique (centre de gravité)."
@@ -515,51 +525,51 @@ msgstr ""
 "In this case, the segment's frame is by default at the center of the "
 "geometric shape (center of gravity)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:296
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:295
 msgid ""
 "Nous allons modifier la forme pour utiliser un pavé droit. Cela nous "
 "permettra de bien visualiser l'orientation de la forme dans les 3 "
-"dimensions.  |br| Et nous allons modifier l'élément **origin** pour déplacer "
-"le segment par rapport à son origine.  |br| Modifiez donc le fichier URDF "
-"pour qu'il ressemble à ceci:"
+"dimensions.  |br| Et nous allons modifier l'élément **origin** pour "
+"déplacer le segment par rapport à son origine.  |br| Modifiez donc le "
+"fichier URDF pour qu'il ressemble à ceci:"
 msgstr ""
 "We will modify the shape to use a box. This will allow us to clearly "
-"visualize the orientation of the shape in 3 dimensions.  |br| And we will "
-"modify the **origin** element to move the segment relative to its origin.  |"
-"br| So modify the URDF file to look like this:"
+"visualize the orientation of the shape in 3 dimensions.  |br| And we will"
+" modify the **origin** element to move the segment relative to its "
+"origin.  |br| So modify the URDF file to look like this:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:304
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:303
 msgid ""
-"Exemple minimal d'un fichier URDF avec un robot box à un seul segment (pavé "
-"droit) dont la position est translatée de 0.5m en x (axe rouge), 1.5m en y "
-"(axe vert) et 0m en z (axe bleu) par rapport à l'origine."
+"Exemple minimal d'un fichier URDF avec un robot box à un seul segment "
+"(pavé droit) dont la position est translatée de 0.5m en x (axe rouge), "
+"1.5m en y (axe vert) et 0m en z (axe bleu) par rapport à l'origine."
 msgstr ""
 "Minimal example of a URDF file with a single-segment box robot whose "
-"position is translated by 0.5m in x (red axis), 1.5m in y (green axis), and "
-"0m in z (blue axis) relative to the origin."
+"position is translated by 0.5m in x (red axis), 1.5m in y (green axis), "
+"and 0m in z (blue axis) relative to the origin."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:316
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:341
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:315
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:340
 msgid ""
-"Affichage d'un segment pavé droit avec RVIZ correspondant à la description "
-"URDF sur la gauche"
+"Affichage d'un segment pavé droit avec RVIZ correspondant à la "
+"description URDF sur la gauche"
 msgstr ""
-"Display of a box segment with RVIZ corresponding to the URDF description on "
-"the left"
+"Display of a box segment with RVIZ corresponding to the URDF description "
+"on the left"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:318
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:317
 msgid ""
 "Nous allons modifier l'élément **origin** pour tourner le segment de 90 "
 "degrées autour de l'axe de roulis: X (roll).  |br|"
 msgstr ""
-"We will modify the **origin** element to rotate the segment by 90 degrees "
-"around the roll axis: X (roll).  |br|"
+"We will modify the **origin** element to rotate the segment by 90 degrees"
+" around the roll axis: X (roll).  |br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:320
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:319
 msgid "Notez l'ordre des transformations géométriques"
 msgstr "Note the order of geometric transformations"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:322
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:321
 msgid ""
 "Les transformations géométriques sont effectuées dans l'ordre suivant: "
 "rotation puis translation."
@@ -567,19 +577,19 @@ msgstr ""
 "Geometric transformations are performed in the following order: rotation "
 "then translation."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:328
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:327
 msgid ""
-"Exemple minimal d'un fichier URDF avec un robot box à un seul segment (pavé "
-"droit) qui a subit une rotation de 90° suivant l'axe X (roll) puis dont la "
-"position est translatée de 0.5m en x (axe rouge), 1.5m en y (axe vert) et 0m "
-"en z (axe bleu) par rapport à l'origine."
+"Exemple minimal d'un fichier URDF avec un robot box à un seul segment "
+"(pavé droit) qui a subit une rotation de 90° suivant l'axe X (roll) puis "
+"dont la position est translatée de 0.5m en x (axe rouge), 1.5m en y (axe "
+"vert) et 0m en z (axe bleu) par rapport à l'origine."
 msgstr ""
 "Minimal example of a URDF file with a single-segment box robot that has "
 "undergone a 90° rotation around the X axis (roll) and whose position is "
 "translated by 0.5m in x (red axis), 1.5m in y (green axis), and 0m in z "
 "(blue axis) relative to the origin."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:343
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:342
 msgid ""
 "Notez bien ce qui est déplacé par les attributs **xyz** et **rpy** de la "
 "balise **origin**"
@@ -587,191 +597,200 @@ msgstr ""
 "Note well what is moved by the **xyz** and **rpy** attributes of the "
 "**origin** tag"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:345
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:344
 msgid ""
-"Ce n'est pas l'origine du repère qui est déplacée mais le repère dans lequel "
-"la forme géométrique est définie."
+"Ce n'est pas l'origine du repère qui est déplacée mais le repère dans "
+"lequel la forme géométrique est définie."
 msgstr ""
-"It is not the origin of the frame that is moved but the frame in which the "
-"geometric shape is defined."
+"It is not the origin of the frame that is moved but the frame in which "
+"the geometric shape is defined."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:347
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:346
 msgid ""
-"En effet si on met le paramètre alpha à 0.5 pour voir en transparence, le "
-"centre du pavé ne contient pas de repère.  |br| On verra dans ce qui suit la "
-"différence avec les changements dans la balise **origin** des articulations "
-"avec la description du tag **joint**."
+"En effet si on met le paramètre alpha à 0.5 pour voir en transparence, le"
+" centre du pavé ne contient pas de repère.  |br| On verra dans ce qui "
+"suit la différence avec les changements dans la balise **origin** des "
+"articulations avec la description du tag **joint**."
 msgstr ""
-"Indeed, if we set the alpha parameter to 0.5 to see through, the center of "
-"the box does not contain a frame.  |br| We will see in the following the "
-"difference with the changes in the **origin** tag of the joints with the "
-"description of the **joint** tag."
+"Indeed, if we set the alpha parameter to 0.5 to see through, the center "
+"of the box does not contain a frame.  |br| We will see in the following "
+"the difference with the changes in the **origin** tag of the joints with "
+"the description of the **joint** tag."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:352
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:351
 msgid "Un point Xacro et fichiers launch"
 msgstr "A Xacro point and launch files"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:354
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:353
 msgid ""
-"Regardons l'organisation du projet ROS2 ``simple_bot_description`` (après y "
-"avoir ajouté divers fichiers URDF):"
+"Regardons l'organisation du projet ROS2 ``simple_bot_description`` (après"
+" y avoir ajouté divers fichiers URDF):"
 msgstr ""
 "Let's look at the organization of the ROS2 project "
 "``simple_bot_description`` (after adding various URDF files):"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:363
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:362
 msgid "|br| |br|"
 msgstr "|br| |br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:366
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:365
 msgid ""
-"Que se passe-t-il quand nous lançons le package ``simple_bot_description`` "
-"avec la commande suivante ?"
+"Que se passe-t-il quand nous lançons le package "
+"``simple_bot_description`` avec la commande suivante ?"
 msgstr ""
-"What happens when we launch the ``simple_bot_description`` package with the "
-"following command?"
+"What happens when we launch the ``simple_bot_description`` package with "
+"the following command?"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:372
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:371
 msgid "Le fichier ``view_simple_bot.launch.py`` est exécuté.  |br|"
 msgstr "The file ``view_simple_bot.launch.py`` is executed.  |br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:374
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:373
 msgid "Contenu du fichier view_simple_bot.launch.py"
 msgstr "Content of the view_simple_bot.launch.py file"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:380
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:379
 msgid ""
-"On voit que dans les lignes 45 à 58, le fichier xacro ``simple_bot.urdf."
-"xacro`` qui se trouve dans le répertoire ``~/ros2_ws/src/"
-"simple_bot_description/urdf/`` est transformé en fichier URDF.  |br|"
+"On voit que dans les lignes 45 à 58, le fichier xacro "
+"``simple_bot.urdf.xacro`` qui se trouve dans le répertoire "
+"``~/ros2_ws/src/simple_bot_description/urdf/`` est transformé en fichier "
+"URDF.  |br|"
 msgstr ""
 "We see that in lines 45 to 58, the xacro file ``simple_bot.urdf.xacro`` "
-"located in the directory ``~/ros2_ws/src/simple_bot_description/urdf/`` is "
-"transformed into a URDF file.  |br|"
+"located in the directory ``~/ros2_ws/src/simple_bot_description/urdf/`` "
+"is transformed into a URDF file.  |br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:382
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:381
 msgid "Contenu du fichier simple_bot.urdf.xacro"
 msgstr "Content of the simple_bot.urdf.xacro file"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:388
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:387
 msgid ""
-"À la ligne 13, on voit une coommande ``xacro`` qui permet d'inclure un autre "
-"fichier xacro. Cette commande est déclarée grâce à un tag ``xacro:include`` "
-"et utilise une autre commande dont le nom est ``find`` qui permet de trouver "
-"le chemin d'un package dans le répertoire ``install`` du workspace et dont "
-"la valeur de retour est accédée avec la syntaxe ``$(find "
-"simple_bot_description)``.  |br|"
+"À la ligne 13, on voit une coommande ``xacro`` qui permet d'inclure un "
+"autre fichier xacro. Cette commande est déclarée grâce à un tag "
+"``xacro:include`` et utilise une autre commande dont le nom est ``find`` "
+"qui permet de trouver le chemin d'un package dans le répertoire "
+"``install`` du workspace et dont la valeur de retour est accédée avec la "
+"syntaxe ``$(find simple_bot_description)``.  |br|"
 msgstr ""
-"At line 13, we see a ``xacro`` command that allows including another xacro "
-"file. This command is declared with a ``xacro:include`` tag and uses another "
-"command named ``find`` which allows finding the path of a package in the "
-"``install`` directory of the workspace, and its return value is accessed "
-"with the syntax ``$(find simple_bot_description)``.  |br|"
+"At line 13, we see a ``xacro`` command that allows including another "
+"xacro file. This command is declared with a ``xacro:include`` tag and "
+"uses another command named ``find`` which allows finding the path of a "
+"package in the ``install`` directory of the workspace, and its return "
+"value is accessed with the syntax ``$(find simple_bot_description)``.  "
+"|br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:392
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:391
 msgid ""
-"Dans le :numref:`my02_tr_plus_rot_bot.urdf`, vous avez peut-être remarqué "
-"une autre commande xacro bien pratique qui permet de manipuler des angles en "
-"degrés et de les convertir en radians: ``${radians(90)}``."
+"Dans le :numref:`my02_tr_plus_rot_bot.urdf`, vous avez peut-être remarqué"
+" une autre commande xacro bien pratique qui permet de manipuler des "
+"angles en degrés et de les convertir en radians: ``${radians(90)}``."
 msgstr ""
 "In the :numref:`my02_tr_plus_rot_bot.urdf`, you may have noticed another "
 "useful xacro command that allows you to manipulate angles in degrees and "
 "convert them to radians: ``${radians(90)}``."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:394
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:393
 msgid "Appel de fonction dans une commande xacro"
 msgstr "Function Call in a Xacro Command"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:396
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:395
 msgid ""
 "Notez que quand on fait un appel de fonction dans une commande xacro, on "
 "utilise des **accolades** au lieu des **paranthèses** pour les premiers "
 "délimiteurs de la commande."
 msgstr ""
-"Note that when making a function call in a xacro command, **curly braces** "
-"are used instead of **parentheses** for the command's initial delimiters."
+"Note that when making a function call in a xacro command, **curly "
+"braces** are used instead of **parentheses** for the command's initial "
+"delimiters."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:398
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:397
 msgid ""
-"Un fichier python ``xxxxx.launch.py`` peut utiliser des arguments en ligne "
-"de commande.  |br| Dans le fichier ci-dessus lignes 23-39 sont définis 2 "
-"arguments:"
+"Un fichier python ``xxxxx.launch.py`` peut utiliser des arguments en "
+"ligne de commande.  |br| Dans le fichier ci-dessus lignes 23-39 sont "
+"définis 2 arguments:"
 msgstr ""
-"A Python file ``xxxxx.launch.py`` can use command-line arguments.  |br| In "
-"the file above, lines 23-39 define 2 arguments:"
+"A Python file ``xxxxx.launch.py`` can use command-line arguments.  |br| "
+"In the file above, lines 23-39 define 2 arguments:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:401
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:400
 msgid "le nom par défaut du package (``description_package``)"
 msgstr "the default package name (``description_package``)"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:402
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:401
 msgid ""
-"le prefix qui peut être appliqué devant le path de chaque resource, ce qui "
-"permet de réutiliser le même fichier de launch pour plusieurs instances "
-"d'objets, des robots par exemple, dans le cas d'une flotte de robots."
+"le prefix qui peut être appliqué devant le path de chaque resource, ce "
+"qui permet de réutiliser le même fichier de launch pour plusieurs "
+"instances d'objets, des robots par exemple, dans le cas d'une flotte de "
+"robots."
 msgstr ""
 "the prefix that can be applied before the path of each resource, which "
-"allows reusing the same launch file for multiple instances of objects, such "
-"as robots, in the case of a robot fleet."
+"allows reusing the same launch file for multiple instances of objects, "
+"such as robots, in the case of a robot fleet."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:404
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:403
 msgid "La syntaxe est:"
 msgstr "The syntax is:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:418
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:417
+#, fuzzy
 msgid ""
 "La valeur d'un paramètre est ensuite récupérée en utilisant la fonction "
-"``LaunchConfiguration`` du module ``launch.substitutions`` (lignes 42-43)"
+"``LaunchConfiguration`` du module ``launch.substitutions`` (lignes "
+"42-43)."
 msgstr ""
-"The value of a parameter is then retrieved using the ``LaunchConfiguration`` "
-"function from the ``launch.substitutions`` module (lines 42-43)."
+"The value of a parameter is then retrieved using the "
+"``LaunchConfiguration`` function from the ``launch.substitutions`` module"
+" (lines 42-43)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:420
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:419
+#, fuzzy
 msgid ""
-"Il est ensuite possible d'utiliser les valeurs récupérées pour réaliser des "
-"substitutions dans les fichiers de configuration, par exemple ligne 45-58, "
-"la commande ``xacro`` est appelée sur le fichier ``simple_bot.urdf.xacro`` "
-"en fournissant comme paramètre ``prefix:=\"\"`` (ici le prefix est la chaîne "
-"de caractère vide)"
+"Il est ensuite possible d'utiliser les valeurs récupérées pour réaliser "
+"des substitutions dans les fichiers de configuration, par exemple ligne "
+"45-58, la commande ``xacro`` est appelée sur le fichier "
+"``simple_bot.urdf.xacro`` en fournissant comme paramètre ``prefix:=\"\"``"
+" (ici le prefix est la chaîne de caractère vide)."
 msgstr ""
-"It is then possible to use the retrieved values to perform substitutions in "
-"configuration files, for example, lines 45-58, the ``xacro`` command is "
-"called on the file ``simple_bot.urdf.xacro`` with the parameter ``prefix:"
-"=\"\"`` (here, the prefix is an empty string)."
+"It is then possible to use the retrieved values to perform substitutions "
+"in configuration files, for example, lines 45-58, the ``xacro`` command "
+"is called on the file ``simple_bot.urdf.xacro`` with the parameter "
+"``prefix:=\"\"`` (here, the prefix is an empty string)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:422
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:421
 msgid ""
-"Pour visualiser facilement plusieurs descriptions de robots différentes dans "
-"rviz2 et suivre les transformations des repères, il est intéressant de créer "
-"plusieurs fichiers xacro sur le modèle du fichier ``simple_bot_macro."
-"xacro``.  |br| Par exemple nous avons crée les fichiers:"
+"Pour visualiser facilement plusieurs descriptions de robots différentes "
+"dans rviz2 et suivre les transformations des repères, il est intéressant "
+"de créer plusieurs fichiers xacro sur le modèle du fichier "
+"``simple_bot_macro.xacro``.  |br| Par exemple nous avons crée les "
+"fichiers:"
 msgstr ""
-"To easily visualize multiple different robot descriptions in rviz2 and track "
-"frame transformations, it is useful to create multiple xacro files based on "
-"the ``simple_bot_macro.xacro`` file.  |br| For example, we have created the "
-"following files:"
+"To easily visualize multiple different robot descriptions in rviz2 and "
+"track frame transformations, it is useful to create multiple xacro files "
+"based on the ``simple_bot_macro.xacro`` file.  |br| For example, we have "
+"created the following files:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:425
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:424
 msgid "simple_bot__my01_bot__macro.xacro"
 msgstr "simple_bot__my01_bot__macro.xacro"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:426
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:425
 msgid "simple_bot__my02_tr_bot__macro.xacro"
 msgstr "simple_bot__my02_tr_bot__macro.xacro"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:427
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:426
 msgid "simple_bot__my02_tr_plus_rot_bot__macro.xacro"
 msgstr "simple_bot__my02_tr_plus_rot_bot__macro.xacro"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:428
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:427
 msgid "simple_bot__my03_bot__macro.xacro"
 msgstr "simple_bot__my03_bot__macro.xacro"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:429
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:428
 msgid "simple_bot__my04_bot__macro.xacro"
 msgstr "simple_bot__my04_bot__macro.xacro"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:431
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:430
 msgid ""
 "que vous n'avez pas encore et qui apparaissent dans l'arborescence du "
 "package ``simple_bot_description`` affichée :ref:`plus haut "
@@ -781,266 +800,279 @@ msgstr ""
 "``simple_bot_description`` package shown :ref:`above "
 "<simple_bot_description_tree>`.  |br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:433
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:432
 msgid "pour modifier que quelques paramètres.  |br|"
 msgstr "to modify only a few parameters.  |br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:435
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:434
 msgid "Exercice xacro / launch file"
 msgstr "Xacro / Launch File Exercise"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:437
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:436
 msgid ""
-"Modifiez les fichiers ``view_simple_bot.launch.py`` et ``simple_bot.urdf."
-"xacro`` pour que le fichier affichée par rviz2 soit paramétrable et par "
-"exemple affiche le fichier ``simple_bot__my03_bot__macro.xacro`` quand on "
-"lance la commande:"
+"Modifiez les fichiers ``view_simple_bot.launch.py`` et "
+"``simple_bot.urdf.xacro`` pour que le fichier affichée par rviz2 soit "
+"paramétrable et par exemple affiche le fichier "
+"``simple_bot__my03_bot__macro.xacro`` quand on lance la commande:"
 msgstr ""
-"Modify the ``view_simple_bot.launch.py`` and ``simple_bot.urdf.xacro`` files "
-"so that the file displayed by rviz2 is configurable and, for example, "
-"displays the file ``simple_bot__my03_bot__macro.xacro`` when the following "
-"command is run:"
+"Modify the ``view_simple_bot.launch.py`` and ``simple_bot.urdf.xacro`` "
+"files so that the file displayed by rviz2 is configurable and, for "
+"example, displays the file ``simple_bot__my03_bot__macro.xacro`` when the"
+" following command is run:"
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst
 msgid "Afficher la solution de l'exercice"
 msgstr "Show the Exercise Solution"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:445
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:444
 msgid "Modifications du fichier ``view_simple_bot.launch.py``:"
 msgstr "Modifications to the ``view_simple_bot.launch.py`` File:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:447
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:446
 msgid ""
 "Modification du fichier view_simple_bot.launch.py pour qu'il accepte un "
-"argument urdf qui permet de choisir le fichier xacro à afficher dans rviz2"
+"argument urdf qui permet de choisir le fichier xacro à afficher dans "
+"rviz2"
 msgstr ""
-"Modification of the view_simple_bot.launch.py file to accept a urdf argument "
-"that allows selecting the xacro file to display in rviz2"
+"Modification of the view_simple_bot.launch.py file to accept a urdf "
+"argument that allows selecting the xacro file to display in rviz2"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:453
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:452
 msgid "Modifications du fichier ``simple_bot.urdf.xacro``:"
 msgstr "Modifications to the ``simple_bot.urdf.xacro`` File:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:455
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:454
 msgid ""
-"Modification du fichier simple_bot.urdf.xacro pour qu'il accepte un argument "
-"urdf qui permet de choisir le fichier xacro à afficher dans rviz2"
+"Modification du fichier simple_bot.urdf.xacro pour qu'il accepte un "
+"argument urdf qui permet de choisir le fichier xacro à afficher dans "
+"rviz2"
 msgstr ""
 "Modification of the simple_bot.urdf.xacro file to accept a urdf argument "
 "that allows selecting the xacro file to display in rviz2"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:463
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:462
 msgid "La balise **joint**"
 msgstr "The **joint** Tag"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:465
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:464
 msgid ""
-"La balise **joint** est utilisée pour décrire une articulation entre deux "
-"segments du robot. La description complète de cette balise est disponible "
-"dans la `specification de la balise joint <http://wiki.ros.org/urdf/XML/"
-"joint>`_."
+"La balise **joint** est utilisée pour décrire une articulation entre deux"
+" segments du robot. La description complète de cette balise est "
+"disponible dans la `specification de la balise joint "
+"<http://wiki.ros.org/urdf/XML/joint>`_."
 msgstr ""
-"The **joint** tag is used to describe a joint between two segments of the "
-"robot. The complete description of this tag is available in the `joint tag "
-"specification <http://wiki.ros.org/urdf/XML/joint>`_."
+"The **joint** tag is used to describe a joint between two segments of the"
+" robot. The complete description of this tag is available in the `joint "
+"tag specification <http://wiki.ros.org/urdf/XML/joint>`_."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:473
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:472
 msgid ""
 "Balise ``joint`` de type ``revolute`` avec les éléments  **origin**, "
 "**parent**, **child**, **axis** et **limit**"
 msgstr ""
-"``joint`` tag of type ``revolute`` with the elements **origin**, **parent**, "
-"**child**, **axis**, and **limit**"
+"``joint`` tag of type ``revolute`` with the elements **origin**, "
+"**parent**, **child**, **axis**, and **limit**"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:478
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:477
 msgid ""
 "Balise ``joint`` de type ``floating`` avec les éléments  **origin**, "
 "**parent**, **child**, **limit**, **dynamics**, **calibration**, "
 "**safety_controller** et **mimic**"
 msgstr ""
-"``joint`` tag of type ``floating`` with the elements **origin**, **parent**, "
-"**child**, **limit**, **dynamics**, **calibration**, **safety_controller**, "
-"and **mimic**"
+"``joint`` tag of type ``floating`` with the elements **origin**, "
+"**parent**, **child**, **limit**, **dynamics**, **calibration**, "
+"**safety_controller**, and **mimic**"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:491
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:490
 msgid "Élément ``joint`` d'un fichier URDF"
 msgstr "``joint`` Element in a URDF File"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:493
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:492
 msgid ""
 "L'attribut **type** de la balise **joint** permet de définir le type de "
 "l'articulation (revolute, prismatic, continuous, fixed, floating ou "
 "planar).  |br|"
 msgstr ""
-"The **type** attribute of the **joint** tag allows defining the type of the "
-"joint (revolute, prismatic, continuous, fixed, floating, or planar). |br|"
+"The **type** attribute of the **joint** tag allows defining the type of "
+"the joint (revolute, prismatic, continuous, fixed, floating, or planar). "
+"|br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:495
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:494
 msgid "**revolute**: articulation de type pivot d'axe avec des butées."
 msgstr "**revolute**: a joint of type revolute with limits."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:496
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:495
 msgid "**prismatic**: articulation de type glissière."
 msgstr "**prismatic**: a joint of type prismatic."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:497
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:496
 msgid ""
-"**continuous**: articulation de type pivot d'axe avec une rotation continue "
-"(comme pour une roue)."
+"**continuous**: articulation de type pivot d'axe avec une rotation "
+"continue (comme pour une roue)."
 msgstr ""
-"**continuous**: a joint of type continuous with unlimited rotation (like a "
-"wheel)."
+"**continuous**: a joint of type continuous with unlimited rotation (like "
+"a wheel)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:498
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:497
 msgid "**fixed**: articulation de type encastrement (fixe)."
 msgstr "**fixed**: a joint of type fixed (no movement)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:499
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:498
 msgid "**floating**: articulation de type flottante (6 degrés de liberté)."
 msgstr "**floating**: a joint of type floating (6 degrees of freedom)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:500
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:499
 msgid ""
 "**planar**: articulation de type appui plan (2 degrés de liberté en "
 "translation et 1 degré de liberté en rotation)."
 msgstr ""
-"**planar**: a joint of type planar (2 degrees of freedom in translation and "
-"1 degree of freedom in rotation)."
+"**planar**: a joint of type planar (2 degrees of freedom in translation "
+"and 1 degree of freedom in rotation)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:502
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:501
 msgid "Les éléments de la balise **joint** que nous utiliserons le plus, sont:"
 msgstr "The elements of the **joint** tag that we will use the most are:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:504
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:503
 msgid ""
 "**origin**: qui définit la position et l'orientation du repère de "
 "l'articulation par rapport au repère du parent."
 msgstr ""
-"**origin**: which defines the position and orientation of the joint's frame "
-"relative to the parent's frame."
+"**origin**: which defines the position and orientation of the joint's "
+"frame relative to the parent's frame."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:505
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:504
 msgid "**parent**: qui définit le nom du segment parent."
 msgstr "**parent**: which defines the name of the parent segment."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:506
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:505
 msgid "**child**: qui définit le nom du segment enfant."
 msgstr "**child**: which defines the name of the child segment."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:507
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:506
 msgid ""
 "**type**: qui définit le type de l'articulation (``revolute``, "
 "``prismatic``, ``continuous``, ``fixed``, ``floating`` ou ``planar``)."
 msgstr ""
-"**type**: which defines the type of the joint (``revolute``, ``prismatic``, "
-"``continuous``, ``fixed``, ``floating``, or ``planar``)."
+"**type**: which defines the type of the joint (``revolute``, "
+"``prismatic``, ``continuous``, ``fixed``, ``floating``, or ``planar``)."
+
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:507
+msgid ""
+"**axis**: qui définit l'axe de rotation ou de translation de "
+"l'articulation utilisée uniquement pour toutes les articulations exceptée"
+" ``fixed`` et ``floating``. Sa valeur par défaut est un axe unitaire "
+"parallèle à l'axe x du repère de l'articulation :math:`(1,0,0)`. Cet axe "
+"correspond: à l'axe de rotation pour les articulations de type "
+"``revolute`` et ``continuous``, à l'axe de translation pour les "
+"articulations de type ``prismatic`` et à la normal du plan d'appui pour "
+"les articulations de type ``planar``."
+msgstr ""
+"**axis**: which defines the axis of rotation or translation for the "
+"joint, used only for all joints except ``fixed`` and ``floating``. Its "
+"default value is a unit axis parallel to the x-axis of the joint's frame "
+":math:`(1,0,0)`. This axis corresponds to: the axis of rotation for "
+"``revolute`` and ``continuous`` joints, the axis of translation for "
+"``prismatic`` joints, and the normal of the support plane for ``planar`` "
+"joints."
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:508
-msgid ""
-"**axis**: qui définit l'axe de rotation ou de translation de l'articulation "
-"utilisée uniquement pour toutes les articulations exceptée ``fixed`` et "
-"``floating``. Sa valeur par défaut est un axe unitaire parallèle à l'axe x "
-"du repère de l'articulation :math:`(1,0,0)`. Cet axe correspond: à l'axe de "
-"rotation pour les articulations de type ``revolute`` et ``continuous``, à "
-"l'axe de translation pour les articulations de type ``prismatic`` et à la "
-"normal du plan d'appui pour les articulations de type ``planar``."
-msgstr ""
-"**axis**: which defines the axis of rotation or translation for the joint, "
-"used only for all joints except ``fixed`` and ``floating``. Its default "
-"value is a unit axis parallel to the x-axis of the joint's frame :math:"
-"`(1,0,0)`. This axis corresponds to: the axis of rotation for ``revolute`` "
-"and ``continuous`` joints, the axis of translation for ``prismatic`` joints, "
-"and the normal of the support plane for ``planar`` joints."
-
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:509
 #, fuzzy
 msgid ""
-"**limit**: qui définit les limites de l'articulation, nécessaire que pour "
-"les articulations de type ``revolute`` ou ``prismatic``. Les limites sont "
-"définies par les attributs **lower** et **upper** qui sont les valeurs "
-"minimale et maximale de l'articulation (en radians pour l'articulation de "
-"type ``revolute`` et en mètres pour l'articulation de type ``prismatic``), "
-"par l'attribut **effort** qui est la force maximale que l'articulation peut "
-"supporter (en Newtons-mètres pour les articulations de type ``revolute`` et "
-"``continuous``, mesurant donc un couple et en Newtons pour une articulation "
-"de type ``prismatic``), et par l'attribut **velocity** qui est la vitesse "
-"maximale de l'articulation (en radians par seconde pour les articulations de "
-"type ``revolute`` et ``continuous`` et en mètres par seconde pour "
-"l'articulation de type ``prismatic``)."
+"**limit**: qui définit les limites de l'articulation, nécessaire que pour"
+" les articulations de type ``revolute`` ou ``prismatic``. Les limites "
+"sont définies par les attributs **lower** et **upper** qui sont les "
+"valeurs minimale et maximale de l'articulation (en radians pour "
+"l'articulation de type ``revolute`` et en mètres pour l'articulation de "
+"type ``prismatic``), par l'attribut **effort** qui est la force maximale "
+"que l'articulation peut supporter (en Newtons-mètres pour les "
+"articulations de type ``revolute`` et ``continuous``, mesurant donc un "
+"couple et en Newtons pour une articulation de type ``prismatic``), et par"
+" l'attribut **velocity** qui est la vitesse maximale de l'articulation "
+"(en radians par seconde pour les articulations de type ``revolute`` et "
+"``continuous`` et en mètres par seconde pour l'articulation de type "
+"``prismatic``)."
 msgstr ""
 "**limit**: which defines the limits of the joint, necessary only for "
 "``revolute`` or ``prismatic`` joints. The limits are defined by the "
-"**lower** and **upper** attributes, which are the minimum and maximum values "
-"of the joint (in radians for ``revolute`` joints and in meters for "
-"``prismatic`` joints), by the **effort** attribute, which is the maximum "
-"force the joint can withstand (in Newton-meters for ``revolute`` and "
-"``continuous`` joints, measuring torque, and in Newtons for ``prismatic`` "
-"joints), and by the **velocity** attribute, which is the maximum speed of "
-"the joint (in radians per second for ``revolute`` and ``continuous`` joints "
-"and in meters per second for ``prismatic`` joints)."
+"**lower** and **upper** attributes, which are the minimum and maximum "
+"values of the joint (in radians for ``revolute`` joints and in meters for"
+" ``prismatic`` joints), by the **effort** attribute, which is the maximum"
+" force the joint can withstand (in Newton-meters for ``revolute`` and "
+"``continuous`` joints, measuring torque, and in Newtons for ``prismatic``"
+" joints), and by the **velocity** attribute, which is the maximum speed "
+"of the joint (in radians per second for ``revolute`` and ``continuous`` "
+"joints and in meters per second for ``prismatic`` joints)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:511
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:510
 msgid ""
 "Dans le tag **origin** du tag **joint**, la position et l'orientation du "
-"repère de l'articulation par rapport au repère du parent sont définis par "
-"les attributs **xyz** et **rpy**. De la même manière pour les segments "
+"repère de l'articulation par rapport au repère du parent sont définis par"
+" les attributs **xyz** et **rpy**. De la même manière pour les segments "
 "(``link``), la rotation est appliquée avant la translation. Dans RVIZ2, "
-"cette transformation est visible grâce à une arrête jaune terminée par une "
-"flêche qui pointe du repère enfant vers le repère parent.  |br|"
+"cette transformation est visible grâce à une arrête jaune terminée par "
+"une flêche qui pointe du repère enfant vers le repère parent.  |br|"
 msgstr ""
-"In the **origin** tag of the **joint** tag, the position and orientation of "
-"the joint's frame relative to the parent's frame are defined by the **xyz** "
-"and **rpy** attributes. Similarly, for segments (``link``), rotation is "
-"applied before translation. In RVIZ2, this transformation is visible through "
-"a yellow arrow pointing from the child frame to the parent frame.  |br|"
+"In the **origin** tag of the **joint** tag, the position and orientation "
+"of the joint's frame relative to the parent's frame are defined by the "
+"**xyz** and **rpy** attributes. Similarly, for segments (``link``), "
+"rotation is applied before translation. In RVIZ2, this transformation is "
+"visible through a yellow arrow pointing from the child frame to the "
+"parent frame.  |br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:520
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:519
+#, fuzzy
 msgid ""
 "Ajout d'une translation pour le repère de l'articulation par rapport au "
-"repère du parent (attribut **xyz** de la balise **origin** du tag **joint**)"
+"repère du parent (attribut **xyz** de la balise **origin** du tag "
+"**joint**)."
 msgstr ""
-"Adding a translation for the joint's frame relative to the parent's frame "
-"(using the **xyz** attribute of the **origin** tag in the **joint** tag)."
+"Adding a translation for the joint's frame relative to the parent's frame"
+" (using the **xyz** attribute of the **origin** tag in the **joint** "
+"tag)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:533
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:532
+#, fuzzy
 msgid ""
-"Affichage d'une articulation avec RVIZ correspondant à la description URDF "
-"sur la gauche. Le lien est modélisé par la flèche jaune de ``base_link`` "
-"vers ``world`` (en cochant la case ``Show Arrows``)"
+"Affichage d'une articulation avec RVIZ correspondant à la description "
+"URDF sur la gauche. Le lien est modélisé par la flèche jaune de "
+"``base_link`` vers ``world`` (en cochant la case ``Show Arrows``)."
 msgstr ""
 "Display of a joint in RVIZ corresponding to the URDF description on the "
 "left. The link is represented by a yellow arrow from ``base_link`` to "
 "``world`` (with the ``Show Arrows`` option checked)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:535
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:534
 msgid ""
 "Le changement de repère introduit par le tag **origin** de la balise "
-"**joint** s'effectue avant la transofrmation du segment (balise **link**). "
-"De même que pour la balise joint, la rotation est effectuée avant la "
-"translation (le repère tourne autour de l'origine du repère parent, puis est "
-"translaté). La rotation et la translation sont exprimées dans le repère du "
-"parent.  |br|"
+"**joint** s'effectue avant la transofrmation du segment (balise "
+"**link**). De même que pour la balise joint, la rotation est effectuée "
+"avant la translation (le repère tourne autour de l'origine du repère "
+"parent, puis est translaté). La rotation et la translation sont exprimées"
+" dans le repère du parent.  |br|"
 msgstr ""
 "The frame change introduced by the **origin** tag in the **joint** tag "
-"occurs before the transformation of the segment (``link`` tag). As with the "
-"joint tag, rotation is performed before translation (the frame rotates "
-"around the origin of the parent frame and is then translated). The rotation "
-"and translation are expressed in the parent's frame.  |br|"
+"occurs before the transformation of the segment (``link`` tag). As with "
+"the joint tag, rotation is performed before translation (the frame "
+"rotates around the origin of the parent frame and is then translated). "
+"The rotation and translation are expressed in the parent's frame.  |br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:542
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:541
 msgid ""
-"Ajout d'une rotation pour le repère de l'articulation par rapport au repère "
-"du parent (attribut **rpy** du tag **origin** du tag **joint**)."
+"Ajout d'une rotation pour le repère de l'articulation par rapport au "
+"repère du parent (attribut **rpy** du tag **origin** du tag **joint**)."
 msgstr ""
 "Adding a rotation for the joint's frame relative to the parent's frame "
 "(using the **rpy** attribute of the **origin** tag in the **joint** tag)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:555
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:554
 msgid ""
-"Rotation du repère de l'articulation en plus de la translation. Notez que la "
-"rotation est effectuée avant la translation (si cela avait été l'inverse, "
-"l'arrête jaune serait alignée avec l'axe vert du repère ``world``)."
+"Rotation du repère de l'articulation en plus de la translation. Notez que"
+" la rotation est effectuée avant la translation (si cela avait été "
+"l'inverse, l'arrête jaune serait alignée avec l'axe vert du repère "
+"``world``)."
 msgstr ""
-"Rotation of the joint's frame in addition to translation. Note that rotation "
-"is performed before translation (if it were the opposite, the yellow arrow "
-"would align with the green axis of the ``world`` frame)."
+"Rotation of the joint's frame in addition to translation. Note that "
+"rotation is performed before translation (if it were the opposite, the "
+"yellow arrow would align with the green axis of the ``world`` frame)."
+

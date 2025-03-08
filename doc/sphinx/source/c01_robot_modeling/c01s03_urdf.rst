@@ -414,9 +414,9 @@ La syntaxe est:
         )
     )
 
-La valeur d'un paramètre est ensuite récupérée en utilisant la fonction ``LaunchConfiguration`` du module ``launch.substitutions`` (lignes 42-43)
+La valeur d'un paramètre est ensuite récupérée en utilisant la fonction ``LaunchConfiguration`` du module ``launch.substitutions`` (lignes 42-43).
 
-Il est ensuite possible d'utiliser les valeurs récupérées pour réaliser des substitutions dans les fichiers de configuration, par exemple ligne 45-58, la commande ``xacro`` est appelée sur le fichier ``simple_bot.urdf.xacro`` en fournissant comme paramètre ``prefix:=""`` (ici le prefix est la chaîne de caractère vide)
+Il est ensuite possible d'utiliser les valeurs récupérées pour réaliser des substitutions dans les fichiers de configuration, par exemple ligne 45-58, la commande ``xacro`` est appelée sur le fichier ``simple_bot.urdf.xacro`` en fournissant comme paramètre ``prefix:=""`` (ici le prefix est la chaîne de caractère vide).
 
 Pour visualiser facilement plusieurs descriptions de robots différentes dans rviz2 et suivre les transformations des repères, il est intéressant de créer plusieurs fichiers xacro sur le modèle du fichier ``simple_bot_macro.xacro``.  |br|
 Par exemple nous avons crée les fichiers:
@@ -519,7 +519,7 @@ Dans RVIZ2, cette transformation est visible grâce à une arrête jaune termin�
       .. literalinclude:: resources/urdf/my03_bot.urdf
          :language: xml
          :linenos:
-         :caption: Ajout d'une translation pour le repère de l'articulation par rapport au repère du parent (attribut **xyz** de la balise **origin** du tag **joint**)
+         :caption: Ajout d'une translation pour le repère de l'articulation par rapport au repère du parent (attribut **xyz** de la balise **origin** du tag **joint**).
 
 
    .. grid-item-card::
@@ -529,7 +529,7 @@ Dans RVIZ2, cette transformation est visible grâce à une arrête jaune termin�
          :align: center
          :height: 400px
 
-         Affichage d'une articulation avec RVIZ correspondant à la description URDF sur la gauche. Le lien est modélisé par la flèche jaune de ``base_link`` vers ``world`` (en cochant la case ``Show Arrows``)
+         Affichage d'une articulation avec RVIZ correspondant à la description URDF sur la gauche. Le lien est modélisé par la flèche jaune de ``base_link`` vers ``world`` (en cochant la case ``Show Arrows``).
 
 Le changement de repère introduit par le tag **origin** de la balise **joint** s'effectue avant la transofrmation du segment (balise **link**).
 De même que pour la balise joint, la rotation est effectuée avant la translation (le repère tourne autour de l'origine du repère parent, puis est translaté). La rotation et la translation sont exprimées dans le repère du parent.  |br|
