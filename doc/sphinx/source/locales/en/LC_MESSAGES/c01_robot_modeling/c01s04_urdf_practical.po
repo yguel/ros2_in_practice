@@ -3,18 +3,21 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-03-07 16:08+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-03-08 14:50+0000\n"
+"Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
+"Language-Team: English <http://localhost/projects/cours_ros2/"
+"c01_robot_modelingc01s04_urdf_practical/en/>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:3
@@ -221,7 +224,7 @@ msgstr ""
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:61
 msgid "Produire un URDF"
-msgstr "Producing a URDF"
+msgstr "Producing an URDF"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:63
 msgid ""
@@ -247,8 +250,8 @@ msgid ""
 "template2instance est un outil python utilisant le gestionnaire de "
 "dépendances **poetry** qui s'utilise de la manière suivante:"
 msgstr ""
-"template2instance is a Python tool using the **poetry** dependency "
-"manager, which is used as follows:"
+"template2instance is a Python tool using the **poetry** dependency manager, "
+"which is used as follows:"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:76
 msgid "Caméra et 3 degrées de liberté en rotation"
@@ -318,4 +321,3 @@ msgid ""
 msgstr ""
 "The default robot when initializing a visualization package from the "
 "view_robot_template template."
-
