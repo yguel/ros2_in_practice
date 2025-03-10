@@ -16,6 +16,23 @@ Il se compose d'une partie en translation x,y,z, d'un bras vert capable de pivot
 Maillages des segments
 ------------------------
 
+Pour produire les maillages, nous avons utilisé le logiciel `cadquery <https://github.com/CadQuery/cadquery>`_ (très bien `documenté <https://cadquery.readthedocs.io/en/latest/>`_). Cela permet de créer de manière procédural les formes à partir du language python en utilisant les opérations élémentaires de CAO (sketch, extrusion, combinaisons booléennes de forme). |br|
+
+#. :download:`scanbot.py <resources/3d/scanbot/cadquery/scanbot.py>`,
+#. :download:`cq_utils.py <resources/3d/scanbot/cadquery/cq_utils.py>`.
+
+.. admonition:: Exercice (avancé, utilisation de cadquery)
+
+   Installez cq-editor, puis exécutez le programme scanbot.py 
+   
+   .. code-block:: python
+
+      exec( open('<path_to>/scanbot.py').read() )
+   
+   en remplaçant <path_to> par le chemin absolu du fichier scanbot.py (n'oubliez pas de mettre dans le même répertoire le fichier cq_utils.py).
+
+   Cela va créer les maillages des segments du scanbot.
+
 Format step
 ^^^^^^^^^^^^
 
@@ -31,7 +48,7 @@ Les maillages des segments du scanbot au format step sont les suivants:
 #. :download:`scanbot_s08_z_cyl_link.step <resources/3d/scanbot/scanbot_s08_z_cyl_link.step>`,
 #. :download:`scanbot_s09_camera_link.step <resources/3d/scanbot/scanbot_s09_camera_link.step>`
 
-.. admonition:: Exercice
+.. admonition:: Exercice pratique
 
    À partir des maillages ci-dessus au format step, utilisez un logiciel de CAO pour les convertir au format collada (.dae).
    Indice: Utilisez le logiciel FreeCAD.
@@ -116,3 +133,28 @@ Testez le package:
    :height: 400px
 
    Le robot par défaut à l'initialisation d'un package de visualisation à partir du template view_robot_template.
+
+Nous pouvons maintenant éditer le fichier URDF/xacro (``urdf/scanbot_camera/scanbot_camera_macro.xacro``) pour décrire la caméra et les 3 degrées de liberté en rotation. |br|
+Nous allons commencer par enlever tous les éléments servant à décrire le robot par défaut. |br|
+
+
+.. grid:: 1 2 2 2
+
+   .. grid-item-card::
+
+      .. literalinclude:: resources/urdf/scanbot_camera_macro_00_empty.xacro
+         :language: xml
+         :caption: scanbot_camera_macro.xacro avec un seul élément
+         :emphasize-lines: 17-19
+   
+   .. grid-item-card::
+
+      .. figure:: resources/img/urdf/scanbot_cam/x_cyl_link_only.png
+         :name: fig_scanbot_cam_x_cyl_link_only
+         :align: center
+         :height: 400px
+
+         Le premier segment de la partie caméra du scanbot. Le repère est placé au centre de la face arrière circulaire du cylindre.
+
+L'élément nouveau utilisé dans l'URDF est la balise ``<mesh>`` qui permet de charger un maillage au format collada. Nous avons utilisé le maillage du segment ``scanbot_s02_x_cyl_link.dae``. L'attribut ``filename`` permet de spécifier le chemin du fichier collada, celui-ci est fourni par rapport au package ROS2, c'est pourquoi nous avons le chemin fourni commence par ``package://`` suivi du nom du package (``scanbot_cam_description``) et du path dans ce package: ``package://scanbot_cam_description/meshes/scanbot_s02_x_cyl_link.dae``. |br|
+Nous avons aussi spécifiée l'échelle du maillage. ROS2 utilise le mètre comme base unitaire. Notre maillage étant déjà en mètre, nous n'avons en réalité pas besoin d'utiliser l'attribut ``scale``, pour des raisons pédagogique, nous l'avons spécifié avec l'échelle sur chaque axe à ``1.`` .|br|

@@ -433,7 +433,7 @@ pour modifier que quelques paramètres.  |br|
 
 .. admonition:: Exercice xacro / launch file
 
-   Modifiez les fichiers ``view_simple_bot.launch.py`` et ``simple_bot.urdf.xacro`` pour que le fichier affichée par rviz2 soit paramétrable et par exemple affiche le fichier ``simple_bot__my03_bot__macro.xacro`` quand on lance la commande:
+   Modifiez les fichiers ``view_simple_bot.launch.py`` et ``simple_bot.urdf.xacro`` pour que le fichier affiché par rviz2 soit paramétrable et par exemple affiche le fichier ``simple_bot__my03_bot__macro.xacro`` quand on lance la commande:
 
    .. code-block:: bash
 

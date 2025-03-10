@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <xacro:include filename="$(find view_scanbot_camera)/urdf/common/inertials.xacro" />
+    <xacro:include filename="$(find view_scanbot_camera)/urdf/common/materials.xacro" />
+
+    <xacro:macro name="scanbot_camera" params="prefix parent *origin">
+        <!-- LINKS -->
+        <!-- base link == x_cyl_link -->
+        <link name="${prefix}base_link">
+            <!-- Default inertial for Gazebo - copy and edit block from 'common.xacro'
+           to get more realistic behavior -->
+            <xacro:default_inertial />
+            <visual>
+                <origin xyz="0.0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://view_scanbot_camera/meshes/scanbot/visual/scanbot_s02_x_cyl_link.dae"
+                        scale="1. 1. 1." />
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://view_scanbot_camera/meshes/scanbot/visual/scanbot_s02_x_cyl_link.dae"
+                        scale="1. 1. 1." />
+                </geometry>
+            </collision>
+        </link>
+        <!-- END LINKS -->
+
+        <!-- JOINTS -->
+        <!-- base_joint fixes base_link to the environment -->
+        <joint name="${prefix}base_joint" type="fixed">
+            <xacro:insert_block name="origin" />
+            <parent link="${parent}" />
+            <child link="${prefix}base_link" />
+        </joint>
+        <!-- END JOINTS -->
+    </xacro:macro>
+</robot>
