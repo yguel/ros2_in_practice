@@ -157,4 +157,110 @@ Nous allons commencer par enlever tous les éléments servant à décrire le rob
          Le premier segment de la partie caméra du scanbot. Le repère est placé au centre de la face arrière circulaire du cylindre.
 
 L'élément nouveau utilisé dans l'URDF est la balise ``<mesh>`` qui permet de charger un maillage au format collada. Nous avons utilisé le maillage du segment ``scanbot_s02_x_cyl_link.dae``. L'attribut ``filename`` permet de spécifier le chemin du fichier collada, celui-ci est fourni par rapport au package ROS2, c'est pourquoi nous avons le chemin fourni commence par ``package://`` suivi du nom du package (``scanbot_cam_description``) et du path dans ce package: ``package://scanbot_cam_description/meshes/scanbot_s02_x_cyl_link.dae``. |br|
-Nous avons aussi spécifiée l'échelle du maillage. ROS2 utilise le mètre comme base unitaire. Notre maillage étant déjà en mètre, nous n'avons en réalité pas besoin d'utiliser l'attribut ``scale``, pour des raisons pédagogique, nous l'avons spécifié avec l'échelle sur chaque axe à ``1.`` .|br|
+Nous avons aussi spécifiée l'échelle du maillage. ROS2 utilise le mètre comme base unitaire. Notre maillage étant déjà en mètre, nous n'avons en réalité pas besoin d'utiliser l'attribut ``scale``, pour des raisons pédagogique, nous l'avons spécifié avec l'échelle sur chaque axe à ``1.`` . |br|
+
+.. container:: exercice
+
+   .. admonition:: Exercice debug (avancé)
+
+      Dans cet exercice, nous allons volontairement faire bugger ROS2 pour apprendre à debugger des problèmes courants. |br|
+
+      .. dropdown:: Afficher l'énoncé de l'exercice
+         
+         Comme dans l' :ref:`exercice sur la paramétrisation des fichiers de launch<exercice_xacro_launch_parameterized_urdf>` modifiez les fichiers:
+         
+         #. ``launch/view_scanbot_camera.launch.py`` de launch
+         #. ``urdf/scanbot_camera.urdf.xacro`` de chargement de l'urdf
+
+         pour pouvoir visualiser différentes configuration de robot avec une commande du type:
+
+         .. code-block:: bash
+
+            ros2 launch view_scanbot_camera view_scanbot_camera.launch.py urdf:=scanbot_camera_macro_666_maze.xacro
+
+         Téléchargez les fichiers suivants dans le répertoire ``urdf/scanbot_camera`` du package ``view_scanbot_camera``:
+
+         #. :download:`scanbot_camera_macro_666_maze.xacro <resources/urdf/scanbot_camera_macro_666_maze.xacro>`,
+         #. :download:`scanbot_camera_macro_01.xacro <resources/urdf/scanbot_camera_macro_01.xacro>`.
+
+         Réalisez maintenant la séquence d'opérations suivantes:
+
+         #. Exécutez la commande précédente dans un terminal, au niveau du workspace contenant le package ``view_scanbot_camera`` et après avoir sourcé le workspace (:code:`ros2_humble_src`).
+         #. Observez toutes les parties du scanbot empilées les unes sur les autres (les transformations ne sont pas correctes).
+         #. Dans un autre terminal, toujours dans le même workspace (et après avoir sourcé le workspace), exécutez maintenant la commande:
+
+         .. code-block:: bash
+
+            ros2 launch view_scanbot_camera view_scanbot_camera.launch.py urdf:=scanbot_camera_macro_01.xacro
+
+         Vous devriez observer une deuxième fenêtre rviz s'ouvrir et le segment cheville (``ankle_link``) osciller en position comme dans les images ci-dessous:
+
+
+         .. grid:: 1 2 2 2
+
+            .. grid-item-card::
+         
+               .. figure:: resources/img/ros2_strange_robot_flickering.gif
+                  :name: fig_strange_robot_flickering
+                  :align: center
+                  :height: 400px
+
+                  Le segment cheville (``ankle_link``) oscille en position.
+
+            .. grid-item-card::
+
+               .. figure:: resources/img/ros2_strange_robot_flickering_position_vue.gif
+                  :name: fig_strange_robot_flickering_position_vue
+                  :align: center
+                  :height: 400px
+
+                  En affichant la position du segment cheville (``ankle_link``) on observe bien que la position x oscille.
+
+
+         (si vous ne l'observez pas, vérifiez que dans le premier terminal, le processus est toujours fonctionnel et sinon relancez-le.)
+
+         Que se passe-t-il et comment pouvez-vous le diagnostiquer ? |br|
+      
+      .. dropdown:: Afficher la solution de l'exercice
+
+         Il semble donc que la position du segment cheville (``ankle_link``) soit reçue de manière contradictoire. |br|
+         Il faut savoir que c'est le nœud ``robot_state_publisher`` qui est responsable de la publication des transformations des segments du robot. |br|
+         Si vous effectuez la commande  
+         
+         .. code-block:: bash
+         
+            ros2 node list 
+         
+         vous allez voir un résultat de ce type:
+         
+         .. code-block:: bash
+            :emphasize-lines: 1,4-5
+         
+            WARNING: Be aware that are nodes in the graph that share an exact name, this can have unintended side effects.
+            /joint_state_publisher
+            /joint_state_publisher
+            /robot_state_publisher
+            /robot_state_publisher
+            /rviz2
+            /transform_listener_impl_5c6fb5eea4e0
+         
+         ros2 nous prévient, il y a plusieurs nœuds avec exactement le même nom: ici les nœuds ``joint_state_publisher`` et ``robot_state_publisher`` sont dédoublés. |br|
+         On ne voit rien par contre quand on examine la liste des topics car chaque nœud a publié sur le même topic: ``robot_description``. En effet, plusieurs nœuds peuvent publier sur le même topic. 
+         Attention: quand un publisher se déclare, un nouveau topic n'est pas automatiquement créé. |br|
+         Comme nous n'avons pas tué le premier process qui affiche l'urdf ``scanbot_camera_macro_666_maze.xacro`` avant de lancer le deuxième process qui affiche l'urdf ``scanbot_camera_macro_01.xacro``, les 2 nœuds ``robot_state_publisher`` publient en même temps sur le même topic ``robot_description``, mais des descriptions contradictoires (si vous regarder les tags ``<joint>`` qui définissent la position du segment ``ankle_link`` vous verrez en effet cette différence de position (de 20cm). |br|
+         Il suffit donc de tuer le premier process pour arrêter le problème. |br|
+         Notez que parfois, si on appuie plusieurs fois sur CTRL-C, le processus ne s'arrête pas correctement et on peut avoir un problème de ce type.
+         À ce moment-là il faut chercher le processus responsable avec la commande:
+
+         .. code-block:: bash
+
+            ps aux | grep ros2
+
+         puis tuer le processus avec la commande:
+
+         .. code-block:: bash
+
+            kill -9 <pid>
+         
+         NOTEZ-BIEN: quand vous tuez un processus ROS2 avec CTRL-C dans un terminal, ne tapez bien qu'une seule fois sur CTRL-C et attendez que le processus s'arrête. Cela vous évitera des problèmes de ce type.
+         

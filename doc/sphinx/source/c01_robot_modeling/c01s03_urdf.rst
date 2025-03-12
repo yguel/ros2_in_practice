@@ -431,31 +431,35 @@ que vous n'avez pas encore et qui apparaissent dans l'arborescence du package ``
 
 pour modifier que quelques paramètres.  |br|
 
-.. admonition:: Exercice xacro / launch file
+.. _exercice_xacro_launch_parameterized_urdf:
 
-   Modifiez les fichiers ``view_simple_bot.launch.py`` et ``simple_bot.urdf.xacro`` pour que le fichier affiché par rviz2 soit paramétrable et par exemple affiche le fichier ``simple_bot__my03_bot__macro.xacro`` quand on lance la commande:
+.. container:: exercice
 
-   .. code-block:: bash
+   .. admonition:: Exercice xacro / launch file
 
-      ros2 launch simple_bot_description view_simple_bot.launch.py urdf:=simple_bot__my03_bot__macro.xacro
-   
-   .. dropdown:: Afficher la solution de l'exercice
+      Modifiez les fichiers ``view_simple_bot.launch.py`` et ``simple_bot.urdf.xacro`` pour que le fichier affiché par rviz2 soit paramétrable et par exemple affiche le fichier ``simple_bot__my03_bot__macro.xacro`` quand on lance la commande:
 
-      Modifications du fichier ``view_simple_bot.launch.py``:
+      .. code-block:: bash
 
-      .. literalinclude:: resources/code/ros2/simple_bot_description/view_simple_bot_02.launch.py
-         :language: python
-         :caption: Modification du fichier view_simple_bot.launch.py pour qu'il accepte un argument urdf qui permet de choisir le fichier xacro à afficher dans rviz2
-         :linenos:
-         :emphasize-lines: 40-46, 51, 65-67
+         ros2 launch simple_bot_description view_simple_bot.launch.py urdf:=simple_bot__my03_bot__macro.xacro
       
-      Modifications du fichier ``simple_bot.urdf.xacro``:
+      .. dropdown:: Afficher la solution de l'exercice
 
-      .. literalinclude:: resources/code/ros2/simple_bot_description/simple_bot.urdf_solution.xacro
-         :language: xml
-         :caption: Modification du fichier simple_bot.urdf.xacro pour qu'il accepte un argument urdf qui permet de choisir le fichier xacro à afficher dans rviz2
-         :linenos:
-         :emphasize-lines: 13
+         Modifications du fichier ``view_simple_bot.launch.py``:
+
+         .. literalinclude:: resources/code/ros2/simple_bot_description/view_simple_bot_02.launch.py
+            :language: python
+            :caption: Modification du fichier view_simple_bot.launch.py pour qu'il accepte un argument urdf qui permet de choisir le fichier xacro à afficher dans rviz2
+            :linenos:
+            :emphasize-lines: 40-46, 51, 65-67
+         
+         Modifications du fichier ``simple_bot.urdf.xacro``:
+
+         .. literalinclude:: resources/code/ros2/simple_bot_description/simple_bot.urdf_solution.xacro
+            :language: xml
+            :caption: Modification du fichier simple_bot.urdf.xacro pour qu'il accepte un argument urdf qui permet de choisir le fichier xacro à afficher dans rviz2
+            :linenos:
+            :emphasize-lines: 13
 
 --------------------
 La balise **joint**

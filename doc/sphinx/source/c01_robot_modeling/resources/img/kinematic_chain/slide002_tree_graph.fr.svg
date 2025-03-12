@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   sodipodi:docname="slide002_tree_graph_fr.svg"
+   sodipodi:docname="slide002_tree_graph.fr.svg"
    id="svg1423"
    version="1.1"
    viewBox="0 0 297 210"
    height="210mm"
    width="297mm"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.4 (e7c3feb, 2024-10-09)"
    inkscape:export-filename="/home/manu/manuLinux/these/cours/robotics/ros2/doc/sphinx/source/c01_robot_modeling/resources/img/kinematic_chain/slide002_tree_graph_fr.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
@@ -31,11 +31,13 @@
      inkscape:cx="518.78548"
      inkscape:cy="444.46712"
      inkscape:window-width="1920"
-     inkscape:window-height="1043"
-     inkscape:window-x="1920"
-     inkscape:window-y="0"
+     inkscape:window-height="995"
+     inkscape:window-x="960"
+     inkscape:window-y="1104"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g14943"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs1420">
     <marker
@@ -806,7 +808,10 @@
            style="font-size:7.05556px;stroke-width:0.264583"
            x="122.79913"
            y="166.38054"
-           id="tspan78055">Chaîne cinématique du bassin L1_link (        ) </tspan><tspan
+           id="tspan78055"
+           dy="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.2 0 0.2">Chaîne cinématique du bassin L1_link ( L<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1">L1</tspan> ) </tspan><tspan
            sodipodi:role="line"
            style="font-size:7.05556px;stroke-width:0.264583"
            x="122.79913"
@@ -822,47 +827,6 @@
            x="122.79913"
            y="192.83888"
            id="tspan41358-2" /></text>
-      <g
-         inkscape:label=""
-         transform="translate(171.36701,84.741753)"
-         id="g5916">
-        <g
-           id="g9837">
-          <g
-             style="fill:#000000;fill-opacity:1"
-             id="g4870">
-            <use
-               xlink:href="#symbol4743"
-               x="91.925003"
-               y="81.962997"
-               id="use6067"
-               width="100%"
-               height="100%" />
-          </g>
-          <g
-             style="fill:#000000;fill-opacity:1"
-             id="g5472">
-            <use
-               xlink:href="#symbol1172"
-               x="98.705002"
-               y="83.457001"
-               id="use6748"
-               width="100%"
-               height="100%" />
-          </g>
-          <g
-             style="fill:#000000;fill-opacity:1"
-             id="g727">
-            <use
-               xlink:href="#symbol7096"
-               x="104.171"
-               y="83.457001"
-               id="use8972"
-               width="100%"
-               height="100%" />
-          </g>
-        </g>
-      </g>
     </g>
     <g
        id="g16237"
