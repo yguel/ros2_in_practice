@@ -36,8 +36,8 @@ jobs:
             mkdir -p build
             make gettext
             sphinx-build -b gettext source build/gettext
-            sphinx-build -b html -D language=fr -D html_baseurl="https://yguel.github.io/ros2_in_practice/" ./source ./build/html/humble/fr
-            sphinx-build -b html -D language=en -D html_baseurl="https://yguel.github.io/ros2_in_practice/" ./source ./build/html/humble/en
+            sphinx-build -b html -D language=fr -D html_baseurl="yguel.github.io/ros2_in_practice" ./source ./build/html/humble/fr
+            sphinx-build -b html -D language=en -D html_baseurl="yguel.github.io/ros2_in_practice" ./source ./build/html/humble/en
             cd ../..
       - name: Create commit
         run: |

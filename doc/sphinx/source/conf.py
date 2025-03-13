@@ -141,7 +141,7 @@ def on_config_inited(app, config):
     global base_uri
     print(f"Language set to: {config.language}")
     if "" != config.html_baseurl:
-        base_uri = config.html_baseurl
+        base_uri = "https://"+config.html_baseurl
         print(f"Base URL set to: {base_uri}")
     else:
         print(f"Base URL not set")
