@@ -126,15 +126,21 @@ LANG_MAP = {
     'fr': 'fr'
 }
 
+base_uri = None
+
 def on_builder_inited(app):
     outdir = Path(app.outdir)
 
-    base_uri = outdir.parent.parent
-    app.config.html_context['base_url'] = base_uri
+    if None == base_uri:
+        base_uri = outdir.parent.parent
+        app.config.html_context['base_url'] = base_uri
     print(f"Base URL set to: {base_uri}")
 
 def on_config_inited(app, config):
     print(f"Language set to: {config.language}")
+    if None != config.html_baseurl:
+        base_uri = config.html_baseurl
+        print(f"Base URL set to: {base_uri}")
 
     # Also store the current language that Sphinx is building:
     if config.language is not None:
