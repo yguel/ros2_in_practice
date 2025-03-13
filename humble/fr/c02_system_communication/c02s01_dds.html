@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DDS &mdash; Documentation ROS2 par la pratique 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=66989161" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=05dadb3a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="DOMAINS" href="c02s02_domains.html" />
+    <link rel="prev" title="Communication" href="c02s00_index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ROS2 par la pratique
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">ROS2 par la pratique</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">Setup de ROS2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c01_robot_modeling/c01s00_index.html">Modéliser un robot</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="c02s00_index.html">Communication</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DDS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#caracteristiques-cles-de-dds">Caractéristiques clés de DDS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ipc-et-dds">IPC et DDS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quest-ce-quune-ipc">Qu’est-ce qu’une IPC ?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aspects-cles-de-lipc">Aspects clés de l’IPC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dds-arbitre-entre-ipc-et-protocoles-reseau">DDS arbitre entre IPC et protocoles réseau</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#implementations-de-dds">Implémentations de DDS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="c02s02_domains.html">DOMAINS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS2 par la pratique</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="c02s00_index.html">Communication</a></li>
+      <li class="breadcrumb-item active">DDS</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/c02_system_communication/c02s01_dds.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dds">
+<h1>DDS<a class="headerlink" href="#dds" title="Lien vers cette rubrique"></a></h1>
+<figure class="align-center" id="fig-ros2-architecture">
+<a class="reference internal image-reference" href="../_images/ros-architecture.jpg"><img alt="../_images/ros-architecture.jpg" src="../_images/ros-architecture.jpg" style="height: 800px;" />
+</a>
+</figure>
+<p>Le Data Distribution Service (DDS) est au cœur de l’architecture de ROS2 pour gérer la communication entre les nœuds. <br>
+DDS assure: la découverte automatique des éditeurs (publishers) et abonnés (subscribers) sur le réseau, la gestion de la qualité de service (QoS) et le transport des messages.</p>
+<p>Grâce à DDS, les nœuds ROS2 peuvent échanger des données de manière fiable, sécurisée et en temps réel ou pseudo temps réel.</p>
+<section id="caracteristiques-cles-de-dds">
+<h2>Caractéristiques clés de DDS<a class="headerlink" href="#caracteristiques-cles-de-dds" title="Lien vers cette rubrique"></a></h2>
+<ol class="arabic simple">
+<li><p>Découverte automatique : Pas besoin de configurer manuellement les adresses IP ou les ports.</p></li>
+<li><p>Qualité de service (QoS) : Permet de définir différents niveaux de fiabilité, durées de vie des messages, etc.</p></li>
+<li><p>Pub/sub : Modèle d’abonnement-publication, les nœuds peuvent publier et s’abonner sur les mêmes topics sans se connaître directement.</p></li>
+<li><p>DDS permet de gérer de manière transparente et unifiée la communication locale à base d’IPC ainsi que la communication réseau. DDS fournit une seule couche d’abstraction tout en garantissant la compatibilité entre les deux modes de communication et en assurant à la fois une communication :</p>
+<ol class="arabic simple">
+<li><p>la plus temps réel possible,</p></li>
+<li><p>fiable,</p></li>
+<li><p>sécurisée.</p></li>
+</ol>
+</li>
+</ol>
+<figure class="align-center" id="fig-dds-overview">
+<a class="reference internal image-reference" href="../_images/dds-overview.jpg"><img alt="../_images/dds-overview.jpg" src="../_images/dds-overview.jpg" style="height: 600px;" />
+</a>
+</figure>
+</section>
+<section id="ipc-et-dds">
+<span id="ipc-dds"></span><h2>IPC et DDS<a class="headerlink" href="#ipc-et-dds" title="Lien vers cette rubrique"></a></h2>
+<section id="quest-ce-quune-ipc">
+<h3>Qu’est-ce qu’une IPC ?<a class="headerlink" href="#quest-ce-quune-ipc" title="Lien vers cette rubrique"></a></h3>
+<p>L’<em>Inter-Process Communication (IPC)</em> regroupe l’ensemble des mécanismes et protocoles
+permettant à plusieurs processus d’échanger des données et de coordonner leurs actions
+sur la même machine. Parmi les techniques les plus courantes, on retrouve la mémoire
+partagée (<em>shared memory</em>), les <em>pipes</em>, les <em>sockets</em> et les files de messages
+(<em>message queues</em>). En exploitant ces mécanismes, il est possible d’atteindre de très
+bonnes performances en termes de temps de latence et de débit, ce qui est essentiel
+dans des systèmes où le temps de réaction doit être le plus court possible (temps
+réel ou quasi temps réel).</p>
+</section>
+<section id="aspects-cles-de-lipc">
+<h3>Aspects clés de l’IPC<a class="headerlink" href="#aspects-cles-de-lipc" title="Lien vers cette rubrique"></a></h3>
+<ul class="simple">
+<li><p><strong>Communication locale efficace</strong> : Les mécanismes IPC tels que la mémoire partagée,
+les <em>pipes</em>, les <em>sockets</em> et les files de messages permettent une communication
+performante entre nœuds sur une même machine, sans l’overhead lié à la communication
+réseau.</p></li>
+<li><p><strong>Partage de ressources</strong> : L’IPC offre la possibilité de mettre en commun des ressources
+(e.g., buffers de données, primitives de synchronisation) pour assurer une coordination
+et un traitement collaboratif entre différents composants ou processus.</p></li>
+<li><p><strong>Faible latence</strong> : En se dispensant des protocoles réseau, les solutions d’IPC permettent
+d’obtenir des transmissions à faible latence, répondant ainsi aux contraintes strictes
+de certaines applications robotiques, notamment en contrôle temps réel ou pour le
+traitement rapide de données capteurs.</p></li>
+</ul>
+</section>
+<section id="dds-arbitre-entre-ipc-et-protocoles-reseau">
+<h3>DDS arbitre entre IPC et protocoles réseau<a class="headerlink" href="#dds-arbitre-entre-ipc-et-protocoles-reseau" title="Lien vers cette rubrique"></a></h3>
+<p>Dans le cas d’une communication locale (plusieurs nœuds s’exécutant sur la même machine),
+DDS tire parti des mécanismes d’IPC pour réduire la latence et limiter la consommation
+de ressources. Pour une communication à travers un réseau distribué, DDS s’appuie sur des
+protocoles réseau (TCP ou UDP) afin de diffuser les données entre différents systèmes,
+tout en conservant les mêmes principes de découverte automatique et de Qualité de Service (QoS).</p>
+<p>DDS exploite ces mécanismes d’IPC pour garantir un échange de données rapide
+et efficace à l’échelle locale, tout en offrant simultanément une infrastructure robuste
+pour la communication réseau.</p>
+</section>
+</section>
+<section id="implementations-de-dds">
+<h2>Implémentations de DDS<a class="headerlink" href="#implementations-de-dds" title="Lien vers cette rubrique"></a></h2>
+<p>Pour configurer DDS dans ROS2, vous pouvez définir la variable d’environnement <code class="code docutils literal notranslate"><span class="pre">RMW_IMPLEMENTATION</span></code> (pour ROS Middleware Implementation) afin de spécifier l’implémentation DDS à utiliser (par exemple : FastDDS (anciennement Fast-RTPS), CycloneDDS, Connext, etc.).</p>
+<p>Voir la documentation: <a class="reference external" href="https://docs.ros.org/en/humble/How-To-Guides/Working-with-multiple-RMW-implementations.html">travailler avec différents DDS</a></p>
+<p>Exemple :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">RMW_IMPLEMENTATION</span><span class="o">=</span>rmw_fastrtps_cpp<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>talker
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Par défaut, ROS2 utilise l’implémentation FastDDS d’eProsima.
+FastDDS est une implémentation open-source du standard DDS maintenue par la fondation Eclipse au travers d’eProsima.
+Il est possible de choisir une autre implémentation si elle est installée sur le système.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="c02s00_index.html" class="btn btn-neutral float-left" title="Communication" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="c02s02_domains.html" class="btn btn-neutral float-right" title="DOMAINS" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2025, Manuel YGUEL.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span style="color: white;">Lang:</span> fr
+        <span style="color: white;"> | Ver:</span> humble
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+
+        
+        <dl>
+            <dt>Languages</dt>
+            
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c02_system_communication/c02s01_dds.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c02_system_communication/c02s01_dds.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/index.html')">
+                    en
+                </a>
+            </dd>
+            
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c02_system_communication/c02s01_dds.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c02_system_communication/c02s01_dds.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/index.html')">
+                    fr
+                </a>
+            </dd>
+            
+        </dl>
+        
+
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd>
+                <!-- Switch version: keep current_language, swap in the_version -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c02_system_communication/c02s01_dds.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c02_system_communication/c02s01_dds.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/index.html')">
+                    humble
+                </a>
+            </dd>
+            
+        </dl>
+        
+
+        <br>
+        </dl>
+    </div>
+</div>
+
+
+<script>
+    function checkPageExists(evt, url, fallback_url) {
+        evt.preventDefault(); // Don’t immediately follow the link
+
+        // Preserve any anchor from the current page (e.g. #section2)
+        var anchor = window.location.hash || "";
+
+        // If the user has an anchor in the current location, we'll append
+        // that to the primary or fallback URLs.
+        var url_with_anchor = url + anchor;
+
+        // If running from file:// protocol, skip existence check
+        if (window.location.protocol === 'file:') {
+            window.location = url_with_anchor;
+            return;
+        }
+
+        // Use GET so we can reliably get a 2xx/4xx/5xx response on servers that may not handle HEAD
+        fetch(url, { method: 'GET', cache: 'no-store', mode: 'same-origin' })
+            .then(response => {
+                if (response.ok) {
+                    // 2xx code: Page truly exists
+                    window.location = url_with_anchor;
+                } else {
+                    // Non-2xx: fallback to known index
+                    window.location = fallback_url;
+                }
+            })
+            .catch(() => {
+                // Network error or something else: fallback to index
+                window.location = fallback_url;
+            });
+    }    
+</script><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

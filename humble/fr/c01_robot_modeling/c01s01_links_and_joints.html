@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modéliser la géométrie d’un robot rigide avec URDF et SDF &mdash; Documentation ROS2 par la pratique 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=66989161" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=05dadb3a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Descriptions de robots avec ROS2" href="c01s02_robot_descriptions.html" />
+    <link rel="prev" title="Modéliser un robot" href="c01s00_index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ROS2 par la pratique
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">ROS2 par la pratique</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">Setup de ROS2</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="c01s00_index.html">Modéliser un robot</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Modéliser la géométrie d’un robot rigide avec URDF et SDF</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#segments">Segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#articulations">Articulations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html">Descriptions de robots avec ROS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html">URDF pour la description de robots non parallèles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html">URDF par la pratique: le scanbot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS2 par la pratique</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="c01s00_index.html">Modéliser un robot</a></li>
+      <li class="breadcrumb-item active">Modéliser la géométrie d’un robot rigide avec URDF et SDF</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/c01_robot_modeling/c01s01_links_and_joints.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="modeliser-la-geometrie-d-un-robot-rigide-avec-urdf-et-sdf">
+<h1>Modéliser la géométrie d’un robot rigide avec URDF et SDF<a class="headerlink" href="#modeliser-la-geometrie-d-un-robot-rigide-avec-urdf-et-sdf" title="Lien vers cette rubrique"></a></h1>
+<p>On ne considère ici que les robots rigides, c’est-à-dire un système composé de
+parties rigides qui se meuvent les unes par rapport aux autres.
+On exclut donc les robots avec des parties souples comme par exemple
+un système dont 2 parties rigides seraient reliées par un élastique.</p>
+<p>On sépare un modèle de robot rigide en 2 catégories de parties :</p>
+<ol class="arabic simple">
+<li><p>les <code class="docutils literal notranslate"><span class="pre">segments</span></code> (<code class="docutils literal notranslate"><span class="pre">link</span></code> en anglais) qui correspondent aux parties rigides du robot et</p></li>
+<li><p>les articulations (<code class="docutils literal notranslate"><span class="pre">joint</span></code> en anglais) qui correspondent aux mouvements possibles entre deux parties rigides.</p></li>
+</ol>
+<p>Entre 2 segments (notés L sur la <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>)
+, on a toujours une articulation (notées par des pastilles jaunes, sur la <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>).</p>
+<figure class="align-center" id="fig-robot-modeling-slide001">
+<a class="reference internal image-reference" href="../_images/slide001_kinematics_model.fr.svg"><img alt="../_images/slide001_kinematics_model.fr.svg" src="../_images/slide001_kinematics_model.fr.svg" style="height: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 2 </span><span class="caption-text">Modéle géométrique de la cinématique d’un robot rigide (source: <span id="id1">[<a class="reference internal" href="../c99_appendix/c99s50_bibliography.html#id2" title="M.A. Ali, H. Andy Park, and C.S.G. Lee. Closed-form inverse kinematic joint solution for humanoid robots. In Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems. IEEE/RSJ International Conference on Intelligent Robots and Systems, 704–709. 11 2010. URL: https://www.researchgate.net/publication/224199484_Closed-form_inverse_kinematic_joint_solution_for_humanoid_robots/references, doi:10.1109/IROS.2010.5649842.">APL10</a>]</span>)</span><a class="headerlink" href="#fig-robot-modeling-slide001" title="Lien vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>On peut aussi trouver le mot <code class="docutils literal notranslate"><span class="pre">liaison</span></code> pour une articulation en référence aux liaisons mécaniques (liaison glissière, pivot, etc. cf. <a class="reference external" href="https://fr.wikipedia.org/wiki/Liaison_(m%C3%A9canique)">les 12 types de liaisons mécaniques</a>) cependant à cause de la proximité avec le mot <code class="docutils literal notranslate"><span class="pre">link</span></code> nous préférons utiliser le mot <code class="docutils literal notranslate"><span class="pre">articulation</span></code>.</p>
+<p>D’un point de vue cinématique, on utilise le plus courament 3 types d’articulations parmi les 12 types de liaisons mécaniques :</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-prismatic-joint-logo">
+<a class="reference internal image-reference" href="../_images/prismatic_joint_logo.svg"><img alt="../_images/prismatic_joint_logo.svg" src="../_images/prismatic_joint_logo.svg" style="height: 150px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 3 </span><span class="caption-text">Glissière</span><a class="headerlink" href="#fig-prismatic-joint-logo" title="Lien vers cette image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column sd-mt-2 sd-mb-0 sd-ml-0 sd-mr-0 sd-pt-0 sd-pb-0 sd-pl-5 sd-pr-0 docutils">
+<div class="line-block">
+<div class="line">(<code class="docutils literal notranslate"><span class="pre">prismatic</span> <span class="pre">joint</span></code> en anglais)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-revolute-joint-logo">
+<a class="reference internal image-reference" href="../_images/revolute_joint_logo.svg"><img alt="../_images/revolute_joint_logo.svg" src="../_images/revolute_joint_logo.svg" style="height: 150px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 4 </span><span class="caption-text">Pivot d’axe</span><a class="headerlink" href="#fig-revolute-joint-logo" title="Lien vers cette image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column sd-mt-2 sd-mb-0 sd-ml-0 sd-mr-0 sd-pt-0 sd-pb-0 sd-pl-5 sd-pr-0 docutils">
+<div class="line-block">
+<div class="line">(<code class="docutils literal notranslate"><span class="pre">revolute</span> <span class="pre">joint</span></code> en anglais)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-rigid-joint-logo">
+<a class="reference internal image-reference" href="../_images/rigid_joint_logo.svg"><img alt="../_images/rigid_joint_logo.svg" src="../_images/rigid_joint_logo.svg" style="height: 150px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 5 </span><span class="caption-text">Encastrement</span><a class="headerlink" href="#fig-rigid-joint-logo" title="Lien vers cette image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column sd-mt-2 sd-mb-0 sd-ml-0 sd-mr-0 sd-pt-0 sd-pb-0 sd-pl-5 sd-pr-0 docutils">
+<div class="line-block">
+<div class="line">(<code class="docutils literal notranslate"><span class="pre">fixed</span> <span class="pre">or</span> <span class="pre">rigid</span> <span class="pre">joint</span></code> en anglais)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column center-text docutils">
+<blockquote>
+<div><p>Symboles 2D des articulations les plus courantes pour un robot</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+<p>L’objectif du modèle géométrique est de pouvoir décrire la position dans l’espace de chaque
+segment du robot au cours du temps en prenant en compte les mouvements faits par les articulations.</p>
+<p>En tant que travail de modélisation, il est critique d’identifier les parties du modèle
+qui peuvent présenter les écarts les plus importants avec la réalité.</p>
+<section id="segments">
+<h2>Segments<a class="headerlink" href="#segments" title="Lien vers cette rubrique"></a></h2>
+<p>Un segment est une partie rigide du robot, soit un solide.
+Il est défini par sa géométrie, c’est-à-dire ses surfaces (Représentation par les Bords ou <a class="reference external" href="https://fr.wikipedia.org/wiki/B-Rep">B-Rep</a>) et son échelle.
+Ses surfaces peuvent être fournies de manière :</p>
+<ol class="arabic simple">
+<li><p>implicite: zéros d’équations mathématiques. Par exemple pour une sphère <span class="math notranslate nohighlight">\(f(x, y, z) = x^2+y^2+z^2-r^2 = 0\)</span>.</p></li>
+<li><p>analytique: par les équations des surfaces. Par exemple pour une sphère: <span class="math notranslate nohighlight">\((x, y, z) = (r \cos(\theta) \sin(\phi), r \sin(\theta) \sin(\phi), r \cos(\phi))\)</span>.</p></li>
+<li><p>discrétisée: par un maillage constitué de polygones, ou de paramètres de méthodes constructives comme des B-splines, surfaces de Bézier ou NURBS.</p></li>
+</ol>
+<p>Une combinaison des 3 types de représentations est possible pour représenter un segment.</p>
+<p>Il y a plusieurs types d’approximations dans la modélisation d’un segment :</p>
+<ol class="arabic simple">
+<li><p>la géométrie modélisée est différente de la géométrie réelle du segment à cause du processus de fabrication de ce dernier et des tolérances de fabrication.</p></li>
+<li><p>si la géométrie est discrétisée alors la densité du maillage est une approximation de la réalité. Dans ce cas il peut s’agir d’un scan du segment mais aussi d’une représentation qui différe du processus de fabrication (par exemple un cylindre discrétisé, alors que la pièce a été réalisée avec un tour).</p></li>
+<li><p>la rigidité du segment est une approximation de la réalité. En effet aucune matière n’est parfaitement rigide.</p></li>
+</ol>
+<p>Dans ROS un segment peut être défini de 2 manières:</p>
+<ol class="arabic simple">
+<li><p>par une des 3 primitives géométriques : pavé droit, cylindre ou sphère</p></li>
+<li><p>par un fichier de maillage au format <a class="reference external" href="https://www.khronos.org/collada/">collada</a> (fichier d’extension <cite>.dae</cite>)</p></li>
+</ol>
+<p>Il est possible et facile d’exporter un fichier de maillage step ou stl en fichier collada.
+De nombreux logiciels de CAO permettent d’exporter un modèle en fichier collada.</p>
+<p>En particulier le logiciel libre <a class="reference external" href="https://www.freecadweb.org/">FreeCAD</a> permet d’exporter un modèle en fichier collada.</p>
+<div class="sphinx-tabs docutils container" id="export-dae-avec-freecad">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Procédure animée d’export avec Freecad version 0.21.2</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>En partant d’un modèle de robot complet au format step, on va chercher à exporter seulement un segment du robot.</p>
+<p><a class="reference download internal" download="" href="../_downloads/947c9c8ae1f22435a6912e17a86ff451/maquette-5-barres_asm.stp"><code class="xref download docutils literal notranslate"><span class="pre">maquette-5-barres_asm.stp</span></code></a></p>
+<p>Lancer freecad depuis un terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>freecad<span class="w"> </span>maquette-5-barres_asm.stp
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/export_dae.gif"><img alt="../_images/export_dae.gif" src="../_images/export_dae.gif" style="width: 80%;" />
+</a>
+</figure>
+<p>Vous pouvez télécharger le fichier collada généré:</p>
+<p><a class="reference download internal" download="" href="../_downloads/96c08b8143badc94ef7c8be485389837/link1.dae"><code class="xref download docutils literal notranslate"><span class="pre">one_arm.dae</span></code></a></p>
+</div></div>
+<p>Le format collada est très intéressant car très complet.
+Il contient bien sûr la géométrie 3D du segment (en de nombreux formats BREP, y compris B-spline et NURBS), mais peut également contenir des informations:</p>
+<ol class="arabic simple">
+<li><p>de couleur des surfaces,</p></li>
+<li><p>de transparence des volumes,</p></li>
+<li><p>de texture,</p></li>
+<li><p>matériaux par face,</p></li>
+<li><p>pofiles de matériaux avec des paramètres de Phong, Lambert pour les équations d’éclairage,</p></li>
+<li><p>de normales, binormales, tangentes, coordonnées de texture, couleurs associés aux sommets des surfaces,</p></li>
+<li><p>on peut même ajouter des attributs customisés aux sommets des surfaces, permettant de réaliser des calculs spécifiques, notamment pour la simulation.</p></li>
+</ol>
+<p>Cela permet une visualisation plus réaliste du segment et en particulier que des modèles d’éclairage soient pris en compte.</p>
+</section>
+<section id="articulations">
+<h2>Articulations<a class="headerlink" href="#articulations" title="Lien vers cette rubrique"></a></h2>
+<p>Parmi toutes les articulations rigides nous utilisons principalement:</p>
+<ol class="arabic simple">
+<li><p>L’articulation glissière qui permet un mouvement de translation sans rotation entre deux segments rigides.  Le mouvement linéaire peut être réalisé par une glissière, un vérin ou une crémaillère par exemple.</p></li>
+<li><p>L’articulation pivot d’axe qui permet un mouvement de rotation sans translation. C’est le type des articulations utilisées dans un bras robotique anthropomorphe. La notation symbolique en 3D est un cylindre autour de l’axe de rotation comme dans la jambe du robot humanoïde de la <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>.</p></li>
+<li><p>La dernière articulation est un cas particulier, elle correspond à une liaison mécanique qui ne permet aucun mouvement relatif entre les deux segments. Elle peut être réalisée par une soudure, un boulonnage ou un collage entre deux pièces par exemple. Un exemple est donné par la liaison encastrement entre le segment <span class="math notranslate nohighlight">\(L_{L1}\)</span> et le segment <span class="math notranslate nohighlight">\(L_{L2}\)</span> de la <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>.</p></li>
+</ol>
+<p>D’un point de vue pratique, on peut s’interroger sur pourquoi ne pas avoir un seul segment
+composé de l’union des 2 segments impliqués dans la liaison encastrement plutôt qu’une articulation
+puisque le mouvement relatif est nul.
+Cette articulation est fondamentale car elle sert à modéliser
+un assemblage rigide de segments distincts. <br>
+Or nous savons que notre modèle n’est qu’une approximation et en particulier que les informations disponibles sur l’assemblage (la position relative d’un segment par rapport à l’autre) peuvent être d’une part imprécises et d’autre part peuvent varier au cours du temps.
+Cela est donc essentiel de pouvoir modifier la position relative des segments pour prendre en compte ces imprécisions en utilisant des procédures de calibration. <br>
+En particulier, si l’assemblage est soumis à un stress mécanique, il est intéressant d’avoir la possibilité de changer la position relative de l’assemblage pour prendre en compte les déformations liées à ce stress.
+Ainsi, s’il on est capable de réaliser un tracking dynamique de la position relative des segments, le fait d’avoir représenté la liaison encastrement par une articulation permet d’obtenir un modéle du robot adaptable et donc fidèle au cours du temps.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="c01s00_index.html" class="btn btn-neutral float-left" title="Modéliser un robot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="c01s02_robot_descriptions.html" class="btn btn-neutral float-right" title="Descriptions de robots avec ROS2" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2025, Manuel YGUEL.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span style="color: white;">Lang:</span> fr
+        <span style="color: white;"> | Ver:</span> humble
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+
+        
+        <dl>
+            <dt>Languages</dt>
+            
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c01_robot_modeling/c01s01_links_and_joints.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c01_robot_modeling/c01s01_links_and_joints.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/index.html')">
+                    en
+                </a>
+            </dd>
+            
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c01_robot_modeling/c01s01_links_and_joints.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c01_robot_modeling/c01s01_links_and_joints.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/index.html')">
+                    fr
+                </a>
+            </dd>
+            
+        </dl>
+        
+
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd>
+                <!-- Switch version: keep current_language, swap in the_version -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c01_robot_modeling/c01s01_links_and_joints.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c01_robot_modeling/c01s01_links_and_joints.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/index.html')">
+                    humble
+                </a>
+            </dd>
+            
+        </dl>
+        
+
+        <br>
+        </dl>
+    </div>
+</div>
+
+
+<script>
+    function checkPageExists(evt, url, fallback_url) {
+        evt.preventDefault(); // Don’t immediately follow the link
+
+        // Preserve any anchor from the current page (e.g. #section2)
+        var anchor = window.location.hash || "";
+
+        // If the user has an anchor in the current location, we'll append
+        // that to the primary or fallback URLs.
+        var url_with_anchor = url + anchor;
+
+        // If running from file:// protocol, skip existence check
+        if (window.location.protocol === 'file:') {
+            window.location = url_with_anchor;
+            return;
+        }
+
+        // Use GET so we can reliably get a 2xx/4xx/5xx response on servers that may not handle HEAD
+        fetch(url, { method: 'GET', cache: 'no-store', mode: 'same-origin' })
+            .then(response => {
+                if (response.ok) {
+                    // 2xx code: Page truly exists
+                    window.location = url_with_anchor;
+                } else {
+                    // Non-2xx: fallback to known index
+                    window.location = fallback_url;
+                }
+            })
+            .catch(() => {
+                // Network error or something else: fallback to index
+                window.location = fallback_url;
+            });
+    }    
+</script><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

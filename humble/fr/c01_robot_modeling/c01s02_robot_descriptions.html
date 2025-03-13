@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Descriptions de robots avec ROS2 &mdash; Documentation ROS2 par la pratique 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=66989161" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=05dadb3a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="URDF pour la description de robots non parallèles" href="c01s03_urdf.html" />
+    <link rel="prev" title="Modéliser la géométrie d’un robot rigide avec URDF et SDF" href="c01s01_links_and_joints.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ROS2 par la pratique
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">ROS2 par la pratique</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">Setup de ROS2</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="c01s00_index.html">Modéliser un robot</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="c01s01_links_and_joints.html">Modéliser la géométrie d’un robot rigide avec URDF et SDF</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Descriptions de robots avec ROS2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chaines-cinematiques">Chaînes cinématiques</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html">URDF pour la description de robots non parallèles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html">URDF par la pratique: le scanbot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS2 par la pratique</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="c01s00_index.html">Modéliser un robot</a></li>
+      <li class="breadcrumb-item active">Descriptions de robots avec ROS2</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/c01_robot_modeling/c01s02_robot_descriptions.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="descriptions-de-robots-avec-ros2">
+<h1>Descriptions de robots avec ROS2<a class="headerlink" href="#descriptions-de-robots-avec-ros2" title="Lien vers cette rubrique"></a></h1>
+<p>Le but de la description d’un robot est d’avoir un modèle servant à la fois à la simulation et au contrôle du robot:</p>
+<ol class="arabic simple">
+<li><p>visualiser le robot et ses configurations géométriques,</p></li>
+<li><p>calculer la position des segments du robot en fonction des articulations,</p></li>
+<li><p>faire intéragir le robot dans un environnement de simulation et récupérer des données capteurs, des données de collisions, des informations de position, vitesse, accélération et force exercées (entre autre sur les articulations et les segments du robot),</p></li>
+</ol>
+<p>Les descriptions de robots sont faites dans des fichiers de description de robot.
+Nous utiliserons 2 formats XML dans ROS: URDF et SDF.</p>
+<p>Ces fichiers décrivent principalement les paramètres suivants:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>les segments du robot:</p>
+<ol class="arabic simple">
+<li><p>pour la visualisaiton</p>
+<ol class="arabic simple">
+<li><p>géometrie (<code class="code docutils literal notranslate"><span class="pre">&lt;geometry&gt;</span></code>),</p></li>
+<li><p>origine (position et orientation d’un repère différent du repère d’origine du segment)</p></li>
+<li><p>matériel (principalement la couleur)</p></li>
+</ol>
+</li>
+<li><p>pour le calcul de collision</p>
+<ol class="arabic simple">
+<li><p>géometrie (<code class="code docutils literal notranslate"><span class="pre">&lt;geometry&gt;</span></code>) souvent une géométrie simplifiée pour accélérer les calculs,</p></li>
+<li><p>origine (position et orientation d’un repère différent du repère d’origine du segment)</p></li>
+</ol>
+</li>
+<li><p>paramètres d’inértie</p>
+<ol class="arabic simple">
+<li><p>masse,</p></li>
+<li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Centre_d%27inertie">centre d’inertie</a> (centre de gravité),</p></li>
+<li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Moment_d%27inertie">matrice d’inertie</a></p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>les articulations entre les pairs de segments reliés,</p>
+<ol class="arabic simple">
+<li><p>nom</p></li>
+<li><p>type (prismatique, pivot d’axe, rigide, etc.)</p></li>
+<li><p>parent et enfant (les 2 segments reliés)</p></li>
+<li><p>origine (la transformation entre les 2 segments avant qu’aucun mouvement ne soit appliqué)</p></li>
+<li><p>limites de mouvement (limites de position, vitesse, accélération, force, etc.)</p></li>
+<li><p>axe du mouvement</p></li>
+</ol>
+</li>
+</ol>
+</div></blockquote>
+<section id="chaines-cinematiques">
+<h2>Chaînes cinématiques<a class="headerlink" href="#chaines-cinematiques" title="Lien vers cette rubrique"></a></h2>
+<p>Le passage du repère d’un segment à un autre suite à la transformation appliquée par l’articulation reliant les 2 segment constitue la transformation cinématique élémentaire de la chaîne cinématique du robot.</p>
+<figure class="align-center" id="fig-robot-modeling-slide002">
+<a class="reference internal image-reference" href="../_images/slide002_tree_graph.fr.svg"><img alt="../_images/slide002_tree_graph.fr.svg" src="../_images/slide002_tree_graph.fr.svg" style="height: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 6 </span><span class="caption-text">Arbre des chaînes cinématiques des jambes du robot Hubo KHR-4, un robot humanoïde non parallèle, (source: <span id="id1">[<a class="reference internal" href="../c99_appendix/c99s50_bibliography.html#id2" title="M.A. Ali, H. Andy Park, and C.S.G. Lee. Closed-form inverse kinematic joint solution for humanoid robots. In Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems. IEEE/RSJ International Conference on Intelligent Robots and Systems, 704–709. 11 2010. URL: https://www.researchgate.net/publication/224199484_Closed-form_inverse_kinematic_joint_solution_for_humanoid_robots/references, doi:10.1109/IROS.2010.5649842.">APL10</a>]</span> .)</span><a class="headerlink" href="#fig-robot-modeling-slide002" title="Lien vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Le premier segment de la chaîne cinématique est appelé la racine de la chaîne cinématique.</p>
+<p>La racine de la chaîne cinématique est un segment fixe par rapport au repère de modélisation, souvent appelé repère monde (world en anglais).
+Le sens des flêches indique quel est le repère de référence pour la position et l’orientation du segment suivant.
+Dans les paramètres de description ci-dessus, la flêche va de l’enfant vers le parent.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="c01s01_links_and_joints.html" class="btn btn-neutral float-left" title="Modéliser la géométrie d’un robot rigide avec URDF et SDF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="c01s03_urdf.html" class="btn btn-neutral float-right" title="URDF pour la description de robots non parallèles" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2025, Manuel YGUEL.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span style="color: white;">Lang:</span> fr
+        <span style="color: white;"> | Ver:</span> humble
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+
+        
+        <dl>
+            <dt>Languages</dt>
+            
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c01_robot_modeling/c01s02_robot_descriptions.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c01_robot_modeling/c01s02_robot_descriptions.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/index.html')">
+                    en
+                </a>
+            </dd>
+            
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c01_robot_modeling/c01s02_robot_descriptions.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c01_robot_modeling/c01s02_robot_descriptions.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/index.html')">
+                    fr
+                </a>
+            </dd>
+            
+        </dl>
+        
+
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd>
+                <!-- Switch version: keep current_language, swap in the_version -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c01_robot_modeling/c01s02_robot_descriptions.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c01_robot_modeling/c01s02_robot_descriptions.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/index.html')">
+                    humble
+                </a>
+            </dd>
+            
+        </dl>
+        
+
+        <br>
+        </dl>
+    </div>
+</div>
+
+
+<script>
+    function checkPageExists(evt, url, fallback_url) {
+        evt.preventDefault(); // Don’t immediately follow the link
+
+        // Preserve any anchor from the current page (e.g. #section2)
+        var anchor = window.location.hash || "";
+
+        // If the user has an anchor in the current location, we'll append
+        // that to the primary or fallback URLs.
+        var url_with_anchor = url + anchor;
+
+        // If running from file:// protocol, skip existence check
+        if (window.location.protocol === 'file:') {
+            window.location = url_with_anchor;
+            return;
+        }
+
+        // Use GET so we can reliably get a 2xx/4xx/5xx response on servers that may not handle HEAD
+        fetch(url, { method: 'GET', cache: 'no-store', mode: 'same-origin' })
+            .then(response => {
+                if (response.ok) {
+                    // 2xx code: Page truly exists
+                    window.location = url_with_anchor;
+                } else {
+                    // Non-2xx: fallback to known index
+                    window.location = fallback_url;
+                }
+            })
+            .catch(() => {
+                // Network error or something else: fallback to index
+                window.location = fallback_url;
+            });
+    }    
+</script><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

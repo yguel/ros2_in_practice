@@ -1,0 +1,245 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOMAINS &mdash; ROS2 par la pratique 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=66989161" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Appendix" href="../c99_appendix/c99s00_index.html" />
+    <link rel="prev" title="DDS" href="c02s01_dds.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ROS2 par la pratique
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">ROS2 in practice</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">ROS2 setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c01_robot_modeling/c01s00_index.html">Modeling a robot</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="c02s00_index.html">Communication</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="c02s01_dds.html">DDS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DOMAINS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#les-domaines-en-bref">Domains in Brief</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choisir-un-id-de-domaine">Choosing a Domain ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utiliser-un-domain-id-en-pratique">Using a DOMAIN ID in Practice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS2 par la pratique</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="c02s00_index.html">Communication</a></li>
+      <li class="breadcrumb-item active">DOMAINS</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/c02_system_communication/c02s02_domains.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="domains">
+<h1>DOMAINS<a class="headerlink" href="#domains" title="Link to this heading"></a></h1>
+<section id="les-domaines-en-bref">
+<span id="dds-domain-overview"></span><h2>Domains in Brief<a class="headerlink" href="#les-domaines-en-bref" title="Link to this heading"></a></h2>
+<p>As explained in the previous section, the default middleware used by ROS 2 for communication is DDS. In DDS, the main mechanism allowing different logical networks to share a physical network is called the domain ID. ROS 2 nodes on the same domain can discover and send messages to each other freely, while ROS 2 nodes on different domains cannot. All ROS 2 nodes default to domain ID 0. To avoid interference between different groups of computers running ROS 2 on the same network, a different domain ID must be set for each group.</p>
+</section>
+<section id="choisir-un-id-de-domaine">
+<span id="choisir-un-id-de-domaine-version-courte"></span><h2>Choosing a Domain ID<a class="headerlink" href="#choisir-un-id-de-domaine" title="Link to this heading"></a></h2>
+<p>To simply choose a safe domain ID, select a domain ID between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">101</span></code> inclusively.</p>
+<p>For detailed explanations on the range of domain IDs to use in ROS 2, please <a class="reference external" href="https://docs.ros.org/en/rolling/Concepts/Intermediate/About-Domain-ID.html">refer to the official ROS 2 documentation</a>.</p>
+</section>
+<section id="utiliser-un-domain-id-en-pratique">
+<span id="utiliser-un-domaine-id-en-pratique"></span><h2>Using a DOMAIN ID in Practice<a class="headerlink" href="#utiliser-un-domain-id-en-pratique" title="Link to this heading"></a></h2>
+<p>To set the domain ID before running a launch file in ROS 2, you can set the ROS_DOMAIN_ID environment variable in your terminal session.</p>
+<p>Open your terminal and set the ROS_DOMAIN_ID environment variable to the desired value (e.g., 42):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_DOMAIN_ID</span><span class="o">=</span><span class="m">42</span>
+</pre></div>
+</div>
+<p>This command sets ROS_DOMAIN_ID for the current terminal session.</p>
+<p>With ROS_DOMAIN_ID set, you can run your ROS 2 launch file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>&lt;package_name&gt;<span class="w"> </span>&lt;launch_file_name&gt;
+</pre></div>
+</div>
+<p>Replace &lt;package_name&gt; with your package name and &lt;launch_file_name&gt; with your launch file name.</p>
+<p>By setting ROS_DOMAIN_ID before running the launch file, all nodes initiated by this file will operate in the specified domain, ensuring their communication with other nodes in the same domain.</p>
+<p>To make ROS_DOMAIN_ID persistent, it can be added to your user’s .bashrc or .zshrc file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export ROS_DOMAIN_ID=42&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="c02s01_dds.html" class="btn btn-neutral float-left" title="DDS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../c99_appendix/c99s00_index.html" class="btn btn-neutral float-right" title="Appendix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Manuel YGUEL.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span style="color: white;">Lang:</span> en
+        <span style="color: white;"> | Ver:</span> humble
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+
+        
+        <dl>
+            <dt>Languages</dt>
+            
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c02_system_communication/c02s02_domains.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c02_system_communication/c02s02_domains.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/index.html')">
+                    en
+                </a>
+            </dd>
+            
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c02_system_communication/c02s02_domains.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c02_system_communication/c02s02_domains.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/index.html')">
+                    fr
+                </a>
+            </dd>
+            
+        </dl>
+        
+
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd>
+                <!-- Switch version: keep current_language, swap in the_version -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c02_system_communication/c02s02_domains.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c02_system_communication/c02s02_domains.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/index.html')">
+                    humble
+                </a>
+            </dd>
+            
+        </dl>
+        
+
+        <br>
+        </dl>
+    </div>
+</div>
+
+
+<script>
+    function checkPageExists(evt, url, fallback_url) {
+        evt.preventDefault(); // Don’t immediately follow the link
+
+        // Preserve any anchor from the current page (e.g. #section2)
+        var anchor = window.location.hash || "";
+
+        // If the user has an anchor in the current location, we'll append
+        // that to the primary or fallback URLs.
+        var url_with_anchor = url + anchor;
+
+        // If running from file:// protocol, skip existence check
+        if (window.location.protocol === 'file:') {
+            window.location = url_with_anchor;
+            return;
+        }
+
+        // Use GET so we can reliably get a 2xx/4xx/5xx response on servers that may not handle HEAD
+        fetch(url, { method: 'GET', cache: 'no-store', mode: 'same-origin' })
+            .then(response => {
+                if (response.ok) {
+                    // 2xx code: Page truly exists
+                    window.location = url_with_anchor;
+                } else {
+                    // Non-2xx: fallback to known index
+                    window.location = fallback_url;
+                }
+            })
+            .catch(() => {
+                // Network error or something else: fallback to index
+                window.location = fallback_url;
+            });
+    }    
+</script><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

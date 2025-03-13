@@ -1,0 +1,7 @@
+**************
+Bibliographie
+**************
+
+
+.. bibliography::
+   :all:

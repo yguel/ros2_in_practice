@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:include filename="$(find view_scanbot_camera)/urdf/common/inertials.xacro" />
+  <xacro:include filename="$(find view_scanbot_camera)/urdf/common/materials.xacro" />
+
+  <xacro:macro name="scanbot_camera" params="prefix parent *origin">
+    <!-- LINKS -->
+    <!-- base link == x_cyl_link -->
+    <link name="${prefix}x_cyl_link">
+      <!-- Default inertial for Gazebo - copy and edit block from 'common.xacro'
+           to get more realistic behavior -->
+      <xacro:default_inertial />
+      <visual>
+        <origin xyz="0.0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://view_scanbot_camera/meshes/scanbot/visual/scanbot_s02_x_cyl_link.dae"
+            scale="1. 1. 1." />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://view_scanbot_camera/meshes/scanbot/visual/scanbot_s02_x_cyl_link.dae" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}ankle_link">
+      <!-- Default inertial for Gazebo - copy and edit block from 'common.xacro'
+           to get more realistic behavior -->
+      <xacro:default_inertial />
+      <visual>
+        <origin xyz="0.0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://view_scanbot_camera/meshes/scanbot/visual/scanbot_s05_ankle_link.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://view_scanbot_camera/meshes/scanbot/visual/scanbot_s05_ankle_link.dae" />
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- link 1 == y_cyl_link-->
+    <link name="${prefix}y_cyl_link">
+      <!-- Default inertial for Gazebo - copy and edit block from 'common.xacro'
+           to get more realistic behavior -->
+      <xacro:default_inertial />
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://view_scanbot_camera/meshes/scanbot/visual/scanbot_s06_y_cyl_link.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://view_scanbot_camera/meshes/scanbot/visual/scanbot_s06_y_cyl_link.dae" />
+        </geometry>
+        <material name="green" />
+      </collision>
+    </link>
+
+    <!-- link 2 == scanbot_s07_toe_link.dae-->
+    <link name="${prefix}toe_link">
+      <!-- Default inertial for Gazebo - copy and edit block from 'common.xacro'
+           to get more realistic behavior-->
+      <xacro:default_inertial />
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://view_scanbot_camera/meshes/scanbot/visual/scanbot_s07_toe_link.dae" />
+        </geometry>
+        <material name="yellow" />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://view_scanbot_camera/meshes/scanbot/visual/scanbot_s07_toe_link.dae" />
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- link 3 == z_cyl_link -->
+    <link name="${prefix}z_cyl_link">
+      <!-- Default inertial for Gazebo - copy and edit block from 'common.xacro'
+           to get more realistic behavior-->
+      <xacro:default_inertial />
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://view_scanbot_camera/meshes/scanbot/visual/scanbot_s08_z_cyl_link.dae" />
+        </geometry>
+        <material name="red" />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://view_scanbot_camera/meshes/scanbot/visual/scanbot_s08_z_cyl_link.dae" />
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- link 4 == camera_link-->
+    <link name="${prefix}camera_link">
+      <!-- Default inertial for Gazebo - copy and edit block from 'common.xacro'
+           to get more realistic behavior-->
+      <xacro:default_inertial />
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://view_scanbot_camera/meshes/scanbot/visual/scanbot_s09_camera_link.dae" />
+        </geometry>
+        <material name="magenta" />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://view_scanbot_camera/meshes/scanbot/visual/scanbot_s09_camera_link.dae" />
+        </geometry>
+      </collision>
+    </link>
+    <!-- END LINKS -->
+
+    <!-- JOINTS -->
+    <!-- base_joint fixes base_link to the environment -->
+    <joint name="${prefix}base_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent}" />
+      <child link="${prefix}x_cyl_link" />
+    </joint>
+
+    <!-- joint 1 -->
+    <joint name="${prefix}joint1" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${prefix}x_cyl_link" />
+      <child link="${prefix}ankle_link" />
+      <axis xyz="1 0 0" />
+      <limit effort="100" lower="${radians(-180)}" upper="${radians(180)}"
+        velocity="${radians(180)}" />
+    </joint>
+
+    <!-- joint 2 -->
+    <joint name="${prefix}joint2" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${prefix}ankle_link" />
+      <child link="${prefix}y_cyl_link" />
+      <axis xyz="0 1 0" />
+      <limit effort="0" lower="${radians(-180)}" upper="${radians(180)}" velocity="${radians(180)}" />
+    </joint>
+
+    <!-- joint 3 -->
+    <joint name="${prefix}joint3" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${prefix}y_cyl_link" />
+      <child link="${prefix}toe_link" />
+    </joint>
+
+    <!-- joint 4 -->
+    <joint name="${prefix}joint4" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${prefix}toe_link" />
+      <child link="${prefix}z_cyl_link" />
+      <axis xyz="0 0 1" />
+      <limit effort="0" lower="${radians(-90)}" upper="${radians(180)}" velocity="${radians(270)}" />
+    </joint>
+
+    <!-- joint 5 -->
+    <joint name="${prefix}joint5" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${prefix}z_cyl_link" />
+      <child link="${prefix}camera_link" />
+    </joint>
+    <!-- END JOINTS -->
+  </xacro:macro>
+</robot>

@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation of the vscode editor for ROS2 &mdash; ROS2 par la pratique 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=66989161" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Modeling a robot" href="../c01_robot_modeling/c01s00_index.html" />
+    <link rel="prev" title="Installation of ROS2" href="c00s01_ros2_setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ROS2 par la pratique
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">ROS2 in practice</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="c00s00_index.html">ROS2 setup</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="c00s01_ros2_setup.html">Installation of ROS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c00s01_ros2_setup.html#creation-d-un-workspace">Creating a workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c00s01_ros2_setup.html#tests-de-votre-installation">Testing your installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation of the vscode editor for ROS2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation-de-vscode">Installation of vscode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurer-un-projet-vscode-ros2">Configure a ROS2 vscode project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tests">Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation-des-extensions-vscode">Installation of vscode extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#edition-de-code">Code editing:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#git">git:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python">python:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#documentation">Documentation:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#c-c-embarque">c/c++/ embedded:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ros2">ROS2:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#assistant-ia">AI Assistant:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../c01_robot_modeling/c01s00_index.html">Modeling a robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS2 par la pratique</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="c00s00_index.html">ROS2 setup</a></li>
+      <li class="breadcrumb-item active">Installation of the vscode editor for ROS2</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/c00_setup_de_ros2/c00s02_vscode_for_ros2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation-l-editeur-vscode-pour-ros2">
+<h1>Installation of the vscode editor for ROS2<a class="headerlink" href="#installation-l-editeur-vscode-pour-ros2" title="Link to this heading"></a></h1>
+<p>We use a good code editor (very important for productivity) which is <a class="reference external" href="https://code.visualstudio.com/">vscode</a> from Github.</p>
+<section id="installation-de-vscode">
+<h2>Installation of vscode<a class="headerlink" href="#installation-de-vscode" title="Link to this heading"></a></h2>
+<p>Go to the <a class="reference external" href="https://code.visualstudio.com/">vscode</a> website and download the version corresponding to Ubuntu 22.04</p>
+<p>Go to the directory for global vscode configuration settings for the current user and create an empty <code class="docutils literal notranslate"><span class="pre">keybindings.json</span></code> file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/.config/Code/User
+touch<span class="w"> </span>keybindings.json
+</pre></div>
+</div>
+<p>You will open the <code class="docutils literal notranslate"><span class="pre">keybindings.json</span></code> file (which you just created in your home directory <code class="docutils literal notranslate"><span class="pre">~/.config/Code/User</span></code>) and fill it with the following content:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">keybindings.json file</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="p">[</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 3</span><span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ctrl+q&quot;</span><span class="p">,</span>
+<span class="linenos"> 4</span><span class="w">        </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-workbench.action.quit&quot;</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="p">},</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;enter&quot;</span><span class="p">,</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-restructuredtext.editor.listEditing&quot;</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Configuring keyboard shortcuts with this file allows you to:</p>
+<ul>
+<li><p>remove the <code class="docutils literal notranslate"><span class="pre">Ctrl+q</span></code> shortcut (lines 2-5) which is used by vscode to close the editor. The letters <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code>, and <code class="docutils literal notranslate"><span class="pre">s</span></code> surrounding the letter <code class="docutils literal notranslate"><span class="pre">q</span></code> on a French AZERTY keyboard, this prevents accidentally closing the editor when trying to, for example:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>type <code class="docutils literal notranslate"><span class="pre">Ctrl+a</span></code> to select all the text or</p></li>
+<li><p>type <code class="docutils literal notranslate"><span class="pre">Ctrl+z</span></code> to undo an action or</p></li>
+<li><p>type <code class="docutils literal notranslate"><span class="pre">Ctrl+s</span></code> to save the file.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>fix a bug related to the esbonio extension that allows displaying sphinx documentation in vscode (lines 6-9).</p></li>
+</ul>
+<p>Reload vscode to apply these changes by typing <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code> and then typing <code class="docutils literal notranslate"><span class="pre">Developer:</span> <span class="pre">Reload</span> <span class="pre">Window</span></code>.</p>
+<p>The keyboard shortcuts file is not located in the project directory but in the global vscode configuration settings directory for the current user because these settings are considered by vscode as regional and/or user-specific settings. It is possible to use an extension that allows defining profiles and using them depending on the project or work environment.</p>
+</section>
+<section id="configurer-un-projet-vscode-ros2">
+<h2>Configure a ROS2 vscode project<a class="headerlink" href="#configurer-un-projet-vscode-ros2" title="Link to this heading"></a></h2>
+<p>For a project with vscode, certain settings need to be configured so that the editor is adapted to ROS2 and, more generally, to have certain settings for better productivity.</p>
+<p>To do this, in a new project, you need to create a <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> folder at the root of the project and add a <code class="docutils literal notranslate"><span class="pre">settings.json</span></code> file with the following content:</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-number">Listing 3 </span><span class="caption-text">settings.json file</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="nt">&quot;editor.detectIndentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="nt">&quot;editor.formatOnPaste&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="nt">&quot;editor.wordWrap&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="nt">&quot;C_Cpp.clang_format_sortIncludes&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="nt">&quot;python.formatting.autopep8Args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="s2">&quot;--ignore&quot;</span><span class="p">,</span>
+<span class="linenos"> 9</span><span class="w">        </span><span class="s2">&quot;E402&quot;</span>
+<span class="linenos">10</span><span class="w">    </span><span class="p">],</span>
+<span class="linenos">11</span><span class="w">    </span><span class="nt">&quot;terminal.integrated.scrollback&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span>
+<span class="linenos">12</span><span class="w">    </span><span class="nt">&quot;workbench.editor.enablePreview&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="linenos">13</span><span class="w">    </span><span class="nt">&quot;[restructuredtext]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">14</span><span class="w">        </span><span class="nt">&quot;editor.tabSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<span class="linenos">15</span><span class="w">    </span><span class="p">},</span>
+<span class="linenos">16</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>The options in this file allow:</p>
+<ul class="simple">
+<li><p>to format files on each save with automatic formatting tools and also during copy-paste operations (lines 2-4). This is particularly useful for languages where indentation has meaning for the compiler, such as Python, reStructuredText, YAML, etc.</p></li>
+<li><p>to ensure that the code is always fully visible even when the window is too small by wrapping lines in the editor but not in the file (lines 5). This is noticeable because the line number does not change on the left.</p></li>
+<li><p>to ensure that indentation is always done with spaces in reStructuredText (.rst, the format of sphinx documentation files in this course) (lines 13-15).</p></li>
+<li><p>to not rearrange the order of includes in C/C++ (line 6), which can lead to errors for certain compilation setups, especially in embedded programming.</p></li>
+<li><p>to ignore the E402 error in Python to allow importing modules anywhere in the code (lines 7-10)</p></li>
+<li><p>to increase the terminal history size (line 11)</p></li>
+<li><p>to keep the files viewed open in the editor when they have been opened by preview actions (line 12), such as when viewing a line related to an error in a log or compilation process. This allows having both the log or error file and the code file open simultaneously in the editor.</p></li>
+</ul>
+</section>
+<section id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h2>
+<p>To open the current directory with vscode:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>code<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="installation-des-extensions-vscode">
+<h2>Installation of vscode extensions<a class="headerlink" href="#installation-des-extensions-vscode" title="Link to this heading"></a></h2>
+<p>In vscode, you will click on the icon</p>
+<figure class="align-center" id="id4">
+<span id="vscode-extension-icon"></span><img alt="../_images/vscode_extension.png" src="../_images/vscode_extension.png" />
+<figcaption>
+<p><span class="caption-number">Figure 1 </span><span class="caption-text">Click on the Extensions icon</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>And you will install the following extensions which will be very useful for the course:</p>
+<section id="edition-de-code">
+<h3>Code editing:<a class="headerlink" href="#edition-de-code" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Gremlins tracker by Nicolas Hoizey</p>
+<ul class="simple">
+<li><p>ID: nhoizey.gremlins</p></li>
+<li><p>allows you to see all invisible characters in the code that can ruin our lives</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="git">
+<h3>git:<a class="headerlink" href="#git" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Git Graph by mhutchie</p>
+<ul class="simple">
+<li><p>ID: mhutchie.git-graph</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="python">
+<h3>python:<a class="headerlink" href="#python" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Python by microsoft</p>
+<ul class="simple">
+<li><p>ID: ms-python.python</p></li>
+</ul>
+</li>
+<li><p>Python Debugger by microsoft</p>
+<ul class="simple">
+<li><p>ID: ms-python.debugpy</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="documentation">
+<h3>Documentation:<a class="headerlink" href="#documentation" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Esbonio by Swyddfa</p>
+<ul class="simple">
+<li><p>ID: swyddfa.Esbonio</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="c-c-embarque">
+<h3>c/c++/ embedded:<a class="headerlink" href="#c-c-embarque" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>C/C++ by microsoft</p>
+<ul class="simple">
+<li><p>ID: ms-vscode.cpptools</p></li>
+</ul>
+</li>
+<li><p>GDB Debugger - Beyond by coolchyni</p>
+<ul class="simple">
+<li><p>ID: coolchyni.beyond-debug</p></li>
+</ul>
+</li>
+<li><p>vscode-valgrind by krosf</p>
+<ul class="simple">
+<li><p>ID: krosf.vscode-valgrind</p></li>
+</ul>
+</li>
+<li><p>CMake Tools by microsoft</p>
+<ul class="simple">
+<li><p>ID: ms-vscode.cmake-tools</p></li>
+</ul>
+</li>
+<li><p>Debug Visualizer by Henning Dieterichs</p>
+<ul class="simple">
+<li><p>ID: hediet.debug-visualizer</p></li>
+</ul>
+</li>
+<li><p>Hex Array Formatter by AloyseTech</p>
+<ul class="simple">
+<li><p>ID: AloyseTech.hex-array-formatter</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="ros2">
+<h3>ROS2:<a class="headerlink" href="#ros2" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Uncrustify by Zachary Flower</p>
+<ul class="simple">
+<li><p>ID: zachflower.uncrustify</p></li>
+<li><p>allows proper formatting of ROS2 files</p></li>
+</ul>
+</li>
+<li><p>ROS2 by nonanonno</p>
+<ul class="simple">
+<li><p>ID: nonanonno.vscode-ros2</p></li>
+<li><p>enables syntax highlighting for ROS2 files</p></li>
+</ul>
+</li>
+<li><p>ROS2 by JaehyunShim</p>
+<ul class="simple">
+<li><p>ID: jaehyunshim.vscode-ros2</p></li>
+<li><p>allows using ROS2 code patterns and quickly adding them to your code</p></li>
+</ul>
+</li>
+<li><p>ROS 2 Ament Task Provider by Allison Thackston</p>
+<ul class="simple">
+<li><p>ID: althack.ament-task-provider</p></li>
+<li><p>adds automatic tasks, particularly for testing the formatting of ROS2 files</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="assistant-ia">
+<h3>AI Assistant:<a class="headerlink" href="#assistant-ia" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>GitHub Copilot by github</p>
+<ul class="simple">
+<li><p>ID: GitHub.copilot</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="c00s01_ros2_setup.html" class="btn btn-neutral float-left" title="Installation of ROS2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../c01_robot_modeling/c01s00_index.html" class="btn btn-neutral float-right" title="Modeling a robot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Manuel YGUEL.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span style="color: white;">Lang:</span> en
+        <span style="color: white;"> | Ver:</span> humble
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+
+        
+        <dl>
+            <dt>Languages</dt>
+            
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c00_setup_de_ros2/c00s02_vscode_for_ros2.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c00_setup_de_ros2/c00s02_vscode_for_ros2.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/index.html')">
+                    en
+                </a>
+            </dd>
+            
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c00_setup_de_ros2/c00s02_vscode_for_ros2.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c00_setup_de_ros2/c00s02_vscode_for_ros2.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/index.html')">
+                    fr
+                </a>
+            </dd>
+            
+        </dl>
+        
+
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd>
+                <!-- Switch version: keep current_language, swap in the_version -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c00_setup_de_ros2/c00s02_vscode_for_ros2.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c00_setup_de_ros2/c00s02_vscode_for_ros2.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/index.html')">
+                    humble
+                </a>
+            </dd>
+            
+        </dl>
+        
+
+        <br>
+        </dl>
+    </div>
+</div>
+
+
+<script>
+    function checkPageExists(evt, url, fallback_url) {
+        evt.preventDefault(); // Don’t immediately follow the link
+
+        // Preserve any anchor from the current page (e.g. #section2)
+        var anchor = window.location.hash || "";
+
+        // If the user has an anchor in the current location, we'll append
+        // that to the primary or fallback URLs.
+        var url_with_anchor = url + anchor;
+
+        // If running from file:// protocol, skip existence check
+        if (window.location.protocol === 'file:') {
+            window.location = url_with_anchor;
+            return;
+        }
+
+        // Use GET so we can reliably get a 2xx/4xx/5xx response on servers that may not handle HEAD
+        fetch(url, { method: 'GET', cache: 'no-store', mode: 'same-origin' })
+            .then(response => {
+                if (response.ok) {
+                    // 2xx code: Page truly exists
+                    window.location = url_with_anchor;
+                } else {
+                    // Non-2xx: fallback to known index
+                    window.location = fallback_url;
+                }
+            })
+            .catch(() => {
+                // Network error or something else: fallback to index
+                window.location = fallback_url;
+            });
+    }    
+</script><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1253 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URDF for the Description of Non-Parallel Robots &mdash; ROS2 par la pratique 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=66989161" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="URDF in Practice: The Scanbot" href="c01s04_urdf_practical.html" />
+    <link rel="prev" title="Robot Descriptions with ROS2" href="c01s02_robot_descriptions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ROS2 par la pratique
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">ROS2 in practice</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">ROS2 setup</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="c01s00_index.html">Modeling a robot</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="c01s01_links_and_joints.html">Modeling the geometry of a rigid robot with URDF and SDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html">Robot Descriptions with ROS2</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">URDF for the Description of Non-Parallel Robots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#generalites-sur-le-xml">General Information about XML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generalites-sur-l-urdf">General Information about URDF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-balise-link">The <strong>link</strong> Tag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simple-exemple">Simple Example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installation-de-template2instance">Installation of template2instance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#un-point-xacro-et-fichiers-launch">A Xacro point and launch files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-balise-joint">The <strong>joint</strong> Tag</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html">URDF in Practice: The Scanbot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS2 par la pratique</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="c01s00_index.html">Modeling a robot</a></li>
+      <li class="breadcrumb-item active">URDF for the Description of Non-Parallel Robots</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/c01_robot_modeling/c01s03_urdf.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="urdf-pour-la-description-de-robots-non-paralleles">
+<h1>URDF for the Description of Non-Parallel Robots<a class="headerlink" href="#urdf-pour-la-description-de-robots-non-paralleles" title="Link to this heading"></a></h1>
+<figure class="align-center" id="fig-slide003-scanbot-kinematic-chain">
+<a class="reference internal image-reference" href="../_images/slide003_scanbot_kinematic_chain.svg"><img alt="../_images/slide003_scanbot_kinematic_chain.svg" src="../_images/slide003_scanbot_kinematic_chain.svg" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 7 </span><span class="caption-text">Scanbot Robot and Its Kinematic Chain.</span><a class="headerlink" href="#fig-slide003-scanbot-kinematic-chain" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>In the case of a non-parallel robot, the kinematic chains are open, and the set of kinematic chains of the robot can be represented by a tree, where the direct path from the root to a leaf of the tree corresponds to a kinematic chain.</p>
+<p>The format used to describe non-parallel robots in ROS is URDF. We will now describe the syntax of URDF.</p>
+<section id="generalites-sur-le-xml">
+<h2>General Information about XML<a class="headerlink" href="#generalites-sur-le-xml" title="Link to this heading"></a></h2>
+<p>URDF is based on the XML format, where information elements are organized using tags <code class="code docutils literal notranslate"><span class="pre">&lt;tag&gt;</span> <span class="pre">element</span> <span class="pre">&lt;/tag&gt;</span></code>, which can be nested.</p>
+<p><strong>Tag</strong> A tag is a markup construct that starts with <code class="code docutils literal notranslate"><span class="pre">&lt;</span></code> and ends with <code class="code docutils literal notranslate"><span class="pre">&gt;</span></code>. There are three types of tags:</p>
+<ol class="arabic simple">
+<li><p>start tag, such as <code class="code docutils literal notranslate"><span class="pre">&lt;section&gt;</span></code>,</p></li>
+<li><p>end tag, such as <code class="code docutils literal notranslate"><span class="pre">&lt;/section&gt;</span></code>,</p></li>
+<li><p>empty tag, such as <code class="code docutils literal notranslate"><span class="pre">&lt;line-break</span> <span class="pre">/&gt;</span></code> (note the <code class="code docutils literal notranslate"><span class="pre">/</span></code> symbol before the <code class="code docutils literal notranslate"><span class="pre">&gt;</span></code> symbol at the end).</p></li>
+</ol>
+<p>A tag can be empty because the information can be contained in the tag’s attribute.</p>
+<p><strong>Attribute</strong> An attribute consists of a name-value pair that can appear in a start tag or an empty tag. An example is <code class="code docutils literal notranslate"><span class="pre">&lt;link</span> <span class="pre">name=&quot;base_link&quot;&gt;</span></code>, where the attribute name is “name” and its value is “base_link”. A tag can have multiple attributes, but each attribute can only appear once in a tag.</p>
+<p><strong>Element</strong> An element is a logical component of a document that starts with a start tag and ends with a corresponding end tag, or consists only of an empty tag. The characters between the start tag and the end tag, if any, are the content of the element and can contain markup, including other elements, called child elements. In the following code example, <a class="reference internal" href="#example-xml-element"><span class="std std-numref">Listing 4</span></a>, the <code class="docutils literal notranslate"><span class="pre">visual</span></code> element, lines 2-10, starts with the start tag <code class="code docutils literal notranslate"><span class="pre">&lt;visual&gt;</span></code>, ends with the end tag <code class="code docutils literal notranslate"><span class="pre">&lt;/visual&gt;</span></code>, and has the child elements <code class="docutils literal notranslate"><span class="pre">origin</span></code>, <code class="docutils literal notranslate"><span class="pre">geometry</span></code>, and <code class="docutils literal notranslate"><span class="pre">material</span></code>. The <code class="docutils literal notranslate"><span class="pre">mass</span></code> element, line 18, is an element without children but has a <code class="docutils literal notranslate"><span class="pre">value</span></code> attribute and therefore consists of only an empty tag: <code class="code docutils literal notranslate"><span class="pre">&lt;mass</span> <span class="pre">value=&quot;18&quot;/&gt;</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="example-xml-element">
+<div class="code-block-caption"><span class="caption-number">Listing 4 </span><span class="caption-text">Example of XML Elements</span><a class="headerlink" href="#example-xml-element" title="Link to this code"></a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${prefix}base_link&quot;</span><span class="nt">&gt;</span>
+<span class="hll"><span class="linenos"> 2</span><span class="w">    </span><span class="nt">&lt;visual&gt;</span>
+</span><span class="hll"><span class="linenos"> 3</span><span class="w">        </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span class="hll"><span class="linenos"> 4</span><span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
+</span><span class="hll"><span class="linenos"> 5</span><span class="w">            </span><span class="nt">&lt;cylinder</span><span class="w"> </span><span class="na">length=</span><span class="s">&quot;0.6&quot;</span><span class="w"> </span><span class="na">radius=</span><span class="s">&quot;0.3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span class="hll"><span class="linenos"> 6</span><span class="w">        </span><span class="nt">&lt;/geometry&gt;</span>
+</span><span class="hll"><span class="linenos"> 7</span><span class="w">        </span><span class="nt">&lt;material</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kind_of_red&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll"><span class="linenos"> 8</span><span class="w">            </span><span class="nt">&lt;color</span><span class="w"> </span><span class="na">rgba=</span><span class="s">&quot;0.6 0 .8 1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span class="hll"><span class="linenos"> 9</span><span class="w">        </span><span class="nt">&lt;/material&gt;</span>
+</span><span class="hll"><span class="linenos">10</span><span class="w">    </span><span class="nt">&lt;/visual&gt;</span>
+</span><span class="linenos">11</span><span class="w">    </span><span class="nt">&lt;collision&gt;</span>
+<span class="linenos">12</span><span class="w">        </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">13</span><span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
+<span class="linenos">14</span><span class="w">            </span><span class="nt">&lt;cylinder</span><span class="w"> </span><span class="na">length=</span><span class="s">&quot;0.6&quot;</span><span class="w"> </span><span class="na">radius=</span><span class="s">&quot;0.3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">15</span><span class="w">        </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="linenos">16</span><span class="w">    </span><span class="nt">&lt;/collision&gt;</span>
+<span class="linenos">17</span><span class="w">    </span><span class="nt">&lt;inertial&gt;</span>
+<span class="hll"><span class="linenos">18</span><span class="w">        </span><span class="nt">&lt;mass</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span class="linenos">19</span><span class="w">        </span><span class="nt">&lt;inertia</span><span class="w"> </span><span class="na">ixx=</span><span class="s">&quot;1e-3&quot;</span><span class="w"> </span><span class="na">ixy=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">ixz=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">iyy=</span><span class="s">&quot;1e-3&quot;</span><span class="w"> </span><span class="na">iyz=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">izz=</span><span class="s">&quot;1e-3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">20</span><span class="w">        </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">21</span><span class="w">    </span><span class="nt">&lt;/inertial&gt;</span>
+<span class="linenos">22</span><span class="nt">&lt;/link&gt;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="generalites-sur-l-urdf">
+<h2>General Information about URDF<a class="headerlink" href="#generalites-sur-l-urdf" title="Link to this heading"></a></h2>
+<p><strong>In the URDF format</strong>, there are many different tags that can be used. They are all described in the <a class="reference external" href="http://wiki.ros.org/urdf/XML">official ROS documentation for the URDF format</a>. There are three main ones to know: <strong>robot</strong>, <strong>link</strong>, and <strong>joint</strong>.</p>
+<p><strong>The robot tag and the XML preamble</strong> A correct XML file must have an XML preamble on the first line, and right after that, it contains a tag (called the root tag), in which all other tags are nested. For a URDF file, this root tag will be the <strong>robot</strong> tag, and the only thing to note here for now is that we can define the name attribute, which allows us to specify the name of our robot.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;robot</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;my_robot&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span>...
+<span class="w">   </span>toutes<span class="w"> </span>les<span class="w"> </span>autres<span class="w"> </span>balises
+<span class="w">   </span>...
+<span class="nt">&lt;/robot&gt;</span>
+</pre></div>
+</div>
+<p>The two main tags in URDF are <strong>link</strong> and <strong>joint</strong>, and they are at the same nesting level at the base of the <strong>robot</strong> tag:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="cp">&lt;?xml-model href=&quot;https://raw.githubusercontent.com/ros/urdfdom/master/xsd/urdf.xsd&quot; ?&gt;</span>
+<span class="nt">&lt;robot</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;my_robot&quot;</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.ros.org&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;link&gt;</span><span class="w"> </span>...<span class="w"> </span><span class="nt">&lt;/link&gt;</span>
+<span class="w">   </span><span class="nt">&lt;link&gt;</span><span class="w"> </span>...<span class="w"> </span><span class="nt">&lt;/link&gt;</span>
+<span class="w">   </span><span class="nt">&lt;link&gt;</span><span class="w"> </span>...<span class="w"> </span><span class="nt">&lt;/link&gt;</span>
+
+<span class="w">   </span><span class="nt">&lt;joint&gt;</span><span class="w">  </span>....<span class="w">  </span><span class="nt">&lt;/joint&gt;</span>
+<span class="w">   </span><span class="nt">&lt;joint&gt;</span><span class="w">  </span>....<span class="w">  </span><span class="nt">&lt;/joint&gt;</span>
+<span class="w">   </span><span class="nt">&lt;joint&gt;</span><span class="w">  </span>....<span class="w">  </span><span class="nt">&lt;/joint&gt;</span>
+<span class="nt">&lt;/robot&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="la-balise-link">
+<h2>The <strong>link</strong> Tag<a class="headerlink" href="#la-balise-link" title="Link to this heading"></a></h2>
+<p>The <strong>link</strong> tag is used to describe a segment of the robot. The complete description of this tag is available in the <a class="reference external" href="http://wiki.ros.org/urdf/XML/link">link tag specification</a>.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-number">Listing 5 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">link</span></code> Tag with <strong>visual</strong>, <strong>material</strong>, <strong>collision</strong>, and <strong>inertial</strong> Elements</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${prefix}base_link&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="nt">&lt;visual&gt;</span>
+<span class="linenos"> 3</span><span class="w">        </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 4</span><span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
+<span class="linenos"> 5</span><span class="w">            </span><span class="nt">&lt;cylinder</span><span class="w"> </span><span class="na">length=</span><span class="s">&quot;0.6&quot;</span><span class="w"> </span><span class="na">radius=</span><span class="s">&quot;0.3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 6</span><span class="w">        </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="nt">&lt;material</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kind_of_red&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 8</span><span class="w">            </span><span class="nt">&lt;color</span><span class="w"> </span><span class="na">rgba=</span><span class="s">&quot;0.6 0 .8 1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 9</span><span class="w">        </span><span class="nt">&lt;/material&gt;</span>
+<span class="linenos">10</span><span class="w">    </span><span class="nt">&lt;/visual&gt;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="nt">&lt;collision&gt;</span>
+<span class="linenos">12</span><span class="w">        </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">13</span><span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
+<span class="linenos">14</span><span class="w">            </span><span class="nt">&lt;cylinder</span><span class="w"> </span><span class="na">length=</span><span class="s">&quot;0.6&quot;</span><span class="w"> </span><span class="na">radius=</span><span class="s">&quot;0.3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">15</span><span class="w">        </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="linenos">16</span><span class="w">    </span><span class="nt">&lt;/collision&gt;</span>
+<span class="linenos">17</span><span class="w">    </span><span class="nt">&lt;inertial&gt;</span>
+<span class="linenos">18</span><span class="w">        </span><span class="nt">&lt;mass</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">19</span><span class="w">        </span><span class="nt">&lt;inertia</span><span class="w"> </span><span class="na">ixx=</span><span class="s">&quot;1e-3&quot;</span><span class="w"> </span><span class="na">ixy=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">ixz=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">iyy=</span><span class="s">&quot;1e-3&quot;</span><span class="w"> </span><span class="na">iyz=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">izz=</span><span class="s">&quot;1e-3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">20</span><span class="w">        </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">21</span><span class="w">    </span><span class="nt">&lt;/inertial&gt;</span>
+<span class="linenos">22</span><span class="nt">&lt;/link&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-link-element">
+<a class="reference internal image-reference" href="../_images/urdf_link2.png"><img alt="../_images/urdf_link2.png" src="../_images/urdf_link2.png" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 8 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">link</span></code> Element in a URDF File</span><a class="headerlink" href="#fig-link-element" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>We will now focus on understanding the different frames used in the description of a robot segment and how to define them in a URDF file.</p>
+<p>In the <strong>origin</strong> tag (in <strong>visual</strong> or <strong>collision</strong> tags), the position and orientation of the segment’s frame relative to the parent’s frame are defined by the <strong>xyz</strong> and <strong>rpy</strong> attributes.  <br></p>
+<ol class="arabic simple">
+<li><p>The translation is defined by the <strong>xyz</strong> attributes, which are the x, y, and z coordinates of the segment’s frame relative to the parent’s frame.</p></li>
+<li><p>The rotation is defined by the <strong>rpy</strong> attributes, which are the rotation angles around the x, y, and z axes of the segment’s frame relative to the parent’s frame. <strong>rpy</strong> stands for “roll, pitch, yaw” or in French: “roulis, tangage, lacet”.</p></li>
+</ol>
+<p>Rotation is always applied before translation, and the rotations are performed in the order <strong>roll</strong>, <strong>pitch</strong>, then <strong>yaw</strong>, as shown in the diagram below:</p>
+<figure class="align-center" id="fig-plane-roll-pitch-yaw">
+<a class="reference internal image-reference" href="../_images/plane_roll_pitch_yaw.png"><img alt="../_images/plane_roll_pitch_yaw.png" src="../_images/plane_roll_pitch_yaw.png" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 9 </span><span class="caption-text">Roll, Pitch, and Yaw Rotations.</span><a class="headerlink" href="#fig-plane-roll-pitch-yaw" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-roll-plane-animation">
+<a class="reference internal image-reference" href="../_images/roll_plane_animation.gif"><img alt="../_images/roll_plane_animation.gif" src="../_images/roll_plane_animation.gif" style="height: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 10 </span><span class="caption-text">Rotation around the x axis (roll)</span><a class="headerlink" href="#fig-roll-plane-animation" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-pitch-plane-animation">
+<a class="reference internal image-reference" href="../_images/pitch_plane_animation.gif"><img alt="../_images/pitch_plane_animation.gif" src="../_images/pitch_plane_animation.gif" style="height: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 11 </span><span class="caption-text">Rotation around the y axis (pitch)</span><a class="headerlink" href="#fig-pitch-plane-animation" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-yaw-plane-animation">
+<a class="reference internal image-reference" href="../_images/yaw_plane_animation.gif"><img alt="../_images/yaw_plane_animation.gif" src="../_images/yaw_plane_animation.gif" style="height: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 12 </span><span class="caption-text">Rotation around the z axis (yaw)</span><a class="headerlink" href="#fig-yaw-plane-animation" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="simple-exemple">
+<h2>Simple Example<a class="headerlink" href="#simple-exemple" title="Link to this heading"></a></h2>
+<p>Let’s create a simple URDF robot description.  <br> For this, we will use the URDF model visualization tool provided by ROS2: <strong>rviz2</strong>.  <br> To facilitate this step, we will create a ROS2 package dedicated to visualization using the tool developed by IRIS <strong>template2instance</strong>.  <br> This tool allows for easy creation of a ROS2 package from a template.  <br> For this, we need the <strong>view_robot_template</strong> template, which is a ROS2 package template dedicated to robot visualization using rviz2.  <br></p>
+<section id="installation-de-template2instance">
+<h3>Installation of template2instance<a class="headerlink" href="#installation-de-template2instance" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Install poetry by following the <a class="reference external" href="https://python-poetry.org/docs/#installing-with-the-official-installer">official site instructions</a>.</p></li>
+<li><p>Create a <strong>system</strong> directory in your ROS2 workspace. Add a <strong>COLCON_IGNORE</strong> file in this directory to prevent packages created by template2instance from being compiled by colcon, the ROS2 build system.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros2_ws/system
+touch<span class="w"> </span>~/ros2_ws/system/COLCON_IGNORE
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Copy the <strong>template2instance</strong> python module into the <strong>ros2_ws/system</strong> directory of your ROS2 workspace.</p></li>
+<li><p>Run the following command:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/system/template2instance<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>poetry<span class="w"> </span>install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>-
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Copy the <strong>view_robot_template</strong> template into the <strong>ros2_ws/system</strong> directory of your ROS2 workspace.</p></li>
+</ol>
+<p>template2instance is a Python tool using the <strong>poetry</strong> dependency manager, which is used as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>run<span class="w"> </span>create<span class="w"> </span>path_to_template<span class="w"> </span>path_to_new_package<span class="w"> </span><span class="o">[</span>--config<span class="w"> </span>path_to_config.json<span class="o">]</span>
+</pre></div>
+</div>
+<p>Let’s create a ROS2 package named <strong>simple_bot_description</strong> with the following configuration file.  <br></p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-number">Listing 6 </span><span class="caption-text">Configuration for generating the simple_bot_description package</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;PACKAGE_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;simple_bot_description&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;PACKAGE_VERSION&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;PACKAGE_DESCRIPTION&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Launch file to view the robot&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;PACKAGE_MAINTAINER_EMAIL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yguel.robotics@gmail.com&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;PACKAGE_MAINTAINER_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Manuel YGUEL&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;PACKAGE_LICENSE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;YEAR&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2024</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;LABORATORY&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Unistra, ICube/IRIS&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;LICENSE_TEXT&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;\n# This file is licensed under the MIT License.\n# You may obtain a copy of the License at https://opensource.org/licenses/MIT\n&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ROBOT_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;simple_bot&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<ol class="arabic simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/65859f9ff41c8324a13d45deeb799a56/pkg_gen_cfg_view_simple_bot.json"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">configuration</span> <span class="pre">file</span></code></a> and copy it into the directory <code class="code docutils literal notranslate"><span class="pre">~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json</span></code>.</p></li>
+<li><p>Run the following command:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/system/template2instance<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>poetry<span class="w"> </span>run<span class="w"> </span>create<span class="w"> </span>~/ros2_ws/system/view_robot_template<span class="w"> </span>~/ros2_ws/src/simple_bot_description<span class="w"> </span>--config<span class="w"> </span>~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>-
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Test the package by compiling it:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+ros2_humble
+ros2_build_only<span class="w"> </span>simple_bot_description
+</pre></div>
+</div>
+<p>Launch the package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>simple_bot_description<span class="w"> </span>view_simple_bot.launch.py
+</pre></div>
+</div>
+<p>If everything went well, you should see the default robot in rviz2:</p>
+<figure class="align-center" id="fig-scanbot-cam-rviz-view">
+<a class="reference internal image-reference" href="../_images/default_rviz_view.png"><img alt="../_images/default_rviz_view.png" src="../_images/default_rviz_view.png" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 13 </span><span class="caption-text">The default robot when initializing a visualization package from the view_robot_template template.</span><a class="headerlink" href="#fig-scanbot-cam-rviz-view" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The URDF file to study is named <code class="docutils literal notranslate"><span class="pre">simple_bot_macro.xacro</span></code> and is located in the directory <code class="code docutils literal notranslate"><span class="pre">~/ros2_ws/src/simple_bot_description/urdf/simple_bot</span></code>.  <br> It is a <code class="docutils literal notranslate"><span class="pre">xacro</span></code> file, which means it is an XML file that can contain macros. These macros allow defining elements that can be reused multiple times in the file or deduced by function calls. However, the format is that of a URDF file, and by convention, we will refer to it as a URDF file.  <br></p>
+<p>Open this file and modify it to look like this:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-number">Listing 7 </span><span class="caption-text">Minimal example of a URDF file with a single-segment robot</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="linenos"> 2</span><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="nt">&lt;xacro:macro</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;simple_bot&quot;</span><span class="w"> </span><span class="na">params=</span><span class="s">&quot;prefix parent *origin&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 5</span><span class="w">        </span><span class="cm">&lt;!-- LINKS --&gt;</span>
+<span class="linenos"> 6</span><span class="w">        </span><span class="cm">&lt;!-- base link --&gt;</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${prefix}base_link&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 8</span><span class="w">            </span><span class="nt">&lt;visual&gt;</span>
+<span class="linenos"> 9</span><span class="w">                </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">10</span><span class="w">                </span><span class="nt">&lt;geometry&gt;</span>
+<span class="linenos">11</span><span class="w">                    </span><span class="nt">&lt;cylinder</span><span class="w"> </span><span class="na">length=</span><span class="s">&quot;0.6&quot;</span><span class="w"> </span><span class="na">radius=</span><span class="s">&quot;0.3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">12</span><span class="w">                </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="linenos">13</span><span class="w">                </span><span class="nt">&lt;material</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;red&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">14</span><span class="w">            </span><span class="nt">&lt;/visual&gt;</span>
+<span class="linenos">15</span><span class="w">        </span><span class="nt">&lt;/link&gt;</span>
+<span class="linenos">16</span><span class="w">        </span><span class="cm">&lt;!-- END LINKS --&gt;</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">        </span><span class="cm">&lt;!-- JOINTS --&gt;</span>
+<span class="linenos">19</span><span class="w">        </span><span class="cm">&lt;!-- base_joint fixes base_link to the environment --&gt;</span>
+<span class="linenos">20</span><span class="w">        </span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${prefix}base_joint&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;fixed&quot;</span><span class="nt">&gt;</span>
+<span class="linenos">21</span><span class="w">            </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">22</span><span class="w">            </span><span class="nt">&lt;parent</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;${parent}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">23</span><span class="w">            </span><span class="nt">&lt;child</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;${prefix}base_link&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">24</span><span class="w">        </span><span class="nt">&lt;/joint&gt;</span>
+<span class="linenos">25</span><span class="w">        </span><span class="cm">&lt;!-- END JOINTS --&gt;</span>
+<span class="linenos">26</span><span class="w">    </span><span class="nt">&lt;/xacro:macro&gt;</span>
+<span class="linenos">27</span><span class="nt">&lt;/robot&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-cylinder-link">
+<a class="reference internal image-reference" href="../_images/cylinder_link.png"><img alt="../_images/cylinder_link.png" src="../_images/cylinder_link.png" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 14 </span><span class="caption-text">Display of a cylinder segment with RVIZ corresponding to the previous URDF description</span><a class="headerlink" href="#fig-cylinder-link" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Close all windows and type CTRL-C in the terminal, then restart the package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>simple_bot_description<span class="w"> </span>view_simple_bot.launch.py
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="#fig-cylinder-link"><span class="std std-numref">Figure 14</span></a> shows the cylinder segment as it should appear in rviz2.</p>
+<p>To understand how coordinate systems work, you need to display the axes. In rviz:</p>
+<ol class="arabic simple">
+<li><p>in the left panel (‘’Displays’’), in <strong>RobotModel</strong> change the <strong>Alpha</strong> value to 0.5. This changes the transparency of the robot model and allows you to see the axes.</p></li>
+<li><p>If you don’t see the axes, make sure you have a <strong>TF</strong> and if not, add a <strong>TF</strong> in the left panel (‘’Displays’’) with the <strong>Add</strong> button. And make sure <strong>Show Axes</strong> is checked.</p></li>
+</ol>
+<figure class="align-center" id="fig-cylinder-link-with-axes-visible">
+<a class="reference internal image-reference" href="../_images/axis_are_visible_in_rviz2_thanks_to_transparency.png"><img alt="../_images/axis_are_visible_in_rviz2_thanks_to_transparency.png" src="../_images/axis_are_visible_in_rviz2_thanks_to_transparency.png" style="height: 800px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 15 </span><span class="caption-text">Display of a cylinder segment with RVIZ with visible axes (Alpha=0.5, Show Axes: checked)</span><a class="headerlink" href="#fig-cylinder-link-with-axes-visible" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition-segments-definis-par-des-primitives-geometriques admonition">
+<p class="admonition-title">Segments defined by geometric primitives</p>
+<p>A segment can be defined from 3 basic geometric shapes:</p>
+<ol class="arabic simple">
+<li><p>box: <code class="code docutils literal notranslate"><span class="pre">&lt;box</span> <span class="pre">size=&quot;10</span> <span class="pre">20</span> <span class="pre">40&quot;/&gt;</span></code>. The side sizes (‘’size’’) are given in the order x,y,z. The sides of the box are parallel to the x, y, and z axes.</p></li>
+<li><p>cylinder: <code class="code docutils literal notranslate"><span class="pre">&lt;cylinder</span> <span class="pre">radius=&quot;10&quot;</span> <span class="pre">length=&quot;40&quot;/&gt;</span></code> the axis is always the z-axis.</p></li>
+<li><p>sphere: <code class="code docutils literal notranslate"><span class="pre">&lt;sphere</span> <span class="pre">radius=&quot;10&quot;/&gt;</span></code></p></li>
+</ol>
+<p>In this case, the segment’s frame is by default at the center of the geometric shape (center of gravity).</p>
+</div>
+<p>We will modify the shape to use a box. This will allow us to clearly visualize the orientation of the shape in 3 dimensions.  <br> And we will modify the <strong>origin</strong> element to move the segment relative to its origin.  <br> So modify the URDF file to look like this:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-number">Listing 8 </span><span class="caption-text">Minimal example of a URDF file with a single-segment box robot whose position is translated by 0.5m in x (red axis), 1.5m in y (green axis), and 0m in z (blue axis) relative to the origin.</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="linenos"> 2</span><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="nt">&lt;xacro:macro</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;simple_bot&quot;</span><span class="w"> </span><span class="na">params=</span><span class="s">&quot;prefix parent *origin&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 5</span><span class="w">        </span><span class="cm">&lt;!-- LINKS --&gt;</span>
+<span class="linenos"> 6</span><span class="w">        </span><span class="cm">&lt;!-- base link --&gt;</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${prefix}base_link&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 8</span><span class="w">            </span><span class="nt">&lt;visual&gt;</span>
+<span class="linenos"> 9</span><span class="w">                </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0.5 1.5 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">10</span><span class="w">                </span><span class="nt">&lt;geometry&gt;</span>
+<span class="linenos">11</span><span class="w">                    </span><span class="nt">&lt;box</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;0.5 1 2&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">12</span><span class="w">                </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="linenos">13</span><span class="w">                </span><span class="nt">&lt;material</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;red&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">14</span><span class="w">            </span><span class="nt">&lt;/visual&gt;</span>
+<span class="linenos">15</span><span class="w">        </span><span class="nt">&lt;/link&gt;</span>
+<span class="linenos">16</span><span class="w">        </span><span class="cm">&lt;!-- END LINKS --&gt;</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">        </span><span class="cm">&lt;!-- JOINTS --&gt;</span>
+<span class="linenos">19</span><span class="w">        </span><span class="cm">&lt;!-- base_joint fixes base_link to the environment --&gt;</span>
+<span class="linenos">20</span><span class="w">        </span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${prefix}base_joint&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;fixed&quot;</span><span class="nt">&gt;</span>
+<span class="linenos">21</span><span class="w">            </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">22</span><span class="w">            </span><span class="nt">&lt;parent</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;${parent}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">23</span><span class="w">            </span><span class="nt">&lt;child</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;${prefix}base_link&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">24</span><span class="w">        </span><span class="nt">&lt;/joint&gt;</span>
+<span class="linenos">25</span><span class="w">        </span><span class="cm">&lt;!-- END JOINTS --&gt;</span>
+<span class="linenos">26</span><span class="w">    </span><span class="nt">&lt;/xacro:macro&gt;</span>
+<span class="linenos">27</span><span class="nt">&lt;/robot&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-box-link-my02-tr-bot">
+<a class="reference internal image-reference" href="../_images/my02_tr_bot.png"><img alt="../_images/my02_tr_bot.png" src="../_images/my02_tr_bot.png" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 16 </span><span class="caption-text">Display of a box segment with RVIZ corresponding to the URDF description on the left</span><a class="headerlink" href="#fig-box-link-my02-tr-bot" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>We will modify the <strong>origin</strong> element to rotate the segment by 90 degrees around the roll axis: X (roll).  <br></p>
+<div class="admonition-notez-l-ordre-des-transformations-geometriques admonition">
+<p class="admonition-title">Note the order of geometric transformations</p>
+<p>Geometric transformations are performed in the following order: rotation then translation.</p>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="my02-tr-plus-rot-bot-urdf">
+<div class="code-block-caption"><span class="caption-number">Listing 9 </span><span class="caption-text">Minimal example of a URDF file with a single-segment box robot that has undergone a 90° rotation around the X axis (roll) and whose position is translated by 0.5m in x (red axis), 1.5m in y (green axis), and 0m in z (blue axis) relative to the origin.</span><a class="headerlink" href="#my02-tr-plus-rot-bot-urdf" title="Link to this code"></a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="linenos"> 2</span><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="nt">&lt;xacro:macro</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;simple_bot&quot;</span><span class="w"> </span><span class="na">params=</span><span class="s">&quot;prefix parent *origin&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 5</span><span class="w">        </span><span class="cm">&lt;!-- LINKS --&gt;</span>
+<span class="linenos"> 6</span><span class="w">        </span><span class="cm">&lt;!-- base link --&gt;</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${prefix}base_link&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 8</span><span class="w">            </span><span class="nt">&lt;visual&gt;</span>
+<span class="linenos"> 9</span><span class="w">                </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0.5 1.5 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;${radians(90)} 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">10</span><span class="w">                </span><span class="nt">&lt;geometry&gt;</span>
+<span class="linenos">11</span><span class="w">                    </span><span class="nt">&lt;box</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;0.5 1 2&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">12</span><span class="w">                </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="linenos">13</span><span class="w">                </span><span class="nt">&lt;material</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;red&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">14</span><span class="w">            </span><span class="nt">&lt;/visual&gt;</span>
+<span class="linenos">15</span><span class="w">        </span><span class="nt">&lt;/link&gt;</span>
+<span class="linenos">16</span><span class="w">        </span><span class="cm">&lt;!-- END LINKS --&gt;</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">        </span><span class="cm">&lt;!-- JOINTS --&gt;</span>
+<span class="linenos">19</span><span class="w">        </span><span class="cm">&lt;!-- base_joint fixes base_link to the environment --&gt;</span>
+<span class="linenos">20</span><span class="w">        </span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${prefix}base_joint&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;fixed&quot;</span><span class="nt">&gt;</span>
+<span class="linenos">21</span><span class="w">            </span><span class="nt">&lt;xacro:insert_block</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;origin&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">22</span><span class="w">            </span><span class="nt">&lt;parent</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;${parent}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">23</span><span class="w">            </span><span class="nt">&lt;child</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;${prefix}base_link&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">24</span><span class="w">        </span><span class="nt">&lt;/joint&gt;</span>
+<span class="linenos">25</span><span class="w">        </span><span class="cm">&lt;!-- END JOINTS --&gt;</span>
+<span class="linenos">26</span><span class="w">    </span><span class="nt">&lt;/xacro:macro&gt;</span>
+<span class="linenos">27</span><span class="nt">&lt;/robot&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-box-link-my02-tr-plus-rot-bot">
+<a class="reference internal image-reference" href="../_images/my02_tr_plus_rot_bot.png"><img alt="../_images/my02_tr_plus_rot_bot.png" src="../_images/my02_tr_plus_rot_bot.png" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 17 </span><span class="caption-text">Display of a box segment with RVIZ corresponding to the URDF description on the left</span><a class="headerlink" href="#fig-box-link-my02-tr-plus-rot-bot" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition-notez-bien-ce-qui-est-deplace-par-les-attributs-xyz-et-rpy-de-la-balise-origin admonition">
+<p class="admonition-title">Note well what is moved by the <strong>xyz</strong> and <strong>rpy</strong> attributes of the <strong>origin</strong> tag</p>
+<p>It is not the origin of the frame that is moved but the frame in which the geometric shape is defined.</p>
+</div>
+<p>Indeed, if we set the alpha parameter to 0.5 to see through, the center of the box does not contain a frame.  <br> We will see in the following the difference with the changes in the <strong>origin</strong> tag of the joints with the description of the <strong>joint</strong> tag.</p>
+</section>
+</section>
+<section id="un-point-xacro-et-fichiers-launch">
+<h2>A Xacro point and launch files<a class="headerlink" href="#un-point-xacro-et-fichiers-launch" title="Link to this heading"></a></h2>
+<p>Let’s look at the organization of the ROS2 project <code class="docutils literal notranslate"><span class="pre">simple_bot_description</span></code> (after adding various URDF files):</p>
+<div class="tree-simple-bot-description docutils container" id="simple-bot-description-tree">
+<blockquote>
+<div><div><span style="font-family: monospace;"><span
+            style="font-weight: bold; color: #5454ff; background-color: #ffffff;">.</span><span
+            style="color: #000000; background-color: #ffffff;"> </span><br />├── CMakeLists.txt <br />├── <span
+            style="font-weight: bold; color: #5454ff; background-color: #ffffff;">config</span><span
+            style="color: #000000; background-color: #ffffff;"> </span><br />├── <span
+            style="font-weight: bold; color: #5454ff; background-color: #ffffff;">doc</span><span
+            style="color: #000000; background-color: #ffffff;"> </span><br />├── <span
+            style="font-weight: bold; color: #5454ff; background-color: #ffffff;">launch</span><span
+            style="color: #000000; background-color: #ffffff;"> </span><br />│&nbsp;&nbsp;&nbsp;└──
+        view_simple_bot.launch.py <br />├── <span
+            style="font-weight: bold; color: #5454ff; background-color: #ffffff;">meshes</span><span
+            style="color: #000000; background-color: #ffffff;"> </span><br />│&nbsp;&nbsp;&nbsp;├── <span
+            style="font-weight: bold; color: #5454ff; background-color: #ffffff;">collision</span><span
+            style="color: #000000; background-color: #ffffff;"> </span><br />│&nbsp;&nbsp;&nbsp;└── <span
+            style="font-weight: bold; color: #5454ff; background-color: #ffffff;">visual</span><span
+            style="color: #000000; background-color: #ffffff;"> </span><br />├── package.xml <br />├── README.md
+        <br />├── <span style="font-weight: bold; color: #5454ff; background-color: #ffffff;">rviz</span><span
+            style="color: #000000; background-color: #ffffff;"> </span><br />│&nbsp;&nbsp;&nbsp;└── simple_bot.rviz
+        <br />├── <span style="font-weight: bold; color: #5454ff; background-color: #ffffff;">test</span><span
+            style="color: #000000; background-color: #ffffff;"> </span><br />│&nbsp;&nbsp;&nbsp;└──
+        simple_bot_test_urdf_xacro.py <br />└── <span
+            style="font-weight: bold; color: #5454ff; background-color: #ffffff;">urdf</span><span
+            style="color: #000000; background-color: #ffffff;"> </span><br />&nbsp;&nbsp;&nbsp;├── <span
+            style="font-weight: bold; color: #5454ff; background-color: #ffffff;">common</span><span
+            style="color: #000000; background-color: #ffffff;"> </span><br />&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──
+        inertials.xacro <br />&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── materials.xacro <br />&nbsp;&nbsp;&nbsp;├── <span
+            style="font-weight: bold; color: #5454ff; background-color: #ffffff;">simple_bot</span><span
+            style="color: #000000; background-color: #ffffff;"> </span><br />
+        &nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──
+        simple_bot_macro.xacro <br />
+        &nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──
+        simple_bot__my01_bot__macro.xacro <br />
+        &nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──
+        simple_bot__my02_tr_bot__macro.xacro <br />
+        &nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──
+        simple_bot__my02_tr_plus_rot_bot__macro.xacro <br />
+        &nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──
+        simple_bot__my03_bot__macro.xacro <br />
+        &nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──
+        simple_bot__my04_bot__macro.xacro <br />
+        &nbsp;&nbsp;&nbsp;└── simple_bot.urdf.xacro<br /></span>
+</div></div></blockquote>
+<p><br>
+<br></p>
+</div>
+<p>What happens when we launch the <code class="docutils literal notranslate"><span class="pre">simple_bot_description</span></code> package with the following command?</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>simple_bot_description<span class="w"> </span>view_simple_bot.launch.py
+</pre></div>
+</div>
+<p>The file <code class="docutils literal notranslate"><span class="pre">view_simple_bot.launch.py</span></code> is executed.  <br></p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-number">Listing 10 </span><span class="caption-text">Content of the view_simple_bot.launch.py file</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Copyright (c) 2024, Unistra, ICube/IRIS</span>
+<span class="linenos"> 2</span><span class="c1"># </span>
+<span class="linenos"> 3</span><span class="c1"># </span>
+<span class="linenos"> 4</span><span class="c1"># This file is licensed under the MIT License.</span>
+<span class="linenos"> 5</span><span class="c1"># You may obtain a copy of the License at https://opensource.org/licenses/MIT</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c1">#</span>
+<span class="linenos"> 9</span><span class="c1"># The template of this file is taken from source https://github.com/StoglRobotics/ros_team_workspace repository.</span>
+<span class="linenos">10</span><span class="c1"># Copyright (c) 2024, Stogl Robotics Consulting UG (haftungsbeschränkt) (template)</span>
+<span class="linenos">11</span><span class="c1"># Author of the template: Dr. Denis</span>
+<span class="linenos">12</span><span class="c1">#</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="kn">from</span><span class="w"> </span><span class="nn">launch</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchDescription</span>
+<span class="linenos">15</span><span class="kn">from</span><span class="w"> </span><span class="nn">launch.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeclareLaunchArgument</span>
+<span class="linenos">16</span><span class="kn">from</span><span class="w"> </span><span class="nn">launch.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Command</span><span class="p">,</span> <span class="n">FindExecutable</span><span class="p">,</span> <span class="n">LaunchConfiguration</span><span class="p">,</span> <span class="n">PathJoinSubstitution</span>
+<span class="linenos">17</span><span class="kn">from</span><span class="w"> </span><span class="nn">launch_ros.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<span class="linenos">18</span><span class="kn">from</span><span class="w"> </span><span class="nn">launch_ros.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">FindPackageShare</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="k">def</span><span class="w"> </span><span class="nf">generate_launch_description</span><span class="p">():</span>
+<span class="linenos">21</span>    <span class="c1"># Declare arguments</span>
+<span class="linenos">22</span>    <span class="n">declared_arguments</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">23</span>    <span class="n">declared_arguments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+<span class="linenos">24</span>        <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
+<span class="linenos">25</span>            <span class="s2">&quot;description_package&quot;</span><span class="p">,</span>
+<span class="linenos">26</span>            <span class="n">default_value</span><span class="o">=</span><span class="s2">&quot;simple_bot_description&quot;</span><span class="p">,</span>
+<span class="linenos">27</span>            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Description package of the simple_bot. Usually the argument is not set, </span><span class="se">\</span>
+<span class="linenos">28</span><span class="s2">        it enables use of a custom description.&quot;</span><span class="p">,</span>
+<span class="linenos">29</span>        <span class="p">)</span>
+<span class="linenos">30</span>    <span class="p">)</span>
+<span class="linenos">31</span>    <span class="n">declared_arguments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+<span class="linenos">32</span>        <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
+<span class="linenos">33</span>            <span class="s2">&quot;prefix&quot;</span><span class="p">,</span>
+<span class="linenos">34</span>            <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;&quot;&quot;&#39;</span><span class="p">,</span>
+<span class="linenos">35</span>            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Prefix of the joint names, useful for </span><span class="se">\</span>
+<span class="linenos">36</span><span class="s2">        multi-robot setup. If changed than also joint names in the controllers&#39; configuration </span><span class="se">\</span>
+<span class="linenos">37</span><span class="s2">        have to be updated.&quot;</span><span class="p">,</span>
+<span class="linenos">38</span>        <span class="p">)</span>
+<span class="linenos">39</span>    <span class="p">)</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span>    <span class="c1"># Initialize Arguments</span>
+<span class="linenos">42</span>    <span class="n">description_package</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">&quot;description_package&quot;</span><span class="p">)</span>
+<span class="linenos">43</span>    <span class="n">prefix</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">&quot;prefix&quot;</span><span class="p">)</span>
+<span class="linenos">44</span>
+<span class="hll"><span class="linenos">45</span>    <span class="c1"># Get URDF via xacro</span>
+</span><span class="hll"><span class="linenos">46</span>    <span class="n">robot_description_content</span> <span class="o">=</span> <span class="n">Command</span><span class="p">(</span>
+</span><span class="hll"><span class="linenos">47</span>        <span class="p">[</span>
+</span><span class="hll"><span class="linenos">48</span>            <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">FindExecutable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;xacro&quot;</span><span class="p">)]),</span>
+</span><span class="hll"><span class="linenos">49</span>            <span class="s2">&quot; &quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos">50</span>            <span class="n">PathJoinSubstitution</span><span class="p">(</span>
+</span><span class="hll"><span class="linenos">51</span>                <span class="p">[</span><span class="n">FindPackageShare</span><span class="p">(</span><span class="n">description_package</span><span class="p">),</span> <span class="s2">&quot;urdf&quot;</span><span class="p">,</span> <span class="s2">&quot;simple_bot.urdf.xacro&quot;</span><span class="p">]</span>
+</span><span class="hll"><span class="linenos">52</span>            <span class="p">),</span>
+</span><span class="hll"><span class="linenos">53</span>            <span class="s2">&quot; &quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos">54</span>            <span class="s2">&quot;prefix:=&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos">55</span>            <span class="n">prefix</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos">56</span>            <span class="s2">&quot; &quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos">57</span>        <span class="p">]</span>
+</span><span class="hll"><span class="linenos">58</span>    <span class="p">)</span>
+</span><span class="linenos">59</span>
+<span class="linenos">60</span>    <span class="n">robot_description</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;robot_description&quot;</span><span class="p">:</span> <span class="n">robot_description_content</span><span class="p">}</span>
+<span class="linenos">61</span>
+<span class="linenos">62</span>    <span class="n">rviz_config_file</span> <span class="o">=</span> <span class="n">PathJoinSubstitution</span><span class="p">(</span>
+<span class="linenos">63</span>        <span class="p">[</span><span class="n">FindPackageShare</span><span class="p">(</span><span class="n">description_package</span><span class="p">),</span> <span class="s2">&quot;rviz&quot;</span><span class="p">,</span> <span class="s2">&quot;simple_bot.rviz&quot;</span><span class="p">]</span>
+<span class="linenos">64</span>    <span class="p">)</span>
+<span class="linenos">65</span>
+<span class="linenos">66</span>    <span class="n">joint_state_publisher_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+<span class="linenos">67</span>        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;joint_state_publisher_gui&quot;</span><span class="p">,</span>
+<span class="linenos">68</span>        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;joint_state_publisher_gui&quot;</span><span class="p">,</span>
+<span class="linenos">69</span>    <span class="p">)</span>
+<span class="linenos">70</span>    <span class="n">robot_state_publisher_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+<span class="linenos">71</span>        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;robot_state_publisher&quot;</span><span class="p">,</span>
+<span class="linenos">72</span>        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;robot_state_publisher&quot;</span><span class="p">,</span>
+<span class="linenos">73</span>        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span>
+<span class="linenos">74</span>        <span class="n">parameters</span><span class="o">=</span><span class="p">[</span><span class="n">robot_description</span><span class="p">],</span>
+<span class="linenos">75</span>    <span class="p">)</span>
+<span class="linenos">76</span>    <span class="n">rviz_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+<span class="linenos">77</span>        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;rviz2&quot;</span><span class="p">,</span>
+<span class="linenos">78</span>        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;rviz2&quot;</span><span class="p">,</span>
+<span class="linenos">79</span>        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;rviz2&quot;</span><span class="p">,</span>
+<span class="linenos">80</span>        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+<span class="linenos">81</span>        <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;-d&quot;</span><span class="p">,</span> <span class="n">rviz_config_file</span><span class="p">],</span>
+<span class="linenos">82</span>    <span class="p">)</span>
+<span class="linenos">83</span>
+<span class="linenos">84</span>    <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">(</span>
+<span class="linenos">85</span>        <span class="n">declared_arguments</span>
+<span class="linenos">86</span>        <span class="o">+</span> <span class="p">[</span>
+<span class="linenos">87</span>            <span class="n">joint_state_publisher_node</span><span class="p">,</span>
+<span class="linenos">88</span>            <span class="n">robot_state_publisher_node</span><span class="p">,</span>
+<span class="linenos">89</span>            <span class="n">rviz_node</span><span class="p">,</span>
+<span class="linenos">90</span>        <span class="p">]</span>
+<span class="linenos">91</span>    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We see that in lines 45 to 58, the xacro file <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code> located in the directory <code class="docutils literal notranslate"><span class="pre">~/ros2_ws/src/simple_bot_description/urdf/</span></code> is transformed into a URDF file.  <br></p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-number">Listing 11 </span><span class="caption-text">Content of the simple_bot.urdf.xacro file</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="linenos"> 2</span><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;simple_bot&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="w">  </span><span class="cm">&lt;!-- Use this if parameters are set from the launch file, otherwise delete --&gt;</span>
+<span class="linenos"> 5</span><span class="w">  </span><span class="nt">&lt;xacro:arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;prefix&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">  </span><span class="nt">&lt;xacro:arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_mock_hardware&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 8</span><span class="w">  </span><span class="nt">&lt;xacro:arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;mock_sensor_commands&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 9</span><span class="w">  </span><span class="nt">&lt;xacro:arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;sim_gazebo_classic&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">10</span><span class="w">  </span><span class="nt">&lt;xacro:arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;sim_gazebo&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">11</span><span class="w">  </span><span class="nt">&lt;xacro:arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;simulation_controllers&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">12</span>
+<span class="hll"><span class="linenos">13</span><span class="w">  </span><span class="nt">&lt;xacro:include</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;$(find simple_bot_description)/urdf/simple_bot/simple_bot_macro.xacro&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span class="linenos">14</span>
+<span class="linenos">15</span><span class="w">  </span><span class="cm">&lt;!-- create link fixed to the &quot;world&quot; --&gt;</span>
+<span class="linenos">16</span><span class="w">  </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;world&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">  </span><span class="cm">&lt;!-- Load robot&#39;s macro with parameters --&gt;</span>
+<span class="linenos">19</span><span class="w">  </span><span class="cm">&lt;!-- set prefix if multiple robots are used --&gt;</span>
+<span class="linenos">20</span><span class="w">  </span><span class="nt">&lt;xacro:simple_bot</span><span class="w"> </span><span class="na">prefix=</span><span class="s">&quot;$(arg prefix)&quot;</span><span class="w"> </span><span class="na">parent=</span><span class="s">&quot;world&quot;</span><span class="nt">&gt;</span>
+<span class="linenos">21</span><span class="w">    </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">          </span><span class="cm">&lt;!-- position robot in the world --&gt;</span>
+<span class="linenos">22</span><span class="w">  </span><span class="nt">&lt;/xacro:simple_bot&gt;</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="nt">&lt;/robot&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>At line 13, we see a <code class="docutils literal notranslate"><span class="pre">xacro</span></code> command that allows including another xacro file. This command is declared with a <code class="docutils literal notranslate"><span class="pre">xacro:include</span></code> tag and uses another command named <code class="docutils literal notranslate"><span class="pre">find</span></code> which allows finding the path of a package in the <code class="docutils literal notranslate"><span class="pre">install</span></code> directory of the workspace, and its return value is accessed with the syntax <code class="docutils literal notranslate"><span class="pre">$(find</span> <span class="pre">simple_bot_description)</span></code>.  <br></p>
+<p>In the <a class="reference internal" href="#my02-tr-plus-rot-bot-urdf"><span class="std std-numref">Listing 9</span></a>, you may have noticed another useful xacro command that allows you to manipulate angles in degrees and convert them to radians: <code class="docutils literal notranslate"><span class="pre">${radians(90)}</span></code>.</p>
+<div class="admonition-appel-de-fonction-dans-une-commande-xacro admonition">
+<p class="admonition-title">Function Call in a Xacro Command</p>
+<p>Note that when making a function call in a xacro command, <strong>curly braces</strong> are used instead of <strong>parentheses</strong> for the command’s initial delimiters.</p>
+</div>
+<p>A Python file <code class="docutils literal notranslate"><span class="pre">xxxxx.launch.py</span></code> can use command-line arguments.  <br> In the file above, lines 23-39 define 2 arguments:</p>
+<ol class="arabic simple">
+<li><p>the default package name (<code class="docutils literal notranslate"><span class="pre">description_package</span></code>)</p></li>
+<li><p>the prefix that can be applied before the path of each resource, which allows reusing the same launch file for multiple instances of objects, such as robots, in the case of a robot fleet.</p></li>
+</ol>
+<p>The syntax is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">declared_arguments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+     <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
+         <span class="s2">&quot;name_of_the_argument_for_the_python_launch_file&quot;</span><span class="p">,</span>
+         <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;default argument value&#39;</span><span class="p">,</span>
+         <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Description given to the user </span><span class="se">\</span>
+<span class="s2">            when he/she is using the --help command </span><span class="se">\</span>
+<span class="s2">            or when documentation is automatically generated.&quot;</span><span class="p">,</span>
+     <span class="p">)</span>
+ <span class="p">)</span>
+</pre></div>
+</div>
+<p>The value of a parameter is then retrieved using the <code class="docutils literal notranslate"><span class="pre">LaunchConfiguration</span></code> function from the <code class="docutils literal notranslate"><span class="pre">launch.substitutions</span></code> module (lines 42-43).</p>
+<p>It is then possible to use the retrieved values to perform substitutions in configuration files, for example, lines 45-58, the <code class="docutils literal notranslate"><span class="pre">xacro</span></code> command is called on the file <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code> with the parameter <code class="docutils literal notranslate"><span class="pre">prefix:=&quot;&quot;</span></code> (here, the prefix is an empty string).</p>
+<p>To easily visualize multiple different robot descriptions in rviz2 and track frame transformations, it is useful to create multiple xacro files based on the <code class="docutils literal notranslate"><span class="pre">simple_bot_macro.xacro</span></code> file.  <br> For example, we have created the following files:</p>
+<ol class="arabic simple">
+<li><p>simple_bot__my01_bot__macro.xacro</p></li>
+<li><p>simple_bot__my02_tr_bot__macro.xacro</p></li>
+<li><p>simple_bot__my02_tr_plus_rot_bot__macro.xacro</p></li>
+<li><p>simple_bot__my03_bot__macro.xacro</p></li>
+<li><p>simple_bot__my04_bot__macro.xacro</p></li>
+</ol>
+<p>which you do not yet have and which appear in the tree structure of the <code class="docutils literal notranslate"><span class="pre">simple_bot_description</span></code> package shown <a class="reference internal" href="#simple-bot-description-tree"><span class="std std-ref">above</span></a>.  <br></p>
+<p>to modify only a few parameters.  <br></p>
+<div class="exercice docutils container" id="exercice-xacro-launch-parameterized-urdf">
+<div class="admonition-exercice-xacro-launch-file admonition">
+<p class="admonition-title">Xacro / Launch File Exercise</p>
+<p>Modifiez les fichiers <code class="docutils literal notranslate"><span class="pre">view_simple_bot.launch.py</span></code> et <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code> pour que le fichier affiché par rviz2 soit paramétrable et par exemple affiche le fichier <code class="docutils literal notranslate"><span class="pre">simple_bot__my03_bot__macro.xacro</span></code> quand on lance la commande:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>simple_bot_description<span class="w"> </span>view_simple_bot.launch.py<span class="w"> </span>urdf:<span class="o">=</span>simple_bot__my03_bot__macro.xacro
+</pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show the Exercise Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Modifications to the <code class="docutils literal notranslate"><span class="pre">view_simple_bot.launch.py</span></code> File:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-number">Listing 12 </span><span class="caption-text">Modification of the view_simple_bot.launch.py file to accept a urdf argument that allows selecting the xacro file to display in rviz2</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># Copyright (c) 2024, Unistra, ICube/IRIS</span>
+<span class="linenos">  2</span><span class="c1"># </span>
+<span class="linenos">  3</span><span class="c1"># </span>
+<span class="linenos">  4</span><span class="c1"># This file is licensed under the MIT License.</span>
+<span class="linenos">  5</span><span class="c1"># You may obtain a copy of the License at https://opensource.org/licenses/MIT</span>
+<span class="linenos">  6</span>
+<span class="linenos">  7</span>
+<span class="linenos">  8</span><span class="c1">#</span>
+<span class="linenos">  9</span><span class="c1"># The template of this file is taken from source https://github.com/StoglRobotics/ros_team_workspace repository.</span>
+<span class="linenos"> 10</span><span class="c1"># Copyright (c) 2024, Stogl Robotics Consulting UG (haftungsbeschränkt) (template)</span>
+<span class="linenos"> 11</span><span class="c1"># Author of the template: Dr. Denis</span>
+<span class="linenos"> 12</span><span class="c1">#</span>
+<span class="linenos"> 13</span>
+<span class="linenos"> 14</span><span class="kn">from</span><span class="w"> </span><span class="nn">launch</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchDescription</span>
+<span class="linenos"> 15</span><span class="kn">from</span><span class="w"> </span><span class="nn">launch.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeclareLaunchArgument</span>
+<span class="linenos"> 16</span><span class="kn">from</span><span class="w"> </span><span class="nn">launch.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Command</span><span class="p">,</span> <span class="n">FindExecutable</span><span class="p">,</span> <span class="n">LaunchConfiguration</span><span class="p">,</span> <span class="n">PathJoinSubstitution</span>
+<span class="linenos"> 17</span><span class="kn">from</span><span class="w"> </span><span class="nn">launch_ros.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<span class="linenos"> 18</span><span class="kn">from</span><span class="w"> </span><span class="nn">launch_ros.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">FindPackageShare</span>
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span><span class="k">def</span><span class="w"> </span><span class="nf">generate_launch_description</span><span class="p">():</span>
+<span class="linenos"> 21</span>    <span class="c1"># Declare arguments</span>
+<span class="linenos"> 22</span>    <span class="n">declared_arguments</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 23</span>    <span class="n">declared_arguments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+<span class="linenos"> 24</span>        <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
+<span class="linenos"> 25</span>            <span class="s2">&quot;description_package&quot;</span><span class="p">,</span>
+<span class="linenos"> 26</span>            <span class="n">default_value</span><span class="o">=</span><span class="s2">&quot;simple_bot_description&quot;</span><span class="p">,</span>
+<span class="linenos"> 27</span>            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Description package of the simple_bot. Usually the argument is not set, </span><span class="se">\</span>
+<span class="linenos"> 28</span><span class="s2">        it enables use of a custom description.&quot;</span><span class="p">,</span>
+<span class="linenos"> 29</span>        <span class="p">)</span>
+<span class="linenos"> 30</span>    <span class="p">)</span>
+<span class="linenos"> 31</span>    <span class="n">declared_arguments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+<span class="linenos"> 32</span>        <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
+<span class="linenos"> 33</span>            <span class="s2">&quot;prefix&quot;</span><span class="p">,</span>
+<span class="linenos"> 34</span>            <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;&quot;&quot;&#39;</span><span class="p">,</span>
+<span class="linenos"> 35</span>            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Prefix of the joint names, useful for </span><span class="se">\</span>
+<span class="linenos"> 36</span><span class="s2">        multi-robot setup. If changed than also joint names in the controllers&#39; configuration </span><span class="se">\</span>
+<span class="linenos"> 37</span><span class="s2">        have to be updated.&quot;</span><span class="p">,</span>
+<span class="linenos"> 38</span>        <span class="p">)</span>
+<span class="linenos"> 39</span>    <span class="p">)</span>
+<span class="hll"><span class="linenos"> 40</span>    <span class="n">declared_arguments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+</span><span class="hll"><span class="linenos"> 41</span>        <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
+</span><span class="hll"><span class="linenos"> 42</span>            <span class="s1">&#39;urdf&#39;</span><span class="p">,</span>               <span class="c1"># name of the argument (what you type on CLI)</span>
+</span><span class="hll"><span class="linenos"> 43</span>            <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;simple_bot__my02_bot__macro.xacro&#39;</span><span class="p">,</span>  <span class="c1"># fallback if not set via CLI</span>
+</span><span class="hll"><span class="linenos"> 44</span>            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The xacro file holding the urdf description for the robot&#39;</span>
+</span><span class="hll"><span class="linenos"> 45</span>        <span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 46</span>    <span class="p">)</span>
+</span><span class="linenos"> 47</span>
+<span class="linenos"> 48</span>    <span class="c1"># Initialize Arguments</span>
+<span class="linenos"> 49</span>    <span class="n">description_package</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">&quot;description_package&quot;</span><span class="p">)</span>
+<span class="linenos"> 50</span>    <span class="n">prefix</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">&quot;prefix&quot;</span><span class="p">)</span>
+<span class="hll"><span class="linenos"> 51</span>    <span class="n">urdf</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">&quot;urdf&quot;</span><span class="p">)</span>
+</span><span class="linenos"> 52</span>
+<span class="linenos"> 53</span>    <span class="c1"># Get URDF via xacro</span>
+<span class="linenos"> 54</span>    <span class="n">robot_description_content</span> <span class="o">=</span> <span class="n">Command</span><span class="p">(</span>
+<span class="linenos"> 55</span>        <span class="p">[</span>
+<span class="linenos"> 56</span>            <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">FindExecutable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;xacro&quot;</span><span class="p">)]),</span>
+<span class="linenos"> 57</span>            <span class="s2">&quot; &quot;</span><span class="p">,</span>
+<span class="linenos"> 58</span>            <span class="n">PathJoinSubstitution</span><span class="p">(</span>
+<span class="linenos"> 59</span>                <span class="p">[</span><span class="n">FindPackageShare</span><span class="p">(</span><span class="n">description_package</span><span class="p">),</span> <span class="s2">&quot;urdf&quot;</span><span class="p">,</span> <span class="s2">&quot;simple_bot.urdf.xacro&quot;</span><span class="p">]</span>
+<span class="linenos"> 60</span>            <span class="p">),</span>
+<span class="linenos"> 61</span>            <span class="s2">&quot; &quot;</span><span class="p">,</span>
+<span class="linenos"> 62</span>            <span class="s2">&quot;prefix:=&quot;</span><span class="p">,</span>
+<span class="linenos"> 63</span>            <span class="n">prefix</span><span class="p">,</span>
+<span class="linenos"> 64</span>            <span class="s2">&quot; &quot;</span><span class="p">,</span>
+<span class="hll"><span class="linenos"> 65</span>            <span class="s2">&quot;bot_urdf:=&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos"> 66</span>            <span class="n">urdf</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos"> 67</span>            <span class="s2">&quot; &quot;</span><span class="p">,</span>
+</span><span class="linenos"> 68</span>        <span class="p">]</span>
+<span class="linenos"> 69</span>    <span class="p">)</span>
+<span class="linenos"> 70</span>
+<span class="linenos"> 71</span>    <span class="n">robot_description</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;robot_description&quot;</span><span class="p">:</span> <span class="n">robot_description_content</span><span class="p">}</span>
+<span class="linenos"> 72</span>
+<span class="linenos"> 73</span>    <span class="n">rviz_config_file</span> <span class="o">=</span> <span class="n">PathJoinSubstitution</span><span class="p">(</span>
+<span class="linenos"> 74</span>        <span class="p">[</span><span class="n">FindPackageShare</span><span class="p">(</span><span class="n">description_package</span><span class="p">),</span> <span class="s2">&quot;rviz&quot;</span><span class="p">,</span> <span class="s2">&quot;simple_bot.rviz&quot;</span><span class="p">]</span>
+<span class="linenos"> 75</span>    <span class="p">)</span>
+<span class="linenos"> 76</span>
+<span class="linenos"> 77</span>    <span class="n">joint_state_publisher_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+<span class="linenos"> 78</span>        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;joint_state_publisher_gui&quot;</span><span class="p">,</span>
+<span class="linenos"> 79</span>        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;joint_state_publisher_gui&quot;</span><span class="p">,</span>
+<span class="linenos"> 80</span>    <span class="p">)</span>
+<span class="linenos"> 81</span>    <span class="n">robot_state_publisher_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+<span class="linenos"> 82</span>        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;robot_state_publisher&quot;</span><span class="p">,</span>
+<span class="linenos"> 83</span>        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;robot_state_publisher&quot;</span><span class="p">,</span>
+<span class="linenos"> 84</span>        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span>
+<span class="linenos"> 85</span>        <span class="n">parameters</span><span class="o">=</span><span class="p">[</span><span class="n">robot_description</span><span class="p">],</span>
+<span class="linenos"> 86</span>    <span class="p">)</span>
+<span class="linenos"> 87</span>    <span class="n">rviz_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+<span class="linenos"> 88</span>        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;rviz2&quot;</span><span class="p">,</span>
+<span class="linenos"> 89</span>        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;rviz2&quot;</span><span class="p">,</span>
+<span class="linenos"> 90</span>        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;rviz2&quot;</span><span class="p">,</span>
+<span class="linenos"> 91</span>        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+<span class="linenos"> 92</span>        <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;-d&quot;</span><span class="p">,</span> <span class="n">rviz_config_file</span><span class="p">],</span>
+<span class="linenos"> 93</span>    <span class="p">)</span>
+<span class="linenos"> 94</span>
+<span class="linenos"> 95</span>    <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">(</span>
+<span class="linenos"> 96</span>        <span class="n">declared_arguments</span>
+<span class="linenos"> 97</span>        <span class="o">+</span> <span class="p">[</span>
+<span class="linenos"> 98</span>            <span class="n">joint_state_publisher_node</span><span class="p">,</span>
+<span class="linenos"> 99</span>            <span class="n">robot_state_publisher_node</span><span class="p">,</span>
+<span class="linenos">100</span>            <span class="n">rviz_node</span><span class="p">,</span>
+<span class="linenos">101</span>        <span class="p">]</span>
+<span class="linenos">102</span>    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p class="sd-card-text">Modifications to the <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code> File:</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-number">Listing 13 </span><span class="caption-text">Modification of the simple_bot.urdf.xacro file to accept a urdf argument that allows selecting the xacro file to display in rviz2</span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="linenos"> 2</span><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;simple_bot&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="w">  </span><span class="cm">&lt;!-- Use this if parameters are set from the launch file, otherwise delete --&gt;</span>
+<span class="linenos"> 5</span><span class="w">  </span><span class="nt">&lt;xacro:arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;prefix&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">  </span><span class="nt">&lt;xacro:arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_mock_hardware&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 8</span><span class="w">  </span><span class="nt">&lt;xacro:arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;mock_sensor_commands&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 9</span><span class="w">  </span><span class="nt">&lt;xacro:arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;sim_gazebo_classic&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">10</span><span class="w">  </span><span class="nt">&lt;xacro:arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;sim_gazebo&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">11</span><span class="w">  </span><span class="nt">&lt;xacro:arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;simulation_controllers&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">12</span>
+<span class="hll"><span class="linenos">13</span><span class="w">  </span><span class="nt">&lt;xacro:include</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;$(find simple_bot_description)/urdf/simple_bot/$(arg bot_urdf)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span class="linenos">14</span>
+<span class="linenos">15</span><span class="w">  </span><span class="cm">&lt;!-- create link fixed to the &quot;world&quot; --&gt;</span>
+<span class="linenos">16</span><span class="w">  </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;world&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">  </span><span class="cm">&lt;!-- Load robot&#39;s macro with parameters --&gt;</span>
+<span class="linenos">19</span><span class="w">  </span><span class="cm">&lt;!-- set prefix if multiple robots are used --&gt;</span>
+<span class="linenos">20</span><span class="w">  </span><span class="nt">&lt;xacro:simple_bot</span><span class="w"> </span><span class="na">prefix=</span><span class="s">&quot;$(arg prefix)&quot;</span><span class="w"> </span><span class="na">parent=</span><span class="s">&quot;world&quot;</span><span class="nt">&gt;</span>
+<span class="linenos">21</span><span class="w">    </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">          </span><span class="cm">&lt;!-- position robot in the world --&gt;</span>
+<span class="linenos">22</span><span class="w">  </span><span class="nt">&lt;/xacro:simple_bot&gt;</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="nt">&lt;/robot&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></div>
+</div>
+</section>
+<section id="la-balise-joint">
+<h2>The <strong>joint</strong> Tag<a class="headerlink" href="#la-balise-joint" title="Link to this heading"></a></h2>
+<p>The <strong>joint</strong> tag is used to describe a joint between two segments of the robot. The complete description of this tag is available in the <a class="reference external" href="http://wiki.ros.org/urdf/XML/joint">joint tag specification</a>.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-number">Listing 14 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">joint</span></code> tag of type <code class="docutils literal notranslate"><span class="pre">revolute</span></code> with the elements <strong>origin</strong>, <strong>parent</strong>, <strong>child</strong>, <strong>axis</strong>, and <strong>limit</strong></span><a class="headerlink" href="#id9" title="Link to this code"></a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;r_joint&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;revolute&quot;</span><span class="nt">&gt;</span>
+<span class="linenos">2</span><span class="w">    </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 1&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 ${radians(90)}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">3</span><span class="w">    </span><span class="nt">&lt;parent</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;link1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">4</span><span class="w">    </span><span class="nt">&lt;child</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;link2&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">5</span><span class="w">    </span><span class="nt">&lt;axis</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">6</span>
+<span class="linenos">7</span><span class="w">    </span><span class="nt">&lt;limit</span><span class="w"> </span><span class="na">effort=</span><span class="s">&quot;${radians(30)}&quot;</span><span class="w"> </span><span class="na">velocity=</span><span class="s">&quot;1.0&quot;</span><span class="w"> </span><span class="na">lower=</span><span class="s">&quot;${radians(-90)}&quot;</span><span class="w"> </span><span class="na">upper=</span><span class="s">&quot;${radians(90)}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">8</span><span class="nt">&lt;/joint&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-number">Listing 15 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">joint</span></code> tag of type <code class="docutils literal notranslate"><span class="pre">floating</span></code> with the elements <strong>origin</strong>, <strong>parent</strong>, <strong>child</strong>, <strong>limit</strong>, <strong>dynamics</strong>, <strong>calibration</strong>, <strong>safety_controller</strong>, and <strong>mimic</strong></span><a class="headerlink" href="#id10" title="Link to this code"></a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;f_joint&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;floating&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 1&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 3.1416&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="nt">&lt;parent</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;link1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="nt">&lt;child</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;link2&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="nt">&lt;calibration</span><span class="w"> </span><span class="na">rising=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="nt">&lt;dynamics</span><span class="w"> </span><span class="na">damping=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">friction=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="nt">&lt;limit</span><span class="w"> </span><span class="na">effort=</span><span class="s">&quot;30&quot;</span><span class="w"> </span><span class="na">velocity=</span><span class="s">&quot;1.0&quot;</span><span class="w"> </span><span class="na">lower=</span><span class="s">&quot;-2.2&quot;</span><span class="w"> </span><span class="na">upper=</span><span class="s">&quot;0.7&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="nt">&lt;safety_controller</span><span class="w"> </span><span class="na">k_velocity=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="na">k_position=</span><span class="s">&quot;15&quot;</span><span class="w"> </span><span class="na">soft_lower_limit=</span><span class="s">&quot;-2.0&quot;</span>
+<span class="linenos">10</span><span class="w">        </span><span class="na">soft_upper_limit=</span><span class="s">&quot;0.5&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="nt">&lt;mimic</span><span class="w"> </span><span class="na">joint=</span><span class="s">&quot;joint_name&quot;</span><span class="w"> </span><span class="na">multiplier=</span><span class="s">&quot;1.0&quot;</span><span class="w"> </span><span class="na">offset=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">12</span><span class="nt">&lt;/joint&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-joint-element">
+<a class="reference internal image-reference" href="../_images/urdf_joint.png"><img alt="../_images/urdf_joint.png" src="../_images/urdf_joint.png" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 18 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">joint</span></code> Element in a URDF File</span><a class="headerlink" href="#fig-joint-element" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The <strong>type</strong> attribute of the <strong>joint</strong> tag allows defining the type of the joint (revolute, prismatic, continuous, fixed, floating, or planar). <br></p>
+<ol class="arabic simple">
+<li><p><strong>revolute</strong>: a joint of type revolute with limits.</p></li>
+<li><p><strong>prismatic</strong>: a joint of type prismatic.</p></li>
+<li><p><strong>continuous</strong>: a joint of type continuous with unlimited rotation (like a wheel).</p></li>
+<li><p><strong>fixed</strong>: a joint of type fixed (no movement).</p></li>
+<li><p><strong>floating</strong>: a joint of type floating (6 degrees of freedom).</p></li>
+<li><p><strong>planar</strong>: a joint of type planar (2 degrees of freedom in translation and 1 degree of freedom in rotation).</p></li>
+</ol>
+<p>The elements of the <strong>joint</strong> tag that we will use the most are:</p>
+<ol class="arabic simple">
+<li><p><strong>origin</strong>: which defines the position and orientation of the joint’s frame relative to the parent’s frame.</p></li>
+<li><p><strong>parent</strong>: which defines the name of the parent segment.</p></li>
+<li><p><strong>child</strong>: which defines the name of the child segment.</p></li>
+<li><p><strong>type</strong>: which defines the type of the joint (<code class="docutils literal notranslate"><span class="pre">revolute</span></code>, <code class="docutils literal notranslate"><span class="pre">prismatic</span></code>, <code class="docutils literal notranslate"><span class="pre">continuous</span></code>, <code class="docutils literal notranslate"><span class="pre">fixed</span></code>, <code class="docutils literal notranslate"><span class="pre">floating</span></code>, or <code class="docutils literal notranslate"><span class="pre">planar</span></code>).</p></li>
+<li><p><strong>axis</strong>: which defines the axis of rotation or translation for the joint, used only for all joints except <code class="docutils literal notranslate"><span class="pre">fixed</span></code> and <code class="docutils literal notranslate"><span class="pre">floating</span></code>. Its default value is a unit axis parallel to the x-axis of the joint’s frame <span class="math notranslate nohighlight">\((1,0,0)\)</span>. This axis corresponds to: the axis of rotation for <code class="docutils literal notranslate"><span class="pre">revolute</span></code> and <code class="docutils literal notranslate"><span class="pre">continuous</span></code> joints, the axis of translation for <code class="docutils literal notranslate"><span class="pre">prismatic</span></code> joints, and the normal of the support plane for <code class="docutils literal notranslate"><span class="pre">planar</span></code> joints.</p></li>
+<li><p><strong>limit</strong>: which defines the limits of the joint, necessary only for <code class="docutils literal notranslate"><span class="pre">revolute</span></code> or <code class="docutils literal notranslate"><span class="pre">prismatic</span></code> joints. The limits are defined by the <strong>lower</strong> and <strong>upper</strong> attributes, which are the minimum and maximum values of the joint (in radians for <code class="docutils literal notranslate"><span class="pre">revolute</span></code> joints and in meters for <code class="docutils literal notranslate"><span class="pre">prismatic</span></code> joints), by the <strong>effort</strong> attribute, which is the maximum force the joint can withstand (in Newton-meters for <code class="docutils literal notranslate"><span class="pre">revolute</span></code> and <code class="docutils literal notranslate"><span class="pre">continuous</span></code> joints, measuring torque, and in Newtons for <code class="docutils literal notranslate"><span class="pre">prismatic</span></code> joints), and by the <strong>velocity</strong> attribute, which is the maximum speed of the joint (in radians per second for <code class="docutils literal notranslate"><span class="pre">revolute</span></code> and <code class="docutils literal notranslate"><span class="pre">continuous</span></code> joints and in meters per second for <code class="docutils literal notranslate"><span class="pre">prismatic</span></code> joints).</p></li>
+</ol>
+<p>In the <strong>origin</strong> tag of the <strong>joint</strong> tag, the position and orientation of the joint’s frame relative to the parent’s frame are defined by the <strong>xyz</strong> and <strong>rpy</strong> attributes. Similarly, for segments (<code class="docutils literal notranslate"><span class="pre">link</span></code>), rotation is applied before translation. In RVIZ2, this transformation is visible through a yellow arrow pointing from the child frame to the parent frame.  <br></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-number">Listing 16 </span><span class="caption-text">Adding a translation for the joint’s frame relative to the parent’s frame (using the <strong>xyz</strong> attribute of the <strong>origin</strong> tag in the <strong>joint</strong> tag).</span><a class="headerlink" href="#id11" title="Link to this code"></a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="linenos"> 2</span><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="nt">&lt;xacro:macro</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;simple_bot&quot;</span><span class="w"> </span><span class="na">params=</span><span class="s">&quot;prefix parent *origin&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 5</span><span class="w">        </span><span class="cm">&lt;!-- LINKS --&gt;</span>
+<span class="linenos"> 6</span><span class="w">        </span><span class="cm">&lt;!-- base link --&gt;</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${prefix}base_link&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 8</span><span class="w">            </span><span class="nt">&lt;visual&gt;</span>
+<span class="linenos"> 9</span><span class="w">                </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0.5 1.5 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">10</span><span class="w">                </span><span class="nt">&lt;geometry&gt;</span>
+<span class="linenos">11</span><span class="w">                    </span><span class="nt">&lt;box</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;0.5 1 2&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">12</span><span class="w">                </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="linenos">13</span><span class="w">                </span><span class="nt">&lt;material</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;red&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">14</span><span class="w">            </span><span class="nt">&lt;/visual&gt;</span>
+<span class="linenos">15</span><span class="w">        </span><span class="nt">&lt;/link&gt;</span>
+<span class="linenos">16</span><span class="w">        </span><span class="cm">&lt;!-- END LINKS --&gt;</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">        </span><span class="cm">&lt;!-- JOINTS --&gt;</span>
+<span class="linenos">19</span><span class="w">        </span><span class="cm">&lt;!-- base_joint fixes base_link to the environment --&gt;</span>
+<span class="linenos">20</span><span class="w">        </span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${prefix}base_joint&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;fixed&quot;</span><span class="nt">&gt;</span>
+<span class="linenos">21</span><span class="w">            </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;2 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">22</span><span class="w">            </span><span class="nt">&lt;parent</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;${parent}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">23</span><span class="w">            </span><span class="nt">&lt;child</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;${prefix}base_link&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">24</span><span class="w">        </span><span class="nt">&lt;/joint&gt;</span>
+<span class="linenos">25</span><span class="w">        </span><span class="cm">&lt;!-- END JOINTS --&gt;</span>
+<span class="linenos">26</span><span class="w">    </span><span class="nt">&lt;/xacro:macro&gt;</span>
+<span class="linenos">27</span><span class="nt">&lt;/robot&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-translated-joint-element-my03-bot">
+<a class="reference internal image-reference" href="../_images/my03_bot_rviz.png"><img alt="../_images/my03_bot_rviz.png" src="../_images/my03_bot_rviz.png" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 19 </span><span class="caption-text">Display of a joint in RVIZ corresponding to the URDF description on the left. The link is represented by a yellow arrow from <code class="docutils literal notranslate"><span class="pre">base_link</span></code> to <code class="docutils literal notranslate"><span class="pre">world</span></code> (with the <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Arrows</span></code> option checked).</span><a class="headerlink" href="#fig-translated-joint-element-my03-bot" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The frame change introduced by the <strong>origin</strong> tag in the <strong>joint</strong> tag occurs before the transformation of the segment (<code class="docutils literal notranslate"><span class="pre">link</span></code> tag). As with the joint tag, rotation is performed before translation (the frame rotates around the origin of the parent frame and is then translated). The rotation and translation are expressed in the parent’s frame.  <br></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-number">Listing 17 </span><span class="caption-text">Adding a rotation for the joint’s frame relative to the parent’s frame (using the <strong>rpy</strong> attribute of the <strong>origin</strong> tag in the <strong>joint</strong> tag).</span><a class="headerlink" href="#id12" title="Link to this code"></a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="linenos"> 2</span><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="nt">&lt;xacro:macro</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;simple_bot&quot;</span><span class="w"> </span><span class="na">params=</span><span class="s">&quot;prefix parent *origin&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 5</span><span class="w">        </span><span class="cm">&lt;!-- LINKS --&gt;</span>
+<span class="linenos"> 6</span><span class="w">        </span><span class="cm">&lt;!-- base link --&gt;</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${prefix}base_link&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 8</span><span class="w">            </span><span class="nt">&lt;visual&gt;</span>
+<span class="linenos"> 9</span><span class="w">                </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0.5 1.5 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">10</span><span class="w">                </span><span class="nt">&lt;geometry&gt;</span>
+<span class="linenos">11</span><span class="w">                    </span><span class="nt">&lt;box</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;0.5 1 2&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">12</span><span class="w">                </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="linenos">13</span><span class="w">                </span><span class="nt">&lt;material</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;red&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">14</span><span class="w">            </span><span class="nt">&lt;/visual&gt;</span>
+<span class="linenos">15</span><span class="w">        </span><span class="nt">&lt;/link&gt;</span>
+<span class="linenos">16</span><span class="w">        </span><span class="cm">&lt;!-- END LINKS --&gt;</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">        </span><span class="cm">&lt;!-- JOINTS --&gt;</span>
+<span class="linenos">19</span><span class="w">        </span><span class="cm">&lt;!-- base_joint fixes base_link to the environment --&gt;</span>
+<span class="linenos">20</span><span class="w">        </span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${prefix}base_joint&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;fixed&quot;</span><span class="nt">&gt;</span>
+<span class="linenos">21</span><span class="w">            </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;2 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 ${radians(90)}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">22</span><span class="w">            </span><span class="nt">&lt;parent</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;${parent}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">23</span><span class="w">            </span><span class="nt">&lt;child</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;${prefix}base_link&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">24</span><span class="w">        </span><span class="nt">&lt;/joint&gt;</span>
+<span class="linenos">25</span><span class="w">        </span><span class="cm">&lt;!-- END JOINTS --&gt;</span>
+<span class="linenos">26</span><span class="w">    </span><span class="nt">&lt;/xacro:macro&gt;</span>
+<span class="linenos">27</span><span class="nt">&lt;/robot&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-tr-rot-joint-element-my04-bot">
+<a class="reference internal image-reference" href="../_images/my04_bot.png"><img alt="../_images/my04_bot.png" src="../_images/my04_bot.png" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 20 </span><span class="caption-text">Rotation of the joint’s frame in addition to translation. Note that rotation is performed before translation (if it were the opposite, the yellow arrow would align with the green axis of the <code class="docutils literal notranslate"><span class="pre">world</span></code> frame).</span><a class="headerlink" href="#fig-tr-rot-joint-element-my04-bot" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="c01s02_robot_descriptions.html" class="btn btn-neutral float-left" title="Robot Descriptions with ROS2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="c01s04_urdf_practical.html" class="btn btn-neutral float-right" title="URDF in Practice: The Scanbot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Manuel YGUEL.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span style="color: white;">Lang:</span> en
+        <span style="color: white;"> | Ver:</span> humble
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+
+        
+        <dl>
+            <dt>Languages</dt>
+            
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c01_robot_modeling/c01s03_urdf.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c01_robot_modeling/c01s03_urdf.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/index.html')">
+                    en
+                </a>
+            </dd>
+            
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c01_robot_modeling/c01s03_urdf.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c01_robot_modeling/c01s03_urdf.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/index.html')">
+                    fr
+                </a>
+            </dd>
+            
+        </dl>
+        
+
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd>
+                <!-- Switch version: keep current_language, swap in the_version -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c01_robot_modeling/c01s03_urdf.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c01_robot_modeling/c01s03_urdf.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/index.html')">
+                    humble
+                </a>
+            </dd>
+            
+        </dl>
+        
+
+        <br>
+        </dl>
+    </div>
+</div>
+
+
+<script>
+    function checkPageExists(evt, url, fallback_url) {
+        evt.preventDefault(); // Don’t immediately follow the link
+
+        // Preserve any anchor from the current page (e.g. #section2)
+        var anchor = window.location.hash || "";
+
+        // If the user has an anchor in the current location, we'll append
+        // that to the primary or fallback URLs.
+        var url_with_anchor = url + anchor;
+
+        // If running from file:// protocol, skip existence check
+        if (window.location.protocol === 'file:') {
+            window.location = url_with_anchor;
+            return;
+        }
+
+        // Use GET so we can reliably get a 2xx/4xx/5xx response on servers that may not handle HEAD
+        fetch(url, { method: 'GET', cache: 'no-store', mode: 'same-origin' })
+            .then(response => {
+                if (response.ok) {
+                    // 2xx code: Page truly exists
+                    window.location = url_with_anchor;
+                } else {
+                    // Non-2xx: fallback to known index
+                    window.location = fallback_url;
+                }
+            })
+            .catch(() => {
+                // Network error or something else: fallback to index
+                window.location = fallback_url;
+            });
+    }    
+</script><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

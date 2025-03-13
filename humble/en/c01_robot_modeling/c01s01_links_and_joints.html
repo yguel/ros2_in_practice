@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modeling the geometry of a rigid robot with URDF and SDF &mdash; ROS2 par la pratique 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=66989161" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Robot Descriptions with ROS2" href="c01s02_robot_descriptions.html" />
+    <link rel="prev" title="Modeling a robot" href="c01s00_index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ROS2 par la pratique
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">ROS2 in practice</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">ROS2 setup</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="c01s00_index.html">Modeling a robot</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Modeling the geometry of a rigid robot with URDF and SDF</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#segments">Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#articulations">Joints</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html">Robot Descriptions with ROS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html">URDF for the Description of Non-Parallel Robots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html">URDF in Practice: The Scanbot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS2 par la pratique</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="c01s00_index.html">Modeling a robot</a></li>
+      <li class="breadcrumb-item active">Modeling the geometry of a rigid robot with URDF and SDF</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/c01_robot_modeling/c01s01_links_and_joints.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="modeliser-la-geometrie-d-un-robot-rigide-avec-urdf-et-sdf">
+<h1>Modeling the geometry of a rigid robot with URDF and SDF<a class="headerlink" href="#modeliser-la-geometrie-d-un-robot-rigide-avec-urdf-et-sdf" title="Link to this heading"></a></h1>
+<p>Here we only consider rigid robots, that is, a system composed of rigid parts that move relative to each other. Therefore, we exclude robots with flexible parts such as a system where 2 rigid parts are connected by an elastic band.</p>
+<p>A rigid robot model is divided into 2 categories of parts:</p>
+<ol class="arabic simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">links</span></code> which correspond to the rigid parts of the robot and</p></li>
+<li><p>the joints (<code class="docutils literal notranslate"><span class="pre">joint</span></code> in English) which correspond to the possible movements between two rigid parts.</p></li>
+</ol>
+<p>Between 2 links (noted L on the <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>), there is always a joint (noted by yellow dots, on the <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>).</p>
+<figure class="align-center" id="fig-robot-modeling-slide001">
+<a class="reference internal image-reference" href="../_images/slide001_kinematics_model.en.svg"><img alt="../_images/slide001_kinematics_model.en.svg" src="../_images/slide001_kinematics_model.en.svg" style="height: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 2 </span><span class="caption-text">Geometric model of the kinematics of a rigid robot (source: <span id="id1">[<a class="reference internal" href="../c99_appendix/c99s50_bibliography.html#id2" title="M.A. Ali, H. Andy Park, and C.S.G. Lee. Closed-form inverse kinematic joint solution for humanoid robots. In Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems. IEEE/RSJ International Conference on Intelligent Robots and Systems, 704–709. 11 2010. URL: https://www.researchgate.net/publication/224199484_Closed-form_inverse_kinematic_joint_solution_for_humanoid_robots/references, doi:10.1109/IROS.2010.5649842.">APL10</a>]</span>)</span><a class="headerlink" href="#fig-robot-modeling-slide001" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>We can also find the word <code class="docutils literal notranslate"><span class="pre">liaison</span></code> for a joint in reference to mechanical connections (sliding connection, pivot, etc. cf. <a class="reference external" href="https://fr.wikipedia.org/wiki/Liaison_(m%C3%A9canique)">the 12 types of mechanical connections</a>) however, due to the proximity with the word <code class="docutils literal notranslate"><span class="pre">link</span></code>, we prefer to use the word <code class="docutils literal notranslate"><span class="pre">joint</span></code>.</p>
+<p>From a kinematic point of view, we most commonly use 3 types of joints among the 12 types of mechanical connections:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-prismatic-joint-logo">
+<a class="reference internal image-reference" href="../_images/prismatic_joint_logo.svg"><img alt="../_images/prismatic_joint_logo.svg" src="../_images/prismatic_joint_logo.svg" style="height: 150px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 3 </span><span class="caption-text">Prismatic joint</span><a class="headerlink" href="#fig-prismatic-joint-logo" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column sd-mt-2 sd-mb-0 sd-ml-0 sd-mr-0 sd-pt-0 sd-pb-0 sd-pl-5 sd-pr-0 docutils">
+<div class="line-block">
+<div class="line">(<code class="docutils literal notranslate"><span class="pre">prismatic</span> <span class="pre">joint</span></code> in English)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-revolute-joint-logo">
+<a class="reference internal image-reference" href="../_images/revolute_joint_logo.svg"><img alt="../_images/revolute_joint_logo.svg" src="../_images/revolute_joint_logo.svg" style="height: 150px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 4 </span><span class="caption-text">Revolute joint</span><a class="headerlink" href="#fig-revolute-joint-logo" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column sd-mt-2 sd-mb-0 sd-ml-0 sd-mr-0 sd-pt-0 sd-pb-0 sd-pl-5 sd-pr-0 docutils">
+<div class="line-block">
+<div class="line">(<code class="docutils literal notranslate"><span class="pre">revolute</span> <span class="pre">joint</span></code> in English)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-center" id="fig-rigid-joint-logo">
+<a class="reference internal image-reference" href="../_images/rigid_joint_logo.svg"><img alt="../_images/rigid_joint_logo.svg" src="../_images/rigid_joint_logo.svg" style="height: 150px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 5 </span><span class="caption-text">Fixed or rigid joint</span><a class="headerlink" href="#fig-rigid-joint-logo" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column sd-mt-2 sd-mb-0 sd-ml-0 sd-mr-0 sd-pt-0 sd-pb-0 sd-pl-5 sd-pr-0 docutils">
+<div class="line-block">
+<div class="line">(<code class="docutils literal notranslate"><span class="pre">fixed</span> <span class="pre">or</span> <span class="pre">rigid</span> <span class="pre">joint</span></code> in English)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column center-text docutils">
+<blockquote>
+<div><p>2D symbols of the most common joints for a robot</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+<p>The goal of the geometric model is to be able to describe the position in space of each link of the robot over time, taking into account the movements made by the joints.</p>
+<p>As a modeling task, it is critical to identify the parts of the model that may present the most significant deviations from reality.</p>
+<section id="segments">
+<h2>Links<a class="headerlink" href="#segments" title="Link to this heading"></a></h2>
+<p>A Link is a rigid part of the robot, that is, a solid. It is defined by its geometry, that is, its surfaces (Boundary Representation or <a class="reference external" href="https://fr.wikipedia.org/wiki/B-Rep">B-Rep</a>) and its scale. Its surfaces can be provided in the following ways:</p>
+<ol class="arabic simple">
+<li><p>implicit: zeros of mathematical equations. For example, for a sphere <span class="math notranslate nohighlight">\(f(x, y, z) = x^2+y^2+z^2-r^2 = 0\)</span>.</p></li>
+<li><p>analytic: by the equations of the surfaces. For example, for a sphere: <span class="math notranslate nohighlight">\((x, y, z) = (r \cos(\theta) \sin(\phi), r \sin(\theta) \sin(\phi), r \cos(\phi))\)</span>.</p></li>
+<li><p>discretized: by a mesh consisting of polygons, or by parameters of constructive methods such as B-splines, Bézier surfaces, or NURBS.</p></li>
+</ol>
+<p>A combination of the 3 types of representations is possible to represent a link.</p>
+<p>There are several types of approximations in the modeling of a link:</p>
+<ol class="arabic simple">
+<li><p>the modeled geometry is different from the actual geometry of the link due to the manufacturing process of the latter and manufacturing tolerances.</p></li>
+<li><p>if the geometry is discretized, then the mesh density is an approximation of reality. In this case, it may be a scan of the link but also a representation that differs from the manufacturing process (for example, a discretized cylinder, whereas the part was made with a lathe).</p></li>
+<li><p>the rigidity of the link is an approximation of reality. Indeed, no material is perfectly rigid.</p></li>
+</ol>
+<p>In ROS, a link can be defined in 2 ways:</p>
+<ol class="arabic simple">
+<li><p>by one of the 3 geometric primitives: box, cylinder, or sphere</p></li>
+<li><p>by a mesh file in <a class="reference external" href="https://www.khronos.org/collada/">collada format</a> (file with <cite>.dae</cite> extension)</p></li>
+</ol>
+<p>It is possible and easy to export a step or stl mesh file to a collada file. Many CAD software allow exporting a model to a collada file.</p>
+<p>In particular, the free software <a class="reference external" href="https://www.freecadweb.org/">FreeCAD</a> allows exporting a model to a collada file.</p>
+<div class="sphinx-tabs docutils container" id="export-dae-avec-freecad">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Procédure animée d’export avec Freecad version 0.21.2</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>Starting from a complete robot model in step format, we will try to export only one link of the robot.</p>
+<p><a class="reference download internal" download="" href="../_downloads/947c9c8ae1f22435a6912e17a86ff451/maquette-5-barres_asm.stp"><code class="xref download docutils literal notranslate"><span class="pre">maquette-5-barres_asm.stp</span></code></a></p>
+<p>Launch freecad from a terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>freecad<span class="w"> </span>maquette-5-barres_asm.stp
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/export_dae.gif"><img alt="../_images/export_dae.gif" src="../_images/export_dae.gif" style="width: 80%;" />
+</a>
+</figure>
+<p>You can download the generated collada file:</p>
+<p><a class="reference download internal" download="" href="../_downloads/96c08b8143badc94ef7c8be485389837/link1.dae"><code class="xref download docutils literal notranslate"><span class="pre">one_arm.dae</span></code></a></p>
+</div></div>
+<p>The collada format is very interesting because it is very complete. It contains, of course, the 3D geometry of the link (in many BREP formats, including B-spline and NURBS), but it can also contain information:</p>
+<ol class="arabic simple">
+<li><p>surface color,</p></li>
+<li><p>volume transparency,</p></li>
+<li><p>texture,</p></li>
+<li><p>materials per face,</p></li>
+<li><p>material profiles with Phong, Lambert parameters for lighting equations,</p></li>
+<li><p>normals, binormals, tangents, texture coordinates, colors associated with the vertices of the surfaces,</p></li>
+<li><p>we can even add custom attributes to the surface vertices, allowing for specific calculations, especially for simulation.</p></li>
+</ol>
+<p>This allows a more realistic visualization of the link and in particular that lighting models are taken into account.</p>
+</section>
+<section id="articulations">
+<h2>Joints<a class="headerlink" href="#articulations" title="Link to this heading"></a></h2>
+<p>Among all the rigid joints, we mainly use:</p>
+<ol class="arabic simple">
+<li><p>The prismatic joint allows a translational movement without rotation between two rigid links. The linear movement can be achieved by a slider, a cylinder, or a rack, for example.</p></li>
+<li><p>The pivot joint which allows a rotation without translation. This is the type of joints used in an anthropomorphic robotic arm. The symbolic notation in 3D is a cylinder around the axis of rotation as in the leg of the humanoid robot in the <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>.</p></li>
+<li><p>The last joint is a special case, it corresponds to a mechanical connection that does not allow any relative movement between the two links. It can be achieved by welding, bolting, or gluing two parts together, for example. An example is given by the fixed joint between link <span class="math notranslate nohighlight">\(L_{L1}\)</span> and link <span class="math notranslate nohighlight">\(L_{L2}\)</span> of the <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>.</p></li>
+</ol>
+<p>From a practical point of view, one might wonder why not have a single link composed of the union of the 2 links involved in the fixed joint rather than a joint since the relative movement is zero. This joint is fundamental because it serves to model a rigid assembly of distinct links. <br> However, we know that our model is only an approximation and in particular that the available information on the assembly (the relative position of one link to another) can be both imprecise and variable over time. Therefore, it is essential to be able to modify the relative position of the links to account for these inaccuracies using calibration procedures. <br> In particular, if the assembly is subjected to mechanical stress, it is useful to have the ability to change the relative position of the assembly to account for deformations related to this stress. Thus, if we are able to perform dynamic tracking of the relative position of the links, representing the fixed joint by a joint allows us to obtain an adaptable and therefore faithful model of the robot over time.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="c01s00_index.html" class="btn btn-neutral float-left" title="Modeling a robot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="c01s02_robot_descriptions.html" class="btn btn-neutral float-right" title="Robot Descriptions with ROS2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Manuel YGUEL.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span style="color: white;">Lang:</span> en
+        <span style="color: white;"> | Ver:</span> humble
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+
+        
+        <dl>
+            <dt>Languages</dt>
+            
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c01_robot_modeling/c01s01_links_and_joints.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c01_robot_modeling/c01s01_links_and_joints.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/index.html')">
+                    en
+                </a>
+            </dd>
+            
+            <dd>
+                <!-- Switch language: keep current_version, swap in the_language -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c01_robot_modeling/c01s01_links_and_joints.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/c01_robot_modeling/c01s01_links_and_joints.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/fr/index.html')">
+                    fr
+                </a>
+            </dd>
+            
+        </dl>
+        
+
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd>
+                <!-- Switch version: keep current_language, swap in the_version -->
+                
+                
+                <a href="/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c01_robot_modeling/c01s01_links_and_joints.html" onclick="checkPageExists(event, '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/c01_robot_modeling/c01s01_links_and_joints.html', '/home/runner/work/ros2_in_practice/ros2_in_practice/doc/sphinx/build/html/humble/en/index.html')">
+                    humble
+                </a>
+            </dd>
+            
+        </dl>
+        
+
+        <br>
+        </dl>
+    </div>
+</div>
+
+
+<script>
+    function checkPageExists(evt, url, fallback_url) {
+        evt.preventDefault(); // Don’t immediately follow the link
+
+        // Preserve any anchor from the current page (e.g. #section2)
+        var anchor = window.location.hash || "";
+
+        // If the user has an anchor in the current location, we'll append
+        // that to the primary or fallback URLs.
+        var url_with_anchor = url + anchor;
+
+        // If running from file:// protocol, skip existence check
+        if (window.location.protocol === 'file:') {
+            window.location = url_with_anchor;
+            return;
+        }
+
+        // Use GET so we can reliably get a 2xx/4xx/5xx response on servers that may not handle HEAD
+        fetch(url, { method: 'GET', cache: 'no-store', mode: 'same-origin' })
+            .then(response => {
+                if (response.ok) {
+                    // 2xx code: Page truly exists
+                    window.location = url_with_anchor;
+                } else {
+                    // Non-2xx: fallback to known index
+                    window.location = fallback_url;
+                }
+            })
+            .catch(() => {
+                // Network error or something else: fallback to index
+                window.location = fallback_url;
+            });
+    }    
+</script><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
