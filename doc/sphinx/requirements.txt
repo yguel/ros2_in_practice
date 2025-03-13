@@ -5,3 +5,4 @@ sphinx-tabs
 sphinx_rtd_theme
 sphinx-design
 sphinxcontrib-bibtex
+sphinx-intl
