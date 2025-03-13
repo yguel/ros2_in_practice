@@ -129,6 +129,7 @@ LANG_MAP = {
 base_uri = None
 
 def on_builder_inited(app):
+    global base_uri
     outdir = Path(app.outdir)
 
     if None == base_uri:
@@ -137,6 +138,7 @@ def on_builder_inited(app):
     print(f"Base URL set to: {base_uri}")
 
 def on_config_inited(app, config):
+    global base_uri
     print(f"Language set to: {config.language}")
     if None != config.html_baseurl:
         base_uri = config.html_baseurl
