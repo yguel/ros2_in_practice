@@ -79,6 +79,8 @@ rst_prolog = """
 #
 html_theme = 'sphinx_rtd_theme'
 
+html_logo = 'logo.svg'
+
 html_sidebars = {
     '**': [
         'globaltoc.html',   # Use the global TOC instead of the local one
@@ -90,6 +92,7 @@ html_sidebars = {
 html_theme_options = {
     'language_selector': True,
     'flyout_display': 'always',
+    'logo_only': True,
 }
 
 # -- Options for copybutton extension ----------------------------------------
@@ -106,6 +109,7 @@ figure_language_filename = '{root}.{language}{ext}'
 
 import sphinx,os
 from pathlib import Path
+import shutil
 
 html_context = {
   'current_version' : "humble",
@@ -118,7 +122,15 @@ html_context = {
   'languages': [
       ["en", "en"], 
       ["fr", "fr"]
-    ]
+    ],
+  'project_names' :  {
+      "en": "ROS2 in Practice",
+      "fr": "ROS2 par la pratique"
+    },
+  'logo_path' : {
+      "en": "locales/en/logo.en.svg",
+      "fr": "logo.svg"
+    }
 }
 
 LANG_MAP = {
@@ -127,6 +139,8 @@ LANG_MAP = {
 }
 
 base_uri = None
+config_params = None
+version = "humble"
 
 def on_builder_inited(app):
     global base_uri
@@ -139,22 +153,45 @@ def on_builder_inited(app):
 
 def on_config_inited(app, config):
     global base_uri
+    global version
+    global config_params
+    config_params = config
+    
+    # global project
     print(f"Language set to: {config.language}")
     if "" != config.html_baseurl:
         base_uri = "https://"+config.html_baseurl
         print(f"Base URL set to: {base_uri}")
     else:
         print(f"Base URL not set")
+        
+    # Set the current version
+    if config.version is not None:
+        version = config.version
+    print(f"Version set to: {version}")
 
     # Also store the current language that Sphinx is building:
     if config.language is not None:
         config.html_context['current_language'] = config.language
         config.html_context['current_language_code'] = LANG_MAP[config.language]
+        
+def post_process(app, exception):
+    global version
+    global config_params
+    config = config_params
+    if config.language is not None:
+        if config.language in html_context['project_names'].keys():
+            html_logo = html_context['logo_path'][config.language]
+            print(f"Logo set to: {html_logo}")
+            # Copy the logo file to the static directory of the build
+            logo_src = Path(os.path.abspath(__file__)).parent / f"{html_logo}"
+            logo_dest = Path(os.path.abspath(__file__)).parent.parent / f"build/html/{version}/{LANG_MAP[config.language]}/_static/logo.svg"
+            shutil.copy(logo_src, logo_dest, follow_symlinks=True)
 
 def setup(app):
     app.connect('config-inited', on_config_inited)
     app.connect('builder-inited', on_builder_inited)
-
+    app.connect('build-finished', post_process)
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

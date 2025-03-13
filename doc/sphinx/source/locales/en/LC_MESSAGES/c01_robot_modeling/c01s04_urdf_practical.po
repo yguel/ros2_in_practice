@@ -370,16 +370,23 @@ msgid ""
 "commencer par enlever tous les éléments servant à décrire le robot par "
 "défaut. |br|"
 msgstr ""
+"We can now edit the URDF/xacro file "
+"(``urdf/scanbot_camera/scanbot_camera_macro.xacro``) to describe the camera"
+" and the 3 degrees of freedom in rotation. |br| We will start by removing "
+"all the elements used to describe the default robot. |br|"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:145
 msgid "scanbot_camera_macro.xacro avec un seul élément"
 msgstr ""
+"scanbot_camera_macro.xacro with a single element"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:157
 msgid ""
 "Le premier segment de la partie caméra du scanbot. Le repère est placé au"
 " centre de la face arrière circulaire du cylindre."
 msgstr ""
+"The first segment of the camera part of the scanbot. The frame is placed "
+"in the center of the circular rear face of the cylinder."
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:159
 msgid ""
@@ -397,49 +404,71 @@ msgid ""
 "raisons pédagogique, nous l'avons spécifié avec l'échelle sur chaque axe "
 "à ``1.`` . |br|"
 msgstr ""
+"The new element used in the URDF is the ``<mesh>`` tag, which allows you "
+"to load a mesh in Collada format. We used the mesh of the segment "
+"``scanbot_s02_x_cyl_link.dae``. The ``filename`` attribute allows you to "
+"specify the path to the Collada file, which is provided relative to the "
+"ROS2 package, which is why the provided path starts with ``package://`` "
+"followed by the package name (``scanbot_cam_description``) and the path in "
+"this package: "
+"``package://scanbot_cam_description/meshes/scanbot_s02_x_cyl_link.dae``. "
+"|br| We also specified the scale of the mesh. ROS2 uses the meter as the "
+"base unit. Our mesh is already in meters, so we don't actually need to use"
+" the ``scale`` attribute, for pedagogical reasons, we specified it. That is why "
+"the scale on each axis is at ``1.`` . |br|"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:164
 msgid "Exercice debug (avancé)"
 msgstr ""
+"Debug Exercise (Advanced)"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:166
 msgid ""
 "Dans cet exercice, nous allons volontairement faire bugger ROS2 pour "
 "apprendre à debugger des problèmes courants. |br|"
 msgstr ""
+"In that exercise, we will volontarily create a bug with ROS2 "
+"to learn how to debug common problems. |br|"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst
 msgid "Afficher l'énoncé de l'exercice"
 msgstr ""
+"Display the exercise"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:170
 msgid ""
 "Comme dans l' :ref:`exercice sur la paramétrisation des fichiers de "
 "launch<exercice_xacro_launch_parameterized_urdf>` modifiez les fichiers:"
 msgstr ""
+"As in the :ref:`exercise on parameterizing launch "
+"files<exercice_xacro_launch_parameterized_urdf>`, modify the files:"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:172
 msgid "``launch/view_scanbot_camera.launch.py`` de launch"
 msgstr ""
+"the launch file in python: ``launch/view_scanbot_camera.launch.py``"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:173
 msgid "``urdf/scanbot_camera.urdf.xacro`` de chargement de l'urdf"
 msgstr ""
+"the xacro file to load the URDF description: ``urdf/scanbot_camera.urdf.xacro``"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:175
 msgid ""
 "pour pouvoir visualiser différentes configuration de robot avec une "
 "commande du type:"
 msgstr ""
+"to visualize different robot configurations with a command like:"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:181
 msgid ""
 "Téléchargez les fichiers suivants dans le répertoire "
 "``urdf/scanbot_camera`` du package ``view_scanbot_camera``:"
 msgstr ""
+"Download the following files to the ``urdf/scanbot_camera`` directory of "
+"the ``view_scanbot_camera`` package:"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:183
-#, fuzzy
 msgid ""
 ":download:`scanbot_camera_macro_666_maze.xacro "
 "<resources/urdf/scanbot_camera_macro_666_maze.xacro>`,"
@@ -448,7 +477,6 @@ msgstr ""
 "<resources/3d/scanbot/scanbot_s09_camera_link.dae>`"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:184
-#, fuzzy
 msgid ""
 ":download:`scanbot_camera_macro_01.xacro "
 "<resources/urdf/scanbot_camera_macro_01.xacro>`."
@@ -459,6 +487,7 @@ msgstr ""
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:186
 msgid "Réalisez maintenant la séquence d'opérations suivantes:"
 msgstr ""
+"Perform the following sequence of operations now:"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:188
 msgid ""
@@ -466,18 +495,25 @@ msgid ""
 "contenant le package ``view_scanbot_camera`` et après avoir sourcé le "
 "workspace (:code:`ros2_humble_src`)."
 msgstr ""
+"Run the previous command in a terminal, at the level of the workspace "
+"containing the package ``view_scanbot_camera`` and after sourcing the "
+"workspace (:code:`ros2_humble_src`)."
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:189
 msgid ""
 "Observez toutes les parties du scanbot empilées les unes sur les autres "
 "(les transformations ne sont pas correctes)."
 msgstr ""
+"Observe all parts of the scanbot stacked on top of each other (the "
+"transformations are incorrect)."
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:190
 msgid ""
 "Dans un autre terminal, toujours dans le même workspace (et après avoir "
 "sourcé le workspace), exécutez maintenant la commande:"
 msgstr ""
+"In another terminal, still in the same workspace (and after sourcing the "
+"workspace), now execute the command:"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:196
 msgid ""
@@ -485,30 +521,39 @@ msgid ""
 "cheville (``ankle_link``) osciller en position comme dans les images ci-"
 "dessous:"
 msgstr ""
+"You should see a second rviz window open and the ankle segment "
+"(``ankle_link``) oscillate in position as in the images below:"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:208
 msgid "Le segment cheville (``ankle_link``) oscille en position."
 msgstr ""
+"The ankle segment (``ankle_link``) oscillates in position."
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:217
 msgid ""
 "En affichant la position du segment cheville (``ankle_link``) on observe "
 "bien que la position x oscille."
 msgstr ""
+"By displaying the position of the ankle segment (``ankle_link``), we can "
+"see that the x position oscillates."
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:220
 msgid ""
 "(si vous ne l'observez pas, vérifiez que dans le premier terminal, le "
 "processus est toujours fonctionnel et sinon relancez-le.)"
 msgstr ""
+"(if you don't see it, check that in the first terminal, the process is "
+"still functional and if not, restart it.)"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:222
 msgid "Que se passe-t-il et comment pouvez-vous le diagnostiquer ? |br|"
 msgstr ""
+"What is happening and how can you diagnose it? |br|"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst
 msgid "Afficher la solution de l'exercice"
 msgstr ""
+"Display the solution to the exercise"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:226
 msgid ""
@@ -517,10 +562,15 @@ msgid ""
 "``robot_state_publisher`` qui est responsable de la publication des "
 "transformations des segments du robot. |br| Si vous effectuez la commande"
 msgstr ""
+"It seems that the position of the ankle segment (``ankle_link``) is "
+"received in a contradictory manner. |br| It should be noted that it is the"
+" ``robot_state_publisher`` node that is responsible for publishing the "
+"transformations of the robot's segments. |br| If you execute the command"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:234
 msgid "vous allez voir un résultat de ce type:"
 msgstr ""
+"you will see a result like this:"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:247
 msgid ""
@@ -544,10 +594,29 @@ msgid ""
 "de ce type. À ce moment-là il faut chercher le processus responsable avec"
 " la commande:"
 msgstr ""
+"ros2 warns us that there are several nodes with exactly the same name: "
+"here the nodes ``joint_state_publisher`` and ``robot_state_publisher`` are"
+" duplicated. |br| However, nothing is seen when examining the list of "
+"topics because each node has published on the same topic: "
+"``robot_description``. Indeed, several nodes can publish on the same "
+"topic. Caution: when a publisher declares itself, a new topic is not "
+"automatically created. |br| As we did not kill the first process that "
+"displayed the urdf ``scanbot_camera_macro_666_maze.xacro`` before starting"
+" the second process that displayed the urdf "
+"``scanbot_camera_macro_01.xacro``, the 2 nodes ``robot_state_publisher`` "
+"publish at the same time on the same topic ``robot_description``, but with"
+" contradictory descriptions (if you look at the ``<joint>`` tags that "
+"define the position of the ``ankle_link`` segment, you will indeed see "
+"this difference in position (20cm). |br| It is therefore sufficient to "
+"kill the first process to stop the problem. |br| Note that sometimes, if "
+"you press CTRL-C several times, the process does not stop correctly and "
+"you can have a problem of this type. At that time, you have to find the "
+"responsible process with the command:"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:259
 msgid "puis tuer le processus avec la commande:"
 msgstr ""
+"then kill the process with the command:"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:265
 msgid ""
@@ -555,10 +624,15 @@ msgid ""
 "terminal, ne tapez bien qu'une seule fois sur CTRL-C et attendez que le "
 "processus s'arrête. Cela vous évitera des problèmes de ce type."
 msgstr ""
+"NOTE: when you kill a ROS2 process with CTRL-C in a terminal, press CTRL-C"
+" only once and wait for the process to stop. This will prevent problems of"
+" this type."
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:267
 msgid ""
 "Nous allons maintenant ajouter les éléments de la caméra et des 2 autres "
 "degrées de liberté en rotation. |br|"
 msgstr ""
+"We will now add the elements of the camera and the other 2 degrees of "
+"freedom in rotation. |br|"
 
