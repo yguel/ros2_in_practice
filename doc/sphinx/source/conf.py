@@ -134,15 +134,17 @@ def on_builder_inited(app):
 
     if None == base_uri:
         base_uri = outdir.parent.parent
-        app.config.html_context['base_url'] = base_uri
+    app.config.html_context['base_url'] = base_uri
     print(f"Base URL set to: {base_uri}")
 
 def on_config_inited(app, config):
     global base_uri
     print(f"Language set to: {config.language}")
-    if None != config.html_baseurl:
+    if "" != config.html_baseurl:
         base_uri = config.html_baseurl
         print(f"Base URL set to: {base_uri}")
+    else:
+        print(f"Base URL not set")
 
     # Also store the current language that Sphinx is building:
     if config.language is not None:

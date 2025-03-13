@@ -264,3 +264,5 @@ Nous avons aussi spécifiée l'échelle du maillage. ROS2 utilise le mètre comm
          
          NOTEZ-BIEN: quand vous tuez un processus ROS2 avec CTRL-C dans un terminal, ne tapez bien qu'une seule fois sur CTRL-C et attendez que le processus s'arrête. Cela vous évitera des problèmes de ce type.
          
+Nous allons maintenant ajouter les éléments de la caméra et des
+2 autres degrées de liberté en rotation. |br|
