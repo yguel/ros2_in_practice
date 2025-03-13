@@ -42,7 +42,7 @@ jobs:
       - name: Create commit
         run: |
             git clone https://github.com/yguel/ros2_in_practice.git --branch gh-pages --single-branch gh-pages
-            mkdir -p gh-pages/docs/
+            mkdir -p gh-pages
             cp -r ./doc/sphinx/build/html/* gh-pages/
             cd gh-pages
             ln -s ./humble/en/index.html
