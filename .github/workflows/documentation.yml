@@ -45,8 +45,8 @@ jobs:
             mkdir -p gh-pages
             cp -r ./doc/sphinx/build/html/* gh-pages/
             cd gh-pages
-            rm index.html
-            cat <<EOF > build/html/index.html
+            rm -f index.html
+            cat <<EOF > index.html
             <!DOCTYPE html>
             <html>
             <head>
