@@ -67,8 +67,7 @@ msgstr ""
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:21
 msgid ":download:`scanbot.py <resources/3d/scanbot/cadquery/scanbot.py>`,"
 msgstr ""
-":download:`scanbot_s07_toe_link.step "
-"<resources/3d/scanbot/scanbot_s07_toe_link.step>`,"
+":download:`scanbot.py <resources/3d/scanbot/cadquery/scanbot.py>`,"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:22
 msgid ":download:`cq_utils.py <resources/3d/scanbot/cadquery/cq_utils.py>`."
@@ -460,16 +459,16 @@ msgid ""
 ":download:`scanbot_camera_macro_666_maze.xacro "
 "<resources/urdf/scanbot_camera_macro_666_maze.xacro>`,"
 msgstr ""
-":download:`scanbot_s09_camera_link.dae "
-"<resources/3d/scanbot/scanbot_s09_camera_link.dae>`"
+":download:`scanbot_camera_macro_666_maze.xacro "
+"<resources/urdf/scanbot_camera_macro_666_maze.xacro>`,"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:186
 msgid ""
 ":download:`scanbot_camera_macro_01.xacro "
 "<resources/urdf/scanbot_camera_macro_01.xacro>`."
 msgstr ""
-":download:`scanbot_s09_camera_link.dae "
-"<resources/3d/scanbot/scanbot_s09_camera_link.dae>`"
+":download:`scanbot_camera_macro_01.xacro "
+"<resources/urdf/scanbot_camera_macro_01.xacro>`."
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:188
 msgid "Réalisez maintenant la séquence d'opérations suivantes:"
