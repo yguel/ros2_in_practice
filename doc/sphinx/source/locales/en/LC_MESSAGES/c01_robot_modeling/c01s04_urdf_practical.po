@@ -62,9 +62,14 @@ msgid ""
 "les opérations élémentaires de CAO (sketch, extrusion, combinaisons "
 "booléennes de forme). |br|"
 msgstr ""
+"To produce the meshes, we used the `cadquery software "
+"<https://github.com/CadQuery/cadquery>`_ (very well `documented "
+"<https://cadquery.readthedocs.io/en/latest/>`_). This "
+"allows you to procedurally create shapes from the Python language"
+" using the basic CAD operations (sketch, extrusion, boolean "
+"combinations of shapes). |br|"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:21
-#, fuzzy
 msgid ":download:`scanbot.py <resources/3d/scanbot/cadquery/scanbot.py>`,"
 msgstr ""
 ":download:`scanbot_s07_toe_link.step "
@@ -73,21 +78,24 @@ msgstr ""
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:22
 msgid ":download:`cq_utils.py <resources/3d/scanbot/cadquery/cq_utils.py>`."
 msgstr ""
+":download:`cq_utils.py <resources/3d/scanbot/cadquery/cq_utils.py>`."
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:28
 msgid "Installez cq-editor, puis exécutez le programme scanbot.py"
 msgstr ""
+"Install cq-editor, then run the scanbot.py program"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:34
 msgid ""
 "en remplaçant <path_to> par le chemin absolu du fichier scanbot.py "
 "(n'oubliez pas de mettre dans le même répertoire le fichier cq_utils.py)."
 msgstr ""
+"by replacing <path_to> with the absolute path of the scanbot.py file "
+"(don't forget to put the cq_utils.py file in the same directory)."
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:36
-#, fuzzy
 msgid "Cela va créer les maillages des segments du scanbot."
-msgstr "The meshes of the Scanbot segments in STEP format are as follows:"
+msgstr "This will create the meshes of the Scanbot links."
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:39
 msgid "Format step"
