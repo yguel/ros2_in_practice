@@ -6,5 +6,5 @@ sphinx_rtd_theme
 sphinx-design
 sphinxcontrib-bibtex
 sphinx-intl
-git+https://github.com/yguel/sphinx-exercise.git@master#egg=sphinx-exercise
+git+https://github.com/yguel/sphinx-exercise.git@main#egg=sphinx-exercise
 sphinx-togglebutton
