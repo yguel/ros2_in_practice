@@ -36,7 +36,7 @@ jobs:
             mkdir -p build/html/humble/fr/_static
             mkdir -p build/html/humble/en/_static
             cp source/logo.svg build/html/humble/fr/_static/logo.svg
-            cp source/locales/logo.en.svg build/html/humble/en/_static/logo.svg
+            cp source/locales/en/logo.en.svg build/html/humble/en/_static/logo.svg
             make gettext
             sphinx-build -b gettext source build/gettext
             sphinx-build -b html -D language=fr -D html_baseurl="yguel.github.io/ros2_in_practice" ./source ./build/html/humble/fr
