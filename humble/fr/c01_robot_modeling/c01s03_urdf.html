@@ -11,8 +11,10 @@
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=66989161" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b368aa4a" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c01_robot_modeling/c01s03_urdf.html" />
@@ -23,8 +25,13 @@
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
       <script src="../_static/translations.js?v=e6b791cb"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -41,8 +48,9 @@
 
           
           
-          <a href="../index.html" class="icon icon-home">
-            ROS2 par la pratique
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -820,16 +828,19 @@ Par exemple nous avons crée les fichiers:</p>
 <p>que vous n’avez pas encore et qui apparaissent dans l’arborescence du package <code class="docutils literal notranslate"><span class="pre">simple_bot_description</span></code> affichée <a class="reference internal" href="#simple-bot-description-tree"><span class="std std-ref">plus haut</span></a>.  <br></p>
 <p>pour modifier que quelques paramètres.  <br></p>
 <div class="exercice docutils container" id="exercice-xacro-launch-parameterized-urdf">
-<div class="admonition-exercice-xacro-launch-file admonition">
-<p class="admonition-title">Exercice xacro / launch file</p>
+<div class="exercise toggle admonition" id="ex_xacro_launch_file_for_incremental_robot_description">
+
+<p class="admonition-title"><span class="caption-number">Exercise 1 </span> (Xacro / Launch file)</p>
+<section id="exercise-content">
 <p>Modifiez les fichiers <code class="docutils literal notranslate"><span class="pre">view_simple_bot.launch.py</span></code> et <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code> pour que le fichier affiché par rviz2 soit paramétrable et par exemple affiche le fichier <code class="docutils literal notranslate"><span class="pre">simple_bot__my03_bot__macro.xacro</span></code> quand on lance la commande:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>simple_bot_description<span class="w"> </span>view_simple_bot.launch.py<span class="w"> </span>urdf:<span class="o">=</span>simple_bot__my03_bot__macro.xacro
 </pre></div>
 </div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Afficher la solution de l’exercice</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Modifications du fichier <code class="docutils literal notranslate"><span class="pre">view_simple_bot.launch.py</span></code>:</p>
+<div class="solution toggle admonition" id="sol_xacro_launch_file_for_incremental_robot_description">
+
+<p class="admonition-title">Solution de<a class="reference internal" href="#ex_xacro_launch_file_for_incremental_robot_description"> Exercice 1 (Xacro / Launch file)</a></p>
+<section id="solution-content">
+<p>Modifications du fichier <code class="docutils literal notranslate"><span class="pre">view_simple_bot.launch.py</span></code>:</p>
 <div class="literal-block-wrapper docutils container" id="id7">
 <div class="code-block-caption"><span class="caption-number">Listing 12 </span><span class="caption-text">Modification du fichier view_simple_bot.launch.py pour qu’il accepte un argument urdf qui permet de choisir le fichier xacro à afficher dans rviz2</span><a class="headerlink" href="#id7" title="Lien vers ce code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># Copyright (c) 2024, Unistra, ICube/IRIS</span>
@@ -937,7 +948,7 @@ Par exemple nous avons crée les fichiers:</p>
 </pre></div>
 </div>
 </div>
-<p class="sd-card-text">Modifications du fichier <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code>:</p>
+<p>Modifications du fichier <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code>:</p>
 <div class="literal-block-wrapper docutils container" id="id8">
 <div class="code-block-caption"><span class="caption-number">Listing 13 </span><span class="caption-text">Modification du fichier simple_bot.urdf.xacro pour qu’il accepte un argument urdf qui permet de choisir le fichier xacro à afficher dans rviz2</span><a class="headerlink" href="#id8" title="Lien vers ce code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -967,8 +978,10 @@ Par exemple nous avons crée les fichiers:</p>
 </pre></div>
 </div>
 </div>
+</section>
 </div>
-</details></div>
+</section>
+</div>
 </div>
 </section>
 <section id="la-balise-joint">

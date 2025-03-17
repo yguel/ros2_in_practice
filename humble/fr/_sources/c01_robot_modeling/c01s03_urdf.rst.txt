@@ -435,7 +435,9 @@ pour modifier que quelques paramètres.  |br|
 
 .. container:: exercice
 
-   .. admonition:: Exercice xacro / launch file
+   .. exercise:: Xacro / Launch file
+      :label: ex_xacro_launch_file_for_incremental_robot_description
+      :class: toggle
 
       Modifiez les fichiers ``view_simple_bot.launch.py`` et ``simple_bot.urdf.xacro`` pour que le fichier affiché par rviz2 soit paramétrable et par exemple affiche le fichier ``simple_bot__my03_bot__macro.xacro`` quand on lance la commande:
 
@@ -443,7 +445,9 @@ pour modifier que quelques paramètres.  |br|
 
          ros2 launch simple_bot_description view_simple_bot.launch.py urdf:=simple_bot__my03_bot__macro.xacro
       
-      .. dropdown:: Afficher la solution de l'exercice
+      .. solution:: ex_xacro_launch_file_for_incremental_robot_description
+         :label: sol_xacro_launch_file_for_incremental_robot_description
+         :class: toggle
 
          Modifications du fichier ``view_simple_bot.launch.py``:
 

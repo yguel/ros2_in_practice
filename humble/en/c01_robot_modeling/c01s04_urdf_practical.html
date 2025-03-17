@@ -11,8 +11,10 @@
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=66989161" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b368aa4a" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c01_robot_modeling/c01s04_urdf_practical.html" />
@@ -23,7 +25,12 @@
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -39,8 +46,9 @@
 
           
           
-          <a href="../index.html" class="icon icon-home">
-            ROS2 par la pratique
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -117,14 +125,17 @@
 <li><p><a class="reference download internal" download="" href="../_downloads/bed959e78bbaae3c9a6c793b982343e8/scanbot.py"><code class="xref download docutils literal notranslate"><span class="pre">scanbot.py</span></code></a>,</p></li>
 <li><p><a class="reference download internal" download="" href="../_downloads/7690e7cb13d812056baa0c7190613112/cq_utils.py"><code class="xref download docutils literal notranslate"><span class="pre">cq_utils.py</span></code></a>.</p></li>
 </ol>
-<div class="admonition-exercice-avance-utilisation-de-cadquery admonition">
-<p class="admonition-title">Exercice (avancé, utilisation de cadquery)</p>
+<div class="exercise toggle admonition" id="ex_cadquery_scanbot">
+
+<p class="admonition-title"><span class="caption-number">Exercise 2 </span> (génération de maillages des segments du scanbot de manière procédurale avec cadquery. [avancé])</p>
+<section id="exercise-content">
 <p>Installez cq-editor, puis exécutez le programme scanbot.py</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">exec</span><span class="p">(</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;&lt;path_to&gt;/scanbot.py&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>en remplaçant &lt;path_to&gt; par le chemin absolu du fichier scanbot.py (n’oubliez pas de mettre dans le même répertoire le fichier cq_utils.py).</p>
 <p>Cela va créer les maillages des segments du scanbot.</p>
+</section>
 </div>
 <section id="format-step">
 <h3>STEP Format<a class="headerlink" href="#format-step" title="Link to this heading"></a></h3>
@@ -140,9 +151,12 @@
 <li><p><a class="reference download internal" download="" href="../_downloads/483c1ea84bf74e8282dac8b83bc709f8/scanbot_s08_z_cyl_link.step"><code class="xref download docutils literal notranslate"><span class="pre">scanbot_s08_z_cyl_link.step</span></code></a>,</p></li>
 <li><p><a class="reference download internal" download="" href="../_downloads/dec45e7d623fbebeab01b2927a02f58f/scanbot_s09_camera_link.step"><code class="xref download docutils literal notranslate"><span class="pre">scanbot_s09_camera_link.step</span></code></a></p></li>
 </ol>
-<div class="admonition-exercice-pratique admonition">
-<p class="admonition-title">Exercice pratique</p>
+<div class="exercise toggle admonition" id="ex_conversion_maillage">
+
+<p class="admonition-title"><span class="caption-number">Exercise 3 </span> (génération de fichier de maillage collada à partir d’autre fichiers de maillage (step,stl,…) [pratique])</p>
+<section id="exercise-content">
 <p>Using the above meshes in STEP format, use a CAD software to convert them to Collada (.dae) format. Hint: Use FreeCAD.</p>
+</section>
 </div>
 </section>
 <section id="format-collada-dae">
@@ -213,15 +227,14 @@ ros2_build
 <p><span class="caption-number">Figure 22 </span><span class="caption-text">The default robot when initializing a visualization package from the view_robot_template template.</span><a class="headerlink" href="#fig-default-rviz-view" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>Nous pouvons maintenant éditer le fichier URDF/xacro (<code class="docutils literal notranslate"><span class="pre">urdf/scanbot_camera/scanbot_camera_macro.xacro</span></code>) pour décrire la caméra et les 3 degrées de liberté en rotation. <br>
-Nous allons commencer par enlever tous les éléments servant à décrire le robot par défaut. <br></p>
+<p>We can now edit the URDF/xacro file (<code class="docutils literal notranslate"><span class="pre">urdf/scanbot_camera/scanbot_camera_macro.xacro</span></code>) to describe the camera and the 3 degrees of freedom in rotation. <br> We will start by removing all the elements used to describe the default robot. <br></p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-number">Listing 19 </span><span class="caption-text">scanbot_camera_macro.xacro avec un seul élément</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 19 </span><span class="caption-text">scanbot_camera_macro.xacro with a single element</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="nt">&gt;</span>
 
@@ -277,7 +290,7 @@ Nous allons commencer par enlever tous les éléments servant à décrire le rob
 <a class="reference internal image-reference" href="../_images/x_cyl_link_only.png"><img alt="../_images/x_cyl_link_only.png" src="../_images/x_cyl_link_only.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 23 </span><span class="caption-text">Le premier segment de la partie caméra du scanbot. Le repère est placé au centre de la face arrière circulaire du cylindre.</span><a class="headerlink" href="#fig-scanbot-cam-x-cyl-link-only" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 23 </span><span class="caption-text">The first segment of the camera part of the scanbot. The frame is placed in the center of the circular rear face of the cylinder.</span><a class="headerlink" href="#fig-scanbot-cam-x-cyl-link-only" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -285,39 +298,37 @@ Nous allons commencer par enlever tous les éléments servant à décrire le rob
 </div>
 </div>
 </div>
-<p>L’élément nouveau utilisé dans l’URDF est la balise <code class="docutils literal notranslate"><span class="pre">&lt;mesh&gt;</span></code> qui permet de charger un maillage au format collada. Nous avons utilisé le maillage du segment <code class="docutils literal notranslate"><span class="pre">scanbot_s02_x_cyl_link.dae</span></code>. L’attribut <code class="docutils literal notranslate"><span class="pre">filename</span></code> permet de spécifier le chemin du fichier collada, celui-ci est fourni par rapport au package ROS2, c’est pourquoi nous avons le chemin fourni commence par <code class="docutils literal notranslate"><span class="pre">package://</span></code> suivi du nom du package (<code class="docutils literal notranslate"><span class="pre">scanbot_cam_description</span></code>) et du path dans ce package: <code class="docutils literal notranslate"><span class="pre">package://scanbot_cam_description/meshes/scanbot_s02_x_cyl_link.dae</span></code>. <br>
-Nous avons aussi spécifiée l’échelle du maillage. ROS2 utilise le mètre comme base unitaire. Notre maillage étant déjà en mètre, nous n’avons en réalité pas besoin d’utiliser l’attribut <code class="docutils literal notranslate"><span class="pre">scale</span></code>, pour des raisons pédagogique, nous l’avons spécifié avec l’échelle sur chaque axe à <code class="docutils literal notranslate"><span class="pre">1.</span></code> . <br></p>
-<div class="exercice docutils container">
-<div class="admonition-exercice-debug-avance admonition">
-<p class="admonition-title">Exercice debug (avancé)</p>
-<p>Dans cet exercice, nous allons volontairement faire bugger ROS2 pour apprendre à debugger des problèmes courants. <br></p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Afficher l’énoncé de l’exercice</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Comme dans l’ <a class="reference internal" href="c01s03_urdf.html#exercice-xacro-launch-parameterized-urdf"><span class="std std-ref">exercice sur la paramétrisation des fichiers de launch</span></a> modifiez les fichiers:</p>
+<p>The new element used in the URDF is the <code class="docutils literal notranslate"><span class="pre">&lt;mesh&gt;</span></code> tag, which allows you to load a mesh in Collada format. We used the mesh of the segment <code class="docutils literal notranslate"><span class="pre">scanbot_s02_x_cyl_link.dae</span></code>. The <code class="docutils literal notranslate"><span class="pre">filename</span></code> attribute allows you to specify the path to the Collada file, which is provided relative to the ROS2 package, which is why the provided path starts with <code class="docutils literal notranslate"><span class="pre">package://</span></code> followed by the package name (<code class="docutils literal notranslate"><span class="pre">scanbot_cam_description</span></code>) and the path in this package: <code class="docutils literal notranslate"><span class="pre">package://scanbot_cam_description/meshes/scanbot_s02_x_cyl_link.dae</span></code>. <br> We also specified the scale of the mesh. ROS2 uses the meter as the base unit. Our mesh is already in meters, so we don’t actually need to use the <code class="docutils literal notranslate"><span class="pre">scale</span></code> attribute, for pedagogical reasons, we specified it. That is why the scale on each axis is at <code class="docutils literal notranslate"><span class="pre">1.</span></code> . <br></p>
+<blockquote>
+<div><div class="exercise toggle admonition" id="ex_debug_ros2_advanced_2_nodes_publishing_robot_state_publisher_on_same_topic">
+
+<p class="admonition-title"><span class="caption-number">Exercise 4 </span> (debug ROS2 [avancé])</p>
+<section id="exercise-content">
+<p>In that exercise, we will volontarily create a bug with ROS2 to learn how to debug common problems. <br></p>
+<p>As in the <a class="reference internal" href="c01s03_urdf.html#exercice-xacro-launch-parameterized-urdf"><span class="std std-ref">exercise on parameterizing launch files</span></a>, modify the files:</p>
 <ol class="arabic simple">
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">launch/view_scanbot_camera.launch.py</span></code> de launch</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">urdf/scanbot_camera.urdf.xacro</span></code> de chargement de l’urdf</p></li>
+<li><p>the launch file in python: <code class="docutils literal notranslate"><span class="pre">launch/view_scanbot_camera.launch.py</span></code></p></li>
+<li><p>the xacro file to load the URDF description: <code class="docutils literal notranslate"><span class="pre">urdf/scanbot_camera.urdf.xacro</span></code></p></li>
 </ol>
-<p class="sd-card-text">pour pouvoir visualiser différentes configuration de robot avec une commande du type:</p>
+<p>to visualize different robot configurations with a command like:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>view_scanbot_camera<span class="w"> </span>view_scanbot_camera.launch.py<span class="w"> </span>urdf:<span class="o">=</span>scanbot_camera_macro_666_maze.xacro
 </pre></div>
 </div>
-<p class="sd-card-text">Téléchargez les fichiers suivants dans le répertoire <code class="docutils literal notranslate"><span class="pre">urdf/scanbot_camera</span></code> du package <code class="docutils literal notranslate"><span class="pre">view_scanbot_camera</span></code>:</p>
+<p>Download the following files to the <code class="docutils literal notranslate"><span class="pre">urdf/scanbot_camera</span></code> directory of the <code class="docutils literal notranslate"><span class="pre">view_scanbot_camera</span></code> package:</p>
 <ol class="arabic simple">
-<li><p class="sd-card-text"><a class="reference download internal" download="" href="../_downloads/afb123bf0e241a8dadbfe0994b1cb62d/scanbot_camera_macro_666_maze.xacro"><code class="xref download docutils literal notranslate"><span class="pre">scanbot_camera_macro_666_maze.xacro</span></code></a>,</p></li>
-<li><p class="sd-card-text"><a class="reference download internal" download="" href="../_downloads/6c6427ae4cf9106c88b5599a652e5545/scanbot_camera_macro_01.xacro"><code class="xref download docutils literal notranslate"><span class="pre">scanbot_camera_macro_01.xacro</span></code></a>.</p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/b9da3e75864adc526db91cf52b236761/scanbot_s09_camera_link.dae"><code class="xref download docutils literal notranslate"><span class="pre">scanbot_s09_camera_link.dae</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/b9da3e75864adc526db91cf52b236761/scanbot_s09_camera_link.dae"><code class="xref download docutils literal notranslate"><span class="pre">scanbot_s09_camera_link.dae</span></code></a></p></li>
 </ol>
-<p class="sd-card-text">Réalisez maintenant la séquence d’opérations suivantes:</p>
+<p>Perform the following sequence of operations now:</p>
 <ol class="arabic simple">
-<li><p class="sd-card-text">Exécutez la commande précédente dans un terminal, au niveau du workspace contenant le package <code class="docutils literal notranslate"><span class="pre">view_scanbot_camera</span></code> et après avoir sourcé le workspace (<code class="code docutils literal notranslate"><span class="pre">ros2_humble_src</span></code>).</p></li>
-<li><p class="sd-card-text">Observez toutes les parties du scanbot empilées les unes sur les autres (les transformations ne sont pas correctes).</p></li>
-<li><p class="sd-card-text">Dans un autre terminal, toujours dans le même workspace (et après avoir sourcé le workspace), exécutez maintenant la commande:</p></li>
+<li><p>Run the previous command in a terminal, at the level of the workspace containing the package <code class="docutils literal notranslate"><span class="pre">view_scanbot_camera</span></code> and after sourcing the workspace (<code class="code docutils literal notranslate"><span class="pre">ros2_humble_src</span></code>).</p></li>
+<li><p>Observe all parts of the scanbot stacked on top of each other (the transformations are incorrect).</p></li>
+<li><p>In another terminal, still in the same workspace (and after sourcing the workspace), now execute the command:</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>view_scanbot_camera<span class="w"> </span>view_scanbot_camera.launch.py<span class="w"> </span>urdf:<span class="o">=</span>scanbot_camera_macro_01.xacro
 </pre></div>
 </div>
-<p class="sd-card-text">Vous devriez observer une deuxième fenêtre rviz s’ouvrir et le segment cheville (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) osciller en position comme dans les images ci-dessous:</p>
+<p>You should see a second rviz window open and the ankle segment (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) oscillate in position as in the images below:</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -327,7 +338,7 @@ Nous avons aussi spécifiée l’échelle du maillage. ROS2 utilise le mètre co
 <a class="reference internal image-reference" href="../_images/ros2_strange_robot_flickering.gif"><img alt="../_images/ros2_strange_robot_flickering.gif" src="../_images/ros2_strange_robot_flickering.gif" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 24 </span><span class="caption-text">Le segment cheville (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) oscille en position.</span><a class="headerlink" href="#fig-strange-robot-flickering" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 24 </span><span class="caption-text">The ankle segment (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) oscillates in position.</span><a class="headerlink" href="#fig-strange-robot-flickering" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -340,7 +351,7 @@ Nous avons aussi spécifiée l’échelle du maillage. ROS2 utilise le mètre co
 <a class="reference internal image-reference" href="../_images/ros2_strange_robot_flickering_position_vue.gif"><img alt="../_images/ros2_strange_robot_flickering_position_vue.gif" src="../_images/ros2_strange_robot_flickering_position_vue.gif" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 25 </span><span class="caption-text">En affichant la position du segment cheville (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) on observe bien que la position x oscille.</span><a class="headerlink" href="#fig-strange-robot-flickering-position-vue" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 25 </span><span class="caption-text">By displaying the position of the ankle segment (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>), we can see that the x position oscillates.</span><a class="headerlink" href="#fig-strange-robot-flickering-position-vue" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -348,19 +359,17 @@ Nous avons aussi spécifiée l’échelle du maillage. ROS2 utilise le mètre co
 </div>
 </div>
 </div>
-<p class="sd-card-text">(si vous ne l’observez pas, vérifiez que dans le premier terminal, le processus est toujours fonctionnel et sinon relancez-le.)</p>
-<p class="sd-card-text">Que se passe-t-il et comment pouvez-vous le diagnostiquer ? <br></p>
-</div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Afficher la solution de l’exercice</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Il semble donc que la position du segment cheville (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) soit reçue de manière contradictoire. <br>
-Il faut savoir que c’est le nœud <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code> qui est responsable de la publication des transformations des segments du robot. <br>
-Si vous effectuez la commande</p>
+<p>(if you don’t see it, check that in the first terminal, the process is still functional and if not, restart it.)</p>
+<p>What is happening and how can you diagnose it? <br></p>
+<div class="solution dropdown admonition" id="sol_debug_ros2_advanced_2_nodes_publishing_robot_state_publisher_on_same_topic">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#ex_debug_ros2_advanced_2_nodes_publishing_robot_state_publisher_on_same_topic"> Exercise 4 (debug ROS2 [avancé])</a></p>
+<section id="solution-content">
+<p>It seems that the position of the ankle segment (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) is received in a contradictory manner. <br> It should be noted that it is the <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code> node that is responsible for publishing the transformations of the robot’s segments. <br> If you execute the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>node<span class="w"> </span>list
 </pre></div>
 </div>
-<p class="sd-card-text">vous allez voir un résultat de ce type:</p>
+<p>you will see a result like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="hll">WARNING:<span class="w"> </span>Be<span class="w"> </span>aware<span class="w"> </span>that<span class="w"> </span>are<span class="w"> </span>nodes<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>graph<span class="w"> </span>that<span class="w"> </span>share<span class="w"> </span>an<span class="w"> </span>exact<span class="w"> </span>name,<span class="w"> </span>this<span class="w"> </span>can<span class="w"> </span>have<span class="w"> </span>unintended<span class="w"> </span>side<span class="w"> </span>effects.
 </span>/joint_state_publisher
 /joint_state_publisher
@@ -370,26 +379,21 @@ Si vous effectuez la commande</p>
 /transform_listener_impl_5c6fb5eea4e0
 </pre></div>
 </div>
-<p class="sd-card-text">ros2 nous prévient, il y a plusieurs nœuds avec exactement le même nom: ici les nœuds <code class="docutils literal notranslate"><span class="pre">joint_state_publisher</span></code> et <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code> sont dédoublés. <br>
-On ne voit rien par contre quand on examine la liste des topics car chaque nœud a publié sur le même topic: <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>. En effet, plusieurs nœuds peuvent publier sur le même topic.
-Attention: quand un publisher se déclare, un nouveau topic n’est pas automatiquement créé. <br>
-Comme nous n’avons pas tué le premier process qui affiche l’urdf <code class="docutils literal notranslate"><span class="pre">scanbot_camera_macro_666_maze.xacro</span></code> avant de lancer le deuxième process qui affiche l’urdf <code class="docutils literal notranslate"><span class="pre">scanbot_camera_macro_01.xacro</span></code>, les 2 nœuds <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code> publient en même temps sur le même topic <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>, mais des descriptions contradictoires (si vous regarder les tags <code class="docutils literal notranslate"><span class="pre">&lt;joint&gt;</span></code> qui définissent la position du segment <code class="docutils literal notranslate"><span class="pre">ankle_link</span></code> vous verrez en effet cette différence de position (de 20cm). <br>
-Il suffit donc de tuer le premier process pour arrêter le problème. <br>
-Notez que parfois, si on appuie plusieurs fois sur CTRL-C, le processus ne s’arrête pas correctement et on peut avoir un problème de ce type.
-À ce moment-là il faut chercher le processus responsable avec la commande:</p>
+<p>ros2 warns us that there are several nodes with exactly the same name: here the nodes <code class="docutils literal notranslate"><span class="pre">joint_state_publisher</span></code> and <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code> are duplicated. <br> However, nothing is seen when examining the list of topics because each node has published on the same topic: <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>. Indeed, several nodes can publish on the same topic. Caution: when a publisher declares itself, a new topic is not automatically created. <br> As we did not kill the first process that displayed the urdf <code class="docutils literal notranslate"><span class="pre">scanbot_camera_macro_666_maze.xacro</span></code> before starting the second process that displayed the urdf <code class="docutils literal notranslate"><span class="pre">scanbot_camera_macro_01.xacro</span></code>, the 2 nodes <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code> publish at the same time on the same topic <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>, but with contradictory descriptions (if you look at the <code class="docutils literal notranslate"><span class="pre">&lt;joint&gt;</span></code> tags that define the position of the <code class="docutils literal notranslate"><span class="pre">ankle_link</span></code> segment, you will indeed see this difference in position (20cm). <br> It is therefore sufficient to kill the first process to stop the problem. <br> Note that sometimes, if you press CTRL-C several times, the process does not stop correctly and you can have a problem of this type. At that time, you have to find the responsible process with the command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ros2
 </pre></div>
 </div>
-<p class="sd-card-text">puis tuer le processus avec la commande:</p>
+<p>then kill the process with the command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>&lt;pid&gt;
 </pre></div>
 </div>
-<p class="sd-card-text">NOTEZ-BIEN: quand vous tuez un processus ROS2 avec CTRL-C dans un terminal, ne tapez bien qu’une seule fois sur CTRL-C et attendez que le processus s’arrête. Cela vous évitera des problèmes de ce type.</p>
+<p>NOTE: when you kill a ROS2 process with CTRL-C in a terminal, press CTRL-C only once and wait for the process to stop. This will prevent problems of this type.</p>
+</section>
 </div>
-</details></div>
+</section>
 </div>
-<p>Nous allons maintenant ajouter les éléments de la caméra et des
-2 autres degrées de liberté en rotation. <br></p>
+</div></blockquote>
+<p>We will now add the elements of the camera and the other 2 degrees of freedom in rotation. <br></p>
 </section>
 </section>
 </section>

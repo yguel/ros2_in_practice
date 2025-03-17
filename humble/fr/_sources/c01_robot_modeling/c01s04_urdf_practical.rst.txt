@@ -21,7 +21,9 @@ Pour produire les maillages, nous avons utilisé le logiciel `cadquery <https://
 #. :download:`scanbot.py <resources/3d/scanbot/cadquery/scanbot.py>`,
 #. :download:`cq_utils.py <resources/3d/scanbot/cadquery/cq_utils.py>`.
 
-.. admonition:: Exercice (avancé, utilisation de cadquery)
+.. exercise:: génération de maillages des segments du scanbot de manière procédurale avec cadquery. [avancé]
+   :label: ex_cadquery_scanbot
+   :class: toggle
 
    Installez cq-editor, puis exécutez le programme scanbot.py 
    
@@ -48,7 +50,9 @@ Les maillages des segments du scanbot au format step sont les suivants:
 #. :download:`scanbot_s08_z_cyl_link.step <resources/3d/scanbot/scanbot_s08_z_cyl_link.step>`,
 #. :download:`scanbot_s09_camera_link.step <resources/3d/scanbot/scanbot_s09_camera_link.step>`
 
-.. admonition:: Exercice pratique
+.. exercise:: génération de fichier de maillage collada à partir d'autre fichiers de maillage (step,stl,...) [pratique]
+   :label: ex_conversion_maillage
+   :class: toggle
 
    À partir des maillages ci-dessus au format step, utilisez un logiciel de CAO pour les convertir au format collada (.dae).
    Indice: Utilisez le logiciel FreeCAD.
@@ -159,69 +163,69 @@ Nous allons commencer par enlever tous les éléments servant à décrire le rob
 L'élément nouveau utilisé dans l'URDF est la balise ``<mesh>`` qui permet de charger un maillage au format collada. Nous avons utilisé le maillage du segment ``scanbot_s02_x_cyl_link.dae``. L'attribut ``filename`` permet de spécifier le chemin du fichier collada, celui-ci est fourni par rapport au package ROS2, c'est pourquoi nous avons le chemin fourni commence par ``package://`` suivi du nom du package (``scanbot_cam_description``) et du path dans ce package: ``package://scanbot_cam_description/meshes/scanbot_s02_x_cyl_link.dae``. |br|
 Nous avons aussi spécifiée l'échelle du maillage. ROS2 utilise le mètre comme base unitaire. Notre maillage étant déjà en mètre, nous n'avons en réalité pas besoin d'utiliser l'attribut ``scale``, pour des raisons pédagogique, nous l'avons spécifié avec l'échelle sur chaque axe à ``1.`` . |br|
 
-.. container:: exercice
-
-   .. admonition:: Exercice debug (avancé)
+   .. exercise:: debug ROS2 [avancé]
+      :label: ex_debug_ros2_advanced_2_nodes_publishing_robot_state_publisher_on_same_topic
+      :class: toggle
 
       Dans cet exercice, nous allons volontairement faire bugger ROS2 pour apprendre à debugger des problèmes courants. |br|
-
-      .. dropdown:: Afficher l'énoncé de l'exercice
          
-         Comme dans l' :ref:`exercice sur la paramétrisation des fichiers de launch<exercice_xacro_launch_parameterized_urdf>` modifiez les fichiers:
-         
-         #. ``launch/view_scanbot_camera.launch.py`` de launch
-         #. ``urdf/scanbot_camera.urdf.xacro`` de chargement de l'urdf
-
-         pour pouvoir visualiser différentes configuration de robot avec une commande du type:
-
-         .. code-block:: bash
-
-            ros2 launch view_scanbot_camera view_scanbot_camera.launch.py urdf:=scanbot_camera_macro_666_maze.xacro
-
-         Téléchargez les fichiers suivants dans le répertoire ``urdf/scanbot_camera`` du package ``view_scanbot_camera``:
-
-         #. :download:`scanbot_camera_macro_666_maze.xacro <resources/urdf/scanbot_camera_macro_666_maze.xacro>`,
-         #. :download:`scanbot_camera_macro_01.xacro <resources/urdf/scanbot_camera_macro_01.xacro>`.
-
-         Réalisez maintenant la séquence d'opérations suivantes:
-
-         #. Exécutez la commande précédente dans un terminal, au niveau du workspace contenant le package ``view_scanbot_camera`` et après avoir sourcé le workspace (:code:`ros2_humble_src`).
-         #. Observez toutes les parties du scanbot empilées les unes sur les autres (les transformations ne sont pas correctes).
-         #. Dans un autre terminal, toujours dans le même workspace (et après avoir sourcé le workspace), exécutez maintenant la commande:
-
-         .. code-block:: bash
-
-            ros2 launch view_scanbot_camera view_scanbot_camera.launch.py urdf:=scanbot_camera_macro_01.xacro
-
-         Vous devriez observer une deuxième fenêtre rviz s'ouvrir et le segment cheville (``ankle_link``) osciller en position comme dans les images ci-dessous:
-
-
-         .. grid:: 1 2 2 2
-
-            .. grid-item-card::
-         
-               .. figure:: resources/img/ros2_strange_robot_flickering.gif
-                  :name: fig_strange_robot_flickering
-                  :align: center
-                  :height: 400px
-
-                  Le segment cheville (``ankle_link``) oscille en position.
-
-            .. grid-item-card::
-
-               .. figure:: resources/img/ros2_strange_robot_flickering_position_vue.gif
-                  :name: fig_strange_robot_flickering_position_vue
-                  :align: center
-                  :height: 400px
-
-                  En affichant la position du segment cheville (``ankle_link``) on observe bien que la position x oscille.
-
-
-         (si vous ne l'observez pas, vérifiez que dans le premier terminal, le processus est toujours fonctionnel et sinon relancez-le.)
-
-         Que se passe-t-il et comment pouvez-vous le diagnostiquer ? |br|
+      Comme dans l' :ref:`exercice sur la paramétrisation des fichiers de launch<exercice_xacro_launch_parameterized_urdf>` modifiez les fichiers:
       
-      .. dropdown:: Afficher la solution de l'exercice
+      #. ``launch/view_scanbot_camera.launch.py`` de launch
+      #. ``urdf/scanbot_camera.urdf.xacro`` de chargement de l'urdf
+
+      pour pouvoir visualiser différentes configuration de robot avec une commande du type:
+
+      .. code-block:: bash
+
+         ros2 launch view_scanbot_camera view_scanbot_camera.launch.py urdf:=scanbot_camera_macro_666_maze.xacro
+
+      Téléchargez les fichiers suivants dans le répertoire ``urdf/scanbot_camera`` du package ``view_scanbot_camera``:
+
+      #. :download:`scanbot_camera_macro_666_maze.xacro <resources/urdf/scanbot_camera_macro_666_maze.xacro>`,
+      #. :download:`scanbot_camera_macro_01.xacro <resources/urdf/scanbot_camera_macro_01.xacro>`.
+
+      Réalisez maintenant la séquence d'opérations suivantes:
+
+      #. Exécutez la commande précédente dans un terminal, au niveau du workspace contenant le package ``view_scanbot_camera`` et après avoir sourcé le workspace (:code:`ros2_humble_src`).
+      #. Observez toutes les parties du scanbot empilées les unes sur les autres (les transformations ne sont pas correctes).
+      #. Dans un autre terminal, toujours dans le même workspace (et après avoir sourcé le workspace), exécutez maintenant la commande:
+
+      .. code-block:: bash
+
+         ros2 launch view_scanbot_camera view_scanbot_camera.launch.py urdf:=scanbot_camera_macro_01.xacro
+
+      Vous devriez observer une deuxième fenêtre rviz s'ouvrir et le segment cheville (``ankle_link``) osciller en position comme dans les images ci-dessous:
+
+
+      .. grid:: 1 2 2 2
+
+         .. grid-item-card::
+      
+            .. figure:: resources/img/ros2_strange_robot_flickering.gif
+               :name: fig_strange_robot_flickering
+               :align: center
+               :height: 400px
+
+               Le segment cheville (``ankle_link``) oscille en position.
+
+         .. grid-item-card::
+
+            .. figure:: resources/img/ros2_strange_robot_flickering_position_vue.gif
+               :name: fig_strange_robot_flickering_position_vue
+               :align: center
+               :height: 400px
+
+               En affichant la position du segment cheville (``ankle_link``) on observe bien que la position x oscille.
+
+
+      (si vous ne l'observez pas, vérifiez que dans le premier terminal, le processus est toujours fonctionnel et sinon relancez-le.)
+
+      Que se passe-t-il et comment pouvez-vous le diagnostiquer ? |br|
+
+      .. solution:: ex_debug_ros2_advanced_2_nodes_publishing_robot_state_publisher_on_same_topic
+         :label: sol_debug_ros2_advanced_2_nodes_publishing_robot_state_publisher_on_same_topic
+         :class: dropdown
 
          Il semble donc que la position du segment cheville (``ankle_link``) soit reçue de manière contradictoire. |br|
          Il faut savoir que c'est le nœud ``robot_state_publisher`` qui est responsable de la publication des transformations des segments du robot. |br|
