@@ -7,8 +7,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2025-03-17 17:00+0100\n"
 "PO-Revision-Date: 2025-03-13 14:29+0000\n"
+=======
+"POT-Creation-Date: 2025-03-13 15:28+0100\n"
+"PO-Revision-Date: 2025-03-14 08:30+0000\n"
+>>>>>>> bcebf87309444a722e8ae10d6f2a33de4451de94
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language: en\n"
 "Language-Team: English "
@@ -250,8 +255,8 @@ msgid ""
 ":download:`scanbot_s09_camera_link.dae "
 "<resources/3d/scanbot/scanbot_s09_camera_link.dae>`"
 msgstr ""
-":download:`scanbot_s09_camera_link.dae "
-"<resources/3d/scanbot/scanbot_s09_camera_link.dae>`"
+":download:`scanbot_s09_camera_link.dae <resources/3d/scanbot/"
+"scanbot_s09_camera_link.dae>`"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:82
 msgid "Produire un URDF"
@@ -604,19 +609,3 @@ msgid ""
 msgstr ""
 "We will now add the elements of the camera and the other 2 degrees of "
 "freedom in rotation. |br|"
-
-#~ msgid "Exercice (avancé, utilisation de cadquery)"
-#~ msgstr ""
-
-#~ msgid "Exercice pratique"
-#~ msgstr "Exercise"
-
-#~ msgid "Exercice debug (avancé)"
-#~ msgstr "Debug Exercise (Advanced)"
-
-#~ msgid "Afficher l'énoncé de l'exercice"
-#~ msgstr "Display the exercise"
-
-#~ msgid "Afficher la solution de l'exercice"
-#~ msgstr "Display the solution to the exercise"
-
