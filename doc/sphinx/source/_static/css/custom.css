@@ -32,3 +32,55 @@ pre {
     display: block;
     /* Ensure the element takes up full width */
 }
+
+/** Exercise and solution styling */
+button.toggle-button {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    /*< Make the text bold */
+}
+
+/* Change the color and background of the header/title portion */
+.admonition.exercise>.admonition-title {
+    background-color: #ffd400;
+    color: #333;
+    /* text color */
+    padding: 0.3em 0.5em;
+    margin: -1em -1em 1em;
+    /* adjust spacing to compensate for padding */
+}
+
+.admonition.solution {
+    /* e.g. light yellow background */
+    background-color: #fff9d9;
+    border-left: 4px solid #43d300;
+    /* a bright green border */
+    padding: 1em;
+}
+
+.admonition.solution>.admonition-title {
+    background-color: #43d300;
+    color: #333;
+    /* text color */
+    padding: 0.3em 0.5em;
+    margin: -1em -1em 1em;
+    /* adjust spacing to compensate for padding */
+}
+
+div.exercise p.admonition-title::after {
+    content: "";
+}
+
+div.exercise p.admonition-title::before {
+    content: "✎";
+    /*content: "✍"; */
+    font-weight: bold;
+    font-size: 200%;
+}
+
+div.solution p.admonition-title::before {
+    /* content: "💡"; */
+    content: "★";
+    font-weight: bold;
+    font-size: 200%;
+}

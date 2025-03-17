@@ -27,6 +27,8 @@ extensions = [
     "myst_parser",
     "sphinx_design",
     "sphinxcontrib.bibtex",
+    "sphinx_exercise",
+    "sphinx_togglebutton",
 ]
 
 myst_enable_extensions = ["colon_fence"]
@@ -92,7 +94,7 @@ html_sidebars = {
 html_theme_options = {
     'language_selector': True,
     'flyout_display': 'always',
-    'logo_only': True,
+    'logo_only': True
 }
 
 # -- Options for copybutton extension ----------------------------------------
@@ -130,7 +132,27 @@ html_context = {
   'logo_path' : {
       "en": "locales/en/logo.en.svg",
       "fr": "logo.svg"
-    }
+    },
+  "toggle_button_texts": {
+        "en": {
+            "toggle_button_hint" : "Click to show",
+            "toggle_button_hint_hide" : ""
+        },
+        "fr": {
+            "toggle_button_hint" : "Cliquer pour afficher",
+            "toggle_button_hint_hide" : ""
+        }
+    },
+  "exercise_texts": {
+        "en": {
+          "exercise_title" : "Exercise",
+          "solution_title" : "Solution to"
+        },
+        "fr": {
+            "exercise_title" : "Exercice",
+            "solution_title" : "Solution de"
+        }  
+  }
 }
 
 LANG_MAP = {
@@ -172,8 +194,13 @@ def on_config_inited(app, config):
 
     # Also store the current language that Sphinx is building:
     if config.language is not None:
+        lg = LANG_MAP[config.language]
         config.html_context['current_language'] = config.language
-        config.html_context['current_language_code'] = LANG_MAP[config.language]
+        config.html_context['current_language_code'] = lg
+        config.togglebutton_hint = html_context['toggle_button_texts'][lg]['toggle_button_hint']
+        config.togglebutton_hint_hide = html_context['toggle_button_texts'][lg]['toggle_button_hint_hide']
+        config.exercise_title = html_context['exercise_texts'][lg]['exercise_title']
+        config.solution_title = html_context['exercise_texts'][lg]['solution_title']
         
 def post_process(app, exception):
     global version

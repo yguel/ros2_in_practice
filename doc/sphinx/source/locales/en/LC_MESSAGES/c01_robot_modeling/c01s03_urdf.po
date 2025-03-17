@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROS2 par la pratique\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-13 15:28+0100\n"
+"POT-Creation-Date: 2025-03-17 17:00+0100\n"
 "PO-Revision-Date: 2025-03-08 15:22+0000\n"
 "Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
 "Language: en\n"
@@ -802,11 +802,7 @@ msgstr ""
 msgid "pour modifier que quelques paramètres.  |br|"
 msgstr "to modify only a few parameters.  |br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:438
-msgid "Exercice xacro / launch file"
-msgstr "Xacro / Launch File Exercise"
-
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:440
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:442
 #, fuzzy
 msgid ""
 "Modifiez les fichiers ``view_simple_bot.launch.py`` et "
@@ -819,15 +815,11 @@ msgstr ""
 "example, displays the file ``simple_bot__my03_bot__macro.xacro`` when the"
 " following command is run:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst
-msgid "Afficher la solution de l'exercice"
-msgstr "Show the Exercise Solution"
-
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:448
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:452
 msgid "Modifications du fichier ``view_simple_bot.launch.py``:"
 msgstr "Modifications to the ``view_simple_bot.launch.py`` File:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:450
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:454
 msgid ""
 "Modification du fichier view_simple_bot.launch.py pour qu'il accepte un "
 "argument urdf qui permet de choisir le fichier xacro à afficher dans "
@@ -836,11 +828,11 @@ msgstr ""
 "Modification of the view_simple_bot.launch.py file to accept a urdf "
 "argument that allows selecting the xacro file to display in rviz2"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:456
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:460
 msgid "Modifications du fichier ``simple_bot.urdf.xacro``:"
 msgstr "Modifications to the ``simple_bot.urdf.xacro`` File:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:458
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:462
 msgid ""
 "Modification du fichier simple_bot.urdf.xacro pour qu'il accepte un "
 "argument urdf qui permet de choisir le fichier xacro à afficher dans "
@@ -849,11 +841,11 @@ msgstr ""
 "Modification of the simple_bot.urdf.xacro file to accept a urdf argument "
 "that allows selecting the xacro file to display in rviz2"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:466
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:470
 msgid "La balise **joint**"
 msgstr "The **joint** Tag"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:468
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:472
 msgid ""
 "La balise **joint** est utilisée pour décrire une articulation entre deux"
 " segments du robot. La description complète de cette balise est "
@@ -864,7 +856,7 @@ msgstr ""
 " robot. The complete description of this tag is available in the `joint "
 "tag specification <http://wiki.ros.org/urdf/XML/joint>`_."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:476
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:480
 msgid ""
 "Balise ``joint`` de type ``revolute`` avec les éléments  **origin**, "
 "**parent**, **child**, **axis** et **limit**"
@@ -872,7 +864,7 @@ msgstr ""
 "``joint`` tag of type ``revolute`` with the elements **origin**, "
 "**parent**, **child**, **axis**, and **limit**"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:481
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:485
 msgid ""
 "Balise ``joint`` de type ``floating`` avec les éléments  **origin**, "
 "**parent**, **child**, **limit**, **dynamics**, **calibration**, "
@@ -882,11 +874,11 @@ msgstr ""
 "**parent**, **child**, **limit**, **dynamics**, **calibration**, "
 "**safety_controller**, and **mimic**"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:494
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:498
 msgid "Élément ``joint`` d'un fichier URDF"
 msgstr "``joint`` Element in a URDF File"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:496
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:500
 msgid ""
 "L'attribut **type** de la balise **joint** permet de définir le type de "
 "l'articulation (revolute, prismatic, continuous, fixed, floating ou "
@@ -896,15 +888,15 @@ msgstr ""
 "the joint (revolute, prismatic, continuous, fixed, floating, or planar). "
 "|br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:498
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:502
 msgid "**revolute**: articulation de type pivot d'axe avec des butées."
 msgstr "**revolute**: a joint of type revolute with limits."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:499
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:503
 msgid "**prismatic**: articulation de type glissière."
 msgstr "**prismatic**: a joint of type prismatic."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:500
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:504
 msgid ""
 "**continuous**: articulation de type pivot d'axe avec une rotation "
 "continue (comme pour une roue)."
@@ -912,15 +904,15 @@ msgstr ""
 "**continuous**: a joint of type continuous with unlimited rotation (like "
 "a wheel)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:501
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:505
 msgid "**fixed**: articulation de type encastrement (fixe)."
 msgstr "**fixed**: a joint of type fixed (no movement)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:502
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:506
 msgid "**floating**: articulation de type flottante (6 degrés de liberté)."
 msgstr "**floating**: a joint of type floating (6 degrees of freedom)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:503
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:507
 msgid ""
 "**planar**: articulation de type appui plan (2 degrés de liberté en "
 "translation et 1 degré de liberté en rotation)."
@@ -928,11 +920,11 @@ msgstr ""
 "**planar**: a joint of type planar (2 degrees of freedom in translation "
 "and 1 degree of freedom in rotation)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:505
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:509
 msgid "Les éléments de la balise **joint** que nous utiliserons le plus, sont:"
 msgstr "The elements of the **joint** tag that we will use the most are:"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:507
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:511
 msgid ""
 "**origin**: qui définit la position et l'orientation du repère de "
 "l'articulation par rapport au repère du parent."
@@ -940,15 +932,15 @@ msgstr ""
 "**origin**: which defines the position and orientation of the joint's "
 "frame relative to the parent's frame."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:508
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:512
 msgid "**parent**: qui définit le nom du segment parent."
 msgstr "**parent**: which defines the name of the parent segment."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:509
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:513
 msgid "**child**: qui définit le nom du segment enfant."
 msgstr "**child**: which defines the name of the child segment."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:510
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:514
 msgid ""
 "**type**: qui définit le type de l'articulation (``revolute``, "
 "``prismatic``, ``continuous``, ``fixed``, ``floating`` ou ``planar``)."
@@ -956,7 +948,7 @@ msgstr ""
 "**type**: which defines the type of the joint (``revolute``, "
 "``prismatic``, ``continuous``, ``fixed``, ``floating``, or ``planar``)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:511
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:515
 msgid ""
 "**axis**: qui définit l'axe de rotation ou de translation de "
 "l'articulation utilisée uniquement pour toutes les articulations exceptée"
@@ -975,7 +967,7 @@ msgstr ""
 "``prismatic`` joints, and the normal of the support plane for ``planar`` "
 "joints."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:512
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:516
 msgid ""
 "**limit**: qui définit les limites de l'articulation, nécessaire que pour"
 " les articulations de type ``revolute`` ou ``prismatic``. Les limites "
@@ -1002,7 +994,7 @@ msgstr ""
 "of the joint (in radians per second for ``revolute`` and ``continuous`` "
 "joints and in meters per second for ``prismatic`` joints)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:514
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:518
 msgid ""
 "Dans le tag **origin** du tag **joint**, la position et l'orientation du "
 "repère de l'articulation par rapport au repère du parent sont définis par"
@@ -1018,7 +1010,7 @@ msgstr ""
 "visible through a yellow arrow pointing from the child frame to the "
 "parent frame.  |br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:523
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:527
 msgid ""
 "Ajout d'une translation pour le repère de l'articulation par rapport au "
 "repère du parent (attribut **xyz** de la balise **origin** du tag "
@@ -1028,7 +1020,7 @@ msgstr ""
 " (using the **xyz** attribute of the **origin** tag in the **joint** "
 "tag)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:536
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:540
 msgid ""
 "Affichage d'une articulation avec RVIZ correspondant à la description "
 "URDF sur la gauche. Le lien est modélisé par la flèche jaune de "
@@ -1038,7 +1030,7 @@ msgstr ""
 "left. The link is represented by a yellow arrow from ``base_link`` to "
 "``world`` (with the ``Show Arrows`` option checked)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:538
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:542
 msgid ""
 "Le changement de repère introduit par le tag **origin** de la balise "
 "**joint** s'effectue avant la transofrmation du segment (balise "
@@ -1053,7 +1045,7 @@ msgstr ""
 "rotates around the origin of the parent frame and is then translated). "
 "The rotation and translation are expressed in the parent's frame.  |br|"
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:545
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:549
 msgid ""
 "Ajout d'une rotation pour le repère de l'articulation par rapport au "
 "repère du parent (attribut **rpy** du tag **origin** du tag **joint**)."
@@ -1061,7 +1053,7 @@ msgstr ""
 "Adding a rotation for the joint's frame relative to the parent's frame "
 "(using the **rpy** attribute of the **origin** tag in the **joint** tag)."
 
-#: ../../source/c01_robot_modeling/c01s03_urdf.rst:558
+#: ../../source/c01_robot_modeling/c01s03_urdf.rst:562
 msgid ""
 "Rotation du repère de l'articulation en plus de la translation. Notez que"
 " la rotation est effectuée avant la translation (si cela avait été "
@@ -1071,4 +1063,10 @@ msgstr ""
 "Rotation of the joint's frame in addition to translation. Note that "
 "rotation is performed before translation (if it were the opposite, the "
 "yellow arrow would align with the green axis of the ``world`` frame)."
+
+#~ msgid "Exercice xacro / launch file"
+#~ msgstr "Xacro / Launch File Exercise"
+
+#~ msgid "Afficher la solution de l'exercice"
+#~ msgstr "Show the Exercise Solution"
 

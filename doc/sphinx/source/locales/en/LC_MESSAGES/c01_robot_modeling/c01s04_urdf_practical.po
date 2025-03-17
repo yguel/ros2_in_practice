@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-03-13 15:28+0100\n"
+"POT-Creation-Date: 2025-03-17 17:00+0100\n"
 "PO-Revision-Date: 2025-03-13 14:29+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: English <http://localhost/projects/cours_ros2/"
-"c01_robot_modelingc01s04_urdf_practical/en/>\n"
 "Language: en\n"
+"Language-Team: English "
+"<http://localhost/projects/cours_ros2/c01_robot_modelingc01s04_urdf_practical/en/>"
+"\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:3
@@ -69,98 +69,94 @@ msgstr ""
 msgid ":download:`cq_utils.py <resources/3d/scanbot/cadquery/cq_utils.py>`."
 msgstr ""
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:24
-msgid "Exercice (avancé, utilisation de cadquery)"
-msgstr ""
-
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:26
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:28
 msgid "Installez cq-editor, puis exécutez le programme scanbot.py"
 msgstr ""
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:32
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:34
 msgid ""
 "en remplaçant <path_to> par le chemin absolu du fichier scanbot.py "
 "(n'oubliez pas de mettre dans le même répertoire le fichier cq_utils.py)."
 msgstr ""
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:34
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:36
 #, fuzzy
 msgid "Cela va créer les maillages des segments du scanbot."
 msgstr "The meshes of the Scanbot segments in STEP format are as follows:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:37
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:39
 msgid "Format step"
 msgstr "STEP Format"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:39
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:41
 msgid "Les maillages des segments du scanbot au format step sont les suivants:"
 msgstr "The meshes of the Scanbot segments in STEP format are as follows:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:41
-msgid ""
-":download:`scanbot_s00_base_link.step "
-"<resources/3d/scanbot/scanbot_s00_base_link.step>`,"
-msgstr ""
-":download:`scanbot_s00_base_link.step "
-"<resources/3d/scanbot/scanbot_s00_base_link.step>`,"
-
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:42
-msgid ""
-":download:`scanbot_s01_gauntry_link.step "
-"<resources/3d/scanbot/scanbot_s01_gauntry_link.step>`,"
-msgstr ""
-":download:`scanbot_s01_gauntry_link.step "
-"<resources/3d/scanbot/scanbot_s01_gauntry_link.step>`,"
-
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:43
 msgid ""
-":download:`scanbot_s02_x_cyl_link.step "
-"<resources/3d/scanbot/scanbot_s02_x_cyl_link.step>`,"
+":download:`scanbot_s00_base_link.step "
+"<resources/3d/scanbot/scanbot_s00_base_link.step>`,"
 msgstr ""
-":download:`scanbot_s02_x_cyl_link.step "
-"<resources/3d/scanbot/scanbot_s02_x_cyl_link.step>`,"
+":download:`scanbot_s00_base_link.step "
+"<resources/3d/scanbot/scanbot_s00_base_link.step>`,"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:44
 msgid ""
-":download:`scanbot_s03_z_leg_link.step "
-"<resources/3d/scanbot/scanbot_s03_z_leg_link.step>`,"
+":download:`scanbot_s01_gauntry_link.step "
+"<resources/3d/scanbot/scanbot_s01_gauntry_link.step>`,"
 msgstr ""
-":download:`scanbot_s03_z_leg_link.step "
-"<resources/3d/scanbot/scanbot_s03_z_leg_link.step>`,"
+":download:`scanbot_s01_gauntry_link.step "
+"<resources/3d/scanbot/scanbot_s01_gauntry_link.step>`,"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:45
 msgid ""
-":download:`scanbot_s05_ankle_link.step "
-"<resources/3d/scanbot/scanbot_s05_ankle_link.step>`,"
+":download:`scanbot_s02_x_cyl_link.step "
+"<resources/3d/scanbot/scanbot_s02_x_cyl_link.step>`,"
 msgstr ""
-":download:`scanbot_s05_ankle_link.step "
-"<resources/3d/scanbot/scanbot_s05_ankle_link.step>`,"
+":download:`scanbot_s02_x_cyl_link.step "
+"<resources/3d/scanbot/scanbot_s02_x_cyl_link.step>`,"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:46
 msgid ""
-":download:`scanbot_s06_y_cyl_link.step "
-"<resources/3d/scanbot/scanbot_s06_y_cyl_link.step>`,"
+":download:`scanbot_s03_z_leg_link.step "
+"<resources/3d/scanbot/scanbot_s03_z_leg_link.step>`,"
 msgstr ""
-":download:`scanbot_s06_y_cyl_link.step "
-"<resources/3d/scanbot/scanbot_s06_y_cyl_link.step>`,"
+":download:`scanbot_s03_z_leg_link.step "
+"<resources/3d/scanbot/scanbot_s03_z_leg_link.step>`,"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:47
 msgid ""
-":download:`scanbot_s07_toe_link.step "
-"<resources/3d/scanbot/scanbot_s07_toe_link.step>`,"
+":download:`scanbot_s05_ankle_link.step "
+"<resources/3d/scanbot/scanbot_s05_ankle_link.step>`,"
 msgstr ""
-":download:`scanbot_s07_toe_link.step "
-"<resources/3d/scanbot/scanbot_s07_toe_link.step>`,"
+":download:`scanbot_s05_ankle_link.step "
+"<resources/3d/scanbot/scanbot_s05_ankle_link.step>`,"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:48
 msgid ""
+":download:`scanbot_s06_y_cyl_link.step "
+"<resources/3d/scanbot/scanbot_s06_y_cyl_link.step>`,"
+msgstr ""
+":download:`scanbot_s06_y_cyl_link.step "
+"<resources/3d/scanbot/scanbot_s06_y_cyl_link.step>`,"
+
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:49
+msgid ""
+":download:`scanbot_s07_toe_link.step "
+"<resources/3d/scanbot/scanbot_s07_toe_link.step>`,"
+msgstr ""
+":download:`scanbot_s07_toe_link.step "
+"<resources/3d/scanbot/scanbot_s07_toe_link.step>`,"
+
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:50
+msgid ""
 ":download:`scanbot_s08_z_cyl_link.step "
 "<resources/3d/scanbot/scanbot_s08_z_cyl_link.step>`,"
 msgstr ""
 ":download:`scanbot_s08_z_cyl_link.step "
 "<resources/3d/scanbot/scanbot_s08_z_cyl_link.step>`,"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:49
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:51
 msgid ""
 ":download:`scanbot_s09_camera_link.step "
 "<resources/3d/scanbot/scanbot_s09_camera_link.step>`"
@@ -168,12 +164,7 @@ msgstr ""
 ":download:`scanbot_s09_camera_link.step "
 "<resources/3d/scanbot/scanbot_s09_camera_link.step>`"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:51
-#, fuzzy
-msgid "Exercice pratique"
-msgstr "Exercise"
-
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:53
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:57
 msgid ""
 "À partir des maillages ci-dessus au format step, utilisez un logiciel de "
 "CAO pour les convertir au format collada (.dae). Indice: Utilisez le "
@@ -182,79 +173,79 @@ msgstr ""
 "Using the above meshes in STEP format, use a CAD software to convert them"
 " to Collada (.dae) format. Hint: Use FreeCAD."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:61
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:65
 msgid "Format collada (.dae)"
 msgstr "Collada Format (.dae)"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:63
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:67
 msgid "Les maillages des segments du scanbot au format collada sont les suivants:"
 msgstr "The meshes of the Scanbot segments in Collada format are as follows:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:65
-msgid ""
-":download:`scanbot_s00_base_link.dae "
-"<resources/3d/scanbot/scanbot_s00_base_link.dae>`,"
-msgstr ""
-":download:`scanbot_s00_base_link.dae "
-"<resources/3d/scanbot/scanbot_s00_base_link.dae>`,"
-
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:66
-msgid ""
-":download:`scanbot_s01_gauntry_link.dae "
-"<resources/3d/scanbot/scanbot_s01_gauntry_link.dae>`,"
-msgstr ""
-":download:`scanbot_s01_gauntry_link.dae "
-"<resources/3d/scanbot/scanbot_s01_gauntry_link.dae>`,"
-
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:67
-msgid ""
-":download:`scanbot_s02_x_cyl_link.dae "
-"<resources/3d/scanbot/scanbot_s02_x_cyl_link.dae>`,"
-msgstr ""
-":download:`scanbot_s02_x_cyl_link.dae "
-"<resources/3d/scanbot/scanbot_s02_x_cyl_link.dae>`,"
-
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:68
-msgid ""
-":download:`scanbot_s03_z_leg_link.dae "
-"<resources/3d/scanbot/scanbot_s03_z_leg_link.dae>`,"
-msgstr ""
-":download:`scanbot_s03_z_leg_link.dae "
-"<resources/3d/scanbot/scanbot_s03_z_leg_link.dae>`,"
-
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:69
 msgid ""
-":download:`scanbot_s05_ankle_link.dae "
-"<resources/3d/scanbot/scanbot_s05_ankle_link.dae>`,"
+":download:`scanbot_s00_base_link.dae "
+"<resources/3d/scanbot/scanbot_s00_base_link.dae>`,"
 msgstr ""
-":download:`scanbot_s05_ankle_link.dae "
-"<resources/3d/scanbot/scanbot_s05_ankle_link.dae>`,"
+":download:`scanbot_s00_base_link.dae "
+"<resources/3d/scanbot/scanbot_s00_base_link.dae>`,"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:70
 msgid ""
-":download:`scanbot_s06_y_cyl_link.dae "
-"<resources/3d/scanbot/scanbot_s06_y_cyl_link.dae>`,"
+":download:`scanbot_s01_gauntry_link.dae "
+"<resources/3d/scanbot/scanbot_s01_gauntry_link.dae>`,"
 msgstr ""
-":download:`scanbot_s06_y_cyl_link.dae "
-"<resources/3d/scanbot/scanbot_s06_y_cyl_link.dae>`,"
+":download:`scanbot_s01_gauntry_link.dae "
+"<resources/3d/scanbot/scanbot_s01_gauntry_link.dae>`,"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:71
 msgid ""
-":download:`scanbot_s07_toe_link.dae "
-"<resources/3d/scanbot/scanbot_s07_toe_link.dae>`,"
+":download:`scanbot_s02_x_cyl_link.dae "
+"<resources/3d/scanbot/scanbot_s02_x_cyl_link.dae>`,"
 msgstr ""
-":download:`scanbot_s07_toe_link.dae "
-"<resources/3d/scanbot/scanbot_s07_toe_link.dae>`,"
+":download:`scanbot_s02_x_cyl_link.dae "
+"<resources/3d/scanbot/scanbot_s02_x_cyl_link.dae>`,"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:72
 msgid ""
+":download:`scanbot_s03_z_leg_link.dae "
+"<resources/3d/scanbot/scanbot_s03_z_leg_link.dae>`,"
+msgstr ""
+":download:`scanbot_s03_z_leg_link.dae "
+"<resources/3d/scanbot/scanbot_s03_z_leg_link.dae>`,"
+
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:73
+msgid ""
+":download:`scanbot_s05_ankle_link.dae "
+"<resources/3d/scanbot/scanbot_s05_ankle_link.dae>`,"
+msgstr ""
+":download:`scanbot_s05_ankle_link.dae "
+"<resources/3d/scanbot/scanbot_s05_ankle_link.dae>`,"
+
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:74
+msgid ""
+":download:`scanbot_s06_y_cyl_link.dae "
+"<resources/3d/scanbot/scanbot_s06_y_cyl_link.dae>`,"
+msgstr ""
+":download:`scanbot_s06_y_cyl_link.dae "
+"<resources/3d/scanbot/scanbot_s06_y_cyl_link.dae>`,"
+
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:75
+msgid ""
+":download:`scanbot_s07_toe_link.dae "
+"<resources/3d/scanbot/scanbot_s07_toe_link.dae>`,"
+msgstr ""
+":download:`scanbot_s07_toe_link.dae "
+"<resources/3d/scanbot/scanbot_s07_toe_link.dae>`,"
+
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:76
+msgid ""
 ":download:`scanbot_s08_z_cyl_link.dae "
 "<resources/3d/scanbot/scanbot_s08_z_cyl_link.dae>`,"
 msgstr ""
 ":download:`scanbot_s08_z_cyl_link.dae "
 "<resources/3d/scanbot/scanbot_s08_z_cyl_link.dae>`,"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:73
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:77
 msgid ""
 ":download:`scanbot_s09_camera_link.dae "
 "<resources/3d/scanbot/scanbot_s09_camera_link.dae>`"
@@ -262,11 +253,11 @@ msgstr ""
 ":download:`scanbot_s09_camera_link.dae "
 "<resources/3d/scanbot/scanbot_s09_camera_link.dae>`"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:78
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:82
 msgid "Produire un URDF"
 msgstr "Producing an URDF"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:80
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:84
 msgid ""
 "Nous allons décrire ce robot en URDF. |br| Pour cela nous allons utiliser"
 " l'outil de visualisation de modèles URDF fourni par ROS2: **rviz2**. "
@@ -285,7 +276,7 @@ msgstr ""
 "need the **view_robot_template** template, which is a ROS2 package "
 "template dedicated to robot visualization using rviz2. |br|"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:86
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:90
 msgid ""
 "template2instance est un outil python utilisant le gestionnaire de "
 "dépendances **poetry** qui s'utilise de la manière suivante:"
@@ -293,11 +284,11 @@ msgstr ""
 "template2instance is a Python tool using the **poetry** dependency "
 "manager, which is used as follows:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:93
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:97
 msgid "Caméra et 3 degrées de liberté en rotation"
 msgstr "Camera and 3 Degrees of Freedom in Rotation"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:95
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:99
 msgid ""
 "Commençons simplement par décrire la caméra et les 3 degrées de liberté "
 "en rotation. |br| Pour cela, créons un package ROS2 nommé "
@@ -309,7 +300,7 @@ msgstr ""
 "**scanbot_cam_description** from the **view_robot_template** template. "
 "|br|"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:98
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:102
 msgid ""
 "C'est une bonne pratique de mettre les fichiers URDF dans un package ROS2"
 " dédié à la description du robot et appelé my_robot_name_**description**."
@@ -318,17 +309,17 @@ msgstr ""
 "It is good practice to place URDF files in a ROS2 package dedicated to "
 "the robot's description, named my_robot_name_**description**. |br|"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:100
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:104
 msgid ""
 "Pour cela copier/éditer pour adapter à votre cas le fichier de "
 "configuration suivant:"
 msgstr "For this, copy/edit the following configuration file to suit your case:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:102
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:106
 msgid "Configuration pour la génération du package scanbot_cam_description"
 msgstr "Configuration for Generating the scanbot_cam_description Package"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:106
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:110
 msgid ""
 "On suppose que vous avez installé poetry et que template2instance est "
 "installé dans :code:`~/system/template2instance`. |br| Copiez le fichier "
@@ -342,19 +333,19 @@ msgstr ""
 ":code:`~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json`."
 " |br|"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:109
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:113
 msgid "Puis exécuter la commande suivante:"
 msgstr "Then execute the following command:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:116
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:120
 msgid "Compiler le package:"
 msgstr "Compile the package:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:124
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:128
 msgid "Testez le package:"
 msgstr "Test the package:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:135
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:139
 msgid ""
 "Le robot par défaut à l'initialisation d'un package de visualisation à "
 "partir du template view_robot_template."
@@ -362,7 +353,7 @@ msgstr ""
 "The default robot when initializing a visualization package from the "
 "view_robot_template template."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:137
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:141
 msgid ""
 "Nous pouvons maintenant éditer le fichier URDF/xacro "
 "(``urdf/scanbot_camera/scanbot_camera_macro.xacro``) pour décrire la "
@@ -371,16 +362,15 @@ msgid ""
 "défaut. |br|"
 msgstr ""
 "We can now edit the URDF/xacro file "
-"(``urdf/scanbot_camera/scanbot_camera_macro.xacro``) to describe the camera"
-" and the 3 degrees of freedom in rotation. |br| We will start by removing "
-"all the elements used to describe the default robot. |br|"
+"(``urdf/scanbot_camera/scanbot_camera_macro.xacro``) to describe the "
+"camera and the 3 degrees of freedom in rotation. |br| We will start by "
+"removing all the elements used to describe the default robot. |br|"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:145
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:149
 msgid "scanbot_camera_macro.xacro avec un seul élément"
-msgstr ""
-"scanbot_camera_macro.xacro with a single element"
+msgstr "scanbot_camera_macro.xacro with a single element"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:157
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:161
 msgid ""
 "Le premier segment de la partie caméra du scanbot. Le repère est placé au"
 " centre de la face arrière circulaire du cylindre."
@@ -388,7 +378,7 @@ msgstr ""
 "The first segment of the camera part of the scanbot. The frame is placed "
 "in the center of the circular rear face of the cylinder."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:159
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:163
 msgid ""
 "L'élément nouveau utilisé dans l'URDF est la balise ``<mesh>`` qui permet"
 " de charger un maillage au format collada. Nous avons utilisé le maillage"
@@ -409,33 +399,23 @@ msgstr ""
 "``scanbot_s02_x_cyl_link.dae``. The ``filename`` attribute allows you to "
 "specify the path to the Collada file, which is provided relative to the "
 "ROS2 package, which is why the provided path starts with ``package://`` "
-"followed by the package name (``scanbot_cam_description``) and the path in "
-"this package: "
+"followed by the package name (``scanbot_cam_description``) and the path "
+"in this package: "
 "``package://scanbot_cam_description/meshes/scanbot_s02_x_cyl_link.dae``. "
 "|br| We also specified the scale of the mesh. ROS2 uses the meter as the "
-"base unit. Our mesh is already in meters, so we don't actually need to use"
-" the ``scale`` attribute, for pedagogical reasons, we specified it. That is why "
-"the scale on each axis is at ``1.`` . |br|"
+"base unit. Our mesh is already in meters, so we don't actually need to "
+"use the ``scale`` attribute, for pedagogical reasons, we specified it. "
+"That is why the scale on each axis is at ``1.`` . |br|"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:164
-msgid "Exercice debug (avancé)"
-msgstr ""
-"Debug Exercise (Advanced)"
-
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:166
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:170
 msgid ""
 "Dans cet exercice, nous allons volontairement faire bugger ROS2 pour "
 "apprendre à debugger des problèmes courants. |br|"
 msgstr ""
-"In that exercise, we will volontarily create a bug with ROS2 "
-"to learn how to debug common problems. |br|"
+"In that exercise, we will volontarily create a bug with ROS2 to learn how"
+" to debug common problems. |br|"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst
-msgid "Afficher l'énoncé de l'exercice"
-msgstr ""
-"Display the exercise"
-
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:170
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:172
 msgid ""
 "Comme dans l' :ref:`exercice sur la paramétrisation des fichiers de "
 "launch<exercice_xacro_launch_parameterized_urdf>` modifiez les fichiers:"
@@ -443,24 +423,23 @@ msgstr ""
 "As in the :ref:`exercise on parameterizing launch "
 "files<exercice_xacro_launch_parameterized_urdf>`, modify the files:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:172
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:174
 msgid "``launch/view_scanbot_camera.launch.py`` de launch"
-msgstr ""
-"the launch file in python: ``launch/view_scanbot_camera.launch.py``"
-
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:173
-msgid "``urdf/scanbot_camera.urdf.xacro`` de chargement de l'urdf"
-msgstr ""
-"the xacro file to load the URDF description: ``urdf/scanbot_camera.urdf.xacro``"
+msgstr "the launch file in python: ``launch/view_scanbot_camera.launch.py``"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:175
+msgid "``urdf/scanbot_camera.urdf.xacro`` de chargement de l'urdf"
+msgstr ""
+"the xacro file to load the URDF description: "
+"``urdf/scanbot_camera.urdf.xacro``"
+
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:177
 msgid ""
 "pour pouvoir visualiser différentes configuration de robot avec une "
 "commande du type:"
-msgstr ""
-"to visualize different robot configurations with a command like:"
+msgstr "to visualize different robot configurations with a command like:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:181
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:183
 msgid ""
 "Téléchargez les fichiers suivants dans le répertoire "
 "``urdf/scanbot_camera`` du package ``view_scanbot_camera``:"
@@ -468,7 +447,7 @@ msgstr ""
 "Download the following files to the ``urdf/scanbot_camera`` directory of "
 "the ``view_scanbot_camera`` package:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:183
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:185
 msgid ""
 ":download:`scanbot_camera_macro_666_maze.xacro "
 "<resources/urdf/scanbot_camera_macro_666_maze.xacro>`,"
@@ -476,20 +455,19 @@ msgstr ""
 ":download:`scanbot_s09_camera_link.dae "
 "<resources/3d/scanbot/scanbot_s09_camera_link.dae>`"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:184
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:186
 msgid ""
 ":download:`scanbot_camera_macro_01.xacro "
 "<resources/urdf/scanbot_camera_macro_01.xacro>`."
 msgstr ""
-":download:`scanbot_s09_camera_link.dae <resources/3d/scanbot/"
-"scanbot_s09_camera_link.dae>`"
-
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:186
-msgid "Réalisez maintenant la séquence d'opérations suivantes:"
-msgstr ""
-"Perform the following sequence of operations now:"
+":download:`scanbot_s09_camera_link.dae "
+"<resources/3d/scanbot/scanbot_s09_camera_link.dae>`"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:188
+msgid "Réalisez maintenant la séquence d'opérations suivantes:"
+msgstr "Perform the following sequence of operations now:"
+
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:190
 msgid ""
 "Exécutez la commande précédente dans un terminal, au niveau du workspace "
 "contenant le package ``view_scanbot_camera`` et après avoir sourcé le "
@@ -499,7 +477,7 @@ msgstr ""
 "containing the package ``view_scanbot_camera`` and after sourcing the "
 "workspace (:code:`ros2_humble_src`)."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:189
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:191
 msgid ""
 "Observez toutes les parties du scanbot empilées les unes sur les autres "
 "(les transformations ne sont pas correctes)."
@@ -507,7 +485,7 @@ msgstr ""
 "Observe all parts of the scanbot stacked on top of each other (the "
 "transformations are incorrect)."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:190
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:192
 msgid ""
 "Dans un autre terminal, toujours dans le même workspace (et après avoir "
 "sourcé le workspace), exécutez maintenant la commande:"
@@ -515,7 +493,7 @@ msgstr ""
 "In another terminal, still in the same workspace (and after sourcing the "
 "workspace), now execute the command:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:196
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:198
 msgid ""
 "Vous devriez observer une deuxième fenêtre rviz s'ouvrir et le segment "
 "cheville (``ankle_link``) osciller en position comme dans les images ci-"
@@ -524,12 +502,11 @@ msgstr ""
 "You should see a second rviz window open and the ankle segment "
 "(``ankle_link``) oscillate in position as in the images below:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:208
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:210
 msgid "Le segment cheville (``ankle_link``) oscille en position."
-msgstr ""
-"The ankle segment (``ankle_link``) oscillates in position."
+msgstr "The ankle segment (``ankle_link``) oscillates in position."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:217
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:219
 msgid ""
 "En affichant la position du segment cheville (``ankle_link``) on observe "
 "bien que la position x oscille."
@@ -537,7 +514,7 @@ msgstr ""
 "By displaying the position of the ankle segment (``ankle_link``), we can "
 "see that the x position oscillates."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:220
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:222
 msgid ""
 "(si vous ne l'observez pas, vérifiez que dans le premier terminal, le "
 "processus est toujours fonctionnel et sinon relancez-le.)"
@@ -545,17 +522,11 @@ msgstr ""
 "(if you don't see it, check that in the first terminal, the process is "
 "still functional and if not, restart it.)"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:222
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:224
 msgid "Que se passe-t-il et comment pouvez-vous le diagnostiquer ? |br|"
-msgstr ""
-"What is happening and how can you diagnose it? |br|"
+msgstr "What is happening and how can you diagnose it? |br|"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst
-msgid "Afficher la solution de l'exercice"
-msgstr ""
-"Display the solution to the exercise"
-
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:226
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:230
 msgid ""
 "Il semble donc que la position du segment cheville (``ankle_link``) soit "
 "reçue de manière contradictoire. |br| Il faut savoir que c'est le nœud "
@@ -563,16 +534,15 @@ msgid ""
 "transformations des segments du robot. |br| Si vous effectuez la commande"
 msgstr ""
 "It seems that the position of the ankle segment (``ankle_link``) is "
-"received in a contradictory manner. |br| It should be noted that it is the"
-" ``robot_state_publisher`` node that is responsible for publishing the "
-"transformations of the robot's segments. |br| If you execute the command"
+"received in a contradictory manner. |br| It should be noted that it is "
+"the ``robot_state_publisher`` node that is responsible for publishing the"
+" transformations of the robot's segments. |br| If you execute the command"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:234
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:238
 msgid "vous allez voir un résultat de ce type:"
-msgstr ""
-"you will see a result like this:"
+msgstr "you will see a result like this:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:247
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:251
 msgid ""
 "ros2 nous prévient, il y a plusieurs nœuds avec exactement le même nom: "
 "ici les nœuds ``joint_state_publisher`` et ``robot_state_publisher`` sont"
@@ -595,44 +565,58 @@ msgid ""
 " la commande:"
 msgstr ""
 "ros2 warns us that there are several nodes with exactly the same name: "
-"here the nodes ``joint_state_publisher`` and ``robot_state_publisher`` are"
-" duplicated. |br| However, nothing is seen when examining the list of "
+"here the nodes ``joint_state_publisher`` and ``robot_state_publisher`` "
+"are duplicated. |br| However, nothing is seen when examining the list of "
 "topics because each node has published on the same topic: "
 "``robot_description``. Indeed, several nodes can publish on the same "
 "topic. Caution: when a publisher declares itself, a new topic is not "
 "automatically created. |br| As we did not kill the first process that "
-"displayed the urdf ``scanbot_camera_macro_666_maze.xacro`` before starting"
-" the second process that displayed the urdf "
+"displayed the urdf ``scanbot_camera_macro_666_maze.xacro`` before "
+"starting the second process that displayed the urdf "
 "``scanbot_camera_macro_01.xacro``, the 2 nodes ``robot_state_publisher`` "
-"publish at the same time on the same topic ``robot_description``, but with"
-" contradictory descriptions (if you look at the ``<joint>`` tags that "
-"define the position of the ``ankle_link`` segment, you will indeed see "
+"publish at the same time on the same topic ``robot_description``, but "
+"with contradictory descriptions (if you look at the ``<joint>`` tags that"
+" define the position of the ``ankle_link`` segment, you will indeed see "
 "this difference in position (20cm). |br| It is therefore sufficient to "
 "kill the first process to stop the problem. |br| Note that sometimes, if "
 "you press CTRL-C several times, the process does not stop correctly and "
 "you can have a problem of this type. At that time, you have to find the "
 "responsible process with the command:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:259
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:263
 msgid "puis tuer le processus avec la commande:"
-msgstr ""
-"then kill the process with the command:"
+msgstr "then kill the process with the command:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:265
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:269
 msgid ""
 "NOTEZ-BIEN: quand vous tuez un processus ROS2 avec CTRL-C dans un "
 "terminal, ne tapez bien qu'une seule fois sur CTRL-C et attendez que le "
 "processus s'arrête. Cela vous évitera des problèmes de ce type."
 msgstr ""
-"NOTE: when you kill a ROS2 process with CTRL-C in a terminal, press CTRL-C"
-" only once and wait for the process to stop. This will prevent problems of"
-" this type."
+"NOTE: when you kill a ROS2 process with CTRL-C in a terminal, press "
+"CTRL-C only once and wait for the process to stop. This will prevent "
+"problems of this type."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:267
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:271
 msgid ""
 "Nous allons maintenant ajouter les éléments de la caméra et des 2 autres "
 "degrées de liberté en rotation. |br|"
 msgstr ""
 "We will now add the elements of the camera and the other 2 degrees of "
 "freedom in rotation. |br|"
+
+#~ msgid "Exercice (avancé, utilisation de cadquery)"
+#~ msgstr ""
+
+#~ msgid "Exercice pratique"
+#~ msgstr "Exercise"
+
+#~ msgid "Exercice debug (avancé)"
+#~ msgstr "Debug Exercise (Advanced)"
+
+#~ msgid "Afficher l'énoncé de l'exercice"
+#~ msgstr "Display the exercise"
+
+#~ msgid "Afficher la solution de l'exercice"
+#~ msgstr "Display the solution to the exercise"
 
