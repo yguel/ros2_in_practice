@@ -51,7 +51,7 @@ msgstr ""
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:17
 msgid "Maillages des segments"
-msgstr "Segment Meshes"
+msgstr "Links meshes"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:19
 msgid ""
