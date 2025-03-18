@@ -132,32 +132,27 @@ html_context = {
   'logo_path' : {
       "en": "locales/en/logo.en.svg",
       "fr": "logo.svg"
-    },
-  "toggle_button_texts": {
-        "en": {
-            "toggle_button_hint" : "Click to show",
-            "toggle_button_hint_hide" : ""
-        },
-        "fr": {
-            "toggle_button_hint" : "Cliquer pour afficher",
-            "toggle_button_hint_hide" : ""
-        }
-    },
-  "exercise_texts": {
-        "en": {
-          "exercise_title" : "Exercise",
-          "solution_title" : "Solution to"
-        },
-        "fr": {
-            "exercise_title" : "Exercice",
-            "solution_title" : "Solution de"
-        }  
-  }
+    }
 }
 
 LANG_MAP = {
     'en': 'en',
     'fr': 'fr'
+}
+
+language_map = {
+    'en': {
+        "exercise_title_text" : "Exercise",
+        "solution_title_text" : "Solution to",
+        "togglebutton_hint" : "Click to show",
+        "togglebutton_hint_hide" : ""
+    },
+    'fr': {
+        "exercise_title_text" : "Exercice",
+        "solution_title_text" : "Solution de",
+        "togglebutton_hint" : "Cliquer pour afficher",
+        "togglebutton_hint_hide" : ""    
+    }
 }
 
 base_uri = None
@@ -177,7 +172,10 @@ def on_config_inited(app, config):
     global base_uri
     global version
     global config_params
-    config_params = config
+    global togglebutton_hint
+    global togglebutton_hint_hide
+    global exercise_title_text
+    global solution_title_text
     
     # global project
     print(f"Language set to: {config.language}")
@@ -197,10 +195,9 @@ def on_config_inited(app, config):
         lg = LANG_MAP[config.language]
         config.html_context['current_language'] = config.language
         config.html_context['current_language_code'] = lg
-        config.togglebutton_hint = html_context['toggle_button_texts'][lg]['toggle_button_hint']
-        config.togglebutton_hint_hide = html_context['toggle_button_texts'][lg]['toggle_button_hint_hide']
-        config.exercise_title = html_context['exercise_texts'][lg]['exercise_title']
-        config.solution_title = html_context['exercise_texts'][lg]['solution_title']
+    
+    # Store the configuration parameters for later use
+    config_params = config
         
 def post_process(app, exception):
     global version

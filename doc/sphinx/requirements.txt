@@ -7,4 +7,4 @@ sphinx-design
 sphinxcontrib-bibtex
 sphinx-intl
 git+https://github.com/yguel/sphinx-exercise.git@main#egg=sphinx-exercise
-sphinx-togglebutton
+git+https://github.com/yguel/sphinx-togglebutton.git@master#egg=sphinx-togglebutton
