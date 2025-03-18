@@ -12,7 +12,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b368aa4a" />
 
@@ -26,9 +26,9 @@
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=30646c52"></script>
       <script>let toggleHintShow = 'Click to show';</script>
-      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleHintHide = '';</script>
       <script>let toggleOpenOnPrint = 'true';</script>
-      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../_static/togglebutton.js?v=5194a9fd"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/js/theme.js"></script>
@@ -66,7 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html">Robot Descriptions with ROS2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html">URDF for the Description of Non-Parallel Robots</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">URDF in Practice: The Scanbot</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#maillages-des-segments">Segment Meshes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#maillages-des-segments">Links meshes</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#format-step">STEP Format</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#format-collada-dae">Collada Format (.dae)</a></li>
 </ul>
@@ -119,8 +119,8 @@
 </figure>
 <p>For practice, we will use a simple example robot called Scanbot. It consists of a part with x, y, z translation, a green arm capable of rotating around the x-axis, and a 3-degree-of-freedom rotational system supporting a camera at its end effector (see <a class="reference internal" href="c01s03_urdf.html#fig-slide003-scanbot-kinematic-chain"><span class="std std-numref">Figure 7</span></a>).</p>
 <section id="maillages-des-segments">
-<h2>Segment Meshes<a class="headerlink" href="#maillages-des-segments" title="Link to this heading"></a></h2>
-<p>Pour produire les maillages, nous avons utilisé le logiciel <a class="reference external" href="https://github.com/CadQuery/cadquery">cadquery</a> (très bien <a class="reference external" href="https://cadquery.readthedocs.io/en/latest/">documenté</a>). Cela permet de créer de manière procédural les formes à partir du language python en utilisant les opérations élémentaires de CAO (sketch, extrusion, combinaisons booléennes de forme). <br></p>
+<h2>Links meshes<a class="headerlink" href="#maillages-des-segments" title="Link to this heading"></a></h2>
+<p>To produce the meshes, we used the <a class="reference external" href="https://github.com/CadQuery/cadquery">cadquery software</a> (very well <a class="reference external" href="https://cadquery.readthedocs.io/en/latest/">documented</a>). This allows you to procedurally create shapes from the Python language using the basic CAD operations (sketch, extrusion, boolean combinations of shapes). <br></p>
 <ol class="arabic simple">
 <li><p><a class="reference download internal" download="" href="../_downloads/bed959e78bbaae3c9a6c793b982343e8/scanbot.py"><code class="xref download docutils literal notranslate"><span class="pre">scanbot.py</span></code></a>,</p></li>
 <li><p><a class="reference download internal" download="" href="../_downloads/7690e7cb13d812056baa0c7190613112/cq_utils.py"><code class="xref download docutils literal notranslate"><span class="pre">cq_utils.py</span></code></a>.</p></li>
@@ -129,12 +129,12 @@
 
 <p class="admonition-title"><span class="caption-number">Exercise 2 </span> (génération de maillages des segments du scanbot de manière procédurale avec cadquery. [avancé])</p>
 <section id="exercise-content">
-<p>Installez cq-editor, puis exécutez le programme scanbot.py</p>
+<p>Install cq-editor, then run the scanbot.py program</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">exec</span><span class="p">(</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;&lt;path_to&gt;/scanbot.py&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="p">)</span>
 </pre></div>
 </div>
-<p>en remplaçant &lt;path_to&gt; par le chemin absolu du fichier scanbot.py (n’oubliez pas de mettre dans le même répertoire le fichier cq_utils.py).</p>
-<p>Cela va créer les maillages des segments du scanbot.</p>
+<p>by replacing &lt;path_to&gt; with the absolute path of the scanbot.py file (don’t forget to put the cq_utils.py file in the same directory).</p>
+<p>This will create the meshes of the Scanbot links.</p>
 </section>
 </div>
 <section id="format-step">
@@ -316,8 +316,8 @@ ros2_build
 </div>
 <p>Download the following files to the <code class="docutils literal notranslate"><span class="pre">urdf/scanbot_camera</span></code> directory of the <code class="docutils literal notranslate"><span class="pre">view_scanbot_camera</span></code> package:</p>
 <ol class="arabic simple">
-<li><p><a class="reference download internal" download="" href="../_downloads/b9da3e75864adc526db91cf52b236761/scanbot_s09_camera_link.dae"><code class="xref download docutils literal notranslate"><span class="pre">scanbot_s09_camera_link.dae</span></code></a></p></li>
-<li><p><a class="reference download internal" download="" href="../_downloads/b9da3e75864adc526db91cf52b236761/scanbot_s09_camera_link.dae"><code class="xref download docutils literal notranslate"><span class="pre">scanbot_s09_camera_link.dae</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/afb123bf0e241a8dadbfe0994b1cb62d/scanbot_camera_macro_666_maze.xacro"><code class="xref download docutils literal notranslate"><span class="pre">scanbot_camera_macro_666_maze.xacro</span></code></a>,</p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/6c6427ae4cf9106c88b5599a652e5545/scanbot_camera_macro_01.xacro"><code class="xref download docutils literal notranslate"><span class="pre">scanbot_camera_macro_01.xacro</span></code></a>.</p></li>
 </ol>
 <p>Perform the following sequence of operations now:</p>
 <ol class="arabic simple">

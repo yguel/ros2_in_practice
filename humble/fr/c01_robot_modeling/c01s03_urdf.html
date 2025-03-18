@@ -12,7 +12,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b368aa4a" />
 
@@ -25,10 +25,10 @@
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=30646c52"></script>
-      <script>let toggleHintShow = 'Click to show';</script>
-      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleHintShow = 'Cliquer pour afficher';</script>
+      <script>let toggleHintHide = '';</script>
       <script>let toggleOpenOnPrint = 'true';</script>
-      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../_static/togglebutton.js?v=5194a9fd"></script>
       <script src="../_static/translations.js?v=e6b791cb"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -830,7 +830,7 @@ Par exemple nous avons crée les fichiers:</p>
 <div class="exercice docutils container" id="exercice-xacro-launch-parameterized-urdf">
 <div class="exercise toggle admonition" id="ex_xacro_launch_file_for_incremental_robot_description">
 
-<p class="admonition-title"><span class="caption-number">Exercise 1 </span> (Xacro / Launch file)</p>
+<p class="admonition-title"><span class="caption-number">Exercice 1 </span> (Xacro / Launch file)</p>
 <section id="exercise-content">
 <p>Modifiez les fichiers <code class="docutils literal notranslate"><span class="pre">view_simple_bot.launch.py</span></code> et <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code> pour que le fichier affiché par rviz2 soit paramétrable et par exemple affiche le fichier <code class="docutils literal notranslate"><span class="pre">simple_bot__my03_bot__macro.xacro</span></code> quand on lance la commande:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>simple_bot_description<span class="w"> </span>view_simple_bot.launch.py<span class="w"> </span>urdf:<span class="o">=</span>simple_bot__my03_bot__macro.xacro

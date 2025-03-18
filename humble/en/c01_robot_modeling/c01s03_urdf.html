@@ -12,7 +12,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b368aa4a" />
 
@@ -26,9 +26,9 @@
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=30646c52"></script>
       <script>let toggleHintShow = 'Click to show';</script>
-      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleHintHide = '';</script>
       <script>let toggleOpenOnPrint = 'true';</script>
-      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../_static/togglebutton.js?v=5194a9fd"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -115,7 +115,7 @@
 <a class="reference internal image-reference" href="../_images/slide003_scanbot_kinematic_chain.svg"><img alt="../_images/slide003_scanbot_kinematic_chain.svg" src="../_images/slide003_scanbot_kinematic_chain.svg" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 7 </span><span class="caption-text">Scanbot Robot and Its Kinematic Chain.</span><a class="headerlink" href="#fig-slide003-scanbot-kinematic-chain" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 7 </span><span class="caption-text">Scanbot robot and its kinematic chain.</span><a class="headerlink" href="#fig-slide003-scanbot-kinematic-chain" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>In the case of a non-parallel robot, the kinematic chains are open, and the set of kinematic chains of the robot can be represented by a tree, where the direct path from the root to a leaf of the tree corresponds to a kinematic chain.</p>
@@ -804,7 +804,7 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 
 <p class="admonition-title"><span class="caption-number">Exercise 1 </span> (Xacro / Launch file)</p>
 <section id="exercise-content">
-<p>Modifiez les fichiers <code class="docutils literal notranslate"><span class="pre">view_simple_bot.launch.py</span></code> et <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code> pour que le fichier affiché par rviz2 soit paramétrable et par exemple affiche le fichier <code class="docutils literal notranslate"><span class="pre">simple_bot__my03_bot__macro.xacro</span></code> quand on lance la commande:</p>
+<p>Modify the <code class="docutils literal notranslate"><span class="pre">view_simple_bot.launch.py</span></code> and <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code> files so that the file displayed by rviz2 is configurable and, for example, displays the file <code class="docutils literal notranslate"><span class="pre">simple_bot__my03_bot__macro.xacro</span></code> when the following command is run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>simple_bot_description<span class="w"> </span>view_simple_bot.launch.py<span class="w"> </span>urdf:<span class="o">=</span>simple_bot__my03_bot__macro.xacro
 </pre></div>
 </div>
