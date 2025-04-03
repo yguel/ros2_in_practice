@@ -115,16 +115,16 @@ Nous allons maintenant nous attacher à comprendre les différents repères util
 Dans le tag **origin** (tag **visual**s ou **collision**), la position et l'orientation du repère du segment par rapport au repère du parent sont définis par les attributs **xyz** et **rpy**.  |br|
 
 #. La translation est définie par les attributs **xyz** qui sont les coordonnées x, y et z du repère du segment par rapport au repère du parent.
-#. La rotation est définie par les attributs **rpy** qui sont les angles de rotation autour des axes x, y et z du repère du segment par rapport au repère du parent. **rpy** désigne «roll,pitch,yaw» ou en français: «roulis,tangage,lacet».
+#. La rotation est définie par les attributs **rpy** qui sont les angles de rotation autour des axes x, y et z du repère du segment par rapport au repère du parent. **rpy** désigne «\ **r**\ oll,\ **p**\ itch,\ **y**\ aw» ou en français: «roulis,tangage,lacet».
 
-La rotation est toujours appliquée avant la translation et les rotations sont effectuées dans l'ordre **roll**, **pitch** puis **yaw** suivant le schéma ci-dessous:
+La rotation est toujours appliquée avant la translation et les rotations sont effectuées dans l'ordre **roll** (roulis), **pitch** (tangage) puis **yaw** (lacet) suivant le schéma ci-dessous:
 
 .. figure:: resources/img/plane_roll_pitch_yaw.png
    :name: fig__plane_roll_pitch_yaw
    :align: center
    :height: 400px
 
-   Rotations roll, pitch et yaw.
+   Rotations roulis, tangage et lacet ou («roll», «pitch» et «yaw» and anglais).
 
 .. grid:: 1 1 1 1
 
@@ -139,7 +139,7 @@ La rotation est toujours appliquée avant la translation et les rotations sont e
                :align: center
                :height: 300px
 
-               Rotation autour de l'axe x (roll)
+               Rotation autour de l'axe x (roulis ou «roll» en anglais)
 
 
          .. grid-item-card::
@@ -149,7 +149,7 @@ La rotation est toujours appliquée avant la translation et les rotations sont e
                :align: center
                :height: 300px
 
-               Rotation autour de l'axe y (pitch)
+               Rotation autour de l'axe y (tangage ou «pitch» en anglais)
 
          .. grid-item-card::
 
@@ -158,7 +158,7 @@ La rotation est toujours appliquée avant la translation et les rotations sont e
                :align: center
                :height: 300px
 
-               Rotation autour de l'axe z (yaw)
+               Rotation autour de l'axe z (lacet ou «yaw» en anglais)
 
 
 ----------------
@@ -168,36 +168,8 @@ Simple exemple
 Créons une simple description de robot URDF.  |br|
 Pour cela nous allons utiliser l'outil de visualisation de modèles URDF fourni par ROS2: **rviz2**.  |br|
 Afin de faciliter cette étape nous allons créer un package ROS2 dédié à la visualization en utilisant l'outil développé par IRIS **template2instance**.  |br|
-Cette outil permet de créer facilement un package ROS2 à partir d'un template.  |br|
-Pour cela nous avons besoin du template **view_robot_template** qui est un template de package ROS2 dédié à la visualisation de robots en utilisant rviz2.  |br|
-
-Installation de template2instance
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-#. Installer poetry en suivant les `instructions du site officiel <https://python-poetry.org/docs/#installing-with-the-official-installer>`_.
-
-#. Créer un répertoire **system** dans votre workspace ROS2. Ajoutez un fichier **COLCON_IGNORE** dans ce répertoire pour éviter que les packages créés par template2instance soient compilés par colcon, le système de build de ROS2.
-
-.. code-block:: bash
-
-   mkdir -p ~/ros2_ws/system
-   touch ~/ros2_ws/system/COLCON_IGNORE
-
-
-#. Copier le module python **template2instance** dans le répertoire **ros2_ws/system** de votre workspace ROS2.
-#. Exécutez la commande suivante:
-
-.. code-block:: bash
-
-   cd ~/ros2_ws/system/template2instance && poetry install && cd -
-
-#. Copier le template **view_robot_template** dans le répertoire **ros2_ws/system** de votre workspace ROS2.
-
-template2instance est un outil python utilisant le gestionnaire de dépendances **poetry** qui s'utilise de la manière suivante:
-
-.. code-block:: bash
-
-   poetry run create path_to_template path_to_new_package [--config path_to_config.json]
+Cet outil permet de créer facilement un package ROS2 à partir d'un template.  |br|
+Pour cela nous avons besoin du template **ros2/view_robot** qui est un template de package ROS2 dédié à la visualisation de robots en utilisant rviz2.  |br|
 
 Créons un package ROS2 nommé **simple_bot_description** ayant le fichier de configuration suivant.  |br|
 
@@ -205,13 +177,18 @@ Créons un package ROS2 nommé **simple_bot_description** ayant le fichier de co
    :language: json
    :caption: Configuration pour la génération du package simple_bot_description
 
+Créer un répertoire pour sauvegarder vos configurations
+.. code-block:: bash
+
+   mkdir -p ~/ros2_ws/system/template2instance/configs
+
 #. :download:`Télécharger le fichier de configuration <resources/code/template2instance/pkg_gen_cfg_view_simple_bot.json>` et le copier dans le répertoire :code:`~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json`.
 
 #. Exécuter la commande suivante: 
 
 .. code-block:: bash
 
-   cd ~/ros2_ws/system/template2instance && poetry run create ~/ros2_ws/system/view_robot_template ~/ros2_ws/src/simple_bot_description --config ~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json && cd -
+   create ros2/view_robot ~/ros2_ws/src/simple_bot_description --config ~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json
 
 #. Testez le package en le compilant:
 

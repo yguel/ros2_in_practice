@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-03-17 17:00+0100\n"
+"POT-Creation-Date: 2025-04-03 12:19+0200\n"
 "PO-Revision-Date: 2025-03-17 16:44+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: English <http://localhost/projects/cours_ros2/"
-"c01_robot_modelingc01s04_urdf_practical/en/>\n"
 "Language: en\n"
+"Language-Team: English "
+"<http://localhost/projects/cours_ros2/c01_robot_modelingc01s04_urdf_practical/en/>"
+"\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:3
@@ -59,10 +59,9 @@ msgid ""
 msgstr ""
 "To produce the meshes, we used the `cadquery software "
 "<https://github.com/CadQuery/cadquery>`_ (very well `documented "
-"<https://cadquery.readthedocs.io/en/latest/>`_). This "
-"allows you to procedurally create shapes from the Python language"
-" using the basic CAD operations (sketch, extrusion, boolean "
-"combinations of shapes). |br|"
+"<https://cadquery.readthedocs.io/en/latest/>`_). This allows you to "
+"procedurally create shapes from the Python language using the basic CAD "
+"operations (sketch, extrusion, boolean combinations of shapes). |br|"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:21
 msgid ":download:`scanbot.py <resources/3d/scanbot/cadquery/scanbot.py>`,"
@@ -70,13 +69,11 @@ msgstr ":download:`scanbot.py <resources/3d/scanbot/cadquery/scanbot.py>`,"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:22
 msgid ":download:`cq_utils.py <resources/3d/scanbot/cadquery/cq_utils.py>`."
-msgstr ""
-":download:`cq_utils.py <resources/3d/scanbot/cadquery/cq_utils.py>`."
+msgstr ":download:`cq_utils.py <resources/3d/scanbot/cadquery/cq_utils.py>`."
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:28
 msgid "Installez cq-editor, puis exécutez le programme scanbot.py"
-msgstr ""
-"Install cq-editor, then run the scanbot.py program"
+msgstr "Install cq-editor, then run the scanbot.py program"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:34
 msgid ""
@@ -151,8 +148,8 @@ msgid ""
 ":download:`scanbot_s07_toe_link.step "
 "<resources/3d/scanbot/scanbot_s07_toe_link.step>`,"
 msgstr ""
-":download:`scanbot_s07_toe_link.step <resources/3d/scanbot/"
-"scanbot_s07_toe_link.step>`,"
+":download:`scanbot_s07_toe_link.step "
+"<resources/3d/scanbot/scanbot_s07_toe_link.step>`,"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:50
 msgid ""
@@ -256,23 +253,24 @@ msgid ""
 ":download:`scanbot_s09_camera_link.dae "
 "<resources/3d/scanbot/scanbot_s09_camera_link.dae>`"
 msgstr ""
-":download:`scanbot_s09_camera_link.dae <resources/3d/scanbot/"
-"scanbot_s09_camera_link.dae>`"
+":download:`scanbot_s09_camera_link.dae "
+"<resources/3d/scanbot/scanbot_s09_camera_link.dae>`"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:82
 msgid "Produire un URDF"
 msgstr "Producing an URDF"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:84
+#, fuzzy
 msgid ""
 "Nous allons décrire ce robot en URDF. |br| Pour cela nous allons utiliser"
 " l'outil de visualisation de modèles URDF fourni par ROS2: **rviz2**. "
 "|br| Afin de faciliter cette étape nous allons créer un package ROS2 "
 "dédié à la visualization en utilisant l'outil développé par IRIS "
-"**template2instance**. |br| Cette outil permet de créer facilement un "
+"**template2instance**. |br| Cet outil permet de créer facilement un "
 "package ROS2 à partir d'un template. |br| Pour cela nous avons besoin du "
-"template **view_robot_template** qui est un template de package ROS2 "
-"dédié à la visualisation de robots en utilisant rviz2. |br|"
+"template **ros2/view_robot** qui est un template de package ROS2 dédié à "
+"la visualisation de robots en utilisant rviz2. |br|"
 msgstr ""
 "We will describe this robot in URDF. |br| For this, we will use the URDF "
 "model visualization tool provided by ROS2: **rviz2**. |br| To facilitate "
@@ -326,10 +324,9 @@ msgid "Configuration pour la génération du package scanbot_cam_description"
 msgstr "Configuration for Generating the scanbot_cam_description Package"
 
 #: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:110
+#, fuzzy
 msgid ""
-"On suppose que vous avez installé poetry et que template2instance est "
-"installé dans :code:`~/system/template2instance`. |br| Copiez le fichier "
-"de configuration à l'emplacement "
+"Copiez le fichier de configuration à l'emplacement "
 ":code:`~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json`."
 " |br|"
 msgstr ""
@@ -339,19 +336,19 @@ msgstr ""
 ":code:`~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json`."
 " |br|"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:113
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:112
 msgid "Puis exécuter la commande suivante:"
 msgstr "Then execute the following command:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:120
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:118
 msgid "Compiler le package:"
 msgstr "Compile the package:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:128
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:126
 msgid "Testez le package:"
 msgstr "Test the package:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:139
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:137
 msgid ""
 "Le robot par défaut à l'initialisation d'un package de visualisation à "
 "partir du template view_robot_template."
@@ -359,7 +356,7 @@ msgstr ""
 "The default robot when initializing a visualization package from the "
 "view_robot_template template."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:141
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:139
 msgid ""
 "Nous pouvons maintenant éditer le fichier URDF/xacro "
 "(``urdf/scanbot_camera/scanbot_camera_macro.xacro``) pour décrire la "
@@ -372,11 +369,11 @@ msgstr ""
 "camera and the 3 degrees of freedom in rotation. |br| We will start by "
 "removing all the elements used to describe the default robot. |br|"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:149
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:147
 msgid "scanbot_camera_macro.xacro avec un seul élément"
 msgstr "scanbot_camera_macro.xacro with a single element"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:161
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:159
 msgid ""
 "Le premier segment de la partie caméra du scanbot. Le repère est placé au"
 " centre de la face arrière circulaire du cylindre."
@@ -384,7 +381,7 @@ msgstr ""
 "The first segment of the camera part of the scanbot. The frame is placed "
 "in the center of the circular rear face of the cylinder."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:163
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:161
 msgid ""
 "L'élément nouveau utilisé dans l'URDF est la balise ``<mesh>`` qui permet"
 " de charger un maillage au format collada. Nous avons utilisé le maillage"
@@ -413,7 +410,7 @@ msgstr ""
 "use the ``scale`` attribute, for pedagogical reasons, we specified it. "
 "That is why the scale on each axis is at ``1.`` . |br|"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:170
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:168
 msgid ""
 "Dans cet exercice, nous allons volontairement faire bugger ROS2 pour "
 "apprendre à debugger des problèmes courants. |br|"
@@ -421,7 +418,7 @@ msgstr ""
 "In that exercise, we will volontarily create a bug with ROS2 to learn how"
 " to debug common problems. |br|"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:172
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:170
 msgid ""
 "Comme dans l' :ref:`exercice sur la paramétrisation des fichiers de "
 "launch<exercice_xacro_launch_parameterized_urdf>` modifiez les fichiers:"
@@ -429,23 +426,23 @@ msgstr ""
 "As in the :ref:`exercise on parameterizing launch "
 "files<exercice_xacro_launch_parameterized_urdf>`, modify the files:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:174
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:172
 msgid "``launch/view_scanbot_camera.launch.py`` de launch"
 msgstr "the launch file in python: ``launch/view_scanbot_camera.launch.py``"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:175
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:173
 msgid "``urdf/scanbot_camera.urdf.xacro`` de chargement de l'urdf"
 msgstr ""
 "the xacro file to load the URDF description: "
 "``urdf/scanbot_camera.urdf.xacro``"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:177
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:175
 msgid ""
 "pour pouvoir visualiser différentes configuration de robot avec une "
 "commande du type:"
 msgstr "to visualize different robot configurations with a command like:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:183
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:181
 msgid ""
 "Téléchargez les fichiers suivants dans le répertoire "
 "``urdf/scanbot_camera`` du package ``view_scanbot_camera``:"
@@ -453,27 +450,27 @@ msgstr ""
 "Download the following files to the ``urdf/scanbot_camera`` directory of "
 "the ``view_scanbot_camera`` package:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:185
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:183
 msgid ""
 ":download:`scanbot_camera_macro_666_maze.xacro "
 "<resources/urdf/scanbot_camera_macro_666_maze.xacro>`,"
 msgstr ""
-":download:`scanbot_camera_macro_666_maze.xacro <resources/urdf/"
-"scanbot_camera_macro_666_maze.xacro>`,"
+":download:`scanbot_camera_macro_666_maze.xacro "
+"<resources/urdf/scanbot_camera_macro_666_maze.xacro>`,"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:186
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:184
 msgid ""
 ":download:`scanbot_camera_macro_01.xacro "
 "<resources/urdf/scanbot_camera_macro_01.xacro>`."
 msgstr ""
-":download:`scanbot_camera_macro_01.xacro <resources/urdf/"
-"scanbot_camera_macro_01.xacro>`."
+":download:`scanbot_camera_macro_01.xacro "
+"<resources/urdf/scanbot_camera_macro_01.xacro>`."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:188
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:186
 msgid "Réalisez maintenant la séquence d'opérations suivantes:"
 msgstr "Perform the following sequence of operations now:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:190
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:188
 msgid ""
 "Exécutez la commande précédente dans un terminal, au niveau du workspace "
 "contenant le package ``view_scanbot_camera`` et après avoir sourcé le "
@@ -483,7 +480,7 @@ msgstr ""
 "containing the package ``view_scanbot_camera`` and after sourcing the "
 "workspace (:code:`ros2_humble_src`)."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:191
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:189
 msgid ""
 "Observez toutes les parties du scanbot empilées les unes sur les autres "
 "(les transformations ne sont pas correctes)."
@@ -491,7 +488,7 @@ msgstr ""
 "Observe all parts of the scanbot stacked on top of each other (the "
 "transformations are incorrect)."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:192
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:190
 msgid ""
 "Dans un autre terminal, toujours dans le même workspace (et après avoir "
 "sourcé le workspace), exécutez maintenant la commande:"
@@ -499,7 +496,7 @@ msgstr ""
 "In another terminal, still in the same workspace (and after sourcing the "
 "workspace), now execute the command:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:198
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:196
 msgid ""
 "Vous devriez observer une deuxième fenêtre rviz s'ouvrir et le segment "
 "cheville (``ankle_link``) osciller en position comme dans les images ci-"
@@ -508,11 +505,11 @@ msgstr ""
 "You should see a second rviz window open and the ankle segment "
 "(``ankle_link``) oscillate in position as in the images below:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:210
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:208
 msgid "Le segment cheville (``ankle_link``) oscille en position."
 msgstr "The ankle segment (``ankle_link``) oscillates in position."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:219
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:217
 msgid ""
 "En affichant la position du segment cheville (``ankle_link``) on observe "
 "bien que la position x oscille."
@@ -520,7 +517,7 @@ msgstr ""
 "By displaying the position of the ankle segment (``ankle_link``), we can "
 "see that the x position oscillates."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:222
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:220
 msgid ""
 "(si vous ne l'observez pas, vérifiez que dans le premier terminal, le "
 "processus est toujours fonctionnel et sinon relancez-le.)"
@@ -528,11 +525,11 @@ msgstr ""
 "(if you don't see it, check that in the first terminal, the process is "
 "still functional and if not, restart it.)"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:224
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:222
 msgid "Que se passe-t-il et comment pouvez-vous le diagnostiquer ? |br|"
 msgstr "What is happening and how can you diagnose it? |br|"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:230
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:228
 msgid ""
 "Il semble donc que la position du segment cheville (``ankle_link``) soit "
 "reçue de manière contradictoire. |br| Il faut savoir que c'est le nœud "
@@ -544,11 +541,11 @@ msgstr ""
 "the ``robot_state_publisher`` node that is responsible for publishing the"
 " transformations of the robot's segments. |br| If you execute the command"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:238
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:236
 msgid "vous allez voir un résultat de ce type:"
 msgstr "you will see a result like this:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:251
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:249
 msgid ""
 "ros2 nous prévient, il y a plusieurs nœuds avec exactement le même nom: "
 "ici les nœuds ``joint_state_publisher`` et ``robot_state_publisher`` sont"
@@ -589,11 +586,11 @@ msgstr ""
 "you can have a problem of this type. At that time, you have to find the "
 "responsible process with the command:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:263
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:261
 msgid "puis tuer le processus avec la commande:"
 msgstr "then kill the process with the command:"
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:269
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:267
 msgid ""
 "NOTEZ-BIEN: quand vous tuez un processus ROS2 avec CTRL-C dans un "
 "terminal, ne tapez bien qu'une seule fois sur CTRL-C et attendez que le "
@@ -603,10 +600,11 @@ msgstr ""
 "CTRL-C only once and wait for the process to stop. This will prevent "
 "problems of this type."
 
-#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:271
+#: ../../source/c01_robot_modeling/c01s04_urdf_practical.rst:269
 msgid ""
 "Nous allons maintenant ajouter les éléments de la caméra et des 2 autres "
 "degrées de liberté en rotation. |br|"
 msgstr ""
 "We will now add the elements of the camera and the other 2 degrees of "
 "freedom in rotation. |br|"
+

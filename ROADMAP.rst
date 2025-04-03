@@ -10,6 +10,10 @@ ROADMAP
    #. URDF
    #. reproduce scara model
    #. transformations (tf2) plays programmatically with tf2
+
+     #. 3 points method for manually specifying a coordinate system
+     #. how to export matrices, quaternions and euler angles for coordinate systems
+
    #. play with inertia parameters
    #. see and interact in gazebo (with an obstacle fixed and mobile)
    #. playing with rqt for doing a small user interface (how to add a button to stop the robot)
@@ -26,6 +30,10 @@ ROADMAP
    #. moveit tutorial
    #. manipulation with moveit in simulation
    #. programmatically with moveit (stacking blocks)
+
+      #. how to make a robot angulate its end effector around a point
+      #. how to make a robot move its end effector in a straight line
+
    #. move the real robot (Franka or UR) just with the moveit GUI
    
 #. Perception, calibration, environment mapping
