@@ -79,6 +79,12 @@ Il y a plusieurs types d'installation possible:
 
          Pour installer ROS2, il est recommandé de suivre `les instructions officielles de la documentation ROS2 pour ubuntu <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html>`_
 
+         Pour installer template2install:
+
+         .. code-block:: bash
+
+            cd /tmp && wget --content-disposition "https://seafile.unistra.fr/f/af9e58e541c04baba959/?dl=1" &&  apt-get update -q && DEBIAN_FRONTEND=noninteractive apt-get install -f -y ./template2instance_1.0_amd64.deb && rm /tmp/template2instance_1.0_amd64.deb
+
 
 .. admonition:: Exercice
 
