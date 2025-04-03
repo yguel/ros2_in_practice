@@ -326,22 +326,21 @@ Pour cela nous avons besoin du template <strong>ros2/view_robot</strong> qui est
 </pre></div>
 </div>
 </div>
-<p>Créer un répertoire pour sauvegarder vos configurations
-.. code-block:: bash</p>
-<blockquote>
-<div><p>mkdir -p ~/ros2_ws/system/template2instance/configs</p>
-</div></blockquote>
+<p>Créer un répertoire pour sauvegarder vos configurations</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros2_course/ros2_ws/system/template2instance/configs
+</pre></div>
+</div>
 <ol class="arabic simple">
-<li><p><a class="reference download internal" download="" href="../_downloads/65859f9ff41c8324a13d45deeb799a56/pkg_gen_cfg_view_simple_bot.json"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">configuration</span> <span class="pre">file</span></code></a> and copy it into the directory <code class="code docutils literal notranslate"><span class="pre">~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json</span></code>.</p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/65859f9ff41c8324a13d45deeb799a56/pkg_gen_cfg_view_simple_bot.json"><code class="xref download docutils literal notranslate"><span class="pre">Télécharger</span> <span class="pre">le</span> <span class="pre">fichier</span> <span class="pre">de</span> <span class="pre">configuration</span></code></a> et le copier dans le répertoire <code class="code docutils literal notranslate"><span class="pre">~/ros2_course/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json</span></code>.</p></li>
 <li><p>Run the following command:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create<span class="w"> </span>ros2/view_robot<span class="w"> </span>~/ros2_ws/src/simple_bot_description<span class="w"> </span>--config<span class="w"> </span>~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create<span class="w"> </span>ros2/view_robot<span class="w"> </span>~/ros2_course/ros2_ws/src/simple_bot_description<span class="w"> </span>--config<span class="w"> </span>~/ros2_course/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json
 </pre></div>
 </div>
 <ol class="arabic simple">
 <li><p>Test the package by compiling it:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_course/ros2_ws
 ros2_humble
 ros2_build_only<span class="w"> </span>simple_bot_description
 </pre></div>
@@ -358,7 +357,10 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 <p><span class="caption-number">Figure 13 </span><span class="caption-text">The default robot when initializing a visualization package from the view_robot_template template.</span><a class="headerlink" href="#fig-scanbot-cam-rviz-view" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>The URDF file to study is named <code class="docutils literal notranslate"><span class="pre">simple_bot_macro.xacro</span></code> and is located in the directory <code class="code docutils literal notranslate"><span class="pre">~/ros2_ws/src/simple_bot_description/urdf/simple_bot</span></code>.  <br> It is a <code class="docutils literal notranslate"><span class="pre">xacro</span></code> file, which means it is an XML file that can contain macros. These macros allow defining elements that can be reused multiple times in the file or deduced by function calls. However, the format is that of a URDF file, and by convention, we will refer to it as a URDF file.  <br></p>
+<p>Le fichier URDF qu’il faut étudier se nomme <code class="docutils literal notranslate"><span class="pre">simple_bot_macro.xacro</span></code> et se trouve dans le répertoire <code class="code docutils literal notranslate"><span class="pre">~/ros2_course/ros2_ws/src/simple_bot_description/urdf/simple_bot</span></code>.  <br>
+C’est un fichier de type <code class="docutils literal notranslate"><span class="pre">xacro</span></code>, c’est-à-dire un fichier XML qui peut contenir des macros.
+Ces macros permettent de définir des éléments qui peuvent être réutilisés plusieurs fois dans le fichier ou déduit par des appels à des fonctions.
+Le format cependant est celui d’un fichier URDF et par abus de language nous parlerons de fichier URDF.  <br></p>
 <p>Open this file and modify it to look like this:</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
@@ -715,7 +717,7 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 </pre></div>
 </div>
 </div>
-<p>We see that in lines 45 to 58, the xacro file <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code> located in the directory <code class="docutils literal notranslate"><span class="pre">~/ros2_ws/src/simple_bot_description/urdf/</span></code> is transformed into a URDF file.  <br></p>
+<p>On voit que dans les lignes 45 à 58, le fichier xacro <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code> qui se trouve dans le répertoire <code class="docutils literal notranslate"><span class="pre">~/ros2_course/ros2_ws/src/simple_bot_description/urdf/</span></code> est transformé en fichier URDF.  <br></p>
 <div class="literal-block-wrapper docutils container" id="id6">
 <div class="code-block-caption"><span class="caption-number">Listing 11 </span><span class="caption-text">Content of the simple_bot.urdf.xacro file</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>

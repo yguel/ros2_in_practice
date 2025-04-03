@@ -178,23 +178,24 @@ Créons un package ROS2 nommé **simple_bot_description** ayant le fichier de co
    :caption: Configuration pour la génération du package simple_bot_description
 
 Créer un répertoire pour sauvegarder vos configurations
+
 .. code-block:: bash
 
-   mkdir -p ~/ros2_ws/system/template2instance/configs
+   mkdir -p ~/ros2_course/ros2_ws/system/template2instance/configs
 
-#. :download:`Télécharger le fichier de configuration <resources/code/template2instance/pkg_gen_cfg_view_simple_bot.json>` et le copier dans le répertoire :code:`~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json`.
+#. :download:`Télécharger le fichier de configuration <resources/code/template2instance/pkg_gen_cfg_view_simple_bot.json>` et le copier dans le répertoire :code:`~/ros2_course/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json`.
 
 #. Exécuter la commande suivante: 
 
 .. code-block:: bash
 
-   create ros2/view_robot ~/ros2_ws/src/simple_bot_description --config ~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json
+   create ros2/view_robot ~/ros2_course/ros2_ws/src/simple_bot_description --config ~/ros2_course/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json
 
 #. Testez le package en le compilant:
 
 .. code-block:: bash
 
-   cd ~/ros2_ws
+   cd ~/ros2_course/ros2_ws
    ros2_humble
    ros2_build_only simple_bot_description
 
@@ -213,7 +214,7 @@ Si tout s'est bien passé, vous devriez voir un dans rviz2 le robot par défaut:
 
    Le robot par défaut à l'initialisation d'un package de visualisation à partir du template view_robot_template.
 
-Le fichier URDF qu'il faut étudier se nomme ``simple_bot_macro.xacro`` et se trouve dans le répertoire :code:`~/ros2_ws/src/simple_bot_description/urdf/simple_bot`.  |br|
+Le fichier URDF qu'il faut étudier se nomme ``simple_bot_macro.xacro`` et se trouve dans le répertoire :code:`~/ros2_course/ros2_ws/src/simple_bot_description/urdf/simple_bot`.  |br|
 C'est un fichier de type ``xacro``, c'est-à-dire un fichier XML qui peut contenir des macros. 
 Ces macros permettent de définir des éléments qui peuvent être réutilisés plusieurs fois dans le fichier ou déduit par des appels à des fonctions. 
 Le format cependant est celui d'un fichier URDF et par abus de language nous parlerons de fichier URDF.  |br|
@@ -353,7 +354,7 @@ Le fichier ``view_simple_bot.launch.py`` est exécuté.  |br|
    :linenos:
    :emphasize-lines: 45-58
 
-On voit que dans les lignes 45 à 58, le fichier xacro ``simple_bot.urdf.xacro`` qui se trouve dans le répertoire ``~/ros2_ws/src/simple_bot_description/urdf/`` est transformé en fichier URDF.  |br|
+On voit que dans les lignes 45 à 58, le fichier xacro ``simple_bot.urdf.xacro`` qui se trouve dans le répertoire ``~/ros2_course/ros2_ws/src/simple_bot_description/urdf/`` est transformé en fichier URDF.  |br|
 
 .. literalinclude:: resources/code/ros2/simple_bot_description/simple_bot.urdf.xacro
    :language: xml

@@ -113,13 +113,13 @@ Puis exécuter la commande suivante:
 
 .. code-block:: bash
 
-   create ros2/view_robot ~/ws_ros2/src/scanbot_cam_description --config ~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json
+   create ros2/view_robot ~/ros2_course/ros2_ws/src/scanbot_cam_description --config ~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json
 
 Compiler le package:
 
 .. code-block:: bash
 
-   cd ~/ws_ros2
+   cd ~/ros2_course/ros2_ws
    ros2_humble
    ros2_build
 

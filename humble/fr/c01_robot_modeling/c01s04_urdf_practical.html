@@ -214,11 +214,11 @@ Pour cela, créons un package ROS2 nommé <strong>scanbot_cam_description</stron
 </div>
 <p>Copiez le fichier de configuration à l’emplacement <code class="code docutils literal notranslate"><span class="pre">~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json</span></code>. <br></p>
 <p>Puis exécuter la commande suivante:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create<span class="w"> </span>ros2/view_robot<span class="w"> </span>~/ws_ros2/src/scanbot_cam_description<span class="w"> </span>--config<span class="w"> </span>~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create<span class="w"> </span>ros2/view_robot<span class="w"> </span>~/ros2_course/ros2_ws/src/scanbot_cam_description<span class="w"> </span>--config<span class="w"> </span>~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json
 </pre></div>
 </div>
 <p>Compiler le package:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ws_ros2
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_course/ros2_ws
 ros2_humble
 ros2_build
 </pre></div>
