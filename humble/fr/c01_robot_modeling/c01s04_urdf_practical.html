@@ -183,10 +183,10 @@ Indice: Utilisez le logiciel FreeCAD.</p>
 <p>Nous allons décrire ce robot en URDF. <br>
 Pour cela nous allons utiliser l’outil de visualisation de modèles URDF fourni par ROS2: <strong>rviz2</strong>. <br>
 Afin de faciliter cette étape nous allons créer un package ROS2 dédié à la visualization en utilisant l’outil développé par IRIS <strong>template2instance</strong>. <br>
-Cette outil permet de créer facilement un package ROS2 à partir d’un template. <br>
-Pour cela nous avons besoin du template <strong>view_robot_template</strong> qui est un template de package ROS2 dédié à la visualisation de robots en utilisant rviz2. <br></p>
+Cet outil permet de créer facilement un package ROS2 à partir d’un template. <br>
+Pour cela nous avons besoin du template <strong>ros2/view_robot</strong> qui est un template de package ROS2 dédié à la visualisation de robots en utilisant rviz2. <br></p>
 <p>template2instance est un outil python utilisant le gestionnaire de dépendances <strong>poetry</strong> qui s’utilise de la manière suivante:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>run<span class="w"> </span>create<span class="w"> </span>path_to_template<span class="w"> </span>path_to_new_package<span class="w"> </span><span class="o">[</span>--config<span class="w"> </span>path_to_config.json<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create<span class="w"> </span>path_to_template<span class="w"> </span>path_to_new_package<span class="w"> </span><span class="o">[</span>--config<span class="w"> </span>path_to_config.json<span class="o">]</span>
 </pre></div>
 </div>
 <section id="camera-et-3-degrees-de-liberte-en-rotation">
@@ -212,11 +212,9 @@ Pour cela, créons un package ROS2 nommé <strong>scanbot_cam_description</stron
 </pre></div>
 </div>
 </div>
-<p>On suppose que vous avez installé poetry et que template2instance est installé dans <code class="code docutils literal notranslate"><span class="pre">~/system/template2instance</span></code>. <br>
-Copiez le fichier de configuration à l’emplacement <code class="code docutils literal notranslate"><span class="pre">~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json</span></code>. <br></p>
+<p>Copiez le fichier de configuration à l’emplacement <code class="code docutils literal notranslate"><span class="pre">~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json</span></code>. <br></p>
 <p>Puis exécuter la commande suivante:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/system/template2instance
-poetry<span class="w"> </span>run<span class="w"> </span>create<span class="w"> </span>path_to_view_robot_template/view_robot_template<span class="w"> </span>~/ws_ros2/src/scanbot_cam_description<span class="w"> </span>--config<span class="w"> </span>~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create<span class="w"> </span>ros2/view_robot<span class="w"> </span>~/ws_ros2/src/scanbot_cam_description<span class="w"> </span>--config<span class="w"> </span>~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json
 </pre></div>
 </div>
 <p>Compiler le package:</p>

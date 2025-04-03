@@ -2,7 +2,82 @@
 Installation de ROS2
 *********************
 
-Pour installer ROS2, il est recommandé de suivre `les instructions officielles de la documentation ROS2 pour ubuntu <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html>`_
+Il y a plusieurs types d'installation possible:
+
+#. Installation en utilisant docker. C'est la plus simple et qui marche sur windows, mac et linux.
+#. Installation en utilisant des paquets précompilés (deb). C'est la plus rapide et qui marche très bien sur linux Ubuntu et qui peut être adaptée pour d'autres distributions linux.
+  
+  #. Installation en utilisant des paquets précompilés (deb) avec un noyau temps-réel. Celle que l'on doit privilégier pour fonctionner avec un robot et qui marche principalement sur linux Ubuntu, mais qui peut être adaptée pour d'autres distributions linux.
+
+#. Installation en utilisant le code source. C'est la plus compliquée et longue à installer, elle marche sur linux Ubuntu et peut-être adaptée pour d'autres distributions linux, et avec plus de difficultés et des limitations sur windows et mac.
+
+.. tab-set::
+
+    .. tab-item:: Docker 
+
+      .. tab-set::
+         :sync-group: docker-install
+
+         .. tab-item:: Docker pour linux
+            :sync: linux
+
+            Suivez les instructions à l'adresse suivante: https://docs.docker.com/desktop/setup/install/linux/
+         
+         .. tab-item:: Docker pour windows
+            :sync: windows
+
+            Suivez les instructions à l'adresse suivante: https://docs.docker.com/desktop/setup/install/windows-install/
+
+      
+      Créer un répertoire de travail pour le projet ROS2 qui sera partagé entre l'hôte et le conteneur docker:
+
+      .. tab-set::
+         :sync-group: docker-install
+
+         .. tab-item:: Docker pour linux
+            :sync: linux
+
+            Dans une console
+
+            .. code-block:: bash
+
+               mkdir -p ~/ros2_course_docker_data
+            
+         .. tab-item:: Docker pour windows
+            :sync: windows
+
+            Créer le répertoire: ``C:\Users\<YourUser>\Documents\ros2_course_docker_data``
+
+      Maintenant vous pouvez lancer le conteneur docker:
+
+      .. tab-set::
+         :sync-group: docker-install
+
+         .. tab-item:: Docker pour linux
+            :sync: linux
+
+            Dans une console
+
+            .. code-block:: bash
+
+               docker run -p 6080:80  -v "/home/YourUser>/ros2_course_docker_data:/home/ubuntu/ros2_course" --shm-size=1064m yguel/ros2_in_practice:humble
+            
+         .. tab-item:: Docker pour windows
+            :sync: windows
+
+            Dans une console du programme docker-desktop:
+
+            .. code-block:: bash
+
+               docker run -p 6080:80  -v "C:\Users\<YourUser>\Documents\ros2_course_docker_data:/home/ubuntu/ros2_course" --shm-size=1064m yguel/ros2_in_practice:humble
+      
+      Dans une fenêtre de navigateur, ouvrez l'URL suivante: [http://localhost:6080](http://localhost:6080) et vous devriez voir un bureau ubuntu.
+      Vous pouvez maintenant ouvrir un terminal et exécuter les commandes ROS2.
+      
+
+    .. tab-item:: Paquets précompilés (deb) pour Ubuntu
+
+         Pour installer ROS2, il est recommandé de suivre `les instructions officielles de la documentation ROS2 pour ubuntu <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html>`_
 
 
 .. admonition:: Exercice
@@ -35,14 +110,14 @@ Un projet ROS2 se compile et s'exécute dans ce que l'on appelle un ``workspace`
 
 .. code-block:: bash
 
-   cd ~
+   cd ~/ros2_course
    mkdir -p ros2_ws/src
 
 Nous allons maintenant utiliser un package ROS2 que nous allons installer dans le répertoire ``src`` de votre workspace ROS2.
 
 .. code-block:: bash
 
-   cd ~/ros2_ws/src
+   cd ~/ros2_course/ros2_ws/src
    git clone https://github.com/yguel/scara_tutorial_ros2.git
 
 Afin d'accélerer les processus de compilation et d'exécution, nous allons utiliser des macros bash qui facilitent la tâche quand on utilise la suite d'outils ROS2 centrée sur ``colcon``.

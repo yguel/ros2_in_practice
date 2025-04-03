@@ -69,10 +69,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#generalites-sur-le-xml">General Information about XML</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#generalites-sur-l-urdf">General Information about URDF</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#la-balise-link">The <strong>link</strong> Tag</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#simple-exemple">Simple Example</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#installation-de-template2instance">Installation of template2instance</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#simple-exemple">Simple Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#un-point-xacro-et-fichiers-launch">A Xacro point and launch files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#la-balise-joint">The <strong>joint</strong> Tag</a></li>
 </ul>
@@ -244,14 +241,14 @@
 <p>In the <strong>origin</strong> tag (in <strong>visual</strong> or <strong>collision</strong> tags), the position and orientation of the segment’s frame relative to the parent’s frame are defined by the <strong>xyz</strong> and <strong>rpy</strong> attributes.  <br></p>
 <ol class="arabic simple">
 <li><p>The translation is defined by the <strong>xyz</strong> attributes, which are the x, y, and z coordinates of the segment’s frame relative to the parent’s frame.</p></li>
-<li><p>The rotation is defined by the <strong>rpy</strong> attributes, which are the rotation angles around the x, y, and z axes of the segment’s frame relative to the parent’s frame. <strong>rpy</strong> stands for “roll, pitch, yaw” or in French: “roulis, tangage, lacet”.</p></li>
+<li><p>La rotation est définie par les attributs <strong>rpy</strong> qui sont les angles de rotation autour des axes x, y et z du repère du segment par rapport au repère du parent. <strong>rpy</strong> désigne «<strong>r</strong>oll,<strong>p</strong>itch,<strong>y</strong>aw» ou en français: «roulis,tangage,lacet».</p></li>
 </ol>
-<p>Rotation is always applied before translation, and the rotations are performed in the order <strong>roll</strong>, <strong>pitch</strong>, then <strong>yaw</strong>, as shown in the diagram below:</p>
+<p>La rotation est toujours appliquée avant la translation et les rotations sont effectuées dans l’ordre <strong>roll</strong> (roulis), <strong>pitch</strong> (tangage) puis <strong>yaw</strong> (lacet) suivant le schéma ci-dessous:</p>
 <figure class="align-center" id="fig-plane-roll-pitch-yaw">
 <a class="reference internal image-reference" href="../_images/plane_roll_pitch_yaw.png"><img alt="../_images/plane_roll_pitch_yaw.png" src="../_images/plane_roll_pitch_yaw.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 9 </span><span class="caption-text">Roll, Pitch, and Yaw Rotations.</span><a class="headerlink" href="#fig-plane-roll-pitch-yaw" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 9 </span><span class="caption-text">Rotations roulis, tangage et lacet ou («roll», «pitch» et «yaw» and anglais).</span><a class="headerlink" href="#fig-plane-roll-pitch-yaw" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -266,7 +263,7 @@
 <a class="reference internal image-reference" href="../_images/roll_plane_animation.gif"><img alt="../_images/roll_plane_animation.gif" src="../_images/roll_plane_animation.gif" style="height: 300px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 10 </span><span class="caption-text">Rotation around the x axis (roll)</span><a class="headerlink" href="#fig-roll-plane-animation" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 10 </span><span class="caption-text">Rotation autour de l’axe x (roulis ou «roll» en anglais)</span><a class="headerlink" href="#fig-roll-plane-animation" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -279,7 +276,7 @@
 <a class="reference internal image-reference" href="../_images/pitch_plane_animation.gif"><img alt="../_images/pitch_plane_animation.gif" src="../_images/pitch_plane_animation.gif" style="height: 300px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 11 </span><span class="caption-text">Rotation around the y axis (pitch)</span><a class="headerlink" href="#fig-pitch-plane-animation" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 11 </span><span class="caption-text">Rotation autour de l’axe y (tangage ou «pitch» en anglais)</span><a class="headerlink" href="#fig-pitch-plane-animation" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -292,7 +289,7 @@
 <a class="reference internal image-reference" href="../_images/yaw_plane_animation.gif"><img alt="../_images/yaw_plane_animation.gif" src="../_images/yaw_plane_animation.gif" style="height: 300px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 12 </span><span class="caption-text">Rotation around the z axis (yaw)</span><a class="headerlink" href="#fig-yaw-plane-animation" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 12 </span><span class="caption-text">Rotation autour de l’axe z (lacet ou «yaw» en anglais)</span><a class="headerlink" href="#fig-yaw-plane-animation" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -306,31 +303,11 @@
 </section>
 <section id="simple-exemple">
 <h2>Simple Example<a class="headerlink" href="#simple-exemple" title="Link to this heading"></a></h2>
-<p>Let’s create a simple URDF robot description.  <br> For this, we will use the URDF model visualization tool provided by ROS2: <strong>rviz2</strong>.  <br> To facilitate this step, we will create a ROS2 package dedicated to visualization using the tool developed by IRIS <strong>template2instance</strong>.  <br> This tool allows for easy creation of a ROS2 package from a template.  <br> For this, we need the <strong>view_robot_template</strong> template, which is a ROS2 package template dedicated to robot visualization using rviz2.  <br></p>
-<section id="installation-de-template2instance">
-<h3>Installation of template2instance<a class="headerlink" href="#installation-de-template2instance" title="Link to this heading"></a></h3>
-<ol class="arabic simple">
-<li><p>Install poetry by following the <a class="reference external" href="https://python-poetry.org/docs/#installing-with-the-official-installer">official site instructions</a>.</p></li>
-<li><p>Create a <strong>system</strong> directory in your ROS2 workspace. Add a <strong>COLCON_IGNORE</strong> file in this directory to prevent packages created by template2instance from being compiled by colcon, the ROS2 build system.</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros2_ws/system
-touch<span class="w"> </span>~/ros2_ws/system/COLCON_IGNORE
-</pre></div>
-</div>
-<ol class="arabic simple">
-<li><p>Copy the <strong>template2instance</strong> python module into the <strong>ros2_ws/system</strong> directory of your ROS2 workspace.</p></li>
-<li><p>Run the following command:</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/system/template2instance<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>poetry<span class="w"> </span>install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>-
-</pre></div>
-</div>
-<ol class="arabic simple">
-<li><p>Copy the <strong>view_robot_template</strong> template into the <strong>ros2_ws/system</strong> directory of your ROS2 workspace.</p></li>
-</ol>
-<p>template2instance is a Python tool using the <strong>poetry</strong> dependency manager, which is used as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>run<span class="w"> </span>create<span class="w"> </span>path_to_template<span class="w"> </span>path_to_new_package<span class="w"> </span><span class="o">[</span>--config<span class="w"> </span>path_to_config.json<span class="o">]</span>
-</pre></div>
-</div>
+<p>Créons une simple description de robot URDF.  <br>
+Pour cela nous allons utiliser l’outil de visualisation de modèles URDF fourni par ROS2: <strong>rviz2</strong>.  <br>
+Afin de faciliter cette étape nous allons créer un package ROS2 dédié à la visualization en utilisant l’outil développé par IRIS <strong>template2instance</strong>.  <br>
+Cet outil permet de créer facilement un package ROS2 à partir d’un template.  <br>
+Pour cela nous avons besoin du template <strong>ros2/view_robot</strong> qui est un template de package ROS2 dédié à la visualisation de robots en utilisant rviz2.  <br></p>
 <p>Let’s create a ROS2 package named <strong>simple_bot_description</strong> with the following configuration file.  <br></p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-number">Listing 6 </span><span class="caption-text">Configuration for generating the simple_bot_description package</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
@@ -349,11 +326,16 @@ touch<span class="w"> </span>~/ros2_ws/system/COLCON_IGNORE
 </pre></div>
 </div>
 </div>
+<p>Créer un répertoire pour sauvegarder vos configurations
+.. code-block:: bash</p>
+<blockquote>
+<div><p>mkdir -p ~/ros2_ws/system/template2instance/configs</p>
+</div></blockquote>
 <ol class="arabic simple">
 <li><p><a class="reference download internal" download="" href="../_downloads/65859f9ff41c8324a13d45deeb799a56/pkg_gen_cfg_view_simple_bot.json"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">configuration</span> <span class="pre">file</span></code></a> and copy it into the directory <code class="code docutils literal notranslate"><span class="pre">~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json</span></code>.</p></li>
 <li><p>Run the following command:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/system/template2instance<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>poetry<span class="w"> </span>run<span class="w"> </span>create<span class="w"> </span>~/ros2_ws/system/view_robot_template<span class="w"> </span>~/ros2_ws/src/simple_bot_description<span class="w"> </span>--config<span class="w"> </span>~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>-
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create<span class="w"> </span>ros2/view_robot<span class="w"> </span>~/ros2_ws/src/simple_bot_description<span class="w"> </span>--config<span class="w"> </span>~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json
 </pre></div>
 </div>
 <ol class="arabic simple">
@@ -581,7 +563,6 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 <p>It is not the origin of the frame that is moved but the frame in which the geometric shape is defined.</p>
 </div>
 <p>Indeed, if we set the alpha parameter to 0.5 to see through, the center of the box does not contain a frame.  <br> We will see in the following the difference with the changes in the <strong>origin</strong> tag of the joints with the description of the <strong>joint</strong> tag.</p>
-</section>
 </section>
 <section id="un-point-xacro-et-fichiers-launch">
 <h2>A Xacro point and launch files<a class="headerlink" href="#un-point-xacro-et-fichiers-launch" title="Link to this heading"></a></h2>

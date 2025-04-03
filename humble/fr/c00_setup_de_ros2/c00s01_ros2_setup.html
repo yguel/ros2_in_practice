@@ -100,7 +100,79 @@
              
   <section id="installation-de-ros2">
 <h1>Installation de ROS2<a class="headerlink" href="#installation-de-ros2" title="Lien vers cette rubrique"></a></h1>
+<p>Il y a plusieurs types d’installation possible:</p>
+<ol class="arabic simple">
+<li><p>Installation en utilisant docker. C’est la plus simple et qui marche sur windows, mac et linux.</p></li>
+<li><p>Installation en utilisant des paquets précompilés (deb). C’est la plus rapide et qui marche très bien sur linux Ubuntu et qui peut être adaptée pour d’autres distributions linux.</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Installation en utilisant des paquets précompilés (deb) avec un noyau temps-réel. Celle que l’on doit privilégier pour fonctionner avec un robot et qui marche principalement sur linux Ubuntu, mais qui peut être adaptée pour d’autres distributions linux.</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Installation en utilisant le code source. C’est la plus compliquée et longue à installer, elle marche sur linux Ubuntu et peut-être adaptée pour d’autres distributions linux, et avec plus de difficultés et des limitations sur windows et mac.</p></li>
+</ol>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Docker</label><div class="sd-tab-content docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="docker-install" data-sync-id="linux" for="sd-tab-item-2">
+Docker pour linux</label><div class="sd-tab-content docutils">
+<p>Suivez les instructions à l’adresse suivante: <a class="reference external" href="https://docs.docker.com/desktop/setup/install/linux/">https://docs.docker.com/desktop/setup/install/linux/</a></p>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="docker-install" data-sync-id="windows" for="sd-tab-item-3">
+Docker pour windows</label><div class="sd-tab-content docutils">
+<p>Suivez les instructions à l’adresse suivante: <a class="reference external" href="https://docs.docker.com/desktop/setup/install/windows-install/">https://docs.docker.com/desktop/setup/install/windows-install/</a></p>
+</div>
+</div>
+<p>Créer un répertoire de travail pour le projet ROS2 qui sera partagé entre l’hôte et le conteneur docker:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="docker-install" data-sync-id="linux" for="sd-tab-item-4">
+Docker pour linux</label><div class="sd-tab-content docutils">
+<p>Dans une console</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros2_course_docker_data
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="docker-install" data-sync-id="windows" for="sd-tab-item-5">
+Docker pour windows</label><div class="sd-tab-content docutils">
+<p>Créer le répertoire: <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;YourUser&gt;\Documents\ros2_course_docker_data</span></code></p>
+</div>
+</div>
+<p>Maintenant vous pouvez lancer le conteneur docker:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="docker-install" data-sync-id="linux" for="sd-tab-item-6">
+Docker pour linux</label><div class="sd-tab-content docutils">
+<p>Dans une console</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">6080</span>:80<span class="w">  </span>-v<span class="w"> </span><span class="s2">&quot;/home/YourUser&gt;/ros2_course_docker_data:/home/ubuntu/ros2_course&quot;</span><span class="w"> </span>--shm-size<span class="o">=</span>1064m<span class="w"> </span>yguel/ros2_in_practice:humble
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="docker-install" data-sync-id="windows" for="sd-tab-item-7">
+Docker pour windows</label><div class="sd-tab-content docutils">
+<p>Dans une console du programme docker-desktop:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">6080</span>:80<span class="w">  </span>-v<span class="w"> </span><span class="s2">&quot;C:\Users\&lt;YourUser&gt;\Documents\ros2_course_docker_data:/home/ubuntu/ros2_course&quot;</span><span class="w"> </span>--shm-size<span class="o">=</span>1064m<span class="w"> </span>yguel/ros2_in_practice:humble
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans une fenêtre de navigateur, ouvrez l’URL suivante: [<a class="reference external" href="http://localhost:6080](http://localhost:6080">http://localhost:6080](http://localhost:6080</a>) et vous devriez voir un bureau ubuntu.
+Vous pouvez maintenant ouvrir un terminal et exécuter les commandes ROS2.</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Paquets précompilés (deb) pour Ubuntu</label><div class="sd-tab-content docutils">
 <p>Pour installer ROS2, il est recommandé de suivre <a class="reference external" href="https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html">les instructions officielles de la documentation ROS2 pour ubuntu</a></p>
+</div>
+</div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Installez ROS2 sur votre machine.</p>
@@ -123,12 +195,12 @@ ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_py<span class=
 <section id="creation-d-un-workspace">
 <h1>Création d’un workspace<a class="headerlink" href="#creation-d-un-workspace" title="Lien vers cette rubrique"></a></h1>
 <p>Un projet ROS2 se compile et s’exécute dans ce que l’on appelle un <code class="docutils literal notranslate"><span class="pre">workspace</span></code> souvent abrévié en <code class="docutils literal notranslate"><span class="pre">ws</span></code> dans lequel se trouve un répertoire <code class="docutils literal notranslate"><span class="pre">src</span></code> qui contient les packages ROS2 que vous allez créer ou que vous allez utiliser.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_course
 mkdir<span class="w"> </span>-p<span class="w"> </span>ros2_ws/src
 </pre></div>
 </div>
 <p>Nous allons maintenant utiliser un package ROS2 que nous allons installer dans le répertoire <code class="docutils literal notranslate"><span class="pre">src</span></code> de votre workspace ROS2.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_course/ros2_ws/src
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yguel/scara_tutorial_ros2.git
 </pre></div>
 </div>

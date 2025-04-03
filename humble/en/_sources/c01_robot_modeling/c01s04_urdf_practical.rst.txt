@@ -84,14 +84,14 @@ Produire un URDF
 Nous allons décrire ce robot en URDF. |br|
 Pour cela nous allons utiliser l'outil de visualisation de modèles URDF fourni par ROS2: **rviz2**. |br|
 Afin de faciliter cette étape nous allons créer un package ROS2 dédié à la visualization en utilisant l'outil développé par IRIS **template2instance**. |br|
-Cette outil permet de créer facilement un package ROS2 à partir d'un template. |br|
-Pour cela nous avons besoin du template **view_robot_template** qui est un template de package ROS2 dédié à la visualisation de robots en utilisant rviz2. |br|
+Cet outil permet de créer facilement un package ROS2 à partir d'un template. |br|
+Pour cela nous avons besoin du template **ros2/view_robot** qui est un template de package ROS2 dédié à la visualisation de robots en utilisant rviz2. |br|
 
 template2instance est un outil python utilisant le gestionnaire de dépendances **poetry** qui s'utilise de la manière suivante:
 
 .. code-block:: bash
 
-   poetry run create path_to_template path_to_new_package [--config path_to_config.json]
+   create path_to_template path_to_new_package [--config path_to_config.json]
 
 Caméra et 3 degrées de liberté en rotation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -107,15 +107,13 @@ Pour cela copier/éditer pour adapter à votre cas le fichier de configuration s
    :language: json
    :caption: Configuration pour la génération du package scanbot_cam_description
 
-On suppose que vous avez installé poetry et que template2instance est installé dans :code:`~/system/template2instance`. |br|
 Copiez le fichier de configuration à l'emplacement :code:`~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json`. |br|
 
 Puis exécuter la commande suivante:
 
 .. code-block:: bash
 
-   cd ~/system/template2instance
-   poetry run create path_to_view_robot_template/view_robot_template ~/ws_ros2/src/scanbot_cam_description --config ~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json
+   create ros2/view_robot ~/ws_ros2/src/scanbot_cam_description --config ~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json
 
 Compiler le package:
 
