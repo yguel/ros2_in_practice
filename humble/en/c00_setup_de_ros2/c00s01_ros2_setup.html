@@ -170,6 +170,10 @@ Vous pouvez maintenant ouvrir un terminal et exécuter les commandes ROS2.</p>
 <label class="sd-tab-label" for="sd-tab-item-1">
 Paquets précompilés (deb) pour Ubuntu</label><div class="sd-tab-content docutils">
 <p>To install ROS2, it is recommended to follow <a class="reference external" href="https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html">the official instructions from the ROS2 documentation for Ubuntu</a></p>
+<p>Pour installer template2install:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>wget<span class="w"> </span>--content-disposition<span class="w"> </span><span class="s2">&quot;https://seafile.unistra.fr/f/af9e58e541c04baba959/?dl=1&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">  </span>apt-get<span class="w"> </span>update<span class="w"> </span>-q<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-f<span class="w"> </span>-y<span class="w"> </span>./template2instance_1.0_amd64.deb<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>/tmp/template2instance_1.0_amd64.deb
+</pre></div>
+</div>
 </div>
 </div>
 <div class="admonition-exercice admonition">
