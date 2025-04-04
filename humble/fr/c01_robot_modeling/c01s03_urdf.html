@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>URDF pour la description de robots non parallèles &mdash; Documentation ROS2 par la pratique 1.0.0</title>
+  <title>2.3. URDF pour la description de robots non parallèles &mdash; Documentation ROS2 par la pratique 1.0.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b368aa4a" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ca3269d9" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c01_robot_modeling/c01s03_urdf.html" />
@@ -36,8 +36,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="URDF par la pratique: le scanbot" href="c01s04_urdf_practical.html" />
-    <link rel="prev" title="Descriptions de robots avec ROS2" href="c01s02_robot_descriptions.html" /> 
+    <link rel="next" title="2.4. URDF par la pratique: le scanbot" href="c01s04_urdf_practical.html" />
+    <link rel="prev" title="2.2. Descriptions de robots avec ROS2" href="c01s02_robot_descriptions.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -62,24 +62,24 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">ROS2 par la pratique</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">Setup de ROS2</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="c01s00_index.html">Modéliser un robot</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="c01s01_links_and_joints.html">Modéliser la géométrie d’un robot rigide avec URDF et SDF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html">Descriptions de robots avec ROS2</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">URDF pour la description de robots non parallèles</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#generalites-sur-le-xml">Généralités sur le XML</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generalites-sur-l-urdf">Généralités sur l’URDF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#la-balise-link">La balise <strong>link</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#simple-exemple">Simple exemple</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#un-point-xacro-et-fichiers-launch">Un point Xacro et fichiers launch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#la-balise-joint">La balise <strong>joint</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">1. Setup de ROS2</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="c01s00_index.html">2. Modéliser un robot</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="c01s01_links_and_joints.html">2.1. Modéliser la géométrie d’un robot rigide avec URDF et SDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html">2.2. Descriptions de robots avec ROS2</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.3. URDF pour la description de robots non parallèles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#generalites-sur-le-xml">2.3.1. Généralités sur le XML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generalites-sur-l-urdf">2.3.2. Généralités sur l’URDF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-balise-link">2.3.3. La balise <strong>link</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simple-exemple">2.3.4. Simple exemple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#un-point-xacro-et-fichiers-launch">2.3.5. Un point Xacro et fichiers launch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-balise-joint">2.3.6. La balise <strong>joint</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html">URDF par la pratique: le scanbot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html">2.4. URDF par la pratique: le scanbot</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">Communication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">3. Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">4. Appendix</a></li>
 </ul>
 
         </div>
@@ -96,8 +96,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="c01s00_index.html">Modéliser un robot</a></li>
-      <li class="breadcrumb-item active">URDF pour la description de robots non parallèles</li>
+          <li class="breadcrumb-item"><a href="c01s00_index.html"><span class="section-number">2. </span>Modéliser un robot</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2.3. </span>URDF pour la description de robots non parallèles</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/c01_robot_modeling/c01s03_urdf.rst.txt" rel="nofollow"> Afficher la source de la page</a>
       </li>
@@ -108,19 +108,19 @@
            <div itemprop="articleBody">
              
   <section id="urdf-pour-la-description-de-robots-non-paralleles">
-<h1>URDF pour la description de robots non parallèles<a class="headerlink" href="#urdf-pour-la-description-de-robots-non-paralleles" title="Lien vers cette rubrique"></a></h1>
+<h1><span class="section-number">2.3. </span>URDF pour la description de robots non parallèles<a class="headerlink" href="#urdf-pour-la-description-de-robots-non-paralleles" title="Lien vers cette rubrique"></a></h1>
 <figure class="align-center" id="fig-slide003-scanbot-kinematic-chain">
 <a class="reference internal image-reference" href="../_images/slide003_scanbot_kinematic_chain.svg"><img alt="../_images/slide003_scanbot_kinematic_chain.svg" src="../_images/slide003_scanbot_kinematic_chain.svg" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 7 </span><span class="caption-text">Robot Scanbot, et sa chaîne cinmématique.</span><a class="headerlink" href="#fig-slide003-scanbot-kinematic-chain" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.6 </span><span class="caption-text">Robot Scanbot, et sa chaîne cinmématique.</span><a class="headerlink" href="#fig-slide003-scanbot-kinematic-chain" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 <p>Dans le cas d’un robot non parallèle, les chaînes cinématiques sont ouvertes et on peut représenter l’ensemble des chaînes cinématiques du robot par un arbre, le chemin en ligne directe de la racine à une feuille de l’arbre correspondant à une chaîne cinématique.</p>
 <p>Le format utilisé pour décrire les robots non parallèle dans ROS est l’URDF.
 Nous allons maintenant décrire la syntaxe de l’URDF.</p>
 <section id="generalites-sur-le-xml">
-<h2>Généralités sur le XML<a class="headerlink" href="#generalites-sur-le-xml" title="Lien vers cette rubrique"></a></h2>
+<h2><span class="section-number">2.3.1. </span>Généralités sur le XML<a class="headerlink" href="#generalites-sur-le-xml" title="Lien vers cette rubrique"></a></h2>
 <p>L’URDF est basé sur le format XML, les éléments d’information sont organisés grâce à des balises <code class="code docutils literal notranslate"><span class="pre">&lt;balise&gt;</span> <span class="pre">élément</span> <span class="pre">&lt;/balise&gt;</span></code>, qui peuvent être imbriquées.
 En anglais une balise est appelée un <strong>tag</strong>.</p>
 <p><strong>Tag</strong>
@@ -137,9 +137,9 @@ Un attribut consiste en une paire nom-valeur qui peut apparaître dans un tag de
 Un exemple est <code class="code docutils literal notranslate"><span class="pre">&lt;link</span> <span class="pre">name=&quot;base_link&quot;&gt;</span></code>, où le nom de l’attribut est « name » et sa valeur est « base_link ».
 Un tag peut avoir plusieurs attributs, mais chaque attribut ne peut apparaître qu’une seule fois dans une balise.</p>
 <p><strong>Élément</strong>
-Un élément est une composante logique d’un document qui commence soit par un tag de début et se termine par un tag de fin correspondant, soit consiste uniquement en un tag sans élément. Les caractères entre la balise de début et la balise de fin, s’il y en a, sont le contenu de l’élément, et peuvent contenir du balisage, y compris d’autres éléments, appelés éléments enfants. Dans l’exemple de code suivant, <a class="reference internal" href="#example-xml-element"><span class="std std-numref">Listing 4</span></a>, l’élement <code class="docutils literal notranslate"><span class="pre">visual</span></code>, lignes 2-10, commence par le tag de début <code class="code docutils literal notranslate"><span class="pre">&lt;visual&gt;</span></code>, se finit par le tag de fin <code class="code docutils literal notranslate"><span class="pre">&lt;/visual&gt;</span></code> et possède les éléments enfants <code class="docutils literal notranslate"><span class="pre">origin</span></code>, <code class="docutils literal notranslate"><span class="pre">geometry</span></code> et <code class="docutils literal notranslate"><span class="pre">material</span></code>. L’élément  <code class="docutils literal notranslate"><span class="pre">mass</span></code>, ligne 18, est un élément sans enfant mais qui possède un attribut <code class="docutils literal notranslate"><span class="pre">value</span></code> et qui donc consiste en seulement un tag sans élément: <code class="code docutils literal notranslate"><span class="pre">&lt;mass</span> <span class="pre">value=&quot;18&quot;/&gt;</span></code>.</p>
+Un élément est une composante logique d’un document qui commence soit par un tag de début et se termine par un tag de fin correspondant, soit consiste uniquement en un tag sans élément. Les caractères entre la balise de début et la balise de fin, s’il y en a, sont le contenu de l’élément, et peuvent contenir du balisage, y compris d’autres éléments, appelés éléments enfants. Dans l’exemple de code suivant, <a class="reference internal" href="#example-xml-element"><span class="std std-numref">Listing 2.1</span></a>, l’élement <code class="docutils literal notranslate"><span class="pre">visual</span></code>, lignes 2-10, commence par le tag de début <code class="code docutils literal notranslate"><span class="pre">&lt;visual&gt;</span></code>, se finit par le tag de fin <code class="code docutils literal notranslate"><span class="pre">&lt;/visual&gt;</span></code> et possède les éléments enfants <code class="docutils literal notranslate"><span class="pre">origin</span></code>, <code class="docutils literal notranslate"><span class="pre">geometry</span></code> et <code class="docutils literal notranslate"><span class="pre">material</span></code>. L’élément  <code class="docutils literal notranslate"><span class="pre">mass</span></code>, ligne 18, est un élément sans enfant mais qui possède un attribut <code class="docutils literal notranslate"><span class="pre">value</span></code> et qui donc consiste en seulement un tag sans élément: <code class="code docutils literal notranslate"><span class="pre">&lt;mass</span> <span class="pre">value=&quot;18&quot;/&gt;</span></code>.</p>
 <div class="literal-block-wrapper docutils container" id="example-xml-element">
-<div class="code-block-caption"><span class="caption-number">Listing 4 </span><span class="caption-text">Exemple d’éléments xml</span><a class="headerlink" href="#example-xml-element" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.1 </span><span class="caption-text">Exemple d’éléments xml</span><a class="headerlink" href="#example-xml-element" title="Lien vers ce code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${prefix}base_link&quot;</span><span class="nt">&gt;</span>
 <span class="hll"><span class="linenos"> 2</span><span class="w">    </span><span class="nt">&lt;visual&gt;</span>
 </span><span class="hll"><span class="linenos"> 3</span><span class="w">        </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -167,7 +167,7 @@ Un élément est une composante logique d’un document qui commence soit par un
 </div>
 </section>
 <section id="generalites-sur-l-urdf">
-<h2>Généralités sur l’URDF<a class="headerlink" href="#generalites-sur-l-urdf" title="Lien vers cette rubrique"></a></h2>
+<h2><span class="section-number">2.3.2. </span>Généralités sur l’URDF<a class="headerlink" href="#generalites-sur-l-urdf" title="Lien vers cette rubrique"></a></h2>
 <p><strong>Dans le format URDF</strong>, il existe de nombreuses balises différentes qu’il est possible d’utiliser.
 Elles sont toutes décrites dans la <a class="reference external" href="http://wiki.ros.org/urdf/XML">documentation officielle de ROS du format URDF</a> .
 Il y en a trois principales qu’il faut connaître <strong>robot</strong>, <strong>link</strong> et <strong>joint</strong>.</p>
@@ -198,7 +198,7 @@ Pour un fichier URDF, cette balise racine sera la balise <strong>robot</strong>,
 </div>
 </section>
 <section id="la-balise-link">
-<h2>La balise <strong>link</strong><a class="headerlink" href="#la-balise-link" title="Lien vers cette rubrique"></a></h2>
+<h2><span class="section-number">2.3.3. </span>La balise <strong>link</strong><a class="headerlink" href="#la-balise-link" title="Lien vers cette rubrique"></a></h2>
 <p>La balise <strong>link</strong> est utilisée pour décrire un segment du robot.
 La description complète de cette balise est disponible dans la <a class="reference external" href="http://wiki.ros.org/urdf/XML/link">specification de la balise link</a>.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -207,7 +207,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-number">Listing 5 </span><span class="caption-text">Balise <code class="docutils literal notranslate"><span class="pre">link</span></code> avec les éléments <strong>visual</strong>, <strong>material</strong>, <strong>collision</strong> et <strong>inertial</strong></span><a class="headerlink" href="#id1" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.2 </span><span class="caption-text">Balise <code class="docutils literal notranslate"><span class="pre">link</span></code> avec les éléments <strong>visual</strong>, <strong>material</strong>, <strong>collision</strong> et <strong>inertial</strong></span><a class="headerlink" href="#id1" title="Lien vers ce code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${prefix}base_link&quot;</span><span class="nt">&gt;</span>
 <span class="linenos"> 2</span><span class="w">    </span><span class="nt">&lt;visual&gt;</span>
 <span class="linenos"> 3</span><span class="w">        </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -243,7 +243,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 <a class="reference internal image-reference" href="../_images/urdf_link2.png"><img alt="../_images/urdf_link2.png" src="../_images/urdf_link2.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 8 </span><span class="caption-text">Élément <code class="docutils literal notranslate"><span class="pre">link</span></code> d’un fichier URDF</span><a class="headerlink" href="#fig-link-element" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.7 </span><span class="caption-text">Élément <code class="docutils literal notranslate"><span class="pre">link</span></code> d’un fichier URDF</span><a class="headerlink" href="#fig-link-element" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -262,7 +262,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 <a class="reference internal image-reference" href="../_images/plane_roll_pitch_yaw.png"><img alt="../_images/plane_roll_pitch_yaw.png" src="../_images/plane_roll_pitch_yaw.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 9 </span><span class="caption-text">Rotations roulis, tangage et lacet ou («roll», «pitch» et «yaw» and anglais).</span><a class="headerlink" href="#fig-plane-roll-pitch-yaw" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.8 </span><span class="caption-text">Rotations roulis, tangage et lacet ou («roll», «pitch» et «yaw» and anglais).</span><a class="headerlink" href="#fig-plane-roll-pitch-yaw" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -277,7 +277,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 <a class="reference internal image-reference" href="../_images/roll_plane_animation.gif"><img alt="../_images/roll_plane_animation.gif" src="../_images/roll_plane_animation.gif" style="height: 300px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 10 </span><span class="caption-text">Rotation autour de l’axe x (roulis ou «roll» en anglais)</span><a class="headerlink" href="#fig-roll-plane-animation" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.9 </span><span class="caption-text">Rotation autour de l’axe x (roulis ou «roll» en anglais)</span><a class="headerlink" href="#fig-roll-plane-animation" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -290,7 +290,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 <a class="reference internal image-reference" href="../_images/pitch_plane_animation.gif"><img alt="../_images/pitch_plane_animation.gif" src="../_images/pitch_plane_animation.gif" style="height: 300px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 11 </span><span class="caption-text">Rotation autour de l’axe y (tangage ou «pitch» en anglais)</span><a class="headerlink" href="#fig-pitch-plane-animation" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.10 </span><span class="caption-text">Rotation autour de l’axe y (tangage ou «pitch» en anglais)</span><a class="headerlink" href="#fig-pitch-plane-animation" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -303,7 +303,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 <a class="reference internal image-reference" href="../_images/yaw_plane_animation.gif"><img alt="../_images/yaw_plane_animation.gif" src="../_images/yaw_plane_animation.gif" style="height: 300px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 12 </span><span class="caption-text">Rotation autour de l’axe z (lacet ou «yaw» en anglais)</span><a class="headerlink" href="#fig-yaw-plane-animation" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.11 </span><span class="caption-text">Rotation autour de l’axe z (lacet ou «yaw» en anglais)</span><a class="headerlink" href="#fig-yaw-plane-animation" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -316,7 +316,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 </div>
 </section>
 <section id="simple-exemple">
-<h2>Simple exemple<a class="headerlink" href="#simple-exemple" title="Lien vers cette rubrique"></a></h2>
+<h2><span class="section-number">2.3.4. </span>Simple exemple<a class="headerlink" href="#simple-exemple" title="Lien vers cette rubrique"></a></h2>
 <p>Créons une simple description de robot URDF.  <br>
 Pour cela nous allons utiliser l’outil de visualisation de modèles URDF fourni par ROS2: <strong>rviz2</strong>.  <br>
 Afin de faciliter cette étape nous allons créer un package ROS2 dédié à la visualization en utilisant l’outil développé par IRIS <strong>template2instance</strong>.  <br>
@@ -324,7 +324,7 @@ Cet outil permet de créer facilement un package ROS2 à partir d’un template.
 Pour cela nous avons besoin du template <strong>ros2/view_robot</strong> qui est un template de package ROS2 dédié à la visualisation de robots en utilisant rviz2.  <br></p>
 <p>Créons un package ROS2 nommé <strong>simple_bot_description</strong> ayant le fichier de configuration suivant.  <br></p>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-number">Listing 6 </span><span class="caption-text">Configuration pour la génération du package simple_bot_description</span><a class="headerlink" href="#id2" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.3 </span><span class="caption-text">Configuration pour la génération du package simple_bot_description</span><a class="headerlink" href="#id2" title="Lien vers ce code"></a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;PACKAGE_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;simple_bot_description&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;PACKAGE_VERSION&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
@@ -368,7 +368,7 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 <a class="reference internal image-reference" href="../_images/default_rviz_view.png"><img alt="../_images/default_rviz_view.png" src="../_images/default_rviz_view.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 13 </span><span class="caption-text">Le robot par défaut à l’initialisation d’un package de visualisation à partir du template view_robot_template.</span><a class="headerlink" href="#fig-scanbot-cam-rviz-view" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.12 </span><span class="caption-text">Le robot par défaut à l’initialisation d’un package de visualisation à partir du template view_robot_template.</span><a class="headerlink" href="#fig-scanbot-cam-rviz-view" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 <p>Le fichier URDF qu’il faut étudier se nomme <code class="docutils literal notranslate"><span class="pre">simple_bot_macro.xacro</span></code> et se trouve dans le répertoire <code class="code docutils literal notranslate"><span class="pre">~/ros2_course/ros2_ws/src/simple_bot_description/urdf/simple_bot</span></code>.  <br>
@@ -382,7 +382,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-number">Listing 7 </span><span class="caption-text">Exemple minimal d’un fichier URDF avec un robot à un seul segment</span><a class="headerlink" href="#id3" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.4 </span><span class="caption-text">Exemple minimal d’un fichier URDF avec un robot à un seul segment</span><a class="headerlink" href="#id3" title="Lien vers ce code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="linenos"> 2</span><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="nt">&gt;</span>
 <span class="linenos"> 3</span>
@@ -423,7 +423,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 <a class="reference internal image-reference" href="../_images/cylinder_link.png"><img alt="../_images/cylinder_link.png" src="../_images/cylinder_link.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 14 </span><span class="caption-text">Affichage d’un segment cylindre avec RVIZ correspondant à la précédente description URDF</span><a class="headerlink" href="#fig-cylinder-link" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.13 </span><span class="caption-text">Affichage d’un segment cylindre avec RVIZ correspondant à la précédente description URDF</span><a class="headerlink" href="#fig-cylinder-link" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -435,7 +435,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>simple_bot_description<span class="w"> </span>view_simple_bot.launch.py
 </pre></div>
 </div>
-<p>La <a class="reference internal" href="#fig-cylinder-link"><span class="std std-numref">Figure 14</span></a> montre le segment cylindre tel qu’il devrait s’afficher dans rviz2.</p>
+<p>La <a class="reference internal" href="#fig-cylinder-link"><span class="std std-numref">Figure 2.13</span></a> montre le segment cylindre tel qu’il devrait s’afficher dans rviz2.</p>
 <p>Pour comprendre comment les systèmes de coordonnées fonctionnent, il faut afficher les axes.
 Dans rviz:</p>
 <ol class="arabic simple">
@@ -446,7 +446,7 @@ Dans rviz:</p>
 <a class="reference internal image-reference" href="../_images/axis_are_visible_in_rviz2_thanks_to_transparency.png"><img alt="../_images/axis_are_visible_in_rviz2_thanks_to_transparency.png" src="../_images/axis_are_visible_in_rviz2_thanks_to_transparency.png" style="height: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 15 </span><span class="caption-text">Affichage d’un segment cylindre avec RVIZ avec les axes visibles (Alpha=0.5, Show Axes : coché)</span><a class="headerlink" href="#fig-cylinder-link-with-axes-visible" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.14 </span><span class="caption-text">Affichage d’un segment cylindre avec RVIZ avec les axes visibles (Alpha=0.5, Show Axes : coché)</span><a class="headerlink" href="#fig-cylinder-link-with-axes-visible" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 <div class="admonition-segments-definis-par-des-primitives-geometriques admonition">
@@ -468,7 +468,7 @@ Modifiez donc le fichier URDF pour qu’il ressemble à ceci:</p>
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-number">Listing 8 </span><span class="caption-text">Exemple minimal d’un fichier URDF avec un robot box à un seul segment (pavé droit) dont la position est translatée de 0.5m en x (axe rouge), 1.5m en y (axe vert) et 0m en z (axe bleu) par rapport à l’origine.</span><a class="headerlink" href="#id4" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.5 </span><span class="caption-text">Exemple minimal d’un fichier URDF avec un robot box à un seul segment (pavé droit) dont la position est translatée de 0.5m en x (axe rouge), 1.5m en y (axe vert) et 0m en z (axe bleu) par rapport à l’origine.</span><a class="headerlink" href="#id4" title="Lien vers ce code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="linenos"> 2</span><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="nt">&gt;</span>
 <span class="linenos"> 3</span>
@@ -509,7 +509,7 @@ Modifiez donc le fichier URDF pour qu’il ressemble à ceci:</p>
 <a class="reference internal image-reference" href="../_images/my02_tr_bot.png"><img alt="../_images/my02_tr_bot.png" src="../_images/my02_tr_bot.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 16 </span><span class="caption-text">Affichage d’un segment pavé droit avec RVIZ correspondant à la description URDF sur la gauche</span><a class="headerlink" href="#fig-box-link-my02-tr-bot" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.15 </span><span class="caption-text">Affichage d’un segment pavé droit avec RVIZ correspondant à la description URDF sur la gauche</span><a class="headerlink" href="#fig-box-link-my02-tr-bot" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -528,7 +528,7 @@ Modifiez donc le fichier URDF pour qu’il ressemble à ceci:</p>
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="literal-block-wrapper docutils container" id="my02-tr-plus-rot-bot-urdf">
-<div class="code-block-caption"><span class="caption-number">Listing 9 </span><span class="caption-text">Exemple minimal d’un fichier URDF avec un robot box à un seul segment (pavé droit) qui a subit une rotation de 90° suivant l’axe X (roll) puis dont la position est translatée de 0.5m en x (axe rouge), 1.5m en y (axe vert) et 0m en z (axe bleu) par rapport à l’origine.</span><a class="headerlink" href="#my02-tr-plus-rot-bot-urdf" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.6 </span><span class="caption-text">Exemple minimal d’un fichier URDF avec un robot box à un seul segment (pavé droit) qui a subit une rotation de 90° suivant l’axe X (roll) puis dont la position est translatée de 0.5m en x (axe rouge), 1.5m en y (axe vert) et 0m en z (axe bleu) par rapport à l’origine.</span><a class="headerlink" href="#my02-tr-plus-rot-bot-urdf" title="Lien vers ce code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="linenos"> 2</span><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="nt">&gt;</span>
 <span class="linenos"> 3</span>
@@ -569,7 +569,7 @@ Modifiez donc le fichier URDF pour qu’il ressemble à ceci:</p>
 <a class="reference internal image-reference" href="../_images/my02_tr_plus_rot_bot.png"><img alt="../_images/my02_tr_plus_rot_bot.png" src="../_images/my02_tr_plus_rot_bot.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 17 </span><span class="caption-text">Affichage d’un segment pavé droit avec RVIZ correspondant à la description URDF sur la gauche</span><a class="headerlink" href="#fig-box-link-my02-tr-plus-rot-bot" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.16 </span><span class="caption-text">Affichage d’un segment pavé droit avec RVIZ correspondant à la description URDF sur la gauche</span><a class="headerlink" href="#fig-box-link-my02-tr-plus-rot-bot" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -585,7 +585,7 @@ Modifiez donc le fichier URDF pour qu’il ressemble à ceci:</p>
 On verra dans ce qui suit la différence avec les changements dans la balise <strong>origin</strong> des articulations avec la description du tag <strong>joint</strong>.</p>
 </section>
 <section id="un-point-xacro-et-fichiers-launch">
-<h2>Un point Xacro et fichiers launch<a class="headerlink" href="#un-point-xacro-et-fichiers-launch" title="Lien vers cette rubrique"></a></h2>
+<h2><span class="section-number">2.3.5. </span>Un point Xacro et fichiers launch<a class="headerlink" href="#un-point-xacro-et-fichiers-launch" title="Lien vers cette rubrique"></a></h2>
 <p>Regardons l’organisation du projet ROS2 <code class="docutils literal notranslate"><span class="pre">simple_bot_description</span></code> (après y avoir ajouté divers fichiers URDF):</p>
 <div class="tree-simple-bot-description docutils container" id="simple-bot-description-tree">
 <blockquote>
@@ -640,7 +640,7 @@ On verra dans ce qui suit la différence avec les changements dans la balise <st
 </div>
 <p>Le fichier <code class="docutils literal notranslate"><span class="pre">view_simple_bot.launch.py</span></code> est exécuté.  <br></p>
 <div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-number">Listing 10 </span><span class="caption-text">Contenu du fichier view_simple_bot.launch.py</span><a class="headerlink" href="#id5" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.7 </span><span class="caption-text">Contenu du fichier view_simple_bot.launch.py</span><a class="headerlink" href="#id5" title="Lien vers ce code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Copyright (c) 2024, Unistra, ICube/IRIS</span>
 <span class="linenos"> 2</span><span class="c1"># </span>
 <span class="linenos"> 3</span><span class="c1"># </span>
@@ -737,7 +737,7 @@ On verra dans ce qui suit la différence avec les changements dans la balise <st
 </div>
 <p>On voit que dans les lignes 45 à 58, le fichier xacro <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code> qui se trouve dans le répertoire <code class="docutils literal notranslate"><span class="pre">~/ros2_course/ros2_ws/src/simple_bot_description/urdf/</span></code> est transformé en fichier URDF.  <br></p>
 <div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-number">Listing 11 </span><span class="caption-text">Contenu du fichier simple_bot.urdf.xacro</span><a class="headerlink" href="#id6" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.8 </span><span class="caption-text">Contenu du fichier simple_bot.urdf.xacro</span><a class="headerlink" href="#id6" title="Lien vers ce code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="linenos"> 2</span><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;simple_bot&quot;</span><span class="nt">&gt;</span>
 <span class="linenos"> 3</span>
@@ -767,7 +767,7 @@ On verra dans ce qui suit la différence avec les changements dans la balise <st
 </div>
 <p>À la ligne 13, on voit une coommande <code class="docutils literal notranslate"><span class="pre">xacro</span></code> qui permet d’inclure un autre fichier xacro.
 Cette commande est déclarée grâce à un tag <code class="docutils literal notranslate"><span class="pre">xacro:include</span></code> et utilise une autre commande dont le nom est <code class="docutils literal notranslate"><span class="pre">find</span></code> qui permet de trouver le chemin d’un package dans le répertoire <code class="docutils literal notranslate"><span class="pre">install</span></code> du workspace et dont la valeur de retour est accédée avec la syntaxe <code class="docutils literal notranslate"><span class="pre">$(find</span> <span class="pre">simple_bot_description)</span></code>.  <br></p>
-<p>Dans le <a class="reference internal" href="#my02-tr-plus-rot-bot-urdf"><span class="std std-numref">Listing 9</span></a>, vous avez peut-être remarqué une autre commande xacro bien pratique qui permet de manipuler des angles en degrés et de les convertir en radians: <code class="docutils literal notranslate"><span class="pre">${radians(90)}</span></code>.</p>
+<p>Dans le <a class="reference internal" href="#my02-tr-plus-rot-bot-urdf"><span class="std std-numref">Listing 2.6</span></a>, vous avez peut-être remarqué une autre commande xacro bien pratique qui permet de manipuler des angles en degrés et de les convertir en radians: <code class="docutils literal notranslate"><span class="pre">${radians(90)}</span></code>.</p>
 <div class="admonition-appel-de-fonction-dans-une-commande-xacro admonition">
 <p class="admonition-title">Appel de fonction dans une commande xacro</p>
 <p>Notez que quand on fait un appel de fonction dans une commande xacro, on utilise des <strong>accolades</strong> au lieu des <strong>paranthèses</strong> pour les premiers délimiteurs de la commande.</p>
@@ -806,7 +806,7 @@ Par exemple nous avons crée les fichiers:</p>
 <div class="exercice docutils container" id="exercice-xacro-launch-parameterized-urdf">
 <div class="exercise toggle admonition" id="ex_xacro_launch_file_for_incremental_robot_description">
 
-<p class="admonition-title"><span class="caption-number">Exercice 1 </span> (Xacro / Launch file)</p>
+<p class="admonition-title"><span class="caption-number">Exercice 2.1 </span> (Xacro / Launch file)</p>
 <section id="exercise-content">
 <p>Modifiez les fichiers <code class="docutils literal notranslate"><span class="pre">view_simple_bot.launch.py</span></code> et <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code> pour que le fichier affiché par rviz2 soit paramétrable et par exemple affiche le fichier <code class="docutils literal notranslate"><span class="pre">simple_bot__my03_bot__macro.xacro</span></code> quand on lance la commande:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>simple_bot_description<span class="w"> </span>view_simple_bot.launch.py<span class="w"> </span>urdf:<span class="o">=</span>simple_bot__my03_bot__macro.xacro
@@ -814,11 +814,11 @@ Par exemple nous avons crée les fichiers:</p>
 </div>
 <div class="solution toggle admonition" id="sol_xacro_launch_file_for_incremental_robot_description">
 
-<p class="admonition-title">Solution de<a class="reference internal" href="#ex_xacro_launch_file_for_incremental_robot_description"> Exercice 1 (Xacro / Launch file)</a></p>
+<p class="admonition-title">Solution de<a class="reference internal" href="#ex_xacro_launch_file_for_incremental_robot_description"> Exercice 2.1 (Xacro / Launch file)</a></p>
 <section id="solution-content">
 <p>Modifications du fichier <code class="docutils literal notranslate"><span class="pre">view_simple_bot.launch.py</span></code>:</p>
 <div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-number">Listing 12 </span><span class="caption-text">Modification du fichier view_simple_bot.launch.py pour qu’il accepte un argument urdf qui permet de choisir le fichier xacro à afficher dans rviz2</span><a class="headerlink" href="#id7" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.9 </span><span class="caption-text">Modification du fichier view_simple_bot.launch.py pour qu’il accepte un argument urdf qui permet de choisir le fichier xacro à afficher dans rviz2</span><a class="headerlink" href="#id7" title="Lien vers ce code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># Copyright (c) 2024, Unistra, ICube/IRIS</span>
 <span class="linenos">  2</span><span class="c1"># </span>
 <span class="linenos">  3</span><span class="c1"># </span>
@@ -926,7 +926,7 @@ Par exemple nous avons crée les fichiers:</p>
 </div>
 <p>Modifications du fichier <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code>:</p>
 <div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-number">Listing 13 </span><span class="caption-text">Modification du fichier simple_bot.urdf.xacro pour qu’il accepte un argument urdf qui permet de choisir le fichier xacro à afficher dans rviz2</span><a class="headerlink" href="#id8" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.10 </span><span class="caption-text">Modification du fichier simple_bot.urdf.xacro pour qu’il accepte un argument urdf qui permet de choisir le fichier xacro à afficher dans rviz2</span><a class="headerlink" href="#id8" title="Lien vers ce code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="linenos"> 2</span><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;simple_bot&quot;</span><span class="nt">&gt;</span>
 <span class="linenos"> 3</span>
@@ -961,7 +961,7 @@ Par exemple nous avons crée les fichiers:</p>
 </div>
 </section>
 <section id="la-balise-joint">
-<h2>La balise <strong>joint</strong><a class="headerlink" href="#la-balise-joint" title="Lien vers cette rubrique"></a></h2>
+<h2><span class="section-number">2.3.6. </span>La balise <strong>joint</strong><a class="headerlink" href="#la-balise-joint" title="Lien vers cette rubrique"></a></h2>
 <p>La balise <strong>joint</strong> est utilisée pour décrire une articulation entre deux segments du robot.
 La description complète de cette balise est disponible dans la <a class="reference external" href="http://wiki.ros.org/urdf/XML/joint">specification de la balise joint</a>.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -970,7 +970,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-number">Listing 14 </span><span class="caption-text">Balise <code class="docutils literal notranslate"><span class="pre">joint</span></code> de type <code class="docutils literal notranslate"><span class="pre">revolute</span></code> avec les éléments  <strong>origin</strong>, <strong>parent</strong>, <strong>child</strong>, <strong>axis</strong> et <strong>limit</strong></span><a class="headerlink" href="#id9" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.11 </span><span class="caption-text">Balise <code class="docutils literal notranslate"><span class="pre">joint</span></code> de type <code class="docutils literal notranslate"><span class="pre">revolute</span></code> avec les éléments  <strong>origin</strong>, <strong>parent</strong>, <strong>child</strong>, <strong>axis</strong> et <strong>limit</strong></span><a class="headerlink" href="#id9" title="Lien vers ce code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;r_joint&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;revolute&quot;</span><span class="nt">&gt;</span>
 <span class="linenos">2</span><span class="w">    </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 1&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 ${radians(90)}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="linenos">3</span><span class="w">    </span><span class="nt">&lt;parent</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;link1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -983,7 +983,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-number">Listing 15 </span><span class="caption-text">Balise <code class="docutils literal notranslate"><span class="pre">joint</span></code> de type <code class="docutils literal notranslate"><span class="pre">floating</span></code> avec les éléments  <strong>origin</strong>, <strong>parent</strong>, <strong>child</strong>, <strong>limit</strong>, <strong>dynamics</strong>, <strong>calibration</strong>, <strong>safety_controller</strong> et <strong>mimic</strong></span><a class="headerlink" href="#id10" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.12 </span><span class="caption-text">Balise <code class="docutils literal notranslate"><span class="pre">joint</span></code> de type <code class="docutils literal notranslate"><span class="pre">floating</span></code> avec les éléments  <strong>origin</strong>, <strong>parent</strong>, <strong>child</strong>, <strong>limit</strong>, <strong>dynamics</strong>, <strong>calibration</strong>, <strong>safety_controller</strong> et <strong>mimic</strong></span><a class="headerlink" href="#id10" title="Lien vers ce code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;f_joint&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;floating&quot;</span><span class="nt">&gt;</span>
 <span class="linenos"> 2</span><span class="w">    </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 1&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 3.1416&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="linenos"> 3</span><span class="w">    </span><span class="nt">&lt;parent</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;link1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -1009,7 +1009,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 <a class="reference internal image-reference" href="../_images/urdf_joint.png"><img alt="../_images/urdf_joint.png" src="../_images/urdf_joint.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 18 </span><span class="caption-text">Élément <code class="docutils literal notranslate"><span class="pre">joint</span></code> d’un fichier URDF</span><a class="headerlink" href="#fig-joint-element" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.17 </span><span class="caption-text">Élément <code class="docutils literal notranslate"><span class="pre">joint</span></code> d’un fichier URDF</span><a class="headerlink" href="#fig-joint-element" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -1044,7 +1044,7 @@ Dans RVIZ2, cette transformation est visible grâce à une arrête jaune termin�
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-number">Listing 16 </span><span class="caption-text">Ajout d’une translation pour le repère de l’articulation par rapport au repère du parent (attribut <strong>xyz</strong> de la balise <strong>origin</strong> du tag <strong>joint</strong>).</span><a class="headerlink" href="#id11" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.13 </span><span class="caption-text">Ajout d’une translation pour le repère de l’articulation par rapport au repère du parent (attribut <strong>xyz</strong> de la balise <strong>origin</strong> du tag <strong>joint</strong>).</span><a class="headerlink" href="#id11" title="Lien vers ce code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="linenos"> 2</span><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="nt">&gt;</span>
 <span class="linenos"> 3</span>
@@ -1085,7 +1085,7 @@ Dans RVIZ2, cette transformation est visible grâce à une arrête jaune termin�
 <a class="reference internal image-reference" href="../_images/my03_bot_rviz.png"><img alt="../_images/my03_bot_rviz.png" src="../_images/my03_bot_rviz.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 19 </span><span class="caption-text">Affichage d’une articulation avec RVIZ correspondant à la description URDF sur la gauche. Le lien est modélisé par la flèche jaune de <code class="docutils literal notranslate"><span class="pre">base_link</span></code> vers <code class="docutils literal notranslate"><span class="pre">world</span></code> (en cochant la case <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Arrows</span></code>).</span><a class="headerlink" href="#fig-translated-joint-element-my03-bot" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.18 </span><span class="caption-text">Affichage d’une articulation avec RVIZ correspondant à la description URDF sur la gauche. Le lien est modélisé par la flèche jaune de <code class="docutils literal notranslate"><span class="pre">base_link</span></code> vers <code class="docutils literal notranslate"><span class="pre">world</span></code> (en cochant la case <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Arrows</span></code>).</span><a class="headerlink" href="#fig-translated-joint-element-my03-bot" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -1101,7 +1101,7 @@ De même que pour la balise joint, la rotation est effectuée avant la translati
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-number">Listing 17 </span><span class="caption-text">Ajout d’une rotation pour le repère de l’articulation par rapport au repère du parent (attribut <strong>rpy</strong> du tag <strong>origin</strong> du tag <strong>joint</strong>).</span><a class="headerlink" href="#id12" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.14 </span><span class="caption-text">Ajout d’une rotation pour le repère de l’articulation par rapport au repère du parent (attribut <strong>rpy</strong> du tag <strong>origin</strong> du tag <strong>joint</strong>).</span><a class="headerlink" href="#id12" title="Lien vers ce code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="linenos"> 2</span><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="nt">&gt;</span>
 <span class="linenos"> 3</span>
@@ -1142,7 +1142,7 @@ De même que pour la balise joint, la rotation est effectuée avant la translati
 <a class="reference internal image-reference" href="../_images/my04_bot.png"><img alt="../_images/my04_bot.png" src="../_images/my04_bot.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 20 </span><span class="caption-text">Rotation du repère de l’articulation en plus de la translation. Notez que la rotation est effectuée avant la translation (si cela avait été l’inverse, l’arrête jaune serait alignée avec l’axe vert du repère <code class="docutils literal notranslate"><span class="pre">world</span></code>).</span><a class="headerlink" href="#fig-tr-rot-joint-element-my04-bot" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.19 </span><span class="caption-text">Rotation du repère de l’articulation en plus de la translation. Notez que la rotation est effectuée avant la translation (si cela avait été l’inverse, l’arrête jaune serait alignée avec l’axe vert du repère <code class="docutils literal notranslate"><span class="pre">world</span></code>).</span><a class="headerlink" href="#fig-tr-rot-joint-element-my04-bot" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -1157,8 +1157,8 @@ De même que pour la balise joint, la rotation est effectuée avant la translati
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
-        <a href="c01s02_robot_descriptions.html" class="btn btn-neutral float-left" title="Descriptions de robots avec ROS2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="c01s04_urdf_practical.html" class="btn btn-neutral float-right" title="URDF par la pratique: le scanbot" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="c01s02_robot_descriptions.html" class="btn btn-neutral float-left" title="2.2. Descriptions de robots avec ROS2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="c01s04_urdf_practical.html" class="btn btn-neutral float-right" title="2.4. URDF par la pratique: le scanbot" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

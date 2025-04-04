@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Descriptions de robots avec ROS2 &mdash; Documentation ROS2 par la pratique 1.0.0</title>
+  <title>2.2. Descriptions de robots avec ROS2 &mdash; Documentation ROS2 par la pratique 1.0.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b368aa4a" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ca3269d9" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c01_robot_modeling/c01s02_robot_descriptions.html" />
@@ -35,8 +35,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="URDF pour la description de robots non parallèles" href="c01s03_urdf.html" />
-    <link rel="prev" title="Modéliser la géométrie d’un robot rigide avec URDF et SDF" href="c01s01_links_and_joints.html" /> 
+    <link rel="next" title="2.3. URDF pour la description de robots non parallèles" href="c01s03_urdf.html" />
+    <link rel="prev" title="2.1. Modéliser la géométrie d’un robot rigide avec URDF et SDF" href="c01s01_links_and_joints.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,19 +61,19 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">ROS2 par la pratique</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">Setup de ROS2</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="c01s00_index.html">Modéliser un robot</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="c01s01_links_and_joints.html">Modéliser la géométrie d’un robot rigide avec URDF et SDF</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Descriptions de robots avec ROS2</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#chaines-cinematiques">Chaînes cinématiques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">1. Setup de ROS2</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="c01s00_index.html">2. Modéliser un robot</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="c01s01_links_and_joints.html">2.1. Modéliser la géométrie d’un robot rigide avec URDF et SDF</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. Descriptions de robots avec ROS2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chaines-cinematiques">2.2.1. Chaînes cinématiques</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html">URDF pour la description de robots non parallèles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html">URDF par la pratique: le scanbot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html">2.3. URDF pour la description de robots non parallèles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html">2.4. URDF par la pratique: le scanbot</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">Communication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">3. Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">4. Appendix</a></li>
 </ul>
 
         </div>
@@ -90,8 +90,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="c01s00_index.html">Modéliser un robot</a></li>
-      <li class="breadcrumb-item active">Descriptions de robots avec ROS2</li>
+          <li class="breadcrumb-item"><a href="c01s00_index.html"><span class="section-number">2. </span>Modéliser un robot</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2.2. </span>Descriptions de robots avec ROS2</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/c01_robot_modeling/c01s02_robot_descriptions.rst.txt" rel="nofollow"> Afficher la source de la page</a>
       </li>
@@ -102,7 +102,7 @@
            <div itemprop="articleBody">
              
   <section id="descriptions-de-robots-avec-ros2">
-<h1>Descriptions de robots avec ROS2<a class="headerlink" href="#descriptions-de-robots-avec-ros2" title="Lien vers cette rubrique"></a></h1>
+<h1><span class="section-number">2.2. </span>Descriptions de robots avec ROS2<a class="headerlink" href="#descriptions-de-robots-avec-ros2" title="Lien vers cette rubrique"></a></h1>
 <p>Le but de la description d’un robot est d’avoir un modèle servant à la fois à la simulation et au contrôle du robot:</p>
 <ol class="arabic simple">
 <li><p>visualiser le robot et ses configurations géométriques,</p></li>
@@ -151,13 +151,13 @@ Nous utiliserons 2 formats XML dans ROS: URDF et SDF.</p>
 </ol>
 </div></blockquote>
 <section id="chaines-cinematiques">
-<h2>Chaînes cinématiques<a class="headerlink" href="#chaines-cinematiques" title="Lien vers cette rubrique"></a></h2>
+<h2><span class="section-number">2.2.1. </span>Chaînes cinématiques<a class="headerlink" href="#chaines-cinematiques" title="Lien vers cette rubrique"></a></h2>
 <p>Le passage du repère d’un segment à un autre suite à la transformation appliquée par l’articulation reliant les 2 segment constitue la transformation cinématique élémentaire de la chaîne cinématique du robot.</p>
 <figure class="align-center" id="fig-robot-modeling-slide002">
 <a class="reference internal image-reference" href="../_images/slide002_tree_graph.fr.svg"><img alt="../_images/slide002_tree_graph.fr.svg" src="../_images/slide002_tree_graph.fr.svg" style="height: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 6 </span><span class="caption-text">Arbre des chaînes cinématiques des jambes du robot Hubo KHR-4, un robot humanoïde non parallèle, (source: <span id="id1">[<a class="reference internal" href="../c99_appendix/c99s50_bibliography.html#id2" title="M.A. Ali, H. Andy Park, and C.S.G. Lee. Closed-form inverse kinematic joint solution for humanoid robots. In Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems. IEEE/RSJ International Conference on Intelligent Robots and Systems, 704–709. 11 2010. URL: https://www.researchgate.net/publication/224199484_Closed-form_inverse_kinematic_joint_solution_for_humanoid_robots/references, doi:10.1109/IROS.2010.5649842.">APL10</a>]</span> .)</span><a class="headerlink" href="#fig-robot-modeling-slide002" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.5 </span><span class="caption-text">Arbre des chaînes cinématiques des jambes du robot Hubo KHR-4, un robot humanoïde non parallèle, (source: <span id="id1">[<a class="reference internal" href="../c99_appendix/c99s50_bibliography.html#id2" title="M.A. Ali, H. Andy Park, and C.S.G. Lee. Closed-form inverse kinematic joint solution for humanoid robots. In Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems. IEEE/RSJ International Conference on Intelligent Robots and Systems, 704–709. 11 2010. URL: https://www.researchgate.net/publication/224199484_Closed-form_inverse_kinematic_joint_solution_for_humanoid_robots/references, doi:10.1109/IROS.2010.5649842.">APL10</a>]</span> .)</span><a class="headerlink" href="#fig-robot-modeling-slide002" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 <p>Le premier segment de la chaîne cinématique est appelé la racine de la chaîne cinématique.</p>
@@ -171,8 +171,8 @@ Dans les paramètres de description ci-dessus, la flêche va de l’enfant vers 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
-        <a href="c01s01_links_and_joints.html" class="btn btn-neutral float-left" title="Modéliser la géométrie d’un robot rigide avec URDF et SDF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="c01s03_urdf.html" class="btn btn-neutral float-right" title="URDF pour la description de robots non parallèles" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="c01s01_links_and_joints.html" class="btn btn-neutral float-left" title="2.1. Modéliser la géométrie d’un robot rigide avec URDF et SDF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="c01s03_urdf.html" class="btn btn-neutral float-right" title="2.3. URDF pour la description de robots non parallèles" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

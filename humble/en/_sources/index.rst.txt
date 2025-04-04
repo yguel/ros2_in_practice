@@ -6,6 +6,7 @@ Table des matières
 .. toctree::
    :maxdepth: 3
    :caption: ROS2 par la pratique
+   :numbered:
 
    c00_setup_de_ros2/c00s00_index
    c01_robot_modeling/c01s00_index

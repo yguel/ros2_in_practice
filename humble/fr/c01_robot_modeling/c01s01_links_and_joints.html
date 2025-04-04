@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modéliser la géométrie d’un robot rigide avec URDF et SDF &mdash; Documentation ROS2 par la pratique 1.0.0</title>
+  <title>2.1. Modéliser la géométrie d’un robot rigide avec URDF et SDF &mdash; Documentation ROS2 par la pratique 1.0.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -15,7 +15,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b368aa4a" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ca3269d9" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c01_robot_modeling/c01s01_links_and_joints.html" />
@@ -38,8 +38,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Descriptions de robots avec ROS2" href="c01s02_robot_descriptions.html" />
-    <link rel="prev" title="Modéliser un robot" href="c01s00_index.html" /> 
+    <link rel="next" title="2.2. Descriptions de robots avec ROS2" href="c01s02_robot_descriptions.html" />
+    <link rel="prev" title="2. Modéliser un robot" href="c01s00_index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -64,20 +64,20 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">ROS2 par la pratique</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">Setup de ROS2</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="c01s00_index.html">Modéliser un robot</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Modéliser la géométrie d’un robot rigide avec URDF et SDF</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#segments">Segments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#articulations">Articulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">1. Setup de ROS2</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="c01s00_index.html">2. Modéliser un robot</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Modéliser la géométrie d’un robot rigide avec URDF et SDF</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#segments">2.1.1. Segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#articulations">2.1.2. Articulations</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html">Descriptions de robots avec ROS2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html">URDF pour la description de robots non parallèles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html">URDF par la pratique: le scanbot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html">2.2. Descriptions de robots avec ROS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html">2.3. URDF pour la description de robots non parallèles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html">2.4. URDF par la pratique: le scanbot</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">Communication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">3. Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">4. Appendix</a></li>
 </ul>
 
         </div>
@@ -94,8 +94,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="c01s00_index.html">Modéliser un robot</a></li>
-      <li class="breadcrumb-item active">Modéliser la géométrie d’un robot rigide avec URDF et SDF</li>
+          <li class="breadcrumb-item"><a href="c01s00_index.html"><span class="section-number">2. </span>Modéliser un robot</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2.1. </span>Modéliser la géométrie d’un robot rigide avec URDF et SDF</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/c01_robot_modeling/c01s01_links_and_joints.rst.txt" rel="nofollow"> Afficher la source de la page</a>
       </li>
@@ -106,7 +106,7 @@
            <div itemprop="articleBody">
              
   <section id="modeliser-la-geometrie-d-un-robot-rigide-avec-urdf-et-sdf">
-<h1>Modéliser la géométrie d’un robot rigide avec URDF et SDF<a class="headerlink" href="#modeliser-la-geometrie-d-un-robot-rigide-avec-urdf-et-sdf" title="Lien vers cette rubrique"></a></h1>
+<h1><span class="section-number">2.1. </span>Modéliser la géométrie d’un robot rigide avec URDF et SDF<a class="headerlink" href="#modeliser-la-geometrie-d-un-robot-rigide-avec-urdf-et-sdf" title="Lien vers cette rubrique"></a></h1>
 <p>On ne considère ici que les robots rigides, c’est-à-dire un système composé de
 parties rigides qui se meuvent les unes par rapport aux autres.
 On exclut donc les robots avec des parties souples comme par exemple
@@ -116,13 +116,13 @@ un système dont 2 parties rigides seraient reliées par un élastique.</p>
 <li><p>les <code class="docutils literal notranslate"><span class="pre">segments</span></code> (<code class="docutils literal notranslate"><span class="pre">link</span></code> en anglais) qui correspondent aux parties rigides du robot et</p></li>
 <li><p>les articulations (<code class="docutils literal notranslate"><span class="pre">joint</span></code> en anglais) qui correspondent aux mouvements possibles entre deux parties rigides.</p></li>
 </ol>
-<p>Entre 2 segments (notés L sur la <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>)
-, on a toujours une articulation (notées par des pastilles jaunes, sur la <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>).</p>
+<p>Entre 2 segments (notés L sur la <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2.1</span></a>)
+, on a toujours une articulation (notées par des pastilles jaunes, sur la <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2.1</span></a>).</p>
 <figure class="align-center" id="fig-robot-modeling-slide001">
 <a class="reference internal image-reference" href="../_images/slide001_kinematics_model.fr.svg"><img alt="../_images/slide001_kinematics_model.fr.svg" src="../_images/slide001_kinematics_model.fr.svg" style="height: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 2 </span><span class="caption-text">Modéle géométrique de la cinématique d’un robot rigide (source: <span id="id1">[<a class="reference internal" href="../c99_appendix/c99s50_bibliography.html#id2" title="M.A. Ali, H. Andy Park, and C.S.G. Lee. Closed-form inverse kinematic joint solution for humanoid robots. In Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems. IEEE/RSJ International Conference on Intelligent Robots and Systems, 704–709. 11 2010. URL: https://www.researchgate.net/publication/224199484_Closed-form_inverse_kinematic_joint_solution_for_humanoid_robots/references, doi:10.1109/IROS.2010.5649842.">APL10</a>]</span>)</span><a class="headerlink" href="#fig-robot-modeling-slide001" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.1 </span><span class="caption-text">Modéle géométrique de la cinématique d’un robot rigide (source: <span id="id1">[<a class="reference internal" href="../c99_appendix/c99s50_bibliography.html#id2" title="M.A. Ali, H. Andy Park, and C.S.G. Lee. Closed-form inverse kinematic joint solution for humanoid robots. In Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems. IEEE/RSJ International Conference on Intelligent Robots and Systems, 704–709. 11 2010. URL: https://www.researchgate.net/publication/224199484_Closed-form_inverse_kinematic_joint_solution_for_humanoid_robots/references, doi:10.1109/IROS.2010.5649842.">APL10</a>]</span>)</span><a class="headerlink" href="#fig-robot-modeling-slide001" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 <p>On peut aussi trouver le mot <code class="docutils literal notranslate"><span class="pre">liaison</span></code> pour une articulation en référence aux liaisons mécaniques (liaison glissière, pivot, etc. cf. <a class="reference external" href="https://fr.wikipedia.org/wiki/Liaison_(m%C3%A9canique)">les 12 types de liaisons mécaniques</a>) cependant à cause de la proximité avec le mot <code class="docutils literal notranslate"><span class="pre">link</span></code> nous préférons utiliser le mot <code class="docutils literal notranslate"><span class="pre">articulation</span></code>.</p>
@@ -141,7 +141,7 @@ un système dont 2 parties rigides seraient reliées par un élastique.</p>
 <a class="reference internal image-reference" href="../_images/prismatic_joint_logo.svg"><img alt="../_images/prismatic_joint_logo.svg" src="../_images/prismatic_joint_logo.svg" style="height: 150px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 3 </span><span class="caption-text">Glissière</span><a class="headerlink" href="#fig-prismatic-joint-logo" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.2 </span><span class="caption-text">Glissière</span><a class="headerlink" href="#fig-prismatic-joint-logo" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -163,7 +163,7 @@ un système dont 2 parties rigides seraient reliées par un élastique.</p>
 <a class="reference internal image-reference" href="../_images/revolute_joint_logo.svg"><img alt="../_images/revolute_joint_logo.svg" src="../_images/revolute_joint_logo.svg" style="height: 150px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 4 </span><span class="caption-text">Pivot d’axe</span><a class="headerlink" href="#fig-revolute-joint-logo" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.3 </span><span class="caption-text">Pivot d’axe</span><a class="headerlink" href="#fig-revolute-joint-logo" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -185,7 +185,7 @@ un système dont 2 parties rigides seraient reliées par un élastique.</p>
 <a class="reference internal image-reference" href="../_images/rigid_joint_logo.svg"><img alt="../_images/rigid_joint_logo.svg" src="../_images/rigid_joint_logo.svg" style="height: 150px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 5 </span><span class="caption-text">Encastrement</span><a class="headerlink" href="#fig-rigid-joint-logo" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.4 </span><span class="caption-text">Encastrement</span><a class="headerlink" href="#fig-rigid-joint-logo" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -213,7 +213,7 @@ segment du robot au cours du temps en prenant en compte les mouvements faits par
 <p>En tant que travail de modélisation, il est critique d’identifier les parties du modèle
 qui peuvent présenter les écarts les plus importants avec la réalité.</p>
 <section id="segments">
-<h2>Segments<a class="headerlink" href="#segments" title="Lien vers cette rubrique"></a></h2>
+<h2><span class="section-number">2.1.1. </span>Segments<a class="headerlink" href="#segments" title="Lien vers cette rubrique"></a></h2>
 <p>Un segment est une partie rigide du robot, soit un solide.
 Il est défini par sa géométrie, c’est-à-dire ses surfaces (Représentation par les Bords ou <a class="reference external" href="https://fr.wikipedia.org/wiki/B-Rep">B-Rep</a>) et son échelle.
 Ses surfaces peuvent être fournies de manière :</p>
@@ -265,12 +265,12 @@ Il contient bien sûr la géométrie 3D du segment (en de nombreux formats BREP,
 <p>Cela permet une visualisation plus réaliste du segment et en particulier que des modèles d’éclairage soient pris en compte.</p>
 </section>
 <section id="articulations">
-<h2>Articulations<a class="headerlink" href="#articulations" title="Lien vers cette rubrique"></a></h2>
+<h2><span class="section-number">2.1.2. </span>Articulations<a class="headerlink" href="#articulations" title="Lien vers cette rubrique"></a></h2>
 <p>Parmi toutes les articulations rigides nous utilisons principalement:</p>
 <ol class="arabic simple">
 <li><p>L’articulation glissière qui permet un mouvement de translation sans rotation entre deux segments rigides.  Le mouvement linéaire peut être réalisé par une glissière, un vérin ou une crémaillère par exemple.</p></li>
-<li><p>L’articulation pivot d’axe qui permet un mouvement de rotation sans translation. C’est le type des articulations utilisées dans un bras robotique anthropomorphe. La notation symbolique en 3D est un cylindre autour de l’axe de rotation comme dans la jambe du robot humanoïde de la <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>.</p></li>
-<li><p>La dernière articulation est un cas particulier, elle correspond à une liaison mécanique qui ne permet aucun mouvement relatif entre les deux segments. Elle peut être réalisée par une soudure, un boulonnage ou un collage entre deux pièces par exemple. Un exemple est donné par la liaison encastrement entre le segment <span class="math notranslate nohighlight">\(L_{L1}\)</span> et le segment <span class="math notranslate nohighlight">\(L_{L2}\)</span> de la <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>.</p></li>
+<li><p>L’articulation pivot d’axe qui permet un mouvement de rotation sans translation. C’est le type des articulations utilisées dans un bras robotique anthropomorphe. La notation symbolique en 3D est un cylindre autour de l’axe de rotation comme dans la jambe du robot humanoïde de la <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2.1</span></a>.</p></li>
+<li><p>La dernière articulation est un cas particulier, elle correspond à une liaison mécanique qui ne permet aucun mouvement relatif entre les deux segments. Elle peut être réalisée par une soudure, un boulonnage ou un collage entre deux pièces par exemple. Un exemple est donné par la liaison encastrement entre le segment <span class="math notranslate nohighlight">\(L_{L1}\)</span> et le segment <span class="math notranslate nohighlight">\(L_{L2}\)</span> de la <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2.1</span></a>.</p></li>
 </ol>
 <p>D’un point de vue pratique, on peut s’interroger sur pourquoi ne pas avoir un seul segment
 composé de l’union des 2 segments impliqués dans la liaison encastrement plutôt qu’une articulation
@@ -288,8 +288,8 @@ Ainsi, s’il on est capable de réaliser un tracking dynamique de la position r
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
-        <a href="c01s00_index.html" class="btn btn-neutral float-left" title="Modéliser un robot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="c01s02_robot_descriptions.html" class="btn btn-neutral float-right" title="Descriptions de robots avec ROS2" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="c01s00_index.html" class="btn btn-neutral float-left" title="2. Modéliser un robot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="c01s02_robot_descriptions.html" class="btn btn-neutral float-right" title="2.2. Descriptions de robots avec ROS2" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

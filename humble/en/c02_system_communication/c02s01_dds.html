@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DDS &mdash; ROS2 par la pratique 1.0.0 documentation</title>
+  <title>3.1. DDS &mdash; ROS2 par la pratique 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b368aa4a" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ca3269d9" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c02_system_communication/c02s01_dds.html" />
@@ -34,8 +34,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="DOMAINS" href="c02s02_domains.html" />
-    <link rel="prev" title="Communication" href="c02s00_index.html" /> 
+    <link rel="next" title="3.2. DOMAINS" href="c02s02_domains.html" />
+    <link rel="prev" title="3. Communication" href="c02s00_index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -60,24 +60,24 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">ROS2 in practice</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">ROS2 setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../c01_robot_modeling/c01s00_index.html">Modeling a robot</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="c02s00_index.html">Communication</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">DDS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#caracteristiques-cles-de-dds">Key Features of DDS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ipc-et-dds">IPC and DDS</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#quest-ce-quune-ipc">What is IPC?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#aspects-cles-de-lipc">Key Aspects of IPC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#dds-arbitre-entre-ipc-et-protocoles-reseau">DDS arbitrates between IPC and network protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">1. ROS2 setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c01_robot_modeling/c01s00_index.html">2. Modeling a robot</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="c02s00_index.html">3. Communication</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.1. DDS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#caracteristiques-cles-de-dds">3.1.1. Key Features of DDS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ipc-et-dds">3.1.2. IPC and DDS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quest-ce-quune-ipc">3.1.2.1. What is IPC?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aspects-cles-de-lipc">3.1.2.2. Key Aspects of IPC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dds-arbitre-entre-ipc-et-protocoles-reseau">3.1.2.3. DDS arbitrates between IPC and network protocols</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#implementations-de-dds">DDS Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementations-de-dds">3.1.3. DDS Implementations</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="c02s02_domains.html">DOMAINS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c02s02_domains.html">3.2. DOMAINS</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">4. Appendix</a></li>
 </ul>
 
         </div>
@@ -94,8 +94,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="c02s00_index.html">Communication</a></li>
-      <li class="breadcrumb-item active">DDS</li>
+          <li class="breadcrumb-item"><a href="c02s00_index.html"><span class="section-number">3. </span>Communication</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3.1. </span>DDS</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/c02_system_communication/c02s01_dds.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -106,7 +106,7 @@
            <div itemprop="articleBody">
              
   <section id="dds">
-<h1>DDS<a class="headerlink" href="#dds" title="Link to this heading"></a></h1>
+<h1><span class="section-number">3.1. </span>DDS<a class="headerlink" href="#dds" title="Link to this heading"></a></h1>
 <figure class="align-center" id="fig-ros2-architecture">
 <a class="reference internal image-reference" href="../_images/ros-architecture.jpg"><img alt="../_images/ros-architecture.jpg" src="../_images/ros-architecture.jpg" style="height: 800px;" />
 </a>
@@ -114,7 +114,7 @@
 <p>The Data Distribution Service (DDS) is at the heart of the ROS2 architecture for managing communication between nodes. <br> DDS ensures: automatic discovery of publishers and subscribers on the network, quality of service (QoS) management, and message transport.</p>
 <p>Thanks to DDS, ROS2 nodes can exchange data reliably, securely, and in real-time or pseudo real-time.</p>
 <section id="caracteristiques-cles-de-dds">
-<h2>Key Features of DDS<a class="headerlink" href="#caracteristiques-cles-de-dds" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.1.1. </span>Key Features of DDS<a class="headerlink" href="#caracteristiques-cles-de-dds" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Automatic discovery: No need to manually configure IP addresses or ports.</p></li>
 <li><p>Quality of Service (QoS): Allows defining different levels of reliability, message lifetimes, etc.</p></li>
@@ -133,13 +133,13 @@
 </figure>
 </section>
 <section id="ipc-et-dds">
-<span id="ipc-dds"></span><h2>IPC and DDS<a class="headerlink" href="#ipc-et-dds" title="Link to this heading"></a></h2>
+<span id="ipc-dds"></span><h2><span class="section-number">3.1.2. </span>IPC and DDS<a class="headerlink" href="#ipc-et-dds" title="Link to this heading"></a></h2>
 <section id="quest-ce-quune-ipc">
-<h3>What is IPC?<a class="headerlink" href="#quest-ce-quune-ipc" title="Link to this heading"></a></h3>
+<h3><span class="section-number">3.1.2.1. </span>What is IPC?<a class="headerlink" href="#quest-ce-quune-ipc" title="Link to this heading"></a></h3>
 <p><em>Inter-Process Communication (IPC)</em> encompasses all mechanisms and protocols that allow multiple processes to exchange data and coordinate their actions on the same machine. Among the most common techniques are shared memory, pipes, sockets, and message queues. By leveraging these mechanisms, it is possible to achieve very good performance in terms of latency and throughput, which is essential in systems where reaction time must be as short as possible (real-time or quasi real-time).</p>
 </section>
 <section id="aspects-cles-de-lipc">
-<h3>Key Aspects of IPC<a class="headerlink" href="#aspects-cles-de-lipc" title="Link to this heading"></a></h3>
+<h3><span class="section-number">3.1.2.2. </span>Key Aspects of IPC<a class="headerlink" href="#aspects-cles-de-lipc" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><strong>Efficient local communication</strong>: IPC mechanisms such as shared memory, pipes, sockets, and message queues enable high-performance communication between nodes on the same machine, without the overhead associated with network communication.</p></li>
 <li><p><strong>Resource sharing</strong>: IPC offers the possibility to share resources (e.g., data buffers, synchronization primitives) to ensure coordination and collaborative processing between different components or processes.</p></li>
@@ -147,13 +147,13 @@
 </ul>
 </section>
 <section id="dds-arbitre-entre-ipc-et-protocoles-reseau">
-<h3>DDS arbitrates between IPC and network protocols<a class="headerlink" href="#dds-arbitre-entre-ipc-et-protocoles-reseau" title="Link to this heading"></a></h3>
+<h3><span class="section-number">3.1.2.3. </span>DDS arbitrates between IPC and network protocols<a class="headerlink" href="#dds-arbitre-entre-ipc-et-protocoles-reseau" title="Link to this heading"></a></h3>
 <p>In the case of local communication (multiple nodes running on the same machine), DDS leverages IPC mechanisms to reduce latency and limit resource consumption. For communication across a distributed network, DDS relies on network protocols (TCP or UDP) to disseminate data between different systems, while maintaining the same principles of automatic discovery and Quality of Service (QoS).</p>
 <p>DDS leverages these IPC mechanisms to ensure fast and efficient data exchange at the local level, while simultaneously providing a robust infrastructure for network communication.</p>
 </section>
 </section>
 <section id="implementations-de-dds">
-<h2>DDS Implementations<a class="headerlink" href="#implementations-de-dds" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.1.3. </span>DDS Implementations<a class="headerlink" href="#implementations-de-dds" title="Link to this heading"></a></h2>
 <p>To configure DDS in ROS2, you can set the environment variable <code class="code docutils literal notranslate"><span class="pre">RMW_IMPLEMENTATION</span></code> (for ROS Middleware Implementation) to specify the DDS implementation to use (e.g., FastDDS (formerly Fast-RTPS), CycloneDDS, Connext, etc.).</p>
 <p>See the documentation: <a class="reference external" href="https://docs.ros.org/en/humble/How-To-Guides/Working-with-multiple-RMW-implementations.html">working with different DDS</a></p>
 <p>Example:</p>
@@ -171,8 +171,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="c02s00_index.html" class="btn btn-neutral float-left" title="Communication" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="c02s02_domains.html" class="btn btn-neutral float-right" title="DOMAINS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="c02s00_index.html" class="btn btn-neutral float-left" title="3. Communication" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="c02s02_domains.html" class="btn btn-neutral float-right" title="3.2. DOMAINS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modeling a robot &mdash; ROS2 par la pratique 1.0.0 documentation</title>
+  <title>2. Modeling a robot &mdash; ROS2 par la pratique 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b368aa4a" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ca3269d9" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c01_robot_modeling/c01s00_index.html" />
@@ -34,8 +34,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Modeling the geometry of a rigid robot with URDF and SDF" href="c01s01_links_and_joints.html" />
-    <link rel="prev" title="Installation of the vscode editor for ROS2" href="../c00_setup_de_ros2/c00s02_vscode_for_ros2.html" /> 
+    <link rel="next" title="2.1. Modeling the geometry of a rigid robot with URDF and SDF" href="c01s01_links_and_joints.html" />
+    <link rel="prev" title="1.3. Installation of the vscode editor for ROS2" href="../c00_setup_de_ros2/c00s02_vscode_for_ros2.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -60,16 +60,16 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">ROS2 in practice</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">ROS2 setup</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Modeling a robot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="c01s01_links_and_joints.html">Modeling the geometry of a rigid robot with URDF and SDF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html">Robot Descriptions with ROS2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html">URDF for the Description of Non-Parallel Robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html">URDF in Practice: The Scanbot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">1. ROS2 setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Modeling a robot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="c01s01_links_and_joints.html">2.1. Modeling the geometry of a rigid robot with URDF and SDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html">2.2. Robot Descriptions with ROS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html">2.3. URDF for the Description of Non-Parallel Robots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html">2.4. URDF in Practice: The Scanbot</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">Communication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">3. Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">4. Appendix</a></li>
 </ul>
 
         </div>
@@ -86,7 +86,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Modeling a robot</li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>Modeling a robot</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/c01_robot_modeling/c01s00_index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -97,30 +97,30 @@
            <div itemprop="articleBody">
              
   <section id="modeliser-un-robot">
-<h1>Modeling a robot<a class="headerlink" href="#modeliser-un-robot" title="Link to this heading"></a></h1>
+<h1><span class="section-number">2. </span>Modeling a robot<a class="headerlink" href="#modeliser-un-robot" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c01s01_links_and_joints.html">Modeling the geometry of a rigid robot with URDF and SDF</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="c01s01_links_and_joints.html#segments">Links</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s01_links_and_joints.html#articulations">Joints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c01s01_links_and_joints.html">2.1. Modeling the geometry of a rigid robot with URDF and SDF</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="c01s01_links_and_joints.html#segments">2.1.1. Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s01_links_and_joints.html#articulations">2.1.2. Joints</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="c01s02_robot_descriptions.html">Robot Descriptions with ROS2</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html#chaines-cinematiques">Kinematic Chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c01s02_robot_descriptions.html">2.2. Robot Descriptions with ROS2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html#chaines-cinematiques">2.2.1. Kinematic Chains</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="c01s03_urdf.html">URDF for the Description of Non-Parallel Robots</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html#generalites-sur-le-xml">General Information about XML</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html#generalites-sur-l-urdf">General Information about URDF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html#la-balise-link">The <strong>link</strong> Tag</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html#simple-exemple">Simple Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html#un-point-xacro-et-fichiers-launch">A Xacro point and launch files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html#la-balise-joint">The <strong>joint</strong> Tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c01s03_urdf.html">2.3. URDF for the Description of Non-Parallel Robots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html#generalites-sur-le-xml">2.3.1. General Information about XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html#generalites-sur-l-urdf">2.3.2. General Information about URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html#la-balise-link">2.3.3. The <strong>link</strong> Tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html#simple-exemple">2.3.4. Simple Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html#un-point-xacro-et-fichiers-launch">2.3.5. A Xacro point and launch files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html#la-balise-joint">2.3.6. The <strong>joint</strong> Tag</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="c01s04_urdf_practical.html">URDF in Practice: The Scanbot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html#maillages-des-segments">Links meshes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html#produire-un-urdf">Producing an URDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c01s04_urdf_practical.html">2.4. URDF in Practice: The Scanbot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html#maillages-des-segments">2.4.1. Links meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html#produire-un-urdf">2.4.2. Producing an URDF</a></li>
 </ul>
 </li>
 </ul>
@@ -131,8 +131,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../c00_setup_de_ros2/c00s02_vscode_for_ros2.html" class="btn btn-neutral float-left" title="Installation of the vscode editor for ROS2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="c01s01_links_and_joints.html" class="btn btn-neutral float-right" title="Modeling the geometry of a rigid robot with URDF and SDF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../c00_setup_de_ros2/c00s02_vscode_for_ros2.html" class="btn btn-neutral float-left" title="1.3. Installation of the vscode editor for ROS2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="c01s01_links_and_joints.html" class="btn btn-neutral float-right" title="2.1. Modeling the geometry of a rigid robot with URDF and SDF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DOMAINS &mdash; ROS2 par la pratique 1.0.0 documentation</title>
+  <title>3.2. DOMAINS &mdash; ROS2 par la pratique 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b368aa4a" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ca3269d9" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c02_system_communication/c02s02_domains.html" />
@@ -34,8 +34,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Appendix" href="../c99_appendix/c99s00_index.html" />
-    <link rel="prev" title="DDS" href="c02s01_dds.html" /> 
+    <link rel="next" title="4. Appendix" href="../c99_appendix/c99s00_index.html" />
+    <link rel="prev" title="3.1. DDS" href="c02s01_dds.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -60,19 +60,19 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">ROS2 in practice</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">ROS2 setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../c01_robot_modeling/c01s00_index.html">Modeling a robot</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="c02s00_index.html">Communication</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="c02s01_dds.html">DDS</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">DOMAINS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#les-domaines-en-bref">Domains in Brief</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#choisir-un-id-de-domaine">Choosing a Domain ID</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utiliser-un-domain-id-en-pratique">Using a DOMAIN ID in Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">1. ROS2 setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c01_robot_modeling/c01s00_index.html">2. Modeling a robot</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="c02s00_index.html">3. Communication</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="c02s01_dds.html">3.1. DDS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.2. DOMAINS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#les-domaines-en-bref">3.2.1. Domains in Brief</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choisir-un-id-de-domaine">3.2.2. Choosing a Domain ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utiliser-un-domain-id-en-pratique">3.2.3. Using a DOMAIN ID in Practice</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">4. Appendix</a></li>
 </ul>
 
         </div>
@@ -89,8 +89,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="c02s00_index.html">Communication</a></li>
-      <li class="breadcrumb-item active">DOMAINS</li>
+          <li class="breadcrumb-item"><a href="c02s00_index.html"><span class="section-number">3. </span>Communication</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3.2. </span>DOMAINS</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/c02_system_communication/c02s02_domains.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -101,18 +101,18 @@
            <div itemprop="articleBody">
              
   <section id="domains">
-<h1>DOMAINS<a class="headerlink" href="#domains" title="Link to this heading"></a></h1>
+<h1><span class="section-number">3.2. </span>DOMAINS<a class="headerlink" href="#domains" title="Link to this heading"></a></h1>
 <section id="les-domaines-en-bref">
-<span id="dds-domain-overview"></span><h2>Domains in Brief<a class="headerlink" href="#les-domaines-en-bref" title="Link to this heading"></a></h2>
+<span id="dds-domain-overview"></span><h2><span class="section-number">3.2.1. </span>Domains in Brief<a class="headerlink" href="#les-domaines-en-bref" title="Link to this heading"></a></h2>
 <p>As explained in the previous section, the default middleware used by ROS 2 for communication is DDS. In DDS, the main mechanism allowing different logical networks to share a physical network is called the domain ID. ROS 2 nodes on the same domain can discover and send messages to each other freely, while ROS 2 nodes on different domains cannot. All ROS 2 nodes default to domain ID 0. To avoid interference between different groups of computers running ROS 2 on the same network, a different domain ID must be set for each group.</p>
 </section>
 <section id="choisir-un-id-de-domaine">
-<span id="choisir-un-id-de-domaine-version-courte"></span><h2>Choosing a Domain ID<a class="headerlink" href="#choisir-un-id-de-domaine" title="Link to this heading"></a></h2>
+<span id="choisir-un-id-de-domaine-version-courte"></span><h2><span class="section-number">3.2.2. </span>Choosing a Domain ID<a class="headerlink" href="#choisir-un-id-de-domaine" title="Link to this heading"></a></h2>
 <p>To simply choose a safe domain ID, select a domain ID between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">101</span></code> inclusively.</p>
 <p>For detailed explanations on the range of domain IDs to use in ROS 2, please <a class="reference external" href="https://docs.ros.org/en/rolling/Concepts/Intermediate/About-Domain-ID.html">refer to the official ROS 2 documentation</a>.</p>
 </section>
 <section id="utiliser-un-domain-id-en-pratique">
-<span id="utiliser-un-domaine-id-en-pratique"></span><h2>Using a DOMAIN ID in Practice<a class="headerlink" href="#utiliser-un-domain-id-en-pratique" title="Link to this heading"></a></h2>
+<span id="utiliser-un-domaine-id-en-pratique"></span><h2><span class="section-number">3.2.3. </span>Using a DOMAIN ID in Practice<a class="headerlink" href="#utiliser-un-domain-id-en-pratique" title="Link to this heading"></a></h2>
 <p>To set the domain ID before running a launch file in ROS 2, you can set the ROS_DOMAIN_ID environment variable in your terminal session.</p>
 <p>Open your terminal and set the ROS_DOMAIN_ID environment variable to the desired value (e.g., 42):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_DOMAIN_ID</span><span class="o">=</span><span class="m">42</span>
@@ -136,8 +136,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="c02s01_dds.html" class="btn btn-neutral float-left" title="DDS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../c99_appendix/c99s00_index.html" class="btn btn-neutral float-right" title="Appendix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="c02s01_dds.html" class="btn btn-neutral float-left" title="3.1. DDS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../c99_appendix/c99s00_index.html" class="btn btn-neutral float-right" title="4. Appendix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

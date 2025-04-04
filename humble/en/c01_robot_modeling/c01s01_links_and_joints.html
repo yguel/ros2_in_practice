@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modeling the geometry of a rigid robot with URDF and SDF &mdash; ROS2 par la pratique 1.0.0 documentation</title>
+  <title>2.1. Modeling the geometry of a rigid robot with URDF and SDF &mdash; ROS2 par la pratique 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -15,7 +15,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b368aa4a" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ca3269d9" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c01_robot_modeling/c01s01_links_and_joints.html" />
@@ -37,8 +37,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Robot Descriptions with ROS2" href="c01s02_robot_descriptions.html" />
-    <link rel="prev" title="Modeling a robot" href="c01s00_index.html" /> 
+    <link rel="next" title="2.2. Robot Descriptions with ROS2" href="c01s02_robot_descriptions.html" />
+    <link rel="prev" title="2. Modeling a robot" href="c01s00_index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -63,20 +63,20 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">ROS2 in practice</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">ROS2 setup</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="c01s00_index.html">Modeling a robot</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Modeling the geometry of a rigid robot with URDF and SDF</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#segments">Links</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#articulations">Joints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">1. ROS2 setup</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="c01s00_index.html">2. Modeling a robot</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Modeling the geometry of a rigid robot with URDF and SDF</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#segments">2.1.1. Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#articulations">2.1.2. Joints</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html">Robot Descriptions with ROS2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html">URDF for the Description of Non-Parallel Robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html">URDF in Practice: The Scanbot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html">2.2. Robot Descriptions with ROS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html">2.3. URDF for the Description of Non-Parallel Robots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s04_urdf_practical.html">2.4. URDF in Practice: The Scanbot</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">Communication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">3. Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">4. Appendix</a></li>
 </ul>
 
         </div>
@@ -93,8 +93,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="c01s00_index.html">Modeling a robot</a></li>
-      <li class="breadcrumb-item active">Modeling the geometry of a rigid robot with URDF and SDF</li>
+          <li class="breadcrumb-item"><a href="c01s00_index.html"><span class="section-number">2. </span>Modeling a robot</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2.1. </span>Modeling the geometry of a rigid robot with URDF and SDF</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/c01_robot_modeling/c01s01_links_and_joints.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -105,19 +105,19 @@
            <div itemprop="articleBody">
              
   <section id="modeliser-la-geometrie-d-un-robot-rigide-avec-urdf-et-sdf">
-<h1>Modeling the geometry of a rigid robot with URDF and SDF<a class="headerlink" href="#modeliser-la-geometrie-d-un-robot-rigide-avec-urdf-et-sdf" title="Link to this heading"></a></h1>
+<h1><span class="section-number">2.1. </span>Modeling the geometry of a rigid robot with URDF and SDF<a class="headerlink" href="#modeliser-la-geometrie-d-un-robot-rigide-avec-urdf-et-sdf" title="Link to this heading"></a></h1>
 <p>Here we only consider rigid robots, that is, a system composed of rigid parts that move relative to each other. Therefore, we exclude robots with flexible parts such as a system where 2 rigid parts are connected by an elastic band.</p>
 <p>A rigid robot model is divided into 2 categories of parts:</p>
 <ol class="arabic simple">
 <li><p>the <code class="docutils literal notranslate"><span class="pre">links</span></code> which correspond to the rigid parts of the robot and</p></li>
 <li><p>the joints (<code class="docutils literal notranslate"><span class="pre">joint</span></code> in English) which correspond to the possible movements between two rigid parts.</p></li>
 </ol>
-<p>Between 2 links (noted L on the <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>), there is always a joint (noted by yellow dots, on the <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>).</p>
+<p>Between 2 links (noted L on the <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2.1</span></a>), there is always a joint (noted by yellow dots, on the <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2.1</span></a>).</p>
 <figure class="align-center" id="fig-robot-modeling-slide001">
 <a class="reference internal image-reference" href="../_images/slide001_kinematics_model.en.svg"><img alt="../_images/slide001_kinematics_model.en.svg" src="../_images/slide001_kinematics_model.en.svg" style="height: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 2 </span><span class="caption-text">Geometric model of the kinematics of a rigid robot (source: <span id="id1">[<a class="reference internal" href="../c99_appendix/c99s50_bibliography.html#id2" title="M.A. Ali, H. Andy Park, and C.S.G. Lee. Closed-form inverse kinematic joint solution for humanoid robots. In Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems. IEEE/RSJ International Conference on Intelligent Robots and Systems, 704–709. 11 2010. URL: https://www.researchgate.net/publication/224199484_Closed-form_inverse_kinematic_joint_solution_for_humanoid_robots/references, doi:10.1109/IROS.2010.5649842.">APL10</a>]</span>)</span><a class="headerlink" href="#fig-robot-modeling-slide001" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 2.1 </span><span class="caption-text">Geometric model of the kinematics of a rigid robot (source: <span id="id1">[<a class="reference internal" href="../c99_appendix/c99s50_bibliography.html#id2" title="M.A. Ali, H. Andy Park, and C.S.G. Lee. Closed-form inverse kinematic joint solution for humanoid robots. In Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems. IEEE/RSJ International Conference on Intelligent Robots and Systems, 704–709. 11 2010. URL: https://www.researchgate.net/publication/224199484_Closed-form_inverse_kinematic_joint_solution_for_humanoid_robots/references, doi:10.1109/IROS.2010.5649842.">APL10</a>]</span>)</span><a class="headerlink" href="#fig-robot-modeling-slide001" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>We can also find the word <code class="docutils literal notranslate"><span class="pre">liaison</span></code> for a joint in reference to mechanical connections (sliding connection, pivot, etc. cf. <a class="reference external" href="https://fr.wikipedia.org/wiki/Liaison_(m%C3%A9canique)">the 12 types of mechanical connections</a>) however, due to the proximity with the word <code class="docutils literal notranslate"><span class="pre">link</span></code>, we prefer to use the word <code class="docutils literal notranslate"><span class="pre">joint</span></code>.</p>
@@ -136,7 +136,7 @@
 <a class="reference internal image-reference" href="../_images/prismatic_joint_logo.svg"><img alt="../_images/prismatic_joint_logo.svg" src="../_images/prismatic_joint_logo.svg" style="height: 150px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 3 </span><span class="caption-text">Prismatic joint</span><a class="headerlink" href="#fig-prismatic-joint-logo" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 2.2 </span><span class="caption-text">Prismatic joint</span><a class="headerlink" href="#fig-prismatic-joint-logo" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -158,7 +158,7 @@
 <a class="reference internal image-reference" href="../_images/revolute_joint_logo.svg"><img alt="../_images/revolute_joint_logo.svg" src="../_images/revolute_joint_logo.svg" style="height: 150px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 4 </span><span class="caption-text">Revolute joint</span><a class="headerlink" href="#fig-revolute-joint-logo" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 2.3 </span><span class="caption-text">Revolute joint</span><a class="headerlink" href="#fig-revolute-joint-logo" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -180,7 +180,7 @@
 <a class="reference internal image-reference" href="../_images/rigid_joint_logo.svg"><img alt="../_images/rigid_joint_logo.svg" src="../_images/rigid_joint_logo.svg" style="height: 150px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 5 </span><span class="caption-text">Fixed or rigid joint</span><a class="headerlink" href="#fig-rigid-joint-logo" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 2.4 </span><span class="caption-text">Fixed or rigid joint</span><a class="headerlink" href="#fig-rigid-joint-logo" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -206,7 +206,7 @@
 <p>The goal of the geometric model is to be able to describe the position in space of each link of the robot over time, taking into account the movements made by the joints.</p>
 <p>As a modeling task, it is critical to identify the parts of the model that may present the most significant deviations from reality.</p>
 <section id="segments">
-<h2>Links<a class="headerlink" href="#segments" title="Link to this heading"></a></h2>
+<h2><span class="section-number">2.1.1. </span>Links<a class="headerlink" href="#segments" title="Link to this heading"></a></h2>
 <p>A Link is a rigid part of the robot, that is, a solid. It is defined by its geometry, that is, its surfaces (Boundary Representation or <a class="reference external" href="https://fr.wikipedia.org/wiki/B-Rep">B-Rep</a>) and its scale. Its surfaces can be provided in the following ways:</p>
 <ol class="arabic simple">
 <li><p>implicit: zeros of mathematical equations. For example, for a sphere <span class="math notranslate nohighlight">\(f(x, y, z) = x^2+y^2+z^2-r^2 = 0\)</span>.</p></li>
@@ -254,12 +254,12 @@
 <p>This allows a more realistic visualization of the link and in particular that lighting models are taken into account.</p>
 </section>
 <section id="articulations">
-<h2>Joints<a class="headerlink" href="#articulations" title="Link to this heading"></a></h2>
+<h2><span class="section-number">2.1.2. </span>Joints<a class="headerlink" href="#articulations" title="Link to this heading"></a></h2>
 <p>Among all the rigid joints, we mainly use:</p>
 <ol class="arabic simple">
 <li><p>The prismatic joint allows a translational movement without rotation between two rigid links. The linear movement can be achieved by a slider, a cylinder, or a rack, for example.</p></li>
-<li><p>The pivot joint which allows a rotation without translation. This is the type of joints used in an anthropomorphic robotic arm. The symbolic notation in 3D is a cylinder around the axis of rotation as in the leg of the humanoid robot in the <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>.</p></li>
-<li><p>The last joint is a special case, it corresponds to a mechanical connection that does not allow any relative movement between the two links. It can be achieved by welding, bolting, or gluing two parts together, for example. An example is given by the fixed joint between link <span class="math notranslate nohighlight">\(L_{L1}\)</span> and link <span class="math notranslate nohighlight">\(L_{L2}\)</span> of the <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2</span></a>.</p></li>
+<li><p>The pivot joint which allows a rotation without translation. This is the type of joints used in an anthropomorphic robotic arm. The symbolic notation in 3D is a cylinder around the axis of rotation as in the leg of the humanoid robot in the <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2.1</span></a>.</p></li>
+<li><p>The last joint is a special case, it corresponds to a mechanical connection that does not allow any relative movement between the two links. It can be achieved by welding, bolting, or gluing two parts together, for example. An example is given by the fixed joint between link <span class="math notranslate nohighlight">\(L_{L1}\)</span> and link <span class="math notranslate nohighlight">\(L_{L2}\)</span> of the <a class="reference internal" href="#fig-robot-modeling-slide001"><span class="std std-numref">Figure 2.1</span></a>.</p></li>
 </ol>
 <p>From a practical point of view, one might wonder why not have a single link composed of the union of the 2 links involved in the fixed joint rather than a joint since the relative movement is zero. This joint is fundamental because it serves to model a rigid assembly of distinct links. <br> However, we know that our model is only an approximation and in particular that the available information on the assembly (the relative position of one link to another) can be both imprecise and variable over time. Therefore, it is essential to be able to modify the relative position of the links to account for these inaccuracies using calibration procedures. <br> In particular, if the assembly is subjected to mechanical stress, it is useful to have the ability to change the relative position of the assembly to account for deformations related to this stress. Thus, if we are able to perform dynamic tracking of the relative position of the links, representing the fixed joint by a joint allows us to obtain an adaptable and therefore faithful model of the robot over time.</p>
 </section>
@@ -269,8 +269,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="c01s00_index.html" class="btn btn-neutral float-left" title="Modeling a robot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="c01s02_robot_descriptions.html" class="btn btn-neutral float-right" title="Robot Descriptions with ROS2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="c01s00_index.html" class="btn btn-neutral float-left" title="2. Modeling a robot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="c01s02_robot_descriptions.html" class="btn btn-neutral float-right" title="2.2. Robot Descriptions with ROS2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

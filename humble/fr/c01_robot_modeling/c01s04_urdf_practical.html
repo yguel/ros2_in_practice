@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>URDF par la pratique: le scanbot &mdash; Documentation ROS2 par la pratique 1.0.0</title>
+  <title>2.4. URDF par la pratique: le scanbot &mdash; Documentation ROS2 par la pratique 1.0.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b368aa4a" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ca3269d9" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c01_robot_modeling/c01s04_urdf_practical.html" />
@@ -35,8 +35,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Communication" href="../c02_system_communication/c02s00_index.html" />
-    <link rel="prev" title="URDF pour la description de robots non parallèles" href="c01s03_urdf.html" /> 
+    <link rel="next" title="3. Communication" href="../c02_system_communication/c02s00_index.html" />
+    <link rel="prev" title="2.3. URDF pour la description de robots non parallèles" href="c01s03_urdf.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,27 +61,27 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">ROS2 par la pratique</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">Setup de ROS2</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="c01s00_index.html">Modéliser un robot</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="c01s01_links_and_joints.html">Modéliser la géométrie d’un robot rigide avec URDF et SDF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html">Descriptions de robots avec ROS2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html">URDF pour la description de robots non parallèles</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">URDF par la pratique: le scanbot</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#maillages-des-segments">Maillages des segments</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#format-step">Format step</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#format-collada-dae">Format collada (.dae)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c00_setup_de_ros2/c00s00_index.html">1. Setup de ROS2</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="c01s00_index.html">2. Modéliser un robot</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="c01s01_links_and_joints.html">2.1. Modéliser la géométrie d’un robot rigide avec URDF et SDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s02_robot_descriptions.html">2.2. Descriptions de robots avec ROS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c01s03_urdf.html">2.3. URDF pour la description de robots non parallèles</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.4. URDF par la pratique: le scanbot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#maillages-des-segments">2.4.1. Maillages des segments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#format-step">2.4.1.1. Format step</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#format-collada-dae">2.4.1.2. Format collada (.dae)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#produire-un-urdf">Produire un URDF</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#camera-et-3-degrees-de-liberte-en-rotation">Caméra et 3 degrées de liberté en rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#produire-un-urdf">2.4.2. Produire un URDF</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#camera-et-3-degrees-de-liberte-en-rotation">2.4.2.1. Caméra et 3 degrées de liberté en rotation</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">Communication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_system_communication/c02s00_index.html">3. Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c99_appendix/c99s00_index.html">4. Appendix</a></li>
 </ul>
 
         </div>
@@ -98,8 +98,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="c01s00_index.html">Modéliser un robot</a></li>
-      <li class="breadcrumb-item active">URDF par la pratique: le scanbot</li>
+          <li class="breadcrumb-item"><a href="c01s00_index.html"><span class="section-number">2. </span>Modéliser un robot</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2.4. </span>URDF par la pratique: le scanbot</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/c01_robot_modeling/c01s04_urdf_practical.rst.txt" rel="nofollow"> Afficher la source de la page</a>
       </li>
@@ -110,18 +110,18 @@
            <div itemprop="articleBody">
              
   <section id="urdf-par-la-pratique-le-scanbot">
-<h1>URDF par la pratique: le scanbot<a class="headerlink" href="#urdf-par-la-pratique-le-scanbot" title="Lien vers cette rubrique"></a></h1>
+<h1><span class="section-number">2.4. </span>URDF par la pratique: le scanbot<a class="headerlink" href="#urdf-par-la-pratique-le-scanbot" title="Lien vers cette rubrique"></a></h1>
 <figure class="align-center" id="fig-slide003-scanbot-kinematic-chain2">
 <a class="reference internal image-reference" href="../_images/slide003_scanbot_kinematic_chain.svg"><img alt="../_images/slide003_scanbot_kinematic_chain.svg" src="../_images/slide003_scanbot_kinematic_chain.svg" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 21 </span><span class="caption-text">Robot Scanbot, le robot d’exemple non parallèle, et sa chaîne cinmématique.</span><a class="headerlink" href="#fig-slide003-scanbot-kinematic-chain2" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.20 </span><span class="caption-text">Robot Scanbot, le robot d’exemple non parallèle, et sa chaîne cinmématique.</span><a class="headerlink" href="#fig-slide003-scanbot-kinematic-chain2" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 <p>Pour pratiquer nous allons utiliser un robot simple, d’exemple, que nous avons appelé scanbot.
-Il se compose d’une partie en translation x,y,z, d’un bras vert capable de pivoter autour de l’axe x et d’un système à 3 degrées de liberté en rotation supportant une caméra à son organe terminal (voir la <a class="reference internal" href="c01s03_urdf.html#fig-slide003-scanbot-kinematic-chain"><span class="std std-numref">Figure 7</span></a>).</p>
+Il se compose d’une partie en translation x,y,z, d’un bras vert capable de pivoter autour de l’axe x et d’un système à 3 degrées de liberté en rotation supportant une caméra à son organe terminal (voir la <a class="reference internal" href="c01s03_urdf.html#fig-slide003-scanbot-kinematic-chain"><span class="std std-numref">Figure 2.6</span></a>).</p>
 <section id="maillages-des-segments">
-<h2>Maillages des segments<a class="headerlink" href="#maillages-des-segments" title="Lien vers cette rubrique"></a></h2>
+<h2><span class="section-number">2.4.1. </span>Maillages des segments<a class="headerlink" href="#maillages-des-segments" title="Lien vers cette rubrique"></a></h2>
 <p>Pour produire les maillages, nous avons utilisé le logiciel <a class="reference external" href="https://github.com/CadQuery/cadquery">cadquery</a> (très bien <a class="reference external" href="https://cadquery.readthedocs.io/en/latest/">documenté</a>). Cela permet de créer de manière procédural les formes à partir du language python en utilisant les opérations élémentaires de CAO (sketch, extrusion, combinaisons booléennes de forme). <br></p>
 <ol class="arabic simple">
 <li><p><a class="reference download internal" download="" href="../_downloads/bed959e78bbaae3c9a6c793b982343e8/scanbot.py"><code class="xref download docutils literal notranslate"><span class="pre">scanbot.py</span></code></a>,</p></li>
@@ -129,7 +129,7 @@ Il se compose d’une partie en translation x,y,z, d’un bras vert capable de p
 </ol>
 <div class="exercise toggle admonition" id="ex_cadquery_scanbot">
 
-<p class="admonition-title"><span class="caption-number">Exercice 2 </span> (génération de maillages des segments du scanbot de manière procédurale avec cadquery. [avancé])</p>
+<p class="admonition-title"><span class="caption-number">Exercice 2.2 </span> (génération de maillages des segments du scanbot de manière procédurale avec cadquery. [avancé])</p>
 <section id="exercise-content">
 <p>Installez cq-editor, puis exécutez le programme scanbot.py</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">exec</span><span class="p">(</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;&lt;path_to&gt;/scanbot.py&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="p">)</span>
@@ -140,7 +140,7 @@ Il se compose d’une partie en translation x,y,z, d’un bras vert capable de p
 </section>
 </div>
 <section id="format-step">
-<h3>Format step<a class="headerlink" href="#format-step" title="Lien vers cette rubrique"></a></h3>
+<h3><span class="section-number">2.4.1.1. </span>Format step<a class="headerlink" href="#format-step" title="Lien vers cette rubrique"></a></h3>
 <p>Les maillages des segments du scanbot au format step sont les suivants:</p>
 <ol class="arabic simple">
 <li><p><a class="reference download internal" download="" href="../_downloads/75f972afe0bc588254b66c8b5edb82ce/scanbot_s00_base_link.step"><code class="xref download docutils literal notranslate"><span class="pre">scanbot_s00_base_link.step</span></code></a>,</p></li>
@@ -155,7 +155,7 @@ Il se compose d’une partie en translation x,y,z, d’un bras vert capable de p
 </ol>
 <div class="exercise toggle admonition" id="ex_conversion_maillage">
 
-<p class="admonition-title"><span class="caption-number">Exercice 3 </span> (génération de fichier de maillage collada à partir d’autre fichiers de maillage (step,stl,…) [pratique])</p>
+<p class="admonition-title"><span class="caption-number">Exercice 2.3 </span> (génération de fichier de maillage collada à partir d’autre fichiers de maillage (step,stl,…) [pratique])</p>
 <section id="exercise-content">
 <p>À partir des maillages ci-dessus au format step, utilisez un logiciel de CAO pour les convertir au format collada (.dae).
 Indice: Utilisez le logiciel FreeCAD.</p>
@@ -163,7 +163,7 @@ Indice: Utilisez le logiciel FreeCAD.</p>
 </div>
 </section>
 <section id="format-collada-dae">
-<h3>Format collada (.dae)<a class="headerlink" href="#format-collada-dae" title="Lien vers cette rubrique"></a></h3>
+<h3><span class="section-number">2.4.1.2. </span>Format collada (.dae)<a class="headerlink" href="#format-collada-dae" title="Lien vers cette rubrique"></a></h3>
 <p>Les maillages des segments du scanbot au format collada sont les suivants:</p>
 <ol class="arabic simple">
 <li><p><a class="reference download internal" download="" href="../_downloads/8da15b7e10a9470bc5bf8d5788ec6164/scanbot_s00_base_link.dae"><code class="xref download docutils literal notranslate"><span class="pre">scanbot_s00_base_link.dae</span></code></a>,</p></li>
@@ -179,7 +179,7 @@ Indice: Utilisez le logiciel FreeCAD.</p>
 </section>
 </section>
 <section id="produire-un-urdf">
-<h2>Produire un URDF<a class="headerlink" href="#produire-un-urdf" title="Lien vers cette rubrique"></a></h2>
+<h2><span class="section-number">2.4.2. </span>Produire un URDF<a class="headerlink" href="#produire-un-urdf" title="Lien vers cette rubrique"></a></h2>
 <p>Nous allons décrire ce robot en URDF. <br>
 Pour cela nous allons utiliser l’outil de visualisation de modèles URDF fourni par ROS2: <strong>rviz2</strong>. <br>
 Afin de faciliter cette étape nous allons créer un package ROS2 dédié à la visualization en utilisant l’outil développé par IRIS <strong>template2instance</strong>. <br>
@@ -190,13 +190,13 @@ Pour cela nous avons besoin du template <strong>ros2/view_robot</strong> qui est
 </pre></div>
 </div>
 <section id="camera-et-3-degrees-de-liberte-en-rotation">
-<h3>Caméra et 3 degrées de liberté en rotation<a class="headerlink" href="#camera-et-3-degrees-de-liberte-en-rotation" title="Lien vers cette rubrique"></a></h3>
+<h3><span class="section-number">2.4.2.1. </span>Caméra et 3 degrées de liberté en rotation<a class="headerlink" href="#camera-et-3-degrees-de-liberte-en-rotation" title="Lien vers cette rubrique"></a></h3>
 <p>Commençons simplement par décrire la caméra et les 3 degrées de liberté en rotation. <br>
 Pour cela, créons un package ROS2 nommé <strong>scanbot_cam_description</strong> à partir du template <strong>view_robot_template</strong>. <br></p>
 <p>C’est une bonne pratique de mettre les fichiers URDF dans un package ROS2 dédié à la description du robot et appelé my_robot_name_**description**. <br></p>
 <p>Pour cela copier/éditer pour adapter à votre cas le fichier de configuration suivant:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-number">Listing 18 </span><span class="caption-text">Configuration pour la génération du package scanbot_cam_description</span><a class="headerlink" href="#id1" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.15 </span><span class="caption-text">Configuration pour la génération du package scanbot_cam_description</span><a class="headerlink" href="#id1" title="Lien vers ce code"></a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;PACKAGE_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;scanbot_cam_description&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;PACKAGE_VERSION&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
@@ -231,7 +231,7 @@ ros2_build
 <a class="reference internal image-reference" href="../_images/default_rviz_view.png"><img alt="../_images/default_rviz_view.png" src="../_images/default_rviz_view.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 22 </span><span class="caption-text">Le robot par défaut à l’initialisation d’un package de visualisation à partir du template view_robot_template.</span><a class="headerlink" href="#fig-default-rviz-view" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.21 </span><span class="caption-text">Le robot par défaut à l’initialisation d’un package de visualisation à partir du template view_robot_template.</span><a class="headerlink" href="#fig-default-rviz-view" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 <p>Nous pouvons maintenant éditer le fichier URDF/xacro (<code class="docutils literal notranslate"><span class="pre">urdf/scanbot_camera/scanbot_camera_macro.xacro</span></code>) pour décrire la caméra et les 3 degrées de liberté en rotation. <br>
@@ -242,7 +242,7 @@ Nous allons commencer par enlever tous les éléments servant à décrire le rob
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-number">Listing 19 </span><span class="caption-text">scanbot_camera_macro.xacro avec un seul élément</span><a class="headerlink" href="#id2" title="Lien vers ce code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2.16 </span><span class="caption-text">scanbot_camera_macro.xacro avec un seul élément</span><a class="headerlink" href="#id2" title="Lien vers ce code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://wiki.ros.org/xacro&quot;</span><span class="nt">&gt;</span>
 
@@ -298,7 +298,7 @@ Nous allons commencer par enlever tous les éléments servant à décrire le rob
 <a class="reference internal image-reference" href="../_images/x_cyl_link_only.png"><img alt="../_images/x_cyl_link_only.png" src="../_images/x_cyl_link_only.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 23 </span><span class="caption-text">Le premier segment de la partie caméra du scanbot. Le repère est placé au centre de la face arrière circulaire du cylindre.</span><a class="headerlink" href="#fig-scanbot-cam-x-cyl-link-only" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.22 </span><span class="caption-text">Le premier segment de la partie caméra du scanbot. Le repère est placé au centre de la face arrière circulaire du cylindre.</span><a class="headerlink" href="#fig-scanbot-cam-x-cyl-link-only" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -311,7 +311,7 @@ Nous avons aussi spécifiée l’échelle du maillage. ROS2 utilise le mètre co
 <blockquote>
 <div><div class="exercise toggle admonition" id="ex_debug_ros2_advanced_2_nodes_publishing_robot_state_publisher_on_same_topic">
 
-<p class="admonition-title"><span class="caption-number">Exercice 4 </span> (debug ROS2 [avancé])</p>
+<p class="admonition-title"><span class="caption-number">Exercice 2.4 </span> (debug ROS2 [avancé])</p>
 <section id="exercise-content">
 <p>Dans cet exercice, nous allons volontairement faire bugger ROS2 pour apprendre à debugger des problèmes courants. <br></p>
 <p>Comme dans l” <a class="reference internal" href="c01s03_urdf.html#exercice-xacro-launch-parameterized-urdf"><span class="std std-ref">exercice sur la paramétrisation des fichiers de launch</span></a> modifiez les fichiers:</p>
@@ -347,7 +347,7 @@ Nous avons aussi spécifiée l’échelle du maillage. ROS2 utilise le mètre co
 <a class="reference internal image-reference" href="../_images/ros2_strange_robot_flickering.gif"><img alt="../_images/ros2_strange_robot_flickering.gif" src="../_images/ros2_strange_robot_flickering.gif" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 24 </span><span class="caption-text">Le segment cheville (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) oscille en position.</span><a class="headerlink" href="#fig-strange-robot-flickering" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.23 </span><span class="caption-text">Le segment cheville (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) oscille en position.</span><a class="headerlink" href="#fig-strange-robot-flickering" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -360,7 +360,7 @@ Nous avons aussi spécifiée l’échelle du maillage. ROS2 utilise le mètre co
 <a class="reference internal image-reference" href="../_images/ros2_strange_robot_flickering_position_vue.gif"><img alt="../_images/ros2_strange_robot_flickering_position_vue.gif" src="../_images/ros2_strange_robot_flickering_position_vue.gif" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 25 </span><span class="caption-text">En affichant la position du segment cheville (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) on observe bien que la position x oscille.</span><a class="headerlink" href="#fig-strange-robot-flickering-position-vue" title="Lien vers cette image"></a></p>
+<p><span class="caption-number">Figure 2.24 </span><span class="caption-text">En affichant la position du segment cheville (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) on observe bien que la position x oscille.</span><a class="headerlink" href="#fig-strange-robot-flickering-position-vue" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -372,7 +372,7 @@ Nous avons aussi spécifiée l’échelle du maillage. ROS2 utilise le mètre co
 <p>Que se passe-t-il et comment pouvez-vous le diagnostiquer ? <br></p>
 <div class="solution dropdown admonition" id="sol_debug_ros2_advanced_2_nodes_publishing_robot_state_publisher_on_same_topic">
 
-<p class="admonition-title">Solution de<a class="reference internal" href="#ex_debug_ros2_advanced_2_nodes_publishing_robot_state_publisher_on_same_topic"> Exercice 4 (debug ROS2 [avancé])</a></p>
+<p class="admonition-title">Solution de<a class="reference internal" href="#ex_debug_ros2_advanced_2_nodes_publishing_robot_state_publisher_on_same_topic"> Exercice 2.4 (debug ROS2 [avancé])</a></p>
 <section id="solution-content">
 <p>Il semble donc que la position du segment cheville (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) soit reçue de manière contradictoire. <br>
 Il faut savoir que c’est le nœud <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code> qui est responsable de la publication des transformations des segments du robot. <br>
@@ -420,8 +420,8 @@ Notez que parfois, si on appuie plusieurs fois sur CTRL-C, le processus ne s’a
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
-        <a href="c01s03_urdf.html" class="btn btn-neutral float-left" title="URDF pour la description de robots non parallèles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="../c02_system_communication/c02s00_index.html" class="btn btn-neutral float-right" title="Communication" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="c01s03_urdf.html" class="btn btn-neutral float-left" title="2.3. URDF pour la description de robots non parallèles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="../c02_system_communication/c02s00_index.html" class="btn btn-neutral float-right" title="3. Communication" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
