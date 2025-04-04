@@ -29,6 +29,7 @@ extensions = [
     "sphinxcontrib.bibtex",
     "sphinx_exercise",
     "sphinx_togglebutton",
+    "rst2pdf.pdfbuilder",
 ]
 
 myst_enable_extensions = ["colon_fence"]
@@ -216,6 +217,18 @@ def setup(app):
     app.connect('config-inited', on_config_inited)
     app.connect('builder-inited', on_builder_inited)
     app.connect('build-finished', post_process)
+    
+    
+# -- Style options
+from docutils import nodes
+from docutils.parsers.rst import roles
+
+def bold_underline_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+    node = nodes.strong(text, text)
+    node['classes'].append('underline')
+    return [node], []
+
+roles.register_local_role('bold_underlined', bold_underline_role)
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

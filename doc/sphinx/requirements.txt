@@ -6,5 +6,8 @@ sphinx_rtd_theme
 sphinx-design
 sphinxcontrib-bibtex
 sphinx-intl
+rst2pdf
+svglib
+matplotlib
 git+https://github.com/yguel/sphinx-exercise.git@main#egg=sphinx-exercise
 git+https://github.com/yguel/sphinx-togglebutton.git@master#egg=sphinx-togglebutton
