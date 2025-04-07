@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROS2 par la pratique \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-03 13:27+0100\n"
+"POT-Creation-Date: 2025-04-07 11:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en_US\n"
@@ -25,6 +25,112 @@ msgid "Installation de ROS2"
 msgstr "Installation of ROS2"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:5
+msgid "Il y a plusieurs types d'installation possible:"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:7
+msgid ""
+"Installation en utilisant docker. C'est la plus simple et qui marche sur "
+"windows, mac et linux."
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:8
+msgid ""
+"Installation en utilisant des paquets précompilés (deb). C'est la plus "
+"rapide et qui marche très bien sur linux Ubuntu et qui peut être adaptée "
+"pour d'autres distributions linux."
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:10
+msgid ""
+"Installation en utilisant des paquets précompilés (deb) avec un noyau "
+"temps-réel. Celle que l'on doit privilégier pour fonctionner avec un "
+"robot et qui marche principalement sur linux Ubuntu, mais qui peut être "
+"adaptée pour d'autres distributions linux."
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:12
+msgid ""
+"Installation en utilisant le code source. C'est la plus compliquée et "
+"longue à installer, elle marche sur linux Ubuntu et peut-être adaptée "
+"pour d'autres distributions linux, et avec plus de difficultés et des "
+"limitations sur windows et mac."
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst
+msgid "Docker"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst
+msgid "Docker pour linux"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:24
+msgid ""
+"Suivez les instructions à l'adresse suivante: "
+"https://docs.docker.com/desktop/setup/install/linux/"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:26
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:34
+msgid "Dans une console"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:32
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:49
+msgid "Maintenant vous pouvez lancer le conteneur docker:"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst
+msgid "Docker pour windows"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:43
+msgid ""
+"Suivez les instructions à l'adresse suivante: "
+"https://docs.docker.com/desktop/setup/install/windows-install/"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:45
+msgid ""
+"Créer un répertoire de travail pour le projet ROS2 qui sera partagé entre"
+" l'hôte et le conteneur docker"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:47
+msgid ""
+"Créer le répertoire: "
+"``C:\\Users\\<YourUser>\\Documents\\ros2_course_docker_data``"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:51
+msgid "Dans une console du programme docker-desktop:"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:58
+msgid ""
+"Dans une fenêtre de navigateur, ouvrez l'URL suivante: "
+"`http://localhost:6080 <http://localhost:6080>`_. Vous devriez voir une "
+"fenêtre NO VNC, vous n'avez plus qu'à cliquer pour vous connecter et vous"
+" devriez voir un bureau ubuntu comme sur la "
+":numref:`fig_docker_ubuntu_start` ci-dessous:"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:65
+msgid ""
+"Interface graphique utilisant un navigateur pour interagir avec le docker"
+" ros2_in_practice:humble sous ubuntu avec noVNC."
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:69
+msgid "Vous pouvez maintenant ouvrir un terminal et exécuter les commandes ROS2."
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst
+msgid "Paquets précompilés (deb) pour Ubuntu"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:74
 msgid ""
 "Pour installer ROS2, il est recommandé de suivre `les instructions "
 "officielles de la documentation ROS2 pour ubuntu "
@@ -34,65 +140,13 @@ msgstr ""
 "from the ROS2 documentation for Ubuntu "
 "<https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html>`_"
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:8
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:12
-msgid "Exercice"
-msgstr "Exercise"
-
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:10
-msgid "Installez ROS2 sur votre machine."
-msgstr "Install ROS2 on your machine."
-
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:14
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:76
 msgid ""
-"Vérifiez que l'installation de ROS2 s'est bien passée en exécutant les "
-"commandes suivantes dans un premier terminal pour lancer un nœud "
-"**publisher** (talker) écrit en C++:"
+":bold_underlined:`Mise en place de commandes pour faciliter l'utilisation"
+" de ROS2`"
 msgstr ""
-"Verify that the ROS2 installation was successful by running the following "
-"commands in a first terminal to launch a **publisher** node (talker) "
-"written in C++:"
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:21
-msgid ""
-"et dans un second terminal éxécutez la commande suivante pour lancer un "
-"nœud **subscriber** (listener) écrit en Python:"
-msgstr ""
-"and in a second terminal, run the following command to launch a "
-"**subscriber** node (listener) written in Python:"
-
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:28
-msgid ""
-"Si vous voyez le message \"I heard\" suivi d'un nombre, c'est que "
-"l'installation de ROS2 s'est bien passée."
-msgstr ""
-"If you see the message \"I heard\" followed by a number, it means that the"
-" ROS2 installation was successful."
-
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:32
-msgid "Création d'un workspace"
-msgstr "Creating a workspace"
-
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:34
-msgid ""
-"Un projet ROS2 se compile et s'exécute dans ce que l'on appelle un "
-"``workspace`` souvent abrévié en ``ws`` dans lequel se trouve un "
-"répertoire ``src`` qui contient les packages ROS2 que vous allez créer ou"
-" que vous allez utiliser."
-msgstr ""
-"A ROS2 project is compiled and executed in what is called a ``workspace``,"
-" often abbreviated as ``ws``, which contains a ``src`` directory that "
-"holds the ROS2 packages you will create or use."
-
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:41
-msgid ""
-"Nous allons maintenant utiliser un package ROS2 que nous allons installer"
-" dans le répertoire ``src`` de votre workspace ROS2."
-msgstr ""
-"We will now use a ROS2 package that we will install in the ``src`` "
-"directory of your ROS2 workspace."
-
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:48
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:78
 msgid ""
 "Afin d'accélerer les processus de compilation et d'exécution, nous allons"
 " utiliser des macros bash qui facilitent la tâche quand on utilise la "
@@ -102,56 +156,137 @@ msgstr ""
 "macros that make it easier when using the ROS2 tool suite centered around"
 " ``colcon``."
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:50
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:80
 msgid "Ouvrez votre fichier ``~/.bashrc`` avec vscode:"
 msgstr "Open your ``~/.bashrc`` file with vscode:"
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:56
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:86
 msgid "Ajoutez à la fin du fichier les lignes suivantes:"
 msgstr "Add the following lines at the end of the file:"
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:58
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:88
 msgid "Addons au fichier .bashrc"
 msgstr "Additions to the .bashrc file"
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:63
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:93
 msgid "Enregistrez le fichier et fermez vscode."
 msgstr "Save the file and close vscode."
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:65
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:95
 msgid ""
 "Rechargez votre fichier ``~/.bashrc`` pour prendre en compte les "
 "modifications:"
 msgstr "Reload your ``~/.bashrc`` file to apply the changes:"
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:71
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:101
 msgid "Vous pouvez maintenant utiliser les macros bash que vous venez de définir."
 msgstr "You can now use the bash macros you just defined."
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:75
-msgid "Tests de votre installation"
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:103
+msgid ""
+":bold_underlined:`Installation d'outil pour la création de projets et "
+"packages ROS2 à partir de templates`"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:106
+msgid "Pour installer template2install:"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:114
+msgid "Première vérification de l'installation"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:116
+#, fuzzy
+msgid ""
+"Pour faire une première vérification que l'installation de ROS2 s'est "
+"bien passée, vous pouvez exécuter les commandes suivantes dans un premier"
+" terminal pour lancer un nœud **publisher** (talker) écrit en "
+":code:`C++`:"
+msgstr ""
+"Verify that the ROS2 installation was successful by running the following"
+" commands in a first terminal to launch a **publisher** node (talker) "
+"written in C++:"
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:123
+#, fuzzy
+msgid ""
+"et dans un second terminal éxécutez la commande suivante pour lancer un "
+"nœud **subscriber** (listener) écrit en ``Python``:"
+msgstr ""
+"and in a second terminal, run the following command to launch a "
+"**subscriber** node (listener) written in Python:"
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:130
+msgid ""
+"Si vous voyez le message \"I heard\" suivi d'un nombre, c'est que "
+"l'installation de ROS2 s'est bien passée."
+msgstr ""
+"If you see the message \"I heard\" followed by a number, it means that "
+"the ROS2 installation was successful."
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:138
+msgid ""
+"Installez ROS2 sur votre machine et faites la vérification de "
+"l'installation en exécutant les commandes ci-dessus. Si vous avez un "
+"problème, n'hésitez pas à poser des questions dans les issues de la page "
+"github du cours."
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:144
+msgid "Création d'un workspace"
+msgstr "Creating a workspace"
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:146
+msgid ""
+"Un projet ROS2 se compile et s'exécute dans ce que l'on appelle un "
+"``workspace`` souvent abrévié en ``ws`` dans lequel se trouve un "
+"répertoire ``src`` qui contient les packages ROS2 que vous allez créer ou"
+" que vous allez utiliser."
+msgstr ""
+"A ROS2 project is compiled and executed in what is called a "
+"``workspace``, often abbreviated as ``ws``, which contains a ``src`` "
+"directory that holds the ROS2 packages you will create or use."
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:148
+msgid ""
+"Sur votre système linux (Docker ou natif), créez un répertoire de travail"
+" pour le projet ROS2:"
+msgstr ""
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:154
+msgid ""
+"Nous allons maintenant utiliser un package ROS2 que nous allons installer"
+" dans le répertoire ``src`` de votre workspace ROS2."
+msgstr ""
+"We will now use a ROS2 package that we will install in the ``src`` "
+"directory of your ROS2 workspace."
+
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:163
+#, fuzzy
+msgid "Deuxième vérification de votre installation"
 msgstr "Testing your installation"
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:77
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:166
 msgid ""
 "La commande définie dans le fichier .bashrc **ros2_humble** permet de "
 "charger l'environnement ROS2 de la distribution **humble**. Cette "
 "commande est à exécuter à chaque fois que vous ouvrez un nouveau "
 "terminal."
 msgstr ""
-"The command defined in the .bashrc file **ros2_humble** allows you to load"
-" the ROS2 environment for the **humble** distribution. This command "
+"The command defined in the .bashrc file **ros2_humble** allows you to "
+"load the ROS2 environment for the **humble** distribution. This command "
 "should be executed every time you open a new terminal."
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:85
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:175
 msgid ""
 "Vous pouvez vérifier que vous avez bien chargé l'environnement ROS2 de la"
 " distribution **humble** en exécutant la commande suivante:"
 msgstr ""
-"You can verify that you have successfully loaded the ROS2 environment for "
-"the **humble** distribution by running the following command:"
+"You can verify that you have successfully loaded the ROS2 environment for"
+" the **humble** distribution by running the following command:"
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:93
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:183
 msgid ""
 "Pour charger une autre distribution ROS2, vous pouvez définir une "
 "nouvelle commande dans votre fichier .bashrc en remplaçant **humble** par"
@@ -166,7 +301,7 @@ msgstr ""
 "distribution (command :code:`ros2_jazzy`). |br| Of course, for this to "
 "work, the distribution must be installed on your machine."
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:96
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:186
 msgid ""
 "La commande définie dans le fichier .bashrc **ros2_build** permet de "
 "compiler les packages de votre workspace ROS2 et de charger les variables"
@@ -176,14 +311,21 @@ msgstr ""
 "compile the packages in your ROS2 workspace and load the environment "
 "variables necessary to run the nodes of these packages."
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:98
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:188
 msgid "Compilez votre workspace ROS2:"
 msgstr "Compile your ROS2 workspace:"
 
-#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:104
+#: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:194
 msgid ""
 "Si vous avez des erreurs, vérifiez que vous avez bien suivi les "
 "instructions précédentes."
 msgstr ""
 "If you encounter errors, make sure you have followed the previous "
 "instructions correctly."
+
+#~ msgid "Exercice"
+#~ msgstr "Exercise"
+
+#~ msgid "Installez ROS2 sur votre machine."
+#~ msgstr "Install ROS2 on your machine."
+
