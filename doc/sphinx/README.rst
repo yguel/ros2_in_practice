@@ -24,6 +24,9 @@ Update translation files
 
 .. code-block:: bash
 
+    # Update gettext files
+    sphinx-build -b gettext source build/gettext
+
     # Update all po files
     sphinx-intl update -p build/gettext -d source/locales
 
