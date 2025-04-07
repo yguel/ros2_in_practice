@@ -26,13 +26,15 @@ msgstr "Installation of ROS2"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:5
 msgid "Il y a plusieurs types d'installation possible:"
-msgstr ""
+msgstr "There are several types of installation possible:"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:7
 msgid ""
 "Installation en utilisant docker. C'est la plus simple et qui marche sur "
 "windows, mac et linux."
 msgstr ""
+msgstr "Installation using docker. This is the simplest and works on windows"
+", mac, and linux."
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:8
 msgid ""
@@ -40,6 +42,9 @@ msgid ""
 "rapide et qui marche très bien sur linux Ubuntu et qui peut être adaptée "
 "pour d'autres distributions linux."
 msgstr ""
+msgstr "Installation using precompiled packages (deb). This is the fastest "
+"and works very well on linux Ubuntu and can be adapted for other linux "
+"distributions."
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:10
 msgid ""
@@ -48,6 +53,9 @@ msgid ""
 "robot et qui marche principalement sur linux Ubuntu, mais qui peut être "
 "adaptée pour d'autres distributions linux."
 msgstr ""
+msgstr "Installation using precompiled packages (deb) with a real-time kernel."
+msgstr "This is the one we should prefer to work with a robot and it mainly "
+"works on linux Ubuntu, but can be adapted for other linux distributions."
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:12
 msgid ""
@@ -56,56 +64,71 @@ msgid ""
 "pour d'autres distributions linux, et avec plus de difficultés et des "
 "limitations sur windows et mac."
 msgstr ""
+msgstr "Installation using the source code. This is the most complicated and "
+"longest to install, it works on Ubuntu linux and can be adapted for "
+"other linux distributions, and with more difficulties and limitations on"
+" windows and mac."
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst
 msgid "Docker"
-msgstr ""
+msgstr "Docker"
+
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst
 msgid "Docker pour linux"
-msgstr ""
+msgstr "Docker for linux"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:24
 msgid ""
 "Suivez les instructions à l'adresse suivante: "
 "https://docs.docker.com/desktop/setup/install/linux/"
 msgstr ""
+"Follow the instructions at the following address: "
+"https://docs.docker.com/desktop/setup/install/linux/"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:26
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:34
 msgid "Dans une console"
-msgstr ""
+msgstr "In a terminal"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:32
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:49
 msgid "Maintenant vous pouvez lancer le conteneur docker:"
 msgstr ""
+msgstr "Now you can launch the docker container:"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst
 msgid "Docker pour windows"
-msgstr ""
+msgstr "Docker for windows"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:43
 msgid ""
 "Suivez les instructions à l'adresse suivante: "
 "https://docs.docker.com/desktop/setup/install/windows-install/"
 msgstr ""
+"Follow the instructions at the following address: "
+"https://docs.docker.com/desktop/setup/install/windows-install/"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:45
 msgid ""
 "Créer un répertoire de travail pour le projet ROS2 qui sera partagé entre"
 " l'hôte et le conteneur docker"
 msgstr ""
+msgstr "Create a workspace directory for the ROS2 project that will be shared"
+msgstr "between the host and the docker container"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:47
 msgid ""
 "Créer le répertoire: "
 "``C:\\Users\\<YourUser>\\Documents\\ros2_course_docker_data``"
 msgstr ""
+msgstr "Create the directory: "
+msgstr "``C:\\Users\\<YourUser>\\Documents\\ros2_course_docker_data``"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:51
 msgid "Dans une console du programme docker-desktop:"
 msgstr ""
+msgstr "In a terminal of the docker-desktop program:"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:58
 msgid ""
@@ -115,20 +138,28 @@ msgid ""
 " devriez voir un bureau ubuntu comme sur la "
 ":numref:`fig_docker_ubuntu_start` ci-dessous:"
 msgstr ""
+msgstr "In a window of your web browser, open the following URL: "
+msgstr "`http://localhost:6080 <http://localhost:6080>`_. You should see a "
+msgstr "NO VNC window, just click to connect and you should see an ubuntu "
+msgstr "desktop like in the :numref:`fig_docker_ubuntu_start` below:"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:65
 msgid ""
 "Interface graphique utilisant un navigateur pour interagir avec le docker"
 " ros2_in_practice:humble sous ubuntu avec noVNC."
 msgstr ""
+msgstr "Graphical interface using a web browser to interact with the docker "
+msgstr "ros2_in_practice:humble under ubuntu with noVNC."
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:69
 msgid "Vous pouvez maintenant ouvrir un terminal et exécuter les commandes ROS2."
 msgstr ""
+msgstr "You can now open a terminal and run ROS2 commands."
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst
 msgid "Paquets précompilés (deb) pour Ubuntu"
 msgstr ""
+msgstr "Precompiled packages (deb) for Ubuntu"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:74
 msgid ""
@@ -145,6 +176,7 @@ msgid ""
 ":bold_underlined:`Mise en place de commandes pour faciliter l'utilisation"
 " de ROS2`"
 msgstr ""
+":bold_underlined:`Setting up commands to facilitate the use of ROS2`"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:78
 msgid ""
@@ -187,14 +219,18 @@ msgid ""
 ":bold_underlined:`Installation d'outil pour la création de projets et "
 "packages ROS2 à partir de templates`"
 msgstr ""
+":bold_underlined:`Installation of tool for creating ROS2 projects and "
+"packages from templates`"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:106
 msgid "Pour installer template2install:"
 msgstr ""
+msgstr "To install template2install:"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:114
 msgid "Première vérification de l'installation"
 msgstr ""
+msgstr "First installation check"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:116
 #, fuzzy
@@ -232,6 +268,9 @@ msgid ""
 "problème, n'hésitez pas à poser des questions dans les issues de la page "
 "github du cours."
 msgstr ""
+"Install ROS2 on your machine and verify the installation by running the "
+"commands above. If you encounter any issues, feel free to ask questions "
+"on the issues page of the course GitHub."
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:144
 msgid "Création d'un workspace"
@@ -253,6 +292,8 @@ msgid ""
 "Sur votre système linux (Docker ou natif), créez un répertoire de travail"
 " pour le projet ROS2:"
 msgstr ""
+msgstr "On your linux system (Docker or native), create a workspace directory"
+msgstr "for the ROS2 project:"
 
 #: ../../source/c00_setup_de_ros2/c00s01_ros2_setup.rst:154
 msgid ""
