@@ -106,13 +106,13 @@ Pour cela copier/éditer pour adapter à votre cas le fichier de configuration s
    :language: json
    :caption: Configuration pour la génération du package scanbot_cam_description
 
-Copiez le fichier de configuration à l'emplacement :code:`~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json`. |br|
+Copiez le fichier de configuration à l'emplacement :code:`~/ros2_course/ros2_ws/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json`. |br|
 
 Puis exécuter la commande suivante:
 
 .. code-block:: bash
 
-   create ros2/view_robot ~/ros2_course/ros2_ws/src/scanbot_cam_description --config ~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json
+   create ros2/view_robot ~/ros2_course/ros2_ws/src/scanbot_cam_description --config ~/ros2_course/ros2_ws/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json
 
 Compiler le package:
 
