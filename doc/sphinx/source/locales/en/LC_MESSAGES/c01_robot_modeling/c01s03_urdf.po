@@ -238,7 +238,6 @@ msgstr ""
 " and z coordinates of the segment's frame relative to the parent's frame."
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:116
-#, fuzzy
 msgid ""
 "La rotation est définie par les attributs **rpy** qui sont les angles de "
 "rotation autour des axes x, y et z du repère du segment par rapport au "
@@ -247,11 +246,9 @@ msgid ""
 msgstr ""
 "The rotation is defined by the **rpy** attributes, which are the rotation"
 " angles around the x, y, and z axes of the segment's frame relative to "
-"the parent's frame. **rpy** stands for \"roll, pitch, yaw\" or in French:"
-" \"roulis, tangage, lacet\"."
+"the parent's frame. **rpy** stands for \"roll, pitch, yaw\""
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:118
-#, fuzzy
 msgid ""
 "La rotation est toujours appliquée avant la translation et les rotations "
 "sont effectuées dans l'ordre **roll** (roulis), **pitch** (tangage) puis "
@@ -266,19 +263,17 @@ msgid ""
 "Rotations roulis, tangage et lacet ou («roll», «pitch» et «yaw» and "
 "anglais)."
 msgstr ""
+"Roll, pitch, and yaw"
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:138
-#, fuzzy
 msgid "Rotation autour de l'axe x (roulis ou «roll» en anglais)"
 msgstr "Rotation around the x axis (roll)"
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:147
-#, fuzzy
 msgid "Rotation autour de l'axe y (tangage ou «pitch» en anglais)"
 msgstr "Rotation around the y axis (pitch)"
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:155
-#, fuzzy
 msgid "Rotation autour de l'axe z (lacet ou «yaw» en anglais)"
 msgstr "Rotation around the z axis (yaw)"
 
@@ -287,7 +282,6 @@ msgid "Simple exemple"
 msgstr "Simple Example"
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:162
-#, fuzzy
 msgid ""
 "Créons une simple description de robot URDF.  |br| Pour cela nous allons "
 "utiliser l'outil de visualisation de modèles URDF fourni par ROS2: "
@@ -303,7 +297,7 @@ msgstr ""
 "facilitate this step, we will create a ROS2 package dedicated to "
 "visualization using the tool developed by IRIS **template2instance**.  "
 "|br| This tool allows for easy creation of a ROS2 package from a "
-"template.  |br| For this, we need the **view_robot_template** template, "
+"template.  |br| For this, we need the **ros2/view_robot** template, "
 "which is a ROS2 package template dedicated to robot visualization using "
 "rviz2.  |br|"
 
@@ -321,10 +315,9 @@ msgstr "Configuration for generating the simple_bot_description package"
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:174
 msgid "Créer un répertoire pour sauvegarder vos configurations"
-msgstr ""
+msgstr "Create a directory to save your configurations"
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:180
-#, fuzzy
 msgid ""
 ":download:`Télécharger le fichier de configuration "
 "<resources/code/template2instance/pkg_gen_cfg_view_simple_bot.json>` et "
@@ -334,7 +327,7 @@ msgstr ""
 ":download:`Download the configuration file "
 "<resources/code/template2instance/pkg_gen_cfg_view_simple_bot.json>` and "
 "copy it into the directory "
-":code:`~/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json`."
+":code:`~/ros2_course/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json`."
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:182
 msgid "Exécuter la commande suivante:"
@@ -363,7 +356,6 @@ msgstr ""
 "view_robot_template template."
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:210
-#, fuzzy
 msgid ""
 "Le fichier URDF qu'il faut étudier se nomme ``simple_bot_macro.xacro`` et"
 " se trouve dans le répertoire "
@@ -377,7 +369,7 @@ msgid ""
 msgstr ""
 "The URDF file to study is named ``simple_bot_macro.xacro`` and is located"
 " in the directory "
-":code:`~/ros2_ws/src/simple_bot_description/urdf/simple_bot`.  |br| It is"
+":code:`~/ros2_course/ros2_ws/src/simple_bot_description/urdf/simple_bot`.  |br| It is"
 " a ``xacro`` file, which means it is an XML file that can contain macros."
 " These macros allow defining elements that can be reused multiple times "
 "in the file or deduced by function calls. However, the format is that of "
@@ -614,7 +606,6 @@ msgid "Contenu du fichier view_simple_bot.launch.py"
 msgstr "Content of the view_simple_bot.launch.py file"
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:346
-#, fuzzy
 msgid ""
 "On voit que dans les lignes 45 à 58, le fichier xacro "
 "``simple_bot.urdf.xacro`` qui se trouve dans le répertoire "
@@ -622,7 +613,7 @@ msgid ""
 " en fichier URDF.  |br|"
 msgstr ""
 "We see that in lines 45 to 58, the xacro file ``simple_bot.urdf.xacro`` "
-"located in the directory ``~/ros2_ws/src/simple_bot_description/urdf/`` "
+"located in the directory ``~/ros2_course/ros2_ws/src/simple_bot_description/urdf/`` "
 "is transformed into a URDF file.  |br|"
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:348
