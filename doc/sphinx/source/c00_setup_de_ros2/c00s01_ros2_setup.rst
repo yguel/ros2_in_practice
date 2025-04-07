@@ -60,7 +60,6 @@ Il y a plusieurs types d'installation possible:
 
          .. figure:: resources/img/no_vnc_ros2_start.gif
             :name: fig_docker_ubuntu_start
-            :height: 800px
             :align: center
 
             Interface graphique utilisant un navigateur pour interagir avec le docker ros2_in_practice:humble sous ubuntu avec noVNC.

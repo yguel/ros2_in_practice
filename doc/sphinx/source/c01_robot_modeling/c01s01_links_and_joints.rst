@@ -18,7 +18,6 @@ Entre 2 segments (notés L sur la :numref:`fig_robot_modeling_slide001`)
 .. figure:: resources/img/kinematic_chain/slide001_kinematics_model.svg
    :name: fig_robot_modeling_slide001
    :align: center
-   :height: 600px
 
    Modéle géométrique de la cinématique d'un robot rigide (source: :cite:`Ali2010_closed_form_inverse_kinematic_joint_solution_for_humanoid_robots`)
 
@@ -30,7 +29,7 @@ D'un point de vue cinématique, on utilise le plus courament 3 types d'articulat
 
    .. grid-item::
 
-      .. grid:: 1 3 3 3
+      .. grid:: 1 1 3 3
 
          .. grid:: 1 1 1 1
 
@@ -39,7 +38,6 @@ D'un point de vue cinématique, on utilise le plus courament 3 types d'articulat
                .. figure:: resources/fig/asy/mechanical_joints/prismatic_joint_logo.svg
                   :name: fig_prismatic_joint_logo
                   :align: center
-                  :height: 150px
 
                   Glissière
 
@@ -56,7 +54,6 @@ D'un point de vue cinématique, on utilise le plus courament 3 types d'articulat
                .. figure:: resources/fig/asy/mechanical_joints/revolute_joint_logo.svg
                   :name: fig_revolute_joint_logo
                   :align: center
-                  :height: 150px
 
                   Pivot d'axe
 
@@ -73,7 +70,6 @@ D'un point de vue cinématique, on utilise le plus courament 3 types d'articulat
                .. figure:: resources/fig/asy/mechanical_joints/rigid_joint_logo.svg
                   :name: fig_rigid_joint_logo
                   :align: center
-                  :height: 150px
 
                   Encastrement
 
