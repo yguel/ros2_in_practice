@@ -30,9 +30,20 @@ Update translation files
     # Update all po files
     sphinx-intl update -p build/gettext -d source/locales
 
+    ## Eventually see errors (otherwise it will silently fail)
+    ### to be done for each pot file
+    msgmerge --update source/locales/en/LC_MESSAGES/c00_setup_de_ros2/c00s01_ros2_setup.po build/gettext/c00_setup_de_ros2/c00s01_ros2_setup.pot
+
 
 Then you have to add the translations in the `source/locales/en_US/LC_MESSAGES/*.po` files.
 Then you can build the html files with the following command corresponding to the language you want to build.
+
+.. code-block:: bash
+
+   # Check the po files for errors only
+   find source/locales/ -iname "*.po" | xargs -n1 msgfmt --check 2>&1 | grep -v "warning"
+   # Check the po files for errors and warnings
+   find source/locales/ -iname "*.po" | xargs -n1 msgfmt --check
 
 .. code-block:: bash
    

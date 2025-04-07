@@ -7,7 +7,7 @@ Il y a plusieurs types d'installation possible:
 #. Installation en utilisant docker. C'est la plus simple et qui marche sur windows, mac et linux.
 #. Installation en utilisant des paquets précompilés (deb). C'est la plus rapide et qui marche très bien sur linux Ubuntu et qui peut être adaptée pour d'autres distributions linux.
   
-  #. Installation en utilisant des paquets précompilés (deb) avec un noyau temps-réel. Celle que l'on doit privilégier pour fonctionner avec un robot et qui marche principalement sur linux Ubuntu, mais qui peut être adaptée pour d'autres distributions linux.
+   #. Installation en utilisant des paquets précompilés (deb) avec un noyau temps-réel. Celle que l'on doit privilégier pour fonctionner avec un robot et qui marche principalement sur linux Ubuntu, mais qui peut être adaptée pour d'autres distributions linux.
 
 #. Installation en utilisant le code source. C'est la plus compliquée et longue à installer, elle marche sur linux Ubuntu et peut-être adaptée pour d'autres distributions linux, et avec plus de difficultés et des limitations sur windows et mac.
 
