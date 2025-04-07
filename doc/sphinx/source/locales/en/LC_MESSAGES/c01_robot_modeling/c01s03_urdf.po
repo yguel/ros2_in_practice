@@ -263,7 +263,7 @@ msgid ""
 "Rotations roulis, tangage et lacet ou («roll», «pitch» et «yaw» and "
 "anglais)."
 msgstr ""
-"Roll, pitch, and yaw"
+"Roll, pitch and yaw."
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:138
 msgid "Rotation autour de l'axe x (roulis ou «roll» en anglais)"
@@ -1026,7 +1026,7 @@ msgstr ""
 #~ msgstr "Show the Exercise Solution"
 
 #~ msgid "Rotations roll, pitch et yaw."
-#~ msgstr "Roll, Pitch, and Yaw Rotations."
+#~ msgstr "Roll, Pitch and Yaw Rotations."
 
 #~ msgid "Installation de template2instance"
 #~ msgstr "Installation of template2instance"
