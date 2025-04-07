@@ -5,7 +5,6 @@ URDF par la pratique: le scanbot
 .. figure:: resources/fig/igraph/scanbot_kinematic_chain/slide003_scanbot_kinematic_chain.svg
    :name: fig_slide003_scanbot_kinematic_chain2
    :align: center
-   :height: 400px
 
    Robot Scanbot, le robot d'exemple non parallèle, et sa chaîne cinmématique.
 
@@ -107,13 +106,13 @@ Pour cela copier/éditer pour adapter à votre cas le fichier de configuration s
    :language: json
    :caption: Configuration pour la génération du package scanbot_cam_description
 
-Copiez le fichier de configuration à l'emplacement :code:`~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json`. |br|
+Copiez le fichier de configuration à l'emplacement :code:`~/ros2_course/ros2_ws/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json`. |br|
 
 Puis exécuter la commande suivante:
 
 .. code-block:: bash
 
-   create ros2/view_robot ~/ros2_course/ros2_ws/src/scanbot_cam_description --config ~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json
+   create ros2/view_robot ~/ros2_course/ros2_ws/src/scanbot_cam_description --config ~/ros2_course/ros2_ws/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json
 
 Compiler le package:
 
@@ -132,7 +131,6 @@ Testez le package:
 .. figure:: resources/img/urdf/scanbot_cam/default_rviz_view.png
    :name: fig_default_rviz_view
    :align: center
-   :height: 400px
 
    Le robot par défaut à l'initialisation d'un package de visualisation à partir du template view_robot_template.
 
@@ -140,7 +138,7 @@ Nous pouvons maintenant éditer le fichier URDF/xacro (``urdf/scanbot_camera/sca
 Nous allons commencer par enlever tous les éléments servant à décrire le robot par défaut. |br|
 
 
-.. grid:: 1 2 2 2
+.. grid:: 1 1 2 2
 
    .. grid-item-card::
 
@@ -154,7 +152,6 @@ Nous allons commencer par enlever tous les éléments servant à décrire le rob
       .. figure:: resources/img/urdf/scanbot_cam/x_cyl_link_only.png
          :name: fig_scanbot_cam_x_cyl_link_only
          :align: center
-         :height: 400px
 
          Le premier segment de la partie caméra du scanbot. Le repère est placé au centre de la face arrière circulaire du cylindre.
 
@@ -196,14 +193,13 @@ Nous avons aussi spécifiée l'échelle du maillage. ROS2 utilise le mètre comm
       Vous devriez observer une deuxième fenêtre rviz s'ouvrir et le segment cheville (``ankle_link``) osciller en position comme dans les images ci-dessous:
 
 
-      .. grid:: 1 2 2 2
+      .. grid:: 1 1 2 2
 
          .. grid-item-card::
       
             .. figure:: resources/img/ros2_strange_robot_flickering.gif
                :name: fig_strange_robot_flickering
                :align: center
-               :height: 400px
 
                Le segment cheville (``ankle_link``) oscille en position.
 
@@ -212,7 +208,6 @@ Nous avons aussi spécifiée l'échelle du maillage. ROS2 utilise le mètre comm
             .. figure:: resources/img/ros2_strange_robot_flickering_position_vue.gif
                :name: fig_strange_robot_flickering_position_vue
                :align: center
-               :height: 400px
 
                En affichant la position du segment cheville (``ankle_link``) on observe bien que la position x oscille.
 

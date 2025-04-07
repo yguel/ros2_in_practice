@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ca3269d9" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=69459fec" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c01_robot_modeling/c01s03_urdf.html" />
@@ -109,8 +109,7 @@
   <section id="urdf-pour-la-description-de-robots-non-paralleles">
 <h1><span class="section-number">2.3. </span>URDF for the Description of Non-Parallel Robots<a class="headerlink" href="#urdf-pour-la-description-de-robots-non-paralleles" title="Link to this heading"></a></h1>
 <figure class="align-center" id="fig-slide003-scanbot-kinematic-chain">
-<a class="reference internal image-reference" href="../_images/slide003_scanbot_kinematic_chain.svg"><img alt="../_images/slide003_scanbot_kinematic_chain.svg" src="../_images/slide003_scanbot_kinematic_chain.svg" style="height: 400px;" />
-</a>
+<img alt="../_images/slide003_scanbot_kinematic_chain.svg" src="../_images/slide003_scanbot_kinematic_chain.svg" />
 <figcaption>
 <p><span class="caption-number">Figure 2.6 </span><span class="caption-text">Scanbot robot and its kinematic chain.</span><a class="headerlink" href="#fig-slide003-scanbot-kinematic-chain" title="Link to this image"></a></p>
 </figcaption>
@@ -188,7 +187,7 @@
 <h2><span class="section-number">2.3.3. </span>The <strong>link</strong> Tag<a class="headerlink" href="#la-balise-link" title="Link to this heading"></a></h2>
 <p>The <strong>link</strong> tag is used to describe a segment of the robot. The complete description of this tag is available in the <a class="reference external" href="http://wiki.ros.org/urdf/XML/link">link tag specification</a>.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -226,8 +225,7 @@
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-center" id="fig-link-element">
-<a class="reference internal image-reference" href="../_images/urdf_link2.png"><img alt="../_images/urdf_link2.png" src="../_images/urdf_link2.png" style="height: 400px;" />
-</a>
+<img alt="../_images/urdf_link2.png" src="../_images/urdf_link2.png" />
 <figcaption>
 <p><span class="caption-number">Figure 2.7 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">link</span></code> Element in a URDF File</span><a class="headerlink" href="#fig-link-element" title="Link to this image"></a></p>
 </figcaption>
@@ -241,29 +239,27 @@
 <p>In the <strong>origin</strong> tag (in <strong>visual</strong> or <strong>collision</strong> tags), the position and orientation of the segment’s frame relative to the parent’s frame are defined by the <strong>xyz</strong> and <strong>rpy</strong> attributes.  <br></p>
 <ol class="arabic simple">
 <li><p>The translation is defined by the <strong>xyz</strong> attributes, which are the x, y, and z coordinates of the segment’s frame relative to the parent’s frame.</p></li>
-<li><p>La rotation est définie par les attributs <strong>rpy</strong> qui sont les angles de rotation autour des axes x, y et z du repère du segment par rapport au repère du parent. <strong>rpy</strong> désigne «<strong>r</strong>oll,<strong>p</strong>itch,<strong>y</strong>aw» ou en français: «roulis,tangage,lacet».</p></li>
+<li><p>The rotation is defined by the <strong>rpy</strong> attributes, which are the rotation angles around the x, y, and z axes of the segment’s frame relative to the parent’s frame. <strong>rpy</strong> stands for “roll, pitch, yaw”</p></li>
 </ol>
-<p>La rotation est toujours appliquée avant la translation et les rotations sont effectuées dans l’ordre <strong>roll</strong> (roulis), <strong>pitch</strong> (tangage) puis <strong>yaw</strong> (lacet) suivant le schéma ci-dessous:</p>
+<p>Rotation is always applied before translation, and the rotations are performed in the order <strong>roll</strong>, <strong>pitch</strong>, then <strong>yaw</strong>, as shown in the diagram below:</p>
 <figure class="align-center" id="fig-plane-roll-pitch-yaw">
-<a class="reference internal image-reference" href="../_images/plane_roll_pitch_yaw.png"><img alt="../_images/plane_roll_pitch_yaw.png" src="../_images/plane_roll_pitch_yaw.png" style="height: 400px;" />
-</a>
+<img alt="../_images/plane_roll_pitch_yaw.png" src="../_images/plane_roll_pitch_yaw.png" />
 <figcaption>
-<p><span class="caption-number">Figure 2.8 </span><span class="caption-text">Rotations roulis, tangage et lacet ou («roll», «pitch» et «yaw» and anglais).</span><a class="headerlink" href="#fig-plane-roll-pitch-yaw" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 2.8 </span><span class="caption-text">Roll, pitch and yaw.</span><a class="headerlink" href="#fig-plane-roll-pitch-yaw" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
 <div class="sd-col sd-d-flex-column docutils">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-3 sd-row-cols-lg-3 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-center" id="fig-roll-plane-animation">
-<a class="reference internal image-reference" href="../_images/roll_plane_animation.gif"><img alt="../_images/roll_plane_animation.gif" src="../_images/roll_plane_animation.gif" style="height: 300px;" />
-</a>
+<img alt="../_images/roll_plane_animation.gif" src="../_images/roll_plane_animation.gif" />
 <figcaption>
-<p><span class="caption-number">Figure 2.9 </span><span class="caption-text">Rotation autour de l’axe x (roulis ou «roll» en anglais)</span><a class="headerlink" href="#fig-roll-plane-animation" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 2.9 </span><span class="caption-text">Rotation around the x axis (roll)</span><a class="headerlink" href="#fig-roll-plane-animation" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -273,10 +269,9 @@
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-center" id="fig-pitch-plane-animation">
-<a class="reference internal image-reference" href="../_images/pitch_plane_animation.gif"><img alt="../_images/pitch_plane_animation.gif" src="../_images/pitch_plane_animation.gif" style="height: 300px;" />
-</a>
+<img alt="../_images/pitch_plane_animation.gif" src="../_images/pitch_plane_animation.gif" />
 <figcaption>
-<p><span class="caption-number">Figure 2.10 </span><span class="caption-text">Rotation autour de l’axe y (tangage ou «pitch» en anglais)</span><a class="headerlink" href="#fig-pitch-plane-animation" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 2.10 </span><span class="caption-text">Rotation around the y axis (pitch)</span><a class="headerlink" href="#fig-pitch-plane-animation" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -286,10 +281,9 @@
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-center" id="fig-yaw-plane-animation">
-<a class="reference internal image-reference" href="../_images/yaw_plane_animation.gif"><img alt="../_images/yaw_plane_animation.gif" src="../_images/yaw_plane_animation.gif" style="height: 300px;" />
-</a>
+<img alt="../_images/yaw_plane_animation.gif" src="../_images/yaw_plane_animation.gif" />
 <figcaption>
-<p><span class="caption-number">Figure 2.11 </span><span class="caption-text">Rotation autour de l’axe z (lacet ou «yaw» en anglais)</span><a class="headerlink" href="#fig-yaw-plane-animation" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 2.11 </span><span class="caption-text">Rotation around the z axis (yaw)</span><a class="headerlink" href="#fig-yaw-plane-animation" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -303,11 +297,7 @@
 </section>
 <section id="simple-exemple">
 <h2><span class="section-number">2.3.4. </span>Simple Example<a class="headerlink" href="#simple-exemple" title="Link to this heading"></a></h2>
-<p>Créons une simple description de robot URDF.  <br>
-Pour cela nous allons utiliser l’outil de visualisation de modèles URDF fourni par ROS2: <strong>rviz2</strong>.  <br>
-Afin de faciliter cette étape nous allons créer un package ROS2 dédié à la visualization en utilisant l’outil développé par IRIS <strong>template2instance</strong>.  <br>
-Cet outil permet de créer facilement un package ROS2 à partir d’un template.  <br>
-Pour cela nous avons besoin du template <strong>ros2/view_robot</strong> qui est un template de package ROS2 dédié à la visualisation de robots en utilisant rviz2.  <br></p>
+<p>Let’s create a simple URDF robot description.  <br> For this, we will use the URDF model visualization tool provided by ROS2: <strong>rviz2</strong>.  <br> To facilitate this step, we will create a ROS2 package dedicated to visualization using the tool developed by IRIS <strong>template2instance</strong>.  <br> This tool allows for easy creation of a ROS2 package from a template.  <br> For this, we need the <strong>ros2/view_robot</strong> template, which is a ROS2 package template dedicated to robot visualization using rviz2.  <br></p>
 <p>Let’s create a ROS2 package named <strong>simple_bot_description</strong> with the following configuration file.  <br></p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-number">Listing 2.3 </span><span class="caption-text">Configuration for generating the simple_bot_description package</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
@@ -326,12 +316,12 @@ Pour cela nous avons besoin du template <strong>ros2/view_robot</strong> qui est
 </pre></div>
 </div>
 </div>
-<p>Créer un répertoire pour sauvegarder vos configurations</p>
+<p>Create a directory to save your configurations</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros2_course/ros2_ws/system/template2instance/configs
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li><p><a class="reference download internal" download="" href="../_downloads/65859f9ff41c8324a13d45deeb799a56/pkg_gen_cfg_view_simple_bot.json"><code class="xref download docutils literal notranslate"><span class="pre">Télécharger</span> <span class="pre">le</span> <span class="pre">fichier</span> <span class="pre">de</span> <span class="pre">configuration</span></code></a> et le copier dans le répertoire <code class="code docutils literal notranslate"><span class="pre">~/ros2_course/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json</span></code>.</p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/65859f9ff41c8324a13d45deeb799a56/pkg_gen_cfg_view_simple_bot.json"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">configuration</span> <span class="pre">file</span></code></a> and copy it into the directory <code class="code docutils literal notranslate"><span class="pre">~/ros2_course/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json</span></code>.</p></li>
 <li><p>Run the following command:</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create<span class="w"> </span>ros2/view_robot<span class="w"> </span>~/ros2_course/ros2_ws/src/simple_bot_description<span class="w"> </span>--config<span class="w"> </span>~/ros2_course/ros2_ws/system/template2instance/configs/pkg_gen_cfg_view_simple_bot.json
@@ -351,19 +341,15 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 </div>
 <p>If everything went well, you should see the default robot in rviz2:</p>
 <figure class="align-center" id="fig-scanbot-cam-rviz-view">
-<a class="reference internal image-reference" href="../_images/default_rviz_view.png"><img alt="../_images/default_rviz_view.png" src="../_images/default_rviz_view.png" style="height: 400px;" />
-</a>
+<img alt="../_images/default_rviz_view.png" src="../_images/default_rviz_view.png" />
 <figcaption>
 <p><span class="caption-number">Figure 2.12 </span><span class="caption-text">The default robot when initializing a visualization package from the view_robot_template template.</span><a class="headerlink" href="#fig-scanbot-cam-rviz-view" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>Le fichier URDF qu’il faut étudier se nomme <code class="docutils literal notranslate"><span class="pre">simple_bot_macro.xacro</span></code> et se trouve dans le répertoire <code class="code docutils literal notranslate"><span class="pre">~/ros2_course/ros2_ws/src/simple_bot_description/urdf/simple_bot</span></code>.  <br>
-C’est un fichier de type <code class="docutils literal notranslate"><span class="pre">xacro</span></code>, c’est-à-dire un fichier XML qui peut contenir des macros.
-Ces macros permettent de définir des éléments qui peuvent être réutilisés plusieurs fois dans le fichier ou déduit par des appels à des fonctions.
-Le format cependant est celui d’un fichier URDF et par abus de language nous parlerons de fichier URDF.  <br></p>
+<p>The URDF file to study is named <code class="docutils literal notranslate"><span class="pre">simple_bot_macro.xacro</span></code> and is located in the directory <code class="code docutils literal notranslate"><span class="pre">~/ros2_course/ros2_ws/src/simple_bot_description/urdf/simple_bot</span></code>.  <br> It is a <code class="docutils literal notranslate"><span class="pre">xacro</span></code> file, which means it is an XML file that can contain macros. These macros allow defining elements that can be reused multiple times in the file or deduced by function calls. However, the format is that of a URDF file, and by convention, we will refer to it as a URDF file.  <br></p>
 <p>Open this file and modify it to look like this:</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -406,8 +392,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-center" id="fig-cylinder-link">
-<a class="reference internal image-reference" href="../_images/cylinder_link.png"><img alt="../_images/cylinder_link.png" src="../_images/cylinder_link.png" style="height: 400px;" />
-</a>
+<img alt="../_images/cylinder_link.png" src="../_images/cylinder_link.png" />
 <figcaption>
 <p><span class="caption-number">Figure 2.13 </span><span class="caption-text">Display of a cylinder segment with RVIZ corresponding to the previous URDF description</span><a class="headerlink" href="#fig-cylinder-link" title="Link to this image"></a></p>
 </figcaption>
@@ -428,8 +413,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 <li><p>If you don’t see the axes, make sure you have a <strong>TF</strong> and if not, add a <strong>TF</strong> in the left panel (‘’Displays’’) with the <strong>Add</strong> button. And make sure <strong>Show Axes</strong> is checked.</p></li>
 </ol>
 <figure class="align-center" id="fig-cylinder-link-with-axes-visible">
-<a class="reference internal image-reference" href="../_images/axis_are_visible_in_rviz2_thanks_to_transparency.png"><img alt="../_images/axis_are_visible_in_rviz2_thanks_to_transparency.png" src="../_images/axis_are_visible_in_rviz2_thanks_to_transparency.png" style="height: 800px;" />
-</a>
+<img alt="../_images/axis_are_visible_in_rviz2_thanks_to_transparency.png" src="../_images/axis_are_visible_in_rviz2_thanks_to_transparency.png" />
 <figcaption>
 <p><span class="caption-number">Figure 2.14 </span><span class="caption-text">Display of a cylinder segment with RVIZ with visible axes (Alpha=0.5, Show Axes: checked)</span><a class="headerlink" href="#fig-cylinder-link-with-axes-visible" title="Link to this image"></a></p>
 </figcaption>
@@ -446,7 +430,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 </div>
 <p>We will modify the shape to use a box. This will allow us to clearly visualize the orientation of the shape in 3 dimensions.  <br> And we will modify the <strong>origin</strong> element to move the segment relative to its origin.  <br> So modify the URDF file to look like this:</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -489,8 +473,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-center" id="fig-box-link-my02-tr-bot">
-<a class="reference internal image-reference" href="../_images/my02_tr_bot.png"><img alt="../_images/my02_tr_bot.png" src="../_images/my02_tr_bot.png" style="height: 400px;" />
-</a>
+<img alt="../_images/my02_tr_bot.png" src="../_images/my02_tr_bot.png" />
 <figcaption>
 <p><span class="caption-number">Figure 2.15 </span><span class="caption-text">Display of a box segment with RVIZ corresponding to the URDF description on the left</span><a class="headerlink" href="#fig-box-link-my02-tr-bot" title="Link to this image"></a></p>
 </figcaption>
@@ -506,7 +489,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 <p>Geometric transformations are performed in the following order: rotation then translation.</p>
 </div>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -549,8 +532,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-center" id="fig-box-link-my02-tr-plus-rot-bot">
-<a class="reference internal image-reference" href="../_images/my02_tr_plus_rot_bot.png"><img alt="../_images/my02_tr_plus_rot_bot.png" src="../_images/my02_tr_plus_rot_bot.png" style="height: 400px;" />
-</a>
+<img alt="../_images/my02_tr_plus_rot_bot.png" src="../_images/my02_tr_plus_rot_bot.png" />
 <figcaption>
 <p><span class="caption-number">Figure 2.16 </span><span class="caption-text">Display of a box segment with RVIZ corresponding to the URDF description on the left</span><a class="headerlink" href="#fig-box-link-my02-tr-plus-rot-bot" title="Link to this image"></a></p>
 </figcaption>
@@ -717,7 +699,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 </pre></div>
 </div>
 </div>
-<p>On voit que dans les lignes 45 à 58, le fichier xacro <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code> qui se trouve dans le répertoire <code class="docutils literal notranslate"><span class="pre">~/ros2_course/ros2_ws/src/simple_bot_description/urdf/</span></code> est transformé en fichier URDF.  <br></p>
+<p>We see that in lines 45 to 58, the xacro file <code class="docutils literal notranslate"><span class="pre">simple_bot.urdf.xacro</span></code> located in the directory <code class="docutils literal notranslate"><span class="pre">~/ros2_course/ros2_ws/src/simple_bot_description/urdf/</span></code> is transformed into a URDF file.  <br></p>
 <div class="literal-block-wrapper docutils container" id="id6">
 <div class="code-block-caption"><span class="caption-number">Listing 2.8 </span><span class="caption-text">Content of the simple_bot.urdf.xacro file</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -943,7 +925,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 <h2><span class="section-number">2.3.6. </span>The <strong>joint</strong> Tag<a class="headerlink" href="#la-balise-joint" title="Link to this heading"></a></h2>
 <p>The <strong>joint</strong> tag is used to describe a joint between two segments of the robot. The complete description of this tag is available in the <a class="reference external" href="http://wiki.ros.org/urdf/XML/joint">joint tag specification</a>.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -984,8 +966,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-center" id="fig-joint-element">
-<a class="reference internal image-reference" href="../_images/urdf_joint.png"><img alt="../_images/urdf_joint.png" src="../_images/urdf_joint.png" style="height: 400px;" />
-</a>
+<img alt="../_images/urdf_joint.png" src="../_images/urdf_joint.png" />
 <figcaption>
 <p><span class="caption-number">Figure 2.17 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">joint</span></code> Element in a URDF File</span><a class="headerlink" href="#fig-joint-element" title="Link to this image"></a></p>
 </figcaption>
@@ -1015,7 +996,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 </ol>
 <p>In the <strong>origin</strong> tag of the <strong>joint</strong> tag, the position and orientation of the joint’s frame relative to the parent’s frame are defined by the <strong>xyz</strong> and <strong>rpy</strong> attributes. Similarly, for segments (<code class="docutils literal notranslate"><span class="pre">link</span></code>), rotation is applied before translation. In RVIZ2, this transformation is visible through a yellow arrow pointing from the child frame to the parent frame.  <br></p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -1058,8 +1039,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-center" id="fig-translated-joint-element-my03-bot">
-<a class="reference internal image-reference" href="../_images/my03_bot_rviz.png"><img alt="../_images/my03_bot_rviz.png" src="../_images/my03_bot_rviz.png" style="height: 400px;" />
-</a>
+<img alt="../_images/my03_bot_rviz.png" src="../_images/my03_bot_rviz.png" />
 <figcaption>
 <p><span class="caption-number">Figure 2.18 </span><span class="caption-text">Display of a joint in RVIZ corresponding to the URDF description on the left. The link is represented by a yellow arrow from <code class="docutils literal notranslate"><span class="pre">base_link</span></code> to <code class="docutils literal notranslate"><span class="pre">world</span></code> (with the <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Arrows</span></code> option checked).</span><a class="headerlink" href="#fig-translated-joint-element-my03-bot" title="Link to this image"></a></p>
 </figcaption>
@@ -1071,7 +1051,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 </div>
 <p>The frame change introduced by the <strong>origin</strong> tag in the <strong>joint</strong> tag occurs before the transformation of the segment (<code class="docutils literal notranslate"><span class="pre">link</span></code> tag). As with the joint tag, rotation is performed before translation (the frame rotates around the origin of the parent frame and is then translated). The rotation and translation are expressed in the parent’s frame.  <br></p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -1114,8 +1094,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-center" id="fig-tr-rot-joint-element-my04-bot">
-<a class="reference internal image-reference" href="../_images/my04_bot.png"><img alt="../_images/my04_bot.png" src="../_images/my04_bot.png" style="height: 400px;" />
-</a>
+<img alt="../_images/my04_bot.png" src="../_images/my04_bot.png" />
 <figcaption>
 <p><span class="caption-number">Figure 2.19 </span><span class="caption-text">Rotation of the joint’s frame in addition to translation. Note that rotation is performed before translation (if it were the opposite, the yellow arrow would align with the green axis of the <code class="docutils literal notranslate"><span class="pre">world</span></code> frame).</span><a class="headerlink" href="#fig-tr-rot-joint-element-my04-bot" title="Link to this image"></a></p>
 </figcaption>

@@ -50,7 +50,6 @@ Le passage du repère d'un segment à un autre suite à la transformation appliq
 .. figure:: resources/img/kinematic_chain/slide002_tree_graph.svg
    :name: fig_robot_modeling_slide002
    :align: center
-   :height: 600px
 
    Arbre des chaînes cinématiques des jambes du robot Hubo KHR-4, un robot humanoïde non parallèle, (source: :cite:`Ali2010_closed_form_inverse_kinematic_joint_solution_for_humanoid_robots` .)
 

@@ -5,7 +5,6 @@ DDS
 .. figure:: resources/img/ros-architecture.jpg
       :name: fig_ros2_architecture
       :align: center
-      :height: 800px
 
 Le Data Distribution Service (DDS) est au cœur de l’architecture de ROS2 pour gérer la communication entre les nœuds. |br| 
 DDS assure: la découverte automatique des éditeurs (publishers) et abonnés (subscribers) sur le réseau, la gestion de la qualité de service (QoS) et le transport des messages. 
@@ -29,7 +28,6 @@ Caractéristiques clés de DDS
 .. figure:: resources/img/dds-overview.jpg
       :name: fig_dds_overview
       :align: center
-      :height: 600px
 
 
 .. _ipc_dds:

@@ -10,10 +10,31 @@ pre {
 }
 
 /* This allows the content to use most of the screen */
-@media (min-width: 1200px) {
+@media (min-width: 1800px) {
     .wy-nav-content {
         max-width: 95%;
         /* This allows the content to use most of the screen */
+    }
+}
+
+
+/* Force sidebar to collapse at 1800px instead of 768px */
+@media screen and (max-width: 1800px) {
+    .wy-nav-side {
+        display: none;
+    }
+
+    .wy-nav-top {
+        display: block;
+    }
+
+    .wy-nav-content-wrap {
+        margin-left: 0;
+    }
+
+    .wy-nav-content {
+        margin: 0;
+        max-width: 95%;
     }
 }
 

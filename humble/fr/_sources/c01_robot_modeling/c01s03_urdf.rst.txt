@@ -5,7 +5,6 @@ URDF pour la description de robots non parallèles
 .. figure:: resources/fig/igraph/scanbot_kinematic_chain/slide003_scanbot_kinematic_chain.svg
    :name: fig_slide003_scanbot_kinematic_chain
    :align: center
-   :height: 400px
 
    Robot Scanbot, et sa chaîne cinmématique.
 
@@ -92,7 +91,7 @@ La balise **link** est utilisée pour décrire un segment du robot.
 La description complète de cette balise est disponible dans la `specification de la balise link <http://wiki.ros.org/urdf/XML/link>`_.
 
 
-.. grid:: 1 2 2 2
+.. grid:: 1 1 2 2
 
    .. grid-item-card::
   
@@ -106,7 +105,6 @@ La description complète de cette balise est disponible dans la `specification d
       .. figure:: resources/img/urdf/urdf_link2.png
          :name: fig_link_element
          :align: center
-         :height: 400px
 
          Élément ``link`` d'un fichier URDF
 
@@ -122,7 +120,6 @@ La rotation est toujours appliquée avant la translation et les rotations sont e
 .. figure:: resources/img/plane_roll_pitch_yaw.png
    :name: fig__plane_roll_pitch_yaw
    :align: center
-   :height: 400px
 
    Rotations roulis, tangage et lacet ou («roll», «pitch» et «yaw» and anglais).
 
@@ -130,14 +127,13 @@ La rotation est toujours appliquée avant la translation et les rotations sont e
 
    .. grid-item::
 
-      .. grid:: 1 3 3 3
+      .. grid:: 1 1 3 3
 
          .. grid-item-card::
             
             .. figure:: resources/img/roll_plane_animation.gif
                :name: fig_roll_plane_animation
                :align: center
-               :height: 300px
 
                Rotation autour de l'axe x (roulis ou «roll» en anglais)
 
@@ -147,7 +143,6 @@ La rotation est toujours appliquée avant la translation et les rotations sont e
             .. figure:: resources/img/pitch_plane_animation.gif
                :name: fig_pitch_plane_animation
                :align: center
-               :height: 300px
 
                Rotation autour de l'axe y (tangage ou «pitch» en anglais)
 
@@ -156,7 +151,6 @@ La rotation est toujours appliquée avant la translation et les rotations sont e
             .. figure:: resources/img/yaw_plane_animation.gif
                :name: fig_yaw_plane_animation
                :align: center
-               :height: 300px
 
                Rotation autour de l'axe z (lacet ou «yaw» en anglais)
 
@@ -210,7 +204,6 @@ Si tout s'est bien passé, vous devriez voir un dans rviz2 le robot par défaut:
 .. figure:: resources/img/urdf/scanbot_cam/default_rviz_view.png
    :name: fig_scanbot_cam_rviz_view
    :align: center
-   :height: 400px
 
    Le robot par défaut à l'initialisation d'un package de visualisation à partir du template view_robot_template.
 
@@ -221,7 +214,7 @@ Le format cependant est celui d'un fichier URDF et par abus de language nous par
 
 Ouvrez ce fichier et modifiez le pour qu'il ressemble à ceci:
 
-.. grid:: 1 2 2 2
+.. grid:: 1 1 2 2
 
    .. grid-item-card::
   
@@ -235,7 +228,6 @@ Ouvrez ce fichier et modifiez le pour qu'il ressemble à ceci:
       .. figure:: resources/img/urdf/cylinder_link.png
          :name: fig_cylinder_link
          :align: center
-         :height: 400px
 
          Affichage d'un segment cylindre avec RVIZ correspondant à la précédente description URDF
 
@@ -256,7 +248,6 @@ Dans rviz:
 .. figure:: resources/img/urdf/axis_are_visible_in_rviz2_thanks_to_transparency.png
    :name: fig__cylinder_link_with_axes_visible
    :align: center
-   :height: 800px
 
    Affichage d'un segment cylindre avec RVIZ avec les axes visibles (Alpha=0.5, Show Axes : coché)
 
@@ -274,7 +265,7 @@ Nous allons modifier la forme pour utiliser un pavé droit. Cela nous permettra 
 Et nous allons modifier l'élément **origin** pour déplacer le segment par rapport à son origine.  |br|
 Modifiez donc le fichier URDF pour qu'il ressemble à ceci:
 
-.. grid:: 1 2 2 2
+.. grid:: 1 1 2 2
 
    .. grid-item-card::
   
@@ -288,7 +279,6 @@ Modifiez donc le fichier URDF pour qu'il ressemble à ceci:
       .. figure:: resources/img/urdf/my02_tr_bot.png
          :name: fig_box_link_my02_tr_bot
          :align: center
-         :height: 400px
 
          Affichage d'un segment pavé droit avec RVIZ correspondant à la description URDF sur la gauche
 
@@ -298,7 +288,7 @@ Nous allons modifier l'élément **origin** pour tourner le segment de 90 degré
 
    Les transformations géométriques sont effectuées dans l'ordre suivant: rotation puis translation.
 
-.. grid:: 1 2 2 2
+.. grid:: 1 1 2 2
 
    .. grid-item-card::
   
@@ -313,7 +303,6 @@ Nous allons modifier l'élément **origin** pour tourner le segment de 90 degré
       .. figure:: resources/img/urdf/my02_tr_plus_rot_bot.png
          :name: fig_box_link_my02_tr_plus_rot_bot
          :align: center
-         :height: 400px
 
          Affichage d'un segment pavé droit avec RVIZ correspondant à la description URDF sur la gauche
 
@@ -451,7 +440,7 @@ La balise **joint** est utilisée pour décrire une articulation entre deux segm
 La description complète de cette balise est disponible dans la `specification de la balise joint <http://wiki.ros.org/urdf/XML/joint>`_.
 
 
-.. grid:: 1 2 2 2
+.. grid:: 1 1 2 2
 
    .. grid-item-card::
   
@@ -471,7 +460,6 @@ La description complète de cette balise est disponible dans la `specification d
       .. figure:: resources/img/urdf/urdf_joint.png
          :name: fig_joint_element
          :align: center
-         :height: 400px
 
          Élément ``joint`` d'un fichier URDF
 
@@ -498,7 +486,7 @@ De la même manière pour les segments (``link``), la rotation est appliquée av
 Dans RVIZ2, cette transformation est visible grâce à une arrête jaune terminée par une flêche qui pointe du repère enfant vers le repère parent.  |br|
 
 
-.. grid:: 1 2 2 2
+.. grid:: 1 1 2 2
 
    .. grid-item-card::
   
@@ -513,14 +501,13 @@ Dans RVIZ2, cette transformation est visible grâce à une arrête jaune termin�
       .. figure:: resources/img/urdf/my03_bot_rviz.png
          :name: fig_translated_joint_element_my03_bot
          :align: center
-         :height: 400px
 
          Affichage d'une articulation avec RVIZ correspondant à la description URDF sur la gauche. Le lien est modélisé par la flèche jaune de ``base_link`` vers ``world`` (en cochant la case ``Show Arrows``).
 
 Le changement de repère introduit par le tag **origin** de la balise **joint** s'effectue avant la transofrmation du segment (balise **link**).
 De même que pour la balise joint, la rotation est effectuée avant la translation (le repère tourne autour de l'origine du repère parent, puis est translaté). La rotation et la translation sont exprimées dans le repère du parent.  |br|
 
-.. grid:: 1 2 2 2
+.. grid:: 1 1 2 2
 
    .. grid-item-card::
   
@@ -535,6 +522,5 @@ De même que pour la balise joint, la rotation est effectuée avant la translati
       .. figure:: resources/img/urdf/my04_bot.png
          :name: fig_tr_rot_joint_element_my04_bot
          :align: center
-         :height: 400px
 
          Rotation du repère de l'articulation en plus de la translation. Notez que la rotation est effectuée avant la translation (si cela avait été l'inverse, l'arrête jaune serait alignée avec l'axe vert du repère ``world``).

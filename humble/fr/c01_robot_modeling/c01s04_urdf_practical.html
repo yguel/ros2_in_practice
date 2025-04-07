@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ca3269d9" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=69459fec" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c01_robot_modeling/c01s04_urdf_practical.html" />
@@ -112,8 +112,7 @@
   <section id="urdf-par-la-pratique-le-scanbot">
 <h1><span class="section-number">2.4. </span>URDF par la pratique: le scanbot<a class="headerlink" href="#urdf-par-la-pratique-le-scanbot" title="Lien vers cette rubrique"></a></h1>
 <figure class="align-center" id="fig-slide003-scanbot-kinematic-chain2">
-<a class="reference internal image-reference" href="../_images/slide003_scanbot_kinematic_chain.svg"><img alt="../_images/slide003_scanbot_kinematic_chain.svg" src="../_images/slide003_scanbot_kinematic_chain.svg" style="height: 400px;" />
-</a>
+<img alt="../_images/slide003_scanbot_kinematic_chain.svg" src="../_images/slide003_scanbot_kinematic_chain.svg" />
 <figcaption>
 <p><span class="caption-number">Figure 2.20 </span><span class="caption-text">Robot Scanbot, le robot d’exemple non parallèle, et sa chaîne cinmématique.</span><a class="headerlink" href="#fig-slide003-scanbot-kinematic-chain2" title="Lien vers cette image"></a></p>
 </figcaption>
@@ -212,9 +211,9 @@ Pour cela, créons un package ROS2 nommé <strong>scanbot_cam_description</stron
 </pre></div>
 </div>
 </div>
-<p>Copiez le fichier de configuration à l’emplacement <code class="code docutils literal notranslate"><span class="pre">~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json</span></code>. <br></p>
+<p>Copiez le fichier de configuration à l’emplacement <code class="code docutils literal notranslate"><span class="pre">~/ros2_course/ros2_ws/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json</span></code>. <br></p>
 <p>Puis exécuter la commande suivante:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create<span class="w"> </span>ros2/view_robot<span class="w"> </span>~/ros2_course/ros2_ws/src/scanbot_cam_description<span class="w"> </span>--config<span class="w"> </span>~/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create<span class="w"> </span>ros2/view_robot<span class="w"> </span>~/ros2_course/ros2_ws/src/scanbot_cam_description<span class="w"> </span>--config<span class="w"> </span>~/ros2_course/ros2_ws/system/template2instance/config/pkg_gen_cfg_view_scanbot_camera.json
 </pre></div>
 </div>
 <p>Compiler le package:</p>
@@ -228,8 +227,7 @@ ros2_build
 </pre></div>
 </div>
 <figure class="align-center" id="fig-default-rviz-view">
-<a class="reference internal image-reference" href="../_images/default_rviz_view.png"><img alt="../_images/default_rviz_view.png" src="../_images/default_rviz_view.png" style="height: 400px;" />
-</a>
+<img alt="../_images/default_rviz_view.png" src="../_images/default_rviz_view.png" />
 <figcaption>
 <p><span class="caption-number">Figure 2.21 </span><span class="caption-text">Le robot par défaut à l’initialisation d’un package de visualisation à partir du template view_robot_template.</span><a class="headerlink" href="#fig-default-rviz-view" title="Lien vers cette image"></a></p>
 </figcaption>
@@ -237,7 +235,7 @@ ros2_build
 <p>Nous pouvons maintenant éditer le fichier URDF/xacro (<code class="docutils literal notranslate"><span class="pre">urdf/scanbot_camera/scanbot_camera_macro.xacro</span></code>) pour décrire la caméra et les 3 degrées de liberté en rotation. <br>
 Nous allons commencer par enlever tous les éléments servant à décrire le robot par défaut. <br></p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -295,8 +293,7 @@ Nous allons commencer par enlever tous les éléments servant à décrire le rob
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-center" id="fig-scanbot-cam-x-cyl-link-only">
-<a class="reference internal image-reference" href="../_images/x_cyl_link_only.png"><img alt="../_images/x_cyl_link_only.png" src="../_images/x_cyl_link_only.png" style="height: 400px;" />
-</a>
+<img alt="../_images/x_cyl_link_only.png" src="../_images/x_cyl_link_only.png" />
 <figcaption>
 <p><span class="caption-number">Figure 2.22 </span><span class="caption-text">Le premier segment de la partie caméra du scanbot. Le repère est placé au centre de la face arrière circulaire du cylindre.</span><a class="headerlink" href="#fig-scanbot-cam-x-cyl-link-only" title="Lien vers cette image"></a></p>
 </figcaption>
@@ -339,13 +336,12 @@ Nous avons aussi spécifiée l’échelle du maillage. ROS2 utilise le mètre co
 </div>
 <p>Vous devriez observer une deuxième fenêtre rviz s’ouvrir et le segment cheville (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) osciller en position comme dans les images ci-dessous:</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-center" id="fig-strange-robot-flickering">
-<a class="reference internal image-reference" href="../_images/ros2_strange_robot_flickering.gif"><img alt="../_images/ros2_strange_robot_flickering.gif" src="../_images/ros2_strange_robot_flickering.gif" style="height: 400px;" />
-</a>
+<img alt="../_images/ros2_strange_robot_flickering.gif" src="../_images/ros2_strange_robot_flickering.gif" />
 <figcaption>
 <p><span class="caption-number">Figure 2.23 </span><span class="caption-text">Le segment cheville (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) oscille en position.</span><a class="headerlink" href="#fig-strange-robot-flickering" title="Lien vers cette image"></a></p>
 </figcaption>
@@ -357,8 +353,7 @@ Nous avons aussi spécifiée l’échelle du maillage. ROS2 utilise le mètre co
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-center" id="fig-strange-robot-flickering-position-vue">
-<a class="reference internal image-reference" href="../_images/ros2_strange_robot_flickering_position_vue.gif"><img alt="../_images/ros2_strange_robot_flickering_position_vue.gif" src="../_images/ros2_strange_robot_flickering_position_vue.gif" style="height: 400px;" />
-</a>
+<img alt="../_images/ros2_strange_robot_flickering_position_vue.gif" src="../_images/ros2_strange_robot_flickering_position_vue.gif" />
 <figcaption>
 <p><span class="caption-number">Figure 2.24 </span><span class="caption-text">En affichant la position du segment cheville (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) on observe bien que la position x oscille.</span><a class="headerlink" href="#fig-strange-robot-flickering-position-vue" title="Lien vers cette image"></a></p>
 </figcaption>

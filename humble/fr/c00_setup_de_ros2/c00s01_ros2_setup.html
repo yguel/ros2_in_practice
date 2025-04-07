@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ca3269d9" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=69459fec" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c00_setup_de_ros2/c00s01_ros2_setup.html" />
@@ -108,14 +108,11 @@
 <p>Il y a plusieurs types d’installation possible:</p>
 <ol class="arabic simple">
 <li><p>Installation en utilisant docker. C’est la plus simple et qui marche sur windows, mac et linux.</p></li>
-<li><p>Installation en utilisant des paquets précompilés (deb). C’est la plus rapide et qui marche très bien sur linux Ubuntu et qui peut être adaptée pour d’autres distributions linux.</p></li>
-</ol>
-<blockquote>
-<div><ol class="arabic simple">
+<li><p>Installation en utilisant des paquets précompilés (deb). C’est la plus rapide et qui marche très bien sur linux Ubuntu et qui peut être adaptée pour d’autres distributions linux.</p>
+<ol class="arabic simple">
 <li><p>Installation en utilisant des paquets précompilés (deb) avec un noyau temps-réel. Celle que l’on doit privilégier pour fonctionner avec un robot et qui marche principalement sur linux Ubuntu, mais qui peut être adaptée pour d’autres distributions linux.</p></li>
 </ol>
-</div></blockquote>
-<ol class="arabic simple">
+</li>
 <li><p>Installation en utilisant le code source. C’est la plus compliquée et longue à installer, elle marche sur linux Ubuntu et peut-être adaptée pour d’autres distributions linux, et avec plus de difficultés et des limitations sur windows et mac.</p></li>
 </ol>
 <div class="sd-tab-set docutils">
@@ -154,8 +151,7 @@ Docker pour windows</label><div class="sd-tab-content docutils">
 Vous devriez voir une fenêtre NO VNC, vous n’avez plus qu’à cliquer pour vous connecter et vous devriez voir un bureau ubuntu comme sur la <a class="reference internal" href="#fig-docker-ubuntu-start"><span class="std std-numref">Figure 1.1</span></a> ci-dessous:</p>
 <blockquote>
 <div><figure class="align-center" id="fig-docker-ubuntu-start">
-<a class="reference internal image-reference" href="../_images/no_vnc_ros2_start.gif"><img alt="../_images/no_vnc_ros2_start.gif" src="../_images/no_vnc_ros2_start.gif" style="height: 800px;" />
-</a>
+<img alt="../_images/no_vnc_ros2_start.gif" src="../_images/no_vnc_ros2_start.gif" />
 <figcaption>
 <p><span class="caption-number">Figure 1.1 </span><span class="caption-text">Interface graphique utilisant un navigateur pour interagir avec le docker ros2_in_practice:humble sous ubuntu avec noVNC.</span><a class="headerlink" href="#fig-docker-ubuntu-start" title="Lien vers cette image"></a></p>
 </figcaption>
