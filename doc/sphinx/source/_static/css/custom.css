@@ -21,14 +21,23 @@ pre {
 
 /* Force sidebar to collapse at 1000px instead of 768px */
 @media screen and (max-width: 1000px) {
+
+    /* Force the sidebar to be hidden */
     .wy-nav-side {
         display: none;
     }
 
+    /* Force the top navigation bar to be displayed */
     .wy-nav-side.shift {
         display: block !important;
     }
 
+    /* Force the top navigation bar to be displayed */
+    .wy-nav-top {
+        display: block !important;
+    }
+
+    /* Make content use all the remaining space of the screen */
     .wy-nav-content-wrap {
         margin-left: 0;
     }
