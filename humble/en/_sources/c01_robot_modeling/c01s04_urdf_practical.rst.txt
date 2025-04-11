@@ -138,22 +138,24 @@ Nous pouvons maintenant éditer le fichier URDF/xacro (``urdf/scanbot_camera/sca
 Nous allons commencer par enlever tous les éléments servant à décrire le robot par défaut. |br|
 
 
-.. grid:: 1 1 2 2
+.. container:: one-col-below-1250
 
-   .. grid-item-card::
+   .. grid:: 1 1 2 2
 
-      .. literalinclude:: resources/urdf/scanbot_camera_macro_00_empty.xacro
-         :language: xml
-         :caption: scanbot_camera_macro.xacro avec un seul élément
-         :emphasize-lines: 17-19
-   
-   .. grid-item-card::
+      .. grid-item-card::
 
-      .. figure:: resources/img/urdf/scanbot_cam/x_cyl_link_only.png
-         :name: fig_scanbot_cam_x_cyl_link_only
-         :align: center
+         .. literalinclude:: resources/urdf/scanbot_camera_macro_00_empty.xacro
+            :language: xml
+            :caption: scanbot_camera_macro.xacro avec un seul élément
+            :emphasize-lines: 17-19
+      
+      .. grid-item-card::
 
-         Le premier segment de la partie caméra du scanbot. Le repère est placé au centre de la face arrière circulaire du cylindre.
+         .. figure:: resources/img/urdf/scanbot_cam/x_cyl_link_only.png
+            :name: fig_scanbot_cam_x_cyl_link_only
+            :align: center
+
+            Le premier segment de la partie caméra du scanbot. Le repère est placé au centre de la face arrière circulaire du cylindre.
 
 L'élément nouveau utilisé dans l'URDF est la balise ``<mesh>`` qui permet de charger un maillage au format collada. Nous avons utilisé le maillage du segment ``scanbot_s02_x_cyl_link.dae``. L'attribut ``filename`` permet de spécifier le chemin du fichier collada, celui-ci est fourni par rapport au package ROS2, c'est pourquoi nous avons le chemin fourni commence par ``package://`` suivi du nom du package (``scanbot_cam_description``) et du path dans ce package: ``package://scanbot_cam_description/meshes/scanbot_s02_x_cyl_link.dae``. |br|
 Nous avons aussi spécifiée l'échelle du maillage. ROS2 utilise le mètre comme base unitaire. Notre maillage étant déjà en mètre, nous n'avons en réalité pas besoin d'utiliser l'attribut ``scale``, pour des raisons pédagogique, nous l'avons spécifié avec l'échelle sur chaque axe à ``1.`` . |br|
@@ -193,23 +195,25 @@ Nous avons aussi spécifiée l'échelle du maillage. ROS2 utilise le mètre comm
       Vous devriez observer une deuxième fenêtre rviz s'ouvrir et le segment cheville (``ankle_link``) osciller en position comme dans les images ci-dessous:
 
 
-      .. grid:: 1 1 2 2
+      .. container:: one-col-below-1250
 
-         .. grid-item-card::
-      
-            .. figure:: resources/img/ros2_strange_robot_flickering.gif
-               :name: fig_strange_robot_flickering
-               :align: center
+         .. grid:: 1 1 2 2
 
-               Le segment cheville (``ankle_link``) oscille en position.
+            .. grid-item-card::
+         
+               .. figure:: resources/img/ros2_strange_robot_flickering.gif
+                  :name: fig_strange_robot_flickering
+                  :align: center
 
-         .. grid-item-card::
+                  Le segment cheville (``ankle_link``) oscille en position.
 
-            .. figure:: resources/img/ros2_strange_robot_flickering_position_vue.gif
-               :name: fig_strange_robot_flickering_position_vue
-               :align: center
+            .. grid-item-card::
 
-               En affichant la position du segment cheville (``ankle_link``) on observe bien que la position x oscille.
+               .. figure:: resources/img/ros2_strange_robot_flickering_position_vue.gif
+                  :name: fig_strange_robot_flickering_position_vue
+                  :align: center
+
+                  En affichant la position du segment cheville (``ankle_link``) on observe bien que la position x oscille.
 
 
       (si vous ne l'observez pas, vérifiez que dans le premier terminal, le processus est toujours fonctionnel et sinon relancez-le.)

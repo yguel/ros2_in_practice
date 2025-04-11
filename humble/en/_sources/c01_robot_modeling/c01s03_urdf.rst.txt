@@ -90,23 +90,24 @@ La balise **link**
 La balise **link** est utilisée pour décrire un segment du robot.
 La description complète de cette balise est disponible dans la `specification de la balise link <http://wiki.ros.org/urdf/XML/link>`_.
 
+.. container:: one-col-below-1250
 
-.. grid:: 1 1 2 2
+   .. grid:: 1 1 2 2
 
-   .. grid-item-card::
-  
-      .. literalinclude:: resources/urdf/complete_link_tag.urdf
-         :language: xml
-         :linenos:
-         :caption: Balise ``link`` avec les éléments **visual**, **material**, **collision** et **inertial**
+      .. grid-item-card::
+   
+         .. literalinclude:: resources/urdf/complete_link_tag.urdf
+            :language: xml
+            :linenos:
+            :caption: Balise ``link`` avec les éléments **visual**, **material**, **collision** et **inertial**
 
-   .. grid-item-card::
+      .. grid-item-card::
 
-      .. figure:: resources/img/urdf/urdf_link2.png
-         :name: fig_link_element
-         :align: center
+         .. figure:: resources/img/urdf/urdf_link2.png
+            :name: fig_link_element
+            :align: center
 
-         Élément ``link`` d'un fichier URDF
+            Élément ``link`` d'un fichier URDF
 
 Nous allons maintenant nous attacher à comprendre les différents repères utilisés dans la description d'un segment d'un robot et comment les définir dans un fichier URDF.
 
@@ -123,36 +124,39 @@ La rotation est toujours appliquée avant la translation et les rotations sont e
 
    Rotations roulis, tangage et lacet ou («roll», «pitch» et «yaw» and anglais).
 
-.. grid:: 1 1 1 1
 
-   .. grid-item::
+.. container:: one-col-below-1000
 
-      .. grid:: 1 1 3 3
+   .. grid:: 1 1 1 1
 
-         .. grid-item-card::
-            
-            .. figure:: resources/img/roll_plane_animation.gif
-               :name: fig_roll_plane_animation
-               :align: center
+      .. grid-item::
 
-               Rotation autour de l'axe x (roulis ou «roll» en anglais)
+         .. grid:: 1 1 3 3
+
+            .. grid-item-card::
+               
+               .. figure:: resources/img/roll_plane_animation.gif
+                  :name: fig_roll_plane_animation
+                  :align: center
+
+                  Rotation autour de l'axe x (roulis ou «roll» en anglais)
 
 
-         .. grid-item-card::
-            
-            .. figure:: resources/img/pitch_plane_animation.gif
-               :name: fig_pitch_plane_animation
-               :align: center
+            .. grid-item-card::
+               
+               .. figure:: resources/img/pitch_plane_animation.gif
+                  :name: fig_pitch_plane_animation
+                  :align: center
 
-               Rotation autour de l'axe y (tangage ou «pitch» en anglais)
+                  Rotation autour de l'axe y (tangage ou «pitch» en anglais)
 
-         .. grid-item-card::
+            .. grid-item-card::
 
-            .. figure:: resources/img/yaw_plane_animation.gif
-               :name: fig_yaw_plane_animation
-               :align: center
+               .. figure:: resources/img/yaw_plane_animation.gif
+                  :name: fig_yaw_plane_animation
+                  :align: center
 
-               Rotation autour de l'axe z (lacet ou «yaw» en anglais)
+                  Rotation autour de l'axe z (lacet ou «yaw» en anglais)
 
 
 ----------------
@@ -214,22 +218,24 @@ Le format cependant est celui d'un fichier URDF et par abus de language nous par
 
 Ouvrez ce fichier et modifiez le pour qu'il ressemble à ceci:
 
-.. grid:: 1 1 2 2
+.. container:: one-col-below-1250
 
-   .. grid-item-card::
-  
-      .. literalinclude:: resources/urdf/my01_bot.urdf
-         :language: xml
-         :linenos:
-         :caption: Exemple minimal d'un fichier URDF avec un robot à un seul segment
+   .. grid:: 1 1 2 2
 
-   .. grid-item-card::
+      .. grid-item-card::
+   
+         .. literalinclude:: resources/urdf/my01_bot.urdf
+            :language: xml
+            :linenos:
+            :caption: Exemple minimal d'un fichier URDF avec un robot à un seul segment
 
-      .. figure:: resources/img/urdf/cylinder_link.png
-         :name: fig_cylinder_link
-         :align: center
+      .. grid-item-card::
 
-         Affichage d'un segment cylindre avec RVIZ correspondant à la précédente description URDF
+         .. figure:: resources/img/urdf/cylinder_link.png
+            :name: fig_cylinder_link
+            :align: center
+
+            Affichage d'un segment cylindre avec RVIZ correspondant à la précédente description URDF
 
 Fermez toutes les fenêtre et tapez CTRL-C dans le terminal puis relancez le package:
 
@@ -265,22 +271,24 @@ Nous allons modifier la forme pour utiliser un pavé droit. Cela nous permettra 
 Et nous allons modifier l'élément **origin** pour déplacer le segment par rapport à son origine.  |br|
 Modifiez donc le fichier URDF pour qu'il ressemble à ceci:
 
-.. grid:: 1 1 2 2
+.. container:: one-col-below-1250
 
-   .. grid-item-card::
-  
-      .. literalinclude:: resources/urdf/my02_tr_bot.urdf
-         :language: xml
-         :linenos:
-         :caption: Exemple minimal d'un fichier URDF avec un robot box à un seul segment (pavé droit) dont la position est translatée de 0.5m en x (axe rouge), 1.5m en y (axe vert) et 0m en z (axe bleu) par rapport à l'origine.
+   .. grid:: 1 1 2 2
 
-   .. grid-item-card::
+      .. grid-item-card::
+   
+         .. literalinclude:: resources/urdf/my02_tr_bot.urdf
+            :language: xml
+            :linenos:
+            :caption: Exemple minimal d'un fichier URDF avec un robot box à un seul segment (pavé droit) dont la position est translatée de 0.5m en x (axe rouge), 1.5m en y (axe vert) et 0m en z (axe bleu) par rapport à l'origine.
 
-      .. figure:: resources/img/urdf/my02_tr_bot.png
-         :name: fig_box_link_my02_tr_bot
-         :align: center
+      .. grid-item-card::
 
-         Affichage d'un segment pavé droit avec RVIZ correspondant à la description URDF sur la gauche
+         .. figure:: resources/img/urdf/my02_tr_bot.png
+            :name: fig_box_link_my02_tr_bot
+            :align: center
+
+            Affichage d'un segment pavé droit avec RVIZ correspondant à la description URDF sur la gauche
 
 Nous allons modifier l'élément **origin** pour tourner le segment de 90 degrées autour de l'axe de roulis: X (roll).  |br|
 
@@ -288,23 +296,26 @@ Nous allons modifier l'élément **origin** pour tourner le segment de 90 degré
 
    Les transformations géométriques sont effectuées dans l'ordre suivant: rotation puis translation.
 
-.. grid:: 1 1 2 2
 
-   .. grid-item-card::
-  
-      .. literalinclude:: resources/urdf/my02_tr_plus_rot_bot.urdf
-         :language: xml
-         :name: my02_tr_plus_rot_bot.urdf
-         :linenos:
-         :caption: Exemple minimal d'un fichier URDF avec un robot box à un seul segment (pavé droit) qui a subit une rotation de 90° suivant l'axe X (roll) puis dont la position est translatée de 0.5m en x (axe rouge), 1.5m en y (axe vert) et 0m en z (axe bleu) par rapport à l'origine.
+.. container:: one-col-below-1250
 
-   .. grid-item-card::
+   .. grid:: 1 1 2 2
 
-      .. figure:: resources/img/urdf/my02_tr_plus_rot_bot.png
-         :name: fig_box_link_my02_tr_plus_rot_bot
-         :align: center
+      .. grid-item-card::
+   
+         .. literalinclude:: resources/urdf/my02_tr_plus_rot_bot.urdf
+            :language: xml
+            :name: my02_tr_plus_rot_bot.urdf
+            :linenos:
+            :caption: Exemple minimal d'un fichier URDF avec un robot box à un seul segment (pavé droit) qui a subit une rotation de 90° suivant l'axe X (roll) puis dont la position est translatée de 0.5m en x (axe rouge), 1.5m en y (axe vert) et 0m en z (axe bleu) par rapport à l'origine.
 
-         Affichage d'un segment pavé droit avec RVIZ correspondant à la description URDF sur la gauche
+      .. grid-item-card::
+
+         .. figure:: resources/img/urdf/my02_tr_plus_rot_bot.png
+            :name: fig_box_link_my02_tr_plus_rot_bot
+            :align: center
+
+            Affichage d'un segment pavé droit avec RVIZ correspondant à la description URDF sur la gauche
 
 .. admonition:: Notez bien ce qui est déplacé par les attributs **xyz** et **rpy** de la balise **origin**
 
@@ -439,29 +450,30 @@ La balise **joint**
 La balise **joint** est utilisée pour décrire une articulation entre deux segments du robot.
 La description complète de cette balise est disponible dans la `specification de la balise joint <http://wiki.ros.org/urdf/XML/joint>`_.
 
+.. container:: one-col-below-1250
 
-.. grid:: 1 1 2 2
+   .. grid:: 1 1 2 2
 
-   .. grid-item-card::
-  
-      .. literalinclude:: resources/urdf/joint_element_revolute.urdf
-         :language: xml
-         :linenos:
-         :caption: Balise ``joint`` de type ``revolute`` avec les éléments  **origin**, **parent**, **child**, **axis** et **limit**
-      
-      .. literalinclude:: resources/urdf/joint_element_floating.urdf
-         :language: xml
-         :linenos:
-         :caption: Balise ``joint`` de type ``floating`` avec les éléments  **origin**, **parent**, **child**, **limit**, **dynamics**, **calibration**, **safety_controller** et **mimic**
+      .. grid-item-card::
+   
+         .. literalinclude:: resources/urdf/joint_element_revolute.urdf
+            :language: xml
+            :linenos:
+            :caption: Balise ``joint`` de type ``revolute`` avec les éléments  **origin**, **parent**, **child**, **axis** et **limit**
+         
+         .. literalinclude:: resources/urdf/joint_element_floating.urdf
+            :language: xml
+            :linenos:
+            :caption: Balise ``joint`` de type ``floating`` avec les éléments  **origin**, **parent**, **child**, **limit**, **dynamics**, **calibration**, **safety_controller** et **mimic**
 
 
-   .. grid-item-card::
+      .. grid-item-card::
 
-      .. figure:: resources/img/urdf/urdf_joint.png
-         :name: fig_joint_element
-         :align: center
+         .. figure:: resources/img/urdf/urdf_joint.png
+            :name: fig_joint_element
+            :align: center
 
-         Élément ``joint`` d'un fichier URDF
+            Élément ``joint`` d'un fichier URDF
 
 L'attribut **type** de la balise **joint** permet de définir le type de l'articulation (revolute, prismatic, continuous, fixed, floating ou planar).  |br|
 
@@ -485,42 +497,45 @@ Dans le tag **origin** du tag **joint**, la position et l'orientation du repère
 De la même manière pour les segments (``link``), la rotation est appliquée avant la translation. 
 Dans RVIZ2, cette transformation est visible grâce à une arrête jaune terminée par une flêche qui pointe du repère enfant vers le repère parent.  |br|
 
+.. container:: one-col-below-1250
 
-.. grid:: 1 1 2 2
+   .. grid:: 1 1 2 2
 
-   .. grid-item-card::
-  
-      .. literalinclude:: resources/urdf/my03_bot.urdf
-         :language: xml
-         :linenos:
-         :caption: Ajout d'une translation pour le repère de l'articulation par rapport au repère du parent (attribut **xyz** de la balise **origin** du tag **joint**).
+      .. grid-item-card::
+   
+         .. literalinclude:: resources/urdf/my03_bot.urdf
+            :language: xml
+            :linenos:
+            :caption: Ajout d'une translation pour le repère de l'articulation par rapport au repère du parent (attribut **xyz** de la balise **origin** du tag **joint**).
 
 
-   .. grid-item-card::
+      .. grid-item-card::
 
-      .. figure:: resources/img/urdf/my03_bot_rviz.png
-         :name: fig_translated_joint_element_my03_bot
-         :align: center
+         .. figure:: resources/img/urdf/my03_bot_rviz.png
+            :name: fig_translated_joint_element_my03_bot
+            :align: center
 
-         Affichage d'une articulation avec RVIZ correspondant à la description URDF sur la gauche. Le lien est modélisé par la flèche jaune de ``base_link`` vers ``world`` (en cochant la case ``Show Arrows``).
+            Affichage d'une articulation avec RVIZ correspondant à la description URDF sur la gauche. Le lien est modélisé par la flèche jaune de ``base_link`` vers ``world`` (en cochant la case ``Show Arrows``).
 
 Le changement de repère introduit par le tag **origin** de la balise **joint** s'effectue avant la transofrmation du segment (balise **link**).
 De même que pour la balise joint, la rotation est effectuée avant la translation (le repère tourne autour de l'origine du repère parent, puis est translaté). La rotation et la translation sont exprimées dans le repère du parent.  |br|
 
-.. grid:: 1 1 2 2
+.. container:: one-col-below-1250
 
-   .. grid-item-card::
-  
-      .. literalinclude:: resources/urdf/my04_bot.urdf
-         :language: xml
-         :linenos:
-         :caption: Ajout d'une rotation pour le repère de l'articulation par rapport au repère du parent (attribut **rpy** du tag **origin** du tag **joint**).
+   .. grid:: 1 1 2 2
+
+      .. grid-item-card::
+   
+         .. literalinclude:: resources/urdf/my04_bot.urdf
+            :language: xml
+            :linenos:
+            :caption: Ajout d'une rotation pour le repère de l'articulation par rapport au repère du parent (attribut **rpy** du tag **origin** du tag **joint**).
 
 
-   .. grid-item-card::
+      .. grid-item-card::
 
-      .. figure:: resources/img/urdf/my04_bot.png
-         :name: fig_tr_rot_joint_element_my04_bot
-         :align: center
+         .. figure:: resources/img/urdf/my04_bot.png
+            :name: fig_tr_rot_joint_element_my04_bot
+            :align: center
 
-         Rotation du repère de l'articulation en plus de la translation. Notez que la rotation est effectuée avant la translation (si cela avait été l'inverse, l'arrête jaune serait alignée avec l'axe vert du repère ``world``).
+            Rotation du repère de l'articulation en plus de la translation. Notez que la rotation est effectuée avant la translation (si cela avait été l'inverse, l'arrête jaune serait alignée avec l'axe vert du repère ``world``).

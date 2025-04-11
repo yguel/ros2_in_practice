@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=69459fec" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=96ea1b2a" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c01_robot_modeling/c01s03_urdf.html" />
@@ -200,6 +200,7 @@ Pour un fichier URDF, cette balise racine sera la balise <strong>robot</strong>,
 <h2><span class="section-number">2.3.3. </span>La balise <strong>link</strong><a class="headerlink" href="#la-balise-link" title="Lien vers cette rubrique"></a></h2>
 <p>La balise <strong>link</strong> est utilisée pour décrire un segment du robot.
 La description complète de cette balise est disponible dans la <a class="reference external" href="http://wiki.ros.org/urdf/XML/link">specification de la balise link</a>.</p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -249,6 +250,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 </div>
 </div>
 </div>
+</div>
 <p>Nous allons maintenant nous attacher à comprendre les différents repères utilisés dans la description d’un segment d’un robot et comment les définir dans un fichier URDF.</p>
 <p>Dans le tag <strong>origin</strong> (tag <strong>visual**s ou **collision</strong>), la position et l’orientation du repère du segment par rapport au repère du parent sont définis par les attributs <strong>xyz</strong> et <strong>rpy</strong>.  <br></p>
 <ol class="arabic simple">
@@ -262,6 +264,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 <p><span class="caption-number">Figure 2.8 </span><span class="caption-text">Rotations roulis, tangage et lacet ou («roll», «pitch» et «yaw» and anglais).</span><a class="headerlink" href="#fig-plane-roll-pitch-yaw" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
+<div class="one-col-below-1000 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
 <div class="sd-col sd-d-flex-column docutils">
@@ -300,6 +303,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 <p><span class="caption-number">Figure 2.11 </span><span class="caption-text">Rotation autour de l’axe z (lacet ou «yaw» en anglais)</span><a class="headerlink" href="#fig-yaw-plane-animation" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
+</div>
 </div>
 </div>
 </div>
@@ -369,6 +373,7 @@ C’est un fichier de type <code class="docutils literal notranslate"><span clas
 Ces macros permettent de définir des éléments qui peuvent être réutilisés plusieurs fois dans le fichier ou déduit par des appels à des fonctions.
 Le format cependant est celui d’un fichier URDF et par abus de language nous parlerons de fichier URDF.  <br></p>
 <p>Ouvrez ce fichier et modifiez le pour qu’il ressemble à ceci:</p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -423,6 +428,7 @@ Le format cependant est celui d’un fichier URDF et par abus de language nous p
 </div>
 </div>
 </div>
+</div>
 <p>Fermez toutes les fenêtre et tapez CTRL-C dans le terminal puis relancez le package:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>simple_bot_description<span class="w"> </span>view_simple_bot.launch.py
 </pre></div>
@@ -453,6 +459,7 @@ Dans rviz:</p>
 <p>Nous allons modifier la forme pour utiliser un pavé droit. Cela nous permettra de bien visualiser l’orientation de la forme dans les 3 dimensions.  <br>
 Et nous allons modifier l’élément <strong>origin</strong> pour déplacer le segment par rapport à son origine.  <br>
 Modifiez donc le fichier URDF pour qu’il ressemble à ceci:</p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -507,11 +514,13 @@ Modifiez donc le fichier URDF pour qu’il ressemble à ceci:</p>
 </div>
 </div>
 </div>
+</div>
 <p>Nous allons modifier l’élément <strong>origin</strong> pour tourner le segment de 90 degrées autour de l’axe de roulis: X (roll).  <br></p>
 <div class="admonition-notez-l-ordre-des-transformations-geometriques admonition">
 <p class="admonition-title">Notez l’ordre des transformations géométriques</p>
 <p>Les transformations géométriques sont effectuées dans l’ordre suivant: rotation puis translation.</p>
 </div>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -561,6 +570,7 @@ Modifiez donc le fichier URDF pour qu’il ressemble à ceci:</p>
 <p><span class="caption-number">Figure 2.16 </span><span class="caption-text">Affichage d’un segment pavé droit avec RVIZ correspondant à la description URDF sur la gauche</span><a class="headerlink" href="#fig-box-link-my02-tr-plus-rot-bot" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
+</div>
 </div>
 </div>
 </div>
@@ -953,6 +963,7 @@ Par exemple nous avons crée les fichiers:</p>
 <h2><span class="section-number">2.3.6. </span>La balise <strong>joint</strong><a class="headerlink" href="#la-balise-joint" title="Lien vers cette rubrique"></a></h2>
 <p>La balise <strong>joint</strong> est utilisée pour décrire une articulation entre deux segments du robot.
 La description complète de cette balise est disponible dans la <a class="reference external" href="http://wiki.ros.org/urdf/XML/joint">specification de la balise joint</a>.</p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -1005,6 +1016,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 </div>
 </div>
 </div>
+</div>
 <p>L’attribut <strong>type</strong> de la balise <strong>joint</strong> permet de définir le type de l’articulation (revolute, prismatic, continuous, fixed, floating ou planar).  <br></p>
 <ol class="arabic simple">
 <li><p><strong>revolute</strong>: articulation de type pivot d’axe avec des butées.</p></li>
@@ -1026,6 +1038,7 @@ La description complète de cette balise est disponible dans la <a class="refere
 <p>Dans le tag <strong>origin</strong> du tag <strong>joint</strong>, la position et l’orientation du repère de l’articulation par rapport au repère du parent sont définis par les attributs <strong>xyz</strong> et <strong>rpy</strong>.
 De la même manière pour les segments (<code class="docutils literal notranslate"><span class="pre">link</span></code>), la rotation est appliquée avant la translation.
 Dans RVIZ2, cette transformation est visible grâce à une arrête jaune terminée par une flêche qui pointe du repère enfant vers le repère parent.  <br></p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -1080,8 +1093,10 @@ Dans RVIZ2, cette transformation est visible grâce à une arrête jaune termin�
 </div>
 </div>
 </div>
+</div>
 <p>Le changement de repère introduit par le tag <strong>origin</strong> de la balise <strong>joint</strong> s’effectue avant la transofrmation du segment (balise <strong>link</strong>).
 De même que pour la balise joint, la rotation est effectuée avant la translation (le repère tourne autour de l’origine du repère parent, puis est translaté). La rotation et la translation sont exprimées dans le repère du parent.  <br></p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -1136,6 +1151,7 @@ De même que pour la balise joint, la rotation est effectuée avant la translati
 </div>
 </div>
 </div>
+</div>
 </section>
 </section>
 
@@ -1150,7 +1166,7 @@ De même que pour la balise joint, la rotation est effectuée avant la translati
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Droits d'auteur 2025, Manuel YGUEL.</p>
+    <p>&#169; Droits d'auteur 2025, Manuel YGUEL and all the contributors.</p>
   </div>
 
   Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un

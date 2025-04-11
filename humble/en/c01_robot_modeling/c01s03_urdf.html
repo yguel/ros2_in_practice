@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=69459fec" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=96ea1b2a" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c01_robot_modeling/c01s03_urdf.html" />
@@ -68,7 +68,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2.3. URDF for the Description of Non-Parallel Robots</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#generalites-sur-le-xml">2.3.1. General Information about XML</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#generalites-sur-l-urdf">2.3.2. General Information about URDF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#la-balise-link">2.3.3. The <strong>link</strong> Tag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-balise-link">2.3.3. The <strong>link</strong> tag</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#simple-exemple">2.3.4. Simple Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#un-point-xacro-et-fichiers-launch">2.3.5. A Xacro point and launch files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#la-balise-joint">2.3.6. The <strong>joint</strong> Tag</a></li>
@@ -184,8 +184,9 @@
 </div>
 </section>
 <section id="la-balise-link">
-<h2><span class="section-number">2.3.3. </span>The <strong>link</strong> Tag<a class="headerlink" href="#la-balise-link" title="Link to this heading"></a></h2>
+<h2><span class="section-number">2.3.3. </span>The <strong>link</strong> tag<a class="headerlink" href="#la-balise-link" title="Link to this heading"></a></h2>
 <p>The <strong>link</strong> tag is used to describe a segment of the robot. The complete description of this tag is available in the <a class="reference external" href="http://wiki.ros.org/urdf/XML/link">link tag specification</a>.</p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -235,6 +236,7 @@
 </div>
 </div>
 </div>
+</div>
 <p>We will now focus on understanding the different frames used in the description of a robot segment and how to define them in a URDF file.</p>
 <p>In the <strong>origin</strong> tag (in <strong>visual</strong> or <strong>collision</strong> tags), the position and orientation of the segment’s frame relative to the parent’s frame are defined by the <strong>xyz</strong> and <strong>rpy</strong> attributes.  <br></p>
 <ol class="arabic simple">
@@ -248,6 +250,7 @@
 <p><span class="caption-number">Figure 2.8 </span><span class="caption-text">Roll, pitch and yaw.</span><a class="headerlink" href="#fig-plane-roll-pitch-yaw" title="Link to this image"></a></p>
 </figcaption>
 </figure>
+<div class="one-col-below-1000 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
 <div class="sd-col sd-d-flex-column docutils">
@@ -286,6 +289,7 @@
 <p><span class="caption-number">Figure 2.11 </span><span class="caption-text">Rotation around the z axis (yaw)</span><a class="headerlink" href="#fig-yaw-plane-animation" title="Link to this image"></a></p>
 </figcaption>
 </figure>
+</div>
 </div>
 </div>
 </div>
@@ -348,6 +352,7 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 </figure>
 <p>The URDF file to study is named <code class="docutils literal notranslate"><span class="pre">simple_bot_macro.xacro</span></code> and is located in the directory <code class="code docutils literal notranslate"><span class="pre">~/ros2_course/ros2_ws/src/simple_bot_description/urdf/simple_bot</span></code>.  <br> It is a <code class="docutils literal notranslate"><span class="pre">xacro</span></code> file, which means it is an XML file that can contain macros. These macros allow defining elements that can be reused multiple times in the file or deduced by function calls. However, the format is that of a URDF file, and by convention, we will refer to it as a URDF file.  <br></p>
 <p>Open this file and modify it to look like this:</p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -402,6 +407,7 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 </div>
 </div>
 </div>
+</div>
 <p>Close all windows and type CTRL-C in the terminal, then restart the package:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>simple_bot_description<span class="w"> </span>view_simple_bot.launch.py
 </pre></div>
@@ -429,6 +435,7 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 <p>In this case, the segment’s frame is by default at the center of the geometric shape (center of gravity).</p>
 </div>
 <p>We will modify the shape to use a box. This will allow us to clearly visualize the orientation of the shape in 3 dimensions.  <br> And we will modify the <strong>origin</strong> element to move the segment relative to its origin.  <br> So modify the URDF file to look like this:</p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -483,11 +490,13 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 </div>
 </div>
 </div>
+</div>
 <p>We will modify the <strong>origin</strong> element to rotate the segment by 90 degrees around the roll axis: X (roll).  <br></p>
 <div class="admonition-notez-l-ordre-des-transformations-geometriques admonition">
 <p class="admonition-title">Note the order of geometric transformations</p>
 <p>Geometric transformations are performed in the following order: rotation then translation.</p>
 </div>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -537,6 +546,7 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 <p><span class="caption-number">Figure 2.16 </span><span class="caption-text">Display of a box segment with RVIZ corresponding to the URDF description on the left</span><a class="headerlink" href="#fig-box-link-my02-tr-plus-rot-bot" title="Link to this image"></a></p>
 </figcaption>
 </figure>
+</div>
 </div>
 </div>
 </div>
@@ -924,6 +934,7 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 <section id="la-balise-joint">
 <h2><span class="section-number">2.3.6. </span>The <strong>joint</strong> Tag<a class="headerlink" href="#la-balise-joint" title="Link to this heading"></a></h2>
 <p>The <strong>joint</strong> tag is used to describe a joint between two segments of the robot. The complete description of this tag is available in the <a class="reference external" href="http://wiki.ros.org/urdf/XML/joint">joint tag specification</a>.</p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -976,6 +987,7 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 </div>
 </div>
 </div>
+</div>
 <p>The <strong>type</strong> attribute of the <strong>joint</strong> tag allows defining the type of the joint (revolute, prismatic, continuous, fixed, floating, or planar). <br></p>
 <ol class="arabic simple">
 <li><p><strong>revolute</strong>: a joint of type revolute with limits.</p></li>
@@ -995,6 +1007,7 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 <li><p><strong>limit</strong>: which defines the limits of the joint, necessary only for <code class="docutils literal notranslate"><span class="pre">revolute</span></code> or <code class="docutils literal notranslate"><span class="pre">prismatic</span></code> joints. The limits are defined by the <strong>lower</strong> and <strong>upper</strong> attributes, which are the minimum and maximum values of the joint (in radians for <code class="docutils literal notranslate"><span class="pre">revolute</span></code> joints and in meters for <code class="docutils literal notranslate"><span class="pre">prismatic</span></code> joints), by the <strong>effort</strong> attribute, which is the maximum force the joint can withstand (in Newton-meters for <code class="docutils literal notranslate"><span class="pre">revolute</span></code> and <code class="docutils literal notranslate"><span class="pre">continuous</span></code> joints, measuring torque, and in Newtons for <code class="docutils literal notranslate"><span class="pre">prismatic</span></code> joints), and by the <strong>velocity</strong> attribute, which is the maximum speed of the joint (in radians per second for <code class="docutils literal notranslate"><span class="pre">revolute</span></code> and <code class="docutils literal notranslate"><span class="pre">continuous</span></code> joints and in meters per second for <code class="docutils literal notranslate"><span class="pre">prismatic</span></code> joints).</p></li>
 </ol>
 <p>In the <strong>origin</strong> tag of the <strong>joint</strong> tag, the position and orientation of the joint’s frame relative to the parent’s frame are defined by the <strong>xyz</strong> and <strong>rpy</strong> attributes. Similarly, for segments (<code class="docutils literal notranslate"><span class="pre">link</span></code>), rotation is applied before translation. In RVIZ2, this transformation is visible through a yellow arrow pointing from the child frame to the parent frame.  <br></p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -1049,7 +1062,9 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 </div>
 </div>
 </div>
+</div>
 <p>The frame change introduced by the <strong>origin</strong> tag in the <strong>joint</strong> tag occurs before the transformation of the segment (<code class="docutils literal notranslate"><span class="pre">link</span></code> tag). As with the joint tag, rotation is performed before translation (the frame rotates around the origin of the parent frame and is then translated). The rotation and translation are expressed in the parent’s frame.  <br></p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -1104,6 +1119,7 @@ ros2_build_only<span class="w"> </span>simple_bot_description
 </div>
 </div>
 </div>
+</div>
 </section>
 </section>
 
@@ -1118,7 +1134,7 @@ ros2_build_only<span class="w"> </span>simple_bot_description
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Manuel YGUEL.</p>
+    <p>&#169; Copyright 2025, Manuel YGUEL and all the contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

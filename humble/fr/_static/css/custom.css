@@ -10,22 +10,23 @@ pre {
 }
 
 /* This allows the content to use most of the screen */
-@media (min-width: 1800px) {
+@media (min-width: 1000px) {
     .wy-nav-content {
         max-width: 95%;
+        margin: 0;
         /* This allows the content to use most of the screen */
     }
 }
 
 
-/* Force sidebar to collapse at 1800px instead of 768px */
-@media screen and (max-width: 1800px) {
+/* Force sidebar to collapse at 1000px instead of 768px */
+@media screen and (max-width: 1000px) {
     .wy-nav-side {
         display: none;
     }
 
-    .wy-nav-top {
-        display: block;
+    .wy-nav-side.shift {
+        display: block !important;
     }
 
     .wy-nav-content-wrap {
@@ -35,6 +36,38 @@ pre {
     .wy-nav-content {
         margin: 0;
         max-width: 95%;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+
+    /* Force the grid container (usually the .sd-row element) to use one column */
+    .one-col-below-1250 .sd-row,
+    .one-col-below-1250 .sd-row.sd-row-cols-md-2,
+    .one-col-below-1250 .sd-row.sd-row-cols-lg-2 {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Ensure each grid item (.sd-col) occupies full width */
+    .one-col-below-1250 .sd-col {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    /* Force the grid container (usually the .sd-row element) to use one column */
+    .one-col-below-1000 .sd-row,
+    .one-col-below-1000 .sd-row.sd-row-cols-md-2,
+    .one-col-below-1000 .sd-row.sd-row-cols-lg-2 {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Ensure each grid item (.sd-col) occupies full width */
+    .one-col-below-1000 .sd-col {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
     }
 }
 

@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=69459fec" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=96ea1b2a" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c01_robot_modeling/c01s04_urdf_practical.html" />
@@ -234,6 +234,7 @@ ros2_build
 </figure>
 <p>Nous pouvons maintenant éditer le fichier URDF/xacro (<code class="docutils literal notranslate"><span class="pre">urdf/scanbot_camera/scanbot_camera_macro.xacro</span></code>) pour décrire la caméra et les 3 degrées de liberté en rotation. <br>
 Nous allons commencer par enlever tous les éléments servant à décrire le robot par défaut. <br></p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -303,6 +304,7 @@ Nous allons commencer par enlever tous les éléments servant à décrire le rob
 </div>
 </div>
 </div>
+</div>
 <p>L’élément nouveau utilisé dans l’URDF est la balise <code class="docutils literal notranslate"><span class="pre">&lt;mesh&gt;</span></code> qui permet de charger un maillage au format collada. Nous avons utilisé le maillage du segment <code class="docutils literal notranslate"><span class="pre">scanbot_s02_x_cyl_link.dae</span></code>. L’attribut <code class="docutils literal notranslate"><span class="pre">filename</span></code> permet de spécifier le chemin du fichier collada, celui-ci est fourni par rapport au package ROS2, c’est pourquoi nous avons le chemin fourni commence par <code class="docutils literal notranslate"><span class="pre">package://</span></code> suivi du nom du package (<code class="docutils literal notranslate"><span class="pre">scanbot_cam_description</span></code>) et du path dans ce package: <code class="docutils literal notranslate"><span class="pre">package://scanbot_cam_description/meshes/scanbot_s02_x_cyl_link.dae</span></code>. <br>
 Nous avons aussi spécifiée l’échelle du maillage. ROS2 utilise le mètre comme base unitaire. Notre maillage étant déjà en mètre, nous n’avons en réalité pas besoin d’utiliser l’attribut <code class="docutils literal notranslate"><span class="pre">scale</span></code>, pour des raisons pédagogique, nous l’avons spécifié avec l’échelle sur chaque axe à <code class="docutils literal notranslate"><span class="pre">1.</span></code> . <br></p>
 <blockquote>
@@ -335,6 +337,7 @@ Nous avons aussi spécifiée l’échelle du maillage. ROS2 utilise le mètre co
 </pre></div>
 </div>
 <p>Vous devriez observer une deuxième fenêtre rviz s’ouvrir et le segment cheville (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) osciller en position comme dans les images ci-dessous:</p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -358,6 +361,7 @@ Nous avons aussi spécifiée l’échelle du maillage. ROS2 utilise le mètre co
 <p><span class="caption-number">Figure 2.24 </span><span class="caption-text">En affichant la position du segment cheville (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) on observe bien que la position x oscille.</span><a class="headerlink" href="#fig-strange-robot-flickering-position-vue" title="Lien vers cette image"></a></p>
 </figcaption>
 </figure>
+</div>
 </div>
 </div>
 </div>
@@ -422,7 +426,7 @@ Notez que parfois, si on appuie plusieurs fois sur CTRL-C, le processus ne s’a
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Droits d'auteur 2025, Manuel YGUEL.</p>
+    <p>&#169; Droits d'auteur 2025, Manuel YGUEL and all the contributors.</p>
   </div>
 
   Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un

@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=69459fec" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=96ea1b2a" />
 
   
     <link rel="canonical" href="yguel.github.io/ros2_in_practice/c01_robot_modeling/c01s04_urdf_practical.html" />
@@ -225,6 +225,7 @@ ros2_build
 </figcaption>
 </figure>
 <p>We can now edit the URDF/xacro file (<code class="docutils literal notranslate"><span class="pre">urdf/scanbot_camera/scanbot_camera_macro.xacro</span></code>) to describe the camera and the 3 degrees of freedom in rotation. <br> We will start by removing all the elements used to describe the default robot. <br></p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -294,6 +295,7 @@ ros2_build
 </div>
 </div>
 </div>
+</div>
 <p>The new element used in the URDF is the <code class="docutils literal notranslate"><span class="pre">&lt;mesh&gt;</span></code> tag, which allows you to load a mesh in Collada format. We used the mesh of the segment <code class="docutils literal notranslate"><span class="pre">scanbot_s02_x_cyl_link.dae</span></code>. The <code class="docutils literal notranslate"><span class="pre">filename</span></code> attribute allows you to specify the path to the Collada file, which is provided relative to the ROS2 package, which is why the provided path starts with <code class="docutils literal notranslate"><span class="pre">package://</span></code> followed by the package name (<code class="docutils literal notranslate"><span class="pre">scanbot_cam_description</span></code>) and the path in this package: <code class="docutils literal notranslate"><span class="pre">package://scanbot_cam_description/meshes/scanbot_s02_x_cyl_link.dae</span></code>. <br> We also specified the scale of the mesh. ROS2 uses the meter as the base unit. Our mesh is already in meters, so we don’t actually need to use the <code class="docutils literal notranslate"><span class="pre">scale</span></code> attribute, for pedagogical reasons, we specified it. That is why the scale on each axis is at <code class="docutils literal notranslate"><span class="pre">1.</span></code> . <br></p>
 <blockquote>
 <div><div class="exercise toggle admonition" id="ex_debug_ros2_advanced_2_nodes_publishing_robot_state_publisher_on_same_topic">
@@ -325,6 +327,7 @@ ros2_build
 </pre></div>
 </div>
 <p>You should see a second rviz window open and the ankle segment (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>) oscillate in position as in the images below:</p>
+<div class="one-col-below-1250 docutils container">
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -348,6 +351,7 @@ ros2_build
 <p><span class="caption-number">Figure 2.24 </span><span class="caption-text">By displaying the position of the ankle segment (<code class="docutils literal notranslate"><span class="pre">ankle_link</span></code>), we can see that the x position oscillates.</span><a class="headerlink" href="#fig-strange-robot-flickering-position-vue" title="Link to this image"></a></p>
 </figcaption>
 </figure>
+</div>
 </div>
 </div>
 </div>
@@ -403,7 +407,7 @@ ros2_build
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Manuel YGUEL.</p>
+    <p>&#169; Copyright 2025, Manuel YGUEL and all the contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
