@@ -7,9 +7,28 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'ROS2 par la pratique'
-copyright = '2025, Manuel YGUEL'
-author = 'Manuel YGUEL'
+copyright = '2025, Manuel YGUEL and all the contributors'
+author = 'Manuel YGUEL with the help of many others'
 release = '1.0.0'
+
+# Authors expected:
+# Maciej BEDNARCZYK 
+# Loïc CUVILLON
+# Sylvain DURAND
+# Gauthier HENTZ
+# Laurent BARBÉ
+# Philippe ZANNE
+# Thibault POIGNONEC
+# Guilherme CORREIA
+# Pierre RENAUD
+# Adlane HABET
+# Florent NAGEOTTE
+# Bernard BAYLE
+# Jacques GANGLOFF
+# Cédric PRADALIER
+# Amaury NEGRE
+# Christophe BRAILLON
+
 
 
 # -- General configuration ---------------------------------------------------
@@ -238,3 +257,7 @@ html_static_path = ['_static']
 html_css_files = [
     "css/custom.css",
 ]
+
+# html_js_files = [
+#     "js/custom.js",
+# ]

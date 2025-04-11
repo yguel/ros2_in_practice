@@ -185,7 +185,7 @@ msgstr ""
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:88
 msgid "La balise **link**"
-msgstr "The **link** Tag"
+msgstr "The **link** tag"
 
 #: ../../source/c01_robot_modeling/c01s03_urdf.rst:90
 msgid ""
