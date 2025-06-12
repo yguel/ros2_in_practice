@@ -135,11 +135,11 @@ def main(args=None):
         # Spin the node in a separate thread
         rclpy.spin(node,executor=executor)
     except KeyboardInterrupt:
-        # node.get_logger().info("Keyboard interrupt received, shutting down...")
         print("\nKeyboard interrupt received, shutting down...")
         executor.shutdown()
     except Exception as e:
         node.get_logger().error(f"An error occurred: {e}")
+        print(f"Exception occurred: {e}")
     
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
