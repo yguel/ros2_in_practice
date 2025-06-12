@@ -1,5 +1,4 @@
 import time
-from concurrent.futures import TimeoutError
 
 # ROS2 imports
 import rclpy
