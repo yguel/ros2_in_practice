@@ -20,9 +20,20 @@ alias ros2_jazzy_src='ros2_jazzy && source install/setup.bash'
 
 ## build
 alias ros2_dep='rosdep install --ignore-src --from-paths . -y -r'
-alias ros2_build='ros2_dep && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release --symlink-install && source install/setup.bash'
-alias ros2_build_debug='ros2_dep && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug --symlink-install && source install/setup.bash'
-alias ros2_build_reldebug='ros2_dep && colcon build --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --symlink-install && source install/setup.bash'
+
+alias colcon_release='colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release --symlink-install'
+alias colcon_release_sequential='colcon_release --executor sequential'
+alias colcon_debug='colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug --symlink-install'
+alias colcon_debug_sequential='colcon_debug --executor sequential'
+alias colcon_reldebug='colcon build --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --symlink-install'
+alias colcon_reldebug_sequential='colcon_reldebug --executor sequential'
+
+alias ros2_build='ros2_dep && colcon_release && source install/setup.bash'
+alias ros2_build_sequential='ros2_dep && colcon_release_sequential && source install/setup.bash'
+alias ros2_build_debug='ros2_dep && colcon_debug && source install/setup.bash'
+alias ros2_build_debug_sequential='ros2_dep && colcon_debug_sequential && source install/setup.bash'
+alias ros2_build_reldebug='ros2_dep && colcon_reldebug && source install/setup.bash'
+alias ros2_build_reldebug_sequential='ros2_dep && colcon_reldebug_sequential && source install/setup.bash'
 
 function ros2_build_only {
 ros2_dep
@@ -46,6 +57,31 @@ reg=" ^((?!((^|, )("$all_except_those"))+$).)*"
 #echo $reg
 ros2_dep
 colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release --symlink-install --packages-select-regex $reg
+source install/setup.bash
+}
+
+function ros2_build_only_sequential {
+ros2_dep
+colcon_release_sequential --packages-select $@
+source install/setup.bash
+}
+
+function ros2_build_only_debug_sequential {
+ros2_dep
+colcon_debug_sequential --packages-select $@
+source install/setup.bash
+}
+
+function ros2_build_except_sequential {
+old="$IFS"
+IFS='|'
+all_except_those="$*"
+IFS=$old
+#echo $all_except_those
+reg=" ^((?!((^|, )("$all_except_those"))+$).)*"
+#echo $reg
+ros2_dep
+colcon_release_sequential --packages-select-regex $reg
 source install/setup.bash
 }
 
