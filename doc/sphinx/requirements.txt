@@ -9,5 +9,6 @@ sphinx-intl
 rst2pdf
 svglib
 matplotlib
-git+https://github.com/yguel/sphinx-exercise.git@main#egg=sphinx-exercise
+git+https://github.com/yguel/sphinx-exercise.git@i18n_subtitles_00#egg=sphinx-exercise
+# -e /home/manu/manuLinux/code/sources.yguel/python/sphinx/sphinx-exercise
 git+https://github.com/yguel/sphinx-togglebutton.git@master#egg=sphinx-togglebutton
