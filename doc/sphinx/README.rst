@@ -1,4 +1,15 @@
+======================================================
+Create a virtual environment for Sphinx documentation   
+======================================================
 
+In the current directory, create a virtual environment and install the required packages.
+
+.. code-block:: bash
+
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -r requirements.txt
+   
 =================================
 First time for translation setup
 =================================

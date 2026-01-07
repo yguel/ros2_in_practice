@@ -539,3 +539,4 @@ De même que pour la balise joint, la rotation est effectuée avant la translati
             :align: center
 
             Rotation du repère de l'articulation en plus de la translation. Notez que la rotation est effectuée avant la translation (si cela avait été l'inverse, l'arrête jaune serait alignée avec l'axe vert du repère ``world``).
+

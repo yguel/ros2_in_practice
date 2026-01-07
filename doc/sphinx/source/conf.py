@@ -227,6 +227,9 @@ def post_process(app, exception):
         if config.language in html_context['project_names'].keys():
             html_logo = html_context['logo_path'][config.language]
             print(f"Logo set to: {html_logo}")
+            # Create the destination directory if it does not exist
+            dest_dir = Path(os.path.abspath(__file__)).parent.parent / f"build/html/{version}/{LANG_MAP[config.language]}/_static"
+            dest_dir.mkdir(parents=True, exist_ok=True)
             # Copy the logo file to the static directory of the build
             logo_src = Path(os.path.abspath(__file__)).parent / f"{html_logo}"
             logo_dest = Path(os.path.abspath(__file__)).parent.parent / f"build/html/{version}/{LANG_MAP[config.language]}/_static/logo.svg"
